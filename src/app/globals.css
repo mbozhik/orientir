@@ -3,20 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: #ffffff;
-    --foreground: #000000;
-
-    --gray-light: #ebecee;
-    --gray: #a9a9aa;
-    --gray-dark: #676869;
-
-    --red: #da291c;
-    --blue: #0033a0;
-  }
-}
-
-@layer base {
   body {
     @apply bg-background text-foreground;
   }
