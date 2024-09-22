@@ -8,7 +8,7 @@ interface Props {
 
 export const headingClasses = {
   h1: 'text-[55px] xl:text-5xl sm:text-3xl font-bold',
-  h2: 'text-[40px] font-bold',
+  h2: 'text-[40px] xl:text-4xl sm:text-2xl font-bold',
 }
 
 export default function Heading({type, text, className}: Props) {

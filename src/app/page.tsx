@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Container className="space-x-20 my-36">
+      <Container className="space-x-20 my-36 sm:my-20">
         <Directions />
       </Container>
     </>
