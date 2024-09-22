@@ -1,12 +1,13 @@
 import Container from '~/Global/Container'
 import Hero from '~~/index/Hero'
+import Directions from '~~/index/Directions'
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <Container>
-        <mark className="px-1 text-xl bg-foreground text-background">ориентир</mark>
+      <Container className="space-x-20 my-36">
+        <Directions />
       </Container>
     </>
   )
