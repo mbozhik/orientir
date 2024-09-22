@@ -1,5 +1,23 @@
+import localFont from 'next/font/local'
 import type {Metadata} from 'next'
 import './globals.css'
+
+const Circe = localFont({
+  src: [
+    {
+      path: '../assets/fonts/Circe-Light.woff',
+      weight: '300',
+    },
+    {
+      path: '../assets/fonts/Circe-Regular.woff',
+      weight: '400',
+    },
+    {
+      path: '../assets/fonts/Circe-Bold.woff',
+      weight: '700',
+    },
+  ],
+})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className="font-sans antialiased">{children}</body>
+      <body className={`${Circe.className} antialiased`}>{children}</body>
     </html>
   )
 }
