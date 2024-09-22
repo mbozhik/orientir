@@ -5,14 +5,18 @@
 @layer base {
   :root {
     --background: #ffffff;
-    --foreground: #171717;
+    --foreground: #000000;
+
+    --gray-light: #ebecee;
+    --gray: #a9a9aa;
+    --gray-dark: #676869;
+
+    --red: #da291c;
+    --blue: #0033a0;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
   body {
     @apply bg-background text-foreground;
   }
