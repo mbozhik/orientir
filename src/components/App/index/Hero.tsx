@@ -1,7 +1,8 @@
+import {containerStyles} from '@/components/Global/Container'
 import HeroImage from '$/index/background.jpg'
 
 import Image from 'next/image'
-import {containerStyles} from '@/components/Global/Container'
+import Heading from '~/UI/Heading'
 
 export default function Hero() {
   return (
@@ -12,7 +13,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute left-20 bottom-24 xl:left-14 xl:bottom-14 sm:left-3 sm:bottom-3">
-        <h1 className="max-w-[30ch] sm:max-w-[20ch] text-[55px] xl:text-5xl sm:text-3xl !leading-[1.1] font-bold text-background">ОРИЕНТИР&nbsp;&mdash; девелопер полного цикла в&nbsp;сфере складской и&nbsp;индустриальной недвижимости.</h1>
+        <Heading type="h1" className="text-background max-w-[30ch] sm:max-w-[20ch]" text="ОРИЕНТИР&nbsp;&mdash; девелопер полного цикла в&nbsp;сфере складской и&nbsp;индустриальной недвижимости." />
       </div>
     </section>
   )
