@@ -1,7 +1,7 @@
 import {cn} from '@/lib/utils'
 
 interface Props {
-  type: 'h4' | 'h5' | 'h6'
+  type: 'h4' | 'h5' | 'sub' | 'p1'
   text: string
   className?: string
 }
@@ -9,7 +9,8 @@ interface Props {
 export const textClasses = {
   h4: 'text-[26px]',
   h5: '',
-  h6: 'text-xl text-red font-light',
+  sub: 'text-xl font-light',
+  p1: 'text-[22px]',
 }
 
 export default function Text({type, text, className}: Props) {

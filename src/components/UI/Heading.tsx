@@ -7,12 +7,12 @@ interface Props {
 }
 
 export const headingClasses = {
-  h1: 'text-[55px] xl:text-5xl sm:text-3xl !leading-[1.1] font-bold',
-  h2: '',
+  h1: 'text-[55px] xl:text-5xl sm:text-3xl font-bold',
+  h2: 'text-[40px] font-bold',
 }
 
 export default function Heading({type, text, className}: Props) {
   const Heading = type
 
-  return <Heading className={cn(headingClasses[type], className)} dangerouslySetInnerHTML={{__html: text || ''}} />
+  return <Heading className={cn(headingClasses[type], 'leading-[1.1]', className)} dangerouslySetInnerHTML={{__html: text || ''}} />
 }
