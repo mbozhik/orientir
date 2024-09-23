@@ -5,6 +5,7 @@ import Clients from '~~/index/Clients'
 import Projects from '~~/index/Projects'
 import News from '~~/index/News'
 import Team from '~~/index/Team'
+import Awards from '~~/index/Awards'
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Projects />
         <News />
         <Team />
+        <Awards />
       </Container>
     </>
   )
