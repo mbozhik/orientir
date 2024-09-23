@@ -19,7 +19,7 @@ export default function Clients() {
       </div>
 
       <div className="w-[75%] sm:w-full mx-auto border-t-2 border-gray-light">
-        <div className="flex items-center justify-around gap-5 overflow-hidden sm:gap-10">
+        <div className="flex items-center justify-around gap-5 sm:overflow-hidden sm:gap-10">
           {logos.map((logo, index) => (
             <Image className="object-contain s-32 hover:scale-[1.1] duration-300" key={index} src={logo} alt="" />
           ))}

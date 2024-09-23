@@ -3,6 +3,7 @@ import Hero from '~~/index/Hero'
 import Directions from '~~/index/Directions'
 import Clients from '~~/index/Clients'
 import Projects from '~~/index/Projects'
+import News from '~~/index/News'
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Directions />
         <Clients />
         <Projects />
+        <News />
       </Container>
     </>
   )
