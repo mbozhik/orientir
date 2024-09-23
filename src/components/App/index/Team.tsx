@@ -5,8 +5,7 @@ import OlgaKaskarovaPhoto from '$/index/team/olga-kaskarova.jpg'
 import DmitriiBelousPhoto from '$/index/team/dmirtii-belous.jpg'
 import AnarDamirovPhoto from '$/index/team/anar-damirov.jpg'
 
-import Link from 'next/link'
-import Image from 'next/image'
+import Image, {StaticImageData} from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 
@@ -43,27 +42,48 @@ const teamConfig = [
   },
 ]
 
+interface Person {
+  photo: StaticImageData
+  name: string
+  position: string
+}
+
+function TeamCard({person}: {person: Person}) {
+  return (
+    <div className="space-y-3 sm:space-y-2">
+      <Image className="w-full" src={person.photo} alt={person.name} />
+      <div className="space-y-1 sm:-space-y-1">
+        <Heading type="h3" text={person.name} />
+        <Text type="sub" className="text-gray" text={person.position} />
+      </div>
+    </div>
+  )
+}
+
 export default function Team() {
   return (
     <section data-section="team-index" className="space-y-20 sm:space-y-5">
       <Heading className="max-w-[50ch]" type="h1" text="Команда" />
 
       <div className="w-[75%] sm:w-full mx-auto grid grid-cols-3 gap-7 xl:gap-5 sm:grid-cols-1">
-        {teamConfig.map((person, index) => (
-          <div className="space-y-3 sm:space-y-2" key={index}>
-            <Image className="w-full" src={person.photo} alt="" />
+        <Heading type="h3" className="hidden col-span-2 ml-20 font-normal sm:inline-block sm:text-xl sm:ml-0 sm:col-span-1" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
 
-            <div className="space-y-1 sm:-space-y-1">
-              <Heading type="h3" text={person.name} />
-              <Text type="sub" className="text-gray" text={person.position} />
-            </div>
-          </div>
+        {teamConfig.slice(0, 1).map((person, index) => (
+          <TeamCard key={index} person={person} />
+        ))}
+
+        <Heading type="h3" className="sm:hidden ml-20 col-span-2 sm:col-span-1 max-w-[35ch] font-normal" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
+
+        {teamConfig.slice(1, 3).map((person, index) => (
+          <TeamCard key={index} person={person} />
+        ))}
+
+        <Text type="h4" className="self-end" text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus erat libero, dictum nec ligula congue, semper euismod massa. Praesent mattis metus id justo blandit, blandit cursus tellus feugiat. " />
+
+        {teamConfig.slice(3, 6).map((person, index) => (
+          <TeamCard key={index} person={person} />
         ))}
       </div>
-
-      <Link className="hidden sm:block" href="/news">
-        <Text type="h4" className="font-bold underline hover:no-underline underline-offset-[8px]" text="Все новости" />
-      </Link>
     </section>
   )
 }
