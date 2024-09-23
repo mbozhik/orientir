@@ -7,7 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import LangSwitch from '~/Global/Header/LangSwitch'
 
-const headerNavConfig = {
+export const headerConfig = {
   company: 'Компания',
   directions: 'Направления',
   projects: 'Проекты',
@@ -20,8 +20,8 @@ export default function Header() {
       <nav className="flex items-end gap-10 xl:gap-7">
         <Image className="object-contain h-7 xl:h-5 w-fit" src={LogoImage} alt="Логтип Ориентир" />
 
-        {Object.entries(headerNavConfig).map(([key, label]) => (
-          <Link className="leading-none sm:hidden" key={key} href={`/${key}`}>
+        {Object.entries(headerConfig).map(([key, label]) => (
+          <Link className="leading-none sm:hidden" href={`/${key}`} key={key}>
             {label}
           </Link>
         ))}
