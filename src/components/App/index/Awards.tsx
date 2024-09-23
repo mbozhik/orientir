@@ -20,11 +20,11 @@ export default function Awards() {
     <section data-section="awards-index" className="space-y-20 sm:space-y-5">
       <Heading className="max-w-[50ch]" type="h1" text="Команда" />
 
-      <div className="w-[75%] sm:w-full mx-auto grid grid-cols-2 gap-7 xl:gap-5 sm:grid-cols-1 border-b-2 border-gray-light">
+      <div className="w-[75%] sm:w-full mx-auto grid grid-cols-2 gap-7 xl:gap-5 xl:pb-5 sm:grid-cols-1 border-b-2 border-gray-light">
         {awardsConfig.slice(0, 1).map((award, index) => (
           <Fragment key={index}>
             <div key={index}>
-              <h1 className="text-[220px] leading-none font-bold">{`20${award.year}`}</h1>
+              <h1 className="text-[220px] xl:text-[150px] sm:text-9xl leading-none font-bold">{`20${award.year}`}</h1>
             </div>
 
             <div className="space-y-5">
