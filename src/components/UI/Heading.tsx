@@ -7,7 +7,7 @@ interface Props {
 }
 
 export const headingClasses = {
-  h1: 'text-[55px] xl:text-5xl sm:text-3xl', // Header H1 50
+  h1: 'text-[55px] xl:text-5xl sm:text-[28px] sm:leading-[1.2]', // Header H1 50
   h2: 'text-[40px] xl:text-4xl sm:text-2xl', // Header H2 36
   h3: 'text-4xl xl:text-3xl sm:text-2xl', // Header H3 32
 }

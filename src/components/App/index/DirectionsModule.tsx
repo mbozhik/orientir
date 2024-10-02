@@ -32,18 +32,18 @@ export default function DirectionsModule({config}: DirectionsModuleProps) {
   return (
     <div className="space-y-5">
       {Object.entries(config).map(([key, value]) => (
-        <div key={key} className="pb-3 space-y-5 border-b-2 xl:pb-4 border-gray-light group">
+        <div key={key} className="pb-3 space-y-5 sm:space-y-3.5 border-b-2 xl:pb-4 sm:pb-2 border-gray-light group">
           <div className="flex justify-between gap-10 cursor-pointer" onClick={() => handleToggle(key)}>
             <div className="flex gap-5">
-              <Text type="sub" className={cn('mt-1 sm:mt-0 font-light', interactiveClasses, openTab === key && 'text-red')} text={key} />
+              <Text type="sub" className={cn('mt-1 sm:mt-0 font-light sm:hidden', interactiveClasses, openTab === key && 'text-red')} text={key} />
               <Heading type="h2" className={cn(interactiveClasses.text, openTab === key && 'text-red')} text={value.heading} />
             </div>
 
-            <ArrowDownRight className={cn(interactiveClasses.icon, openTab === key && 'rotate-45 fill-red')} />
+            <ArrowDownRight className={cn('sm:scale-[0.6]', interactiveClasses.icon, openTab === key && 'rotate-45 fill-red')} />
           </div>
 
           {openTab === key && (
-            <div className="flex flex-col gap-2 xl:gap-1.5 ml-10 text-gray-dark">
+            <div className="flex flex-col gap-2 xl:gap-1.5 ml-10 sm:ml-0 text-gray-dark">
               {Object.values(value.list).map((item, index) => (
                 <Text type="p" text={item} key={index} />
               ))}

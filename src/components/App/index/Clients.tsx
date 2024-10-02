@@ -18,7 +18,7 @@ export default function Clients() {
         <Text type="h4" className="max-w-[50ch]" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur in odio sed rhoncus." />
       </div>
 
-      <div className="w-[75%] sm:w-full mx-auto border-t-2 border-gray-light">
+      <div className="w-[75%] sm:w-full mx-auto border-t-2 border-blue">
         <div className="flex items-center justify-around gap-5 sm:overflow-hidden sm:gap-10">
           {logos.map((logo, index) => (
             <Image className="object-contain s-32 hover:scale-[1.1] duration-300" key={index} src={logo} alt="" />

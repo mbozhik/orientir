@@ -21,9 +21,9 @@ export default function ProjectsModule() {
           <Heading type="h2" text="Ориентир Запад" />
           <Text type="p" className="max-w-[37ch]" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
 
-          <Link href="/projects/1" className="inline-flex items-center gap-2 pb-1 border-b-[3px] border-foreground hover:border-[#00000000]">
-            <Text type="h4" text="Подробнее" />
-            <ArrowUpRight size={35} strokeWidth={1.25} />
+          <Link href="/projects/1" className="inline-flex items-center gap-2 pb-1 border-b-[3px] sm:border-b-[1px] border-foreground hover:border-[#00000000]">
+            <Text type="h4" className="sm:text-lg" text="Подробнее" />
+            <ArrowUpRight className="s-8 sm:s-6" strokeWidth={1.25} />
           </Link>
         </div>
 

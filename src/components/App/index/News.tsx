@@ -37,8 +37,8 @@ export default function News() {
 
       <div className="grid grid-cols-3 gap-5 sm:grid-cols-1 sm:gap-3">
         {newsConfig.map((newsItem, index) => (
-          <div className="flex flex-col justify-between p-10 border-2 gap-14 xl:p-8 sm:p-6 xl:gap-10 sm:gap-6 border-gray-light" key={index}>
-            <div className="space-y-4">
+          <div className="flex flex-col justify-between p-10 border-2 gap-14 xl:p-8 sm:p-4 xl:gap-10 sm:gap-4 border-gray-light" key={index}>
+            <div className="space-y-4 sm:space-y-2">
               <Text type="sub" className="font-bold text-gray-dark" text={newsItem.subscript} />
               <Text type="h4" className="max-w-[40ch]" text={newsItem.text} />
             </div>
@@ -46,9 +46,9 @@ export default function News() {
             <div className="flex items-center justify-between sm:flex-col sm:gap-3 sm:items-start">
               <Text type="sub" className="font-bold text-gray-dark" text={newsItem.date} />
 
-              <Link href={newsItem.link} className="group inline-flex items-center gap-2 pb-1 border-b-[3px] border-foreground hover:border-blue">
-                <Text type="h4" className="duration-200 group-hover:text-blue" text="Читать дальше" />
-                <ArrowUpRight className="duration-200 group-hover:text-blue" size={35} strokeWidth={1.25} />
+              <Link href={newsItem.link} className="group inline-flex items-center gap-2 pb-1 border-b-[3px] sm:border-b-[1px] border-foreground hover:border-blue">
+                <Text type="h4" className="sm:text-lg duration-200 group-hover:text-blue" text="Читать дальше" />
+                <ArrowUpRight className="s-8 sm:s-6 duration-200 group-hover:text-blue" strokeWidth={1.25} />
               </Link>
             </div>
           </div>
