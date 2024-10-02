@@ -1,4 +1,6 @@
-import {Fragment} from 'react'
+import {isMobile} from '@bozzhik/is-mobile'
+import {cn} from '@/lib/utils'
+
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 
@@ -15,25 +17,29 @@ const awardsConfig = [
   },
 ]
 
+const headingStyles = 'text-[220px] xl:text-[150px] sm:text-2xl sm:text-gray leading-none font-bold'
+
 export default function Awards() {
   return (
     <section data-section="awards-index" className="space-y-20 sm:space-y-5">
-      <Heading className="max-w-[50ch]" type="h1" text="Команда" />
+      <Heading className="max-w-[50ch]" type="h1" text="Награды" />
 
-      <div className="w-[75%] sm:w-full mx-auto grid grid-cols-2 gap-7 xl:gap-5 xl:pb-5 sm:grid-cols-1 border-b-2 border-gray-light">
-        {awardsConfig.slice(0, 1).map((award, index) => (
-          <Fragment key={index}>
-            <div key={index}>
-              <h1 className="text-[220px] xl:text-[150px] sm:text-9xl leading-none font-bold">{`20${award.year}`}</h1>
-            </div>
+      {(isMobile ? awardsConfig : awardsConfig.slice(0, 1)).map((award, index) => (
+        <div key={index} className="w-[75%] sm:w-full mx-auto flex sm:flex-col">
+          <h1 className={cn(headingStyles, 'sm:hidden')}>20</h1>
 
-            <div className="space-y-5">
+          <div className="flex justify-between w-full gap-32 border-b-2 sm:pb-3 sm:gap-0 sm:flex-col border-gray-light">
+            <h1 className={cn(headingStyles, 'sm:inline-flex')}>
+              <span className="hidden sm:inline">20</span> {award.year}
+            </h1>
+
+            <div className="mt-2 space-y-5 sm:space-y-0.5">
               <Heading type="h2" text={award.title} />
               <Text type="p" text={award.description} />
             </div>
-          </Fragment>
-        ))}
-      </div>
+          </div>
+        </div>
+      ))}
     </section>
   )
 }
