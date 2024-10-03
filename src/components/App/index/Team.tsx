@@ -8,6 +8,7 @@ import AnarDamirovPhoto from '$/index/team/anar-damirov.jpg'
 import Image, {StaticImageData} from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
+import {cn} from '@/lib/utils'
 
 const teamConfig = [
   {
@@ -48,13 +49,16 @@ interface Person {
   position: string
 }
 
-function TeamCard({person}: {person: Person}) {
+function TeamCard({person, className}: {person: Person; className?: string}) {
+  const {position, name, photo} = person
+
   return (
-    <div className="space-y-3 sm:space-y-2">
-      <Image className="w-full" src={person.photo} alt={person.name} />
-      <div className="space-y-1 sm:-space-y-1">
-        <Heading type="h3" text={person.name} />
-        <Text type="sub" className="text-gray" text={person.position} />
+    <div className={cn('space-y-3 sm:space-y-2', className)}>
+      <Image quality={100} className={cn('w-full object-cover', name === 'Елена Бондарчук' && 'h-[75vh]')} src={photo} alt={name} />
+
+      <div className="space-y-1 xl:-space-y-1">
+        <Heading type="h3" text={name} />
+        <Text type="sub" className={cn('text-gray xl:text-base sm:leading-[1.25]', name === 'Анар Дамиров' && 'max-w-[30ch]')} text={position} />
       </div>
     </div>
   )
@@ -62,27 +66,26 @@ function TeamCard({person}: {person: Person}) {
 
 export default function Team() {
   return (
-    <section data-section="team-index" className="space-y-20 sm:space-y-5">
-      <Heading className="max-w-[50ch]" type="h1" text="Команда" />
+    <section data-section="team-index" className="space-y-14 sm:space-y-7">
+      <div className="space-y-2">
+        <Heading className="max-w-[50ch]" type="h1" text="Команда" />
+        <Text type="h4" className="hidden sm:block" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
+      </div>
 
-      <div className="w-[75%] sm:w-full mx-auto grid grid-cols-3 gap-7 xl:gap-5 sm:grid-cols-1">
-        <Heading type="h3" className="hidden col-span-2 ml-20 font-normal sm:inline-block sm:text-xl sm:ml-0 sm:col-span-1" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
+      <div className="flex flex-col gap-5 xl:gap-10 sm:gap-7 w-fit">
+        <div className="flex xl:flex-col items-end gap-5 sm:gap-7">
+          {teamConfig.slice(0, 3).map((person, index) => (
+            <TeamCard person={person} className={[1, 2].includes(index) ? 'pb-[72px] xl:pb-0' : ''} key={index} />
+          ))}
+        </div>
 
-        {teamConfig.slice(0, 1).map((person, index) => (
-          <TeamCard key={index} person={person} />
-        ))}
+        <Text type="h4" className="hidden sm:block" text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus erat libero, dictum nec ligula congue, semper euismod massa. Praesent mattis metus id justo blandit, blandit cursus tellus feugiat. " />
 
-        <Heading type="h3" className="sm:hidden ml-20 col-span-2 sm:col-span-1 max-w-[35ch] font-normal" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
-
-        {teamConfig.slice(1, 3).map((person, index) => (
-          <TeamCard key={index} person={person} />
-        ))}
-
-        <Text type="h4" className="self-end" text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus erat libero, dictum nec ligula congue, semper euismod massa. Praesent mattis metus id justo blandit, blandit cursus tellus feugiat. " />
-
-        {teamConfig.slice(3, 6).map((person, index) => (
-          <TeamCard key={index} person={person} />
-        ))}
+        <div className="flex xl:flex-col self-end gap-5 sm:gap-7">
+          {teamConfig.slice(3, 6).map((person, index) => (
+            <TeamCard person={person} key={index} />
+          ))}
+        </div>
       </div>
     </section>
   )

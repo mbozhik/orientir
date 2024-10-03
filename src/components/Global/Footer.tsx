@@ -31,7 +31,7 @@ export default function Footer() {
 
   return (
     <footer className="py-16 space-y-32 xl:space-y-20 px-28 xl:px-16 sm:px-4 sm:py-8 bg-gray-light">
-      <div className={`grid ${gridConfig.base} sm:flex sm:flex-col sm:gap-12`}>
+      <div className={`grid gap-20 ${gridConfig.base} sm:flex sm:flex-col sm:gap-12`}>
         <section className={`${gridConfig.info}`}>
           <div className="space-y-14 sm:space-y-7">
             <Heading type="h2" className="font-normal" text="Cras euismod porttitor ullamcorper. <br /> Vivamus vitae pellentesque justo." />
