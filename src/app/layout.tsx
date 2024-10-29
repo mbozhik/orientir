@@ -25,6 +25,7 @@ export const metadata: Metadata = {
 }
 
 import Header from '~/Global/Header/Header'
+import Footer from '~/Global/Footer'
 
 export default function RootLayout({
   children,
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className={`${Circe.className} antialiased`}>
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   )

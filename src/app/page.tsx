@@ -1,5 +1,4 @@
 import Container from '~/Global/Container'
-import Footer from '~/Global/Footer'
 
 import Hero from '~~/index/Hero'
 import Directions from '~~/index/Directions'
@@ -21,7 +20,6 @@ export default function HomePage() {
         <Team />
         <Awards />
       </Container>
-      <Footer />
     </>
   )
 }
