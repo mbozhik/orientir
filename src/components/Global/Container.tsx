@@ -6,7 +6,7 @@ interface Props {
 }
 
 export const containerStyles = {
-  width: 'mx-[6.5rem] sm:mx-3',
+  width: 'mx-[6.25rem] sm:mx-3',
 }
 const {width} = containerStyles
 

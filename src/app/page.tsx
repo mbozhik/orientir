@@ -9,7 +9,7 @@ import News from '~~/index/News'
 import Team from '~~/index/Team'
 import Awards from '~~/index/Awards'
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <Hero />
