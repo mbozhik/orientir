@@ -1,4 +1,4 @@
-import Container from '~/Global/Container'
+import Container, {sitePadding} from '~/Global/Container'
 
 import Hero from '~~/index/Hero'
 import Directions from '~~/index/Directions'
@@ -11,7 +11,7 @@ import Awards from '~~/index/Awards'
 export default function HomePage() {
   return (
     <>
-      <Hero className="pt-[88px]" />
+      <Hero className={sitePadding} />
       <Container className="space-y-36 xl:space-y-28 sm:space-y-20 my-36 xl:my-28 sm:my-20">
         <Directions />
         <Clients />

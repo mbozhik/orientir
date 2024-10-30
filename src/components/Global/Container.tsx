@@ -5,6 +5,8 @@ interface Props {
   className?: string
 }
 
+export const sitePadding = 'pt-[88px]'
+
 export const containerStyles = {
   width: 'mx-[6.25rem] sm:mx-3',
 }
