@@ -18,8 +18,8 @@ export default async function ProjectsPage() {
   const projects: TProject[] = await getProjects()
 
   return (
-    <Container className={`space-y-5 ${sitePadding}`}>
-      <Heading type="h1" text="Проекты" />
+    <Container className={`space-y-4 ${sitePadding}`}>
+      <Heading type="h1" className="mt-10" text="Проекты" />
 
       <Overview items={projects} />
     </Container>
