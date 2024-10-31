@@ -6,7 +6,7 @@ import {containerStyles} from '~/Global/Container'
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
 
-const blockHeight = '!h-[87svh] h-[87vh] sm:!h-[90vh]'
+const blockHeight = 'h-[87svh] h-[87vh] sm:h-screen sm:!h-svh'
 
 export default function Hero({className}: {className?: string}) {
   return (

@@ -19,7 +19,7 @@ export default async function ProjectsPage() {
 
   return (
     <Container className={`space-y-4 ${sitePadding}`}>
-      <Heading type="h1" className="mt-10" text="Проекты" />
+      <Heading type="h1" className="mt-10 sm:mt-5 sm:text-[35px]" text="Проекты" />
 
       <Overview items={projects} />
     </Container>

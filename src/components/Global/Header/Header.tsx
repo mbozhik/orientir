@@ -15,7 +15,7 @@ export const headerConfig = {
 
 export default function Header() {
   return (
-    <header className="absolute w-full z-[99] py-6 xl:py-5 sm:py-4 text-2xl xl:text-xl">
+    <header className="absolute w-full z-[99] py-6 xl:py-5 sm:py-3.5 text-2xl xl:text-xl bg-background">
       <div className={`flex justify-between items-center ${containerStyles.width}`}>
         <nav className="flex items-end gap-10 xl:gap-7">
           <Link href="/" className="">
