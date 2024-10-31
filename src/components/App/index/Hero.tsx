@@ -1,7 +1,7 @@
 import HeroImage from '$/index/background.jpg'
 
 import {cn} from '@/lib/utils'
-import {containerStyles} from '@/components/Global/Container'
+import {containerStyles} from '~/Global/Container'
 
 import Image from 'next/image'
 import Heading from '~/UI/Heading'

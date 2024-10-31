@@ -2,12 +2,11 @@ import ProjectsImage from '$/index/projects.jpg'
 import LogoImage from '$/logo-min.svg'
 
 import Image from 'next/image'
-import Link from 'next/link'
-import {ArrowX} from '~/UI/Icons'
-import {ArrowUpRight} from 'lucide-react'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
+import DetailsButton from '~/UI/DetailsButton'
+import {ArrowX} from '~/UI/Icons'
 
 export default function ProjectsModule() {
   return (
@@ -21,10 +20,7 @@ export default function ProjectsModule() {
           <Heading type="h2" text="Ориентир Запад" />
           <Text type="p" className="max-w-[37ch]" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
 
-          <Link href="/projects/1" className="inline-flex items-center gap-2 pb-1 border-b-[3px] sm:border-b-[1px] border-foreground hover:border-[#00000000]">
-            <Text type="h4" className="sm:text-lg" text="Подробнее" />
-            <ArrowUpRight className="s-8 sm:s-6" strokeWidth={1.25} />
-          </Link>
+          <DetailsButton href="/projects/1" text="Подробнее" />
         </div>
 
         <div className="flex flex-col items-center justify-between sm:grid sm:grid-cols-2">

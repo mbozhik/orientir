@@ -23,6 +23,7 @@ const config: Config = {
       },
       red: '#da291c',
       blue: '#0033a0',
+      transparent: 'transparent',
     },
     extend: {},
   },
