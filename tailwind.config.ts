@@ -8,10 +8,10 @@ const config: Config = {
   content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     screens: {
-      xl: {max: '1536px'},
-      lg: {max: '1280px'},
+      xl: {max: '1780px'},
+      // lg: {max: '1280px'},
       // md: {max: '1024px'},
-      sm: {max: '428px'},
+      sm: {max: '500px'},
     },
     colors: {
       background: '#ffffff',

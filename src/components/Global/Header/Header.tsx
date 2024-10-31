@@ -18,8 +18,10 @@ export default function Header() {
     <header className="absolute w-full z-[99] py-6 xl:py-5 sm:py-4 text-2xl xl:text-xl">
       <div className={`flex justify-between items-center ${containerStyles.width}`}>
         <nav className="flex items-end gap-10 xl:gap-7">
-          <Link href="/">
-            <Image className="object-contain w-[200px] xl:h-5" src={LogoImage} alt="Логтип Ориентир" />
+          <Link href="/" className="">
+            <div className="w-[200px] xl:w-44">
+              <Image className="object-contain w-full" src={LogoImage} alt="Логтип Ориентир" />
+            </div>
           </Link>
 
           {Object.entries(headerConfig).map(([key, label]) => (
