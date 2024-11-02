@@ -45,9 +45,9 @@ export default function Overview({items: projects}: {items: TProject[]}) {
             const filteredResidents = selectedState === 'Все' ? Object.values(project.residents) : Object.values(project.residents).filter((resident) => resident.status === selectedState)
 
             return (
-              <div className="space-y-4" key={project.id}>
+              <div className="space-y-4" key={project.slug}>
                 <div className={cn('flex items-center justify-between px-6 py-5 sm:py-4 text-background cursor-pointer hover:bg-red duration-200 group', activeTab === index ? 'bg-red' : 'bg-blue')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
-                  <Heading type="h2" className="sm:text-[28px]" text={project.division} />
+                  <Heading type="h2" className="sm:text-[28px]" text={project.project} />
                   <ArrowDownRight className={cn('scale-[1.3] xl:scale-[1.0] sm:scale-[1.1] fill-background group-hover:rotate-45 duration-200', activeTab === index && 'rotate-45')} />
                 </div>
 
@@ -55,7 +55,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                   <div className="grid grid-cols-2 gap-8 pb-5 sm:pb-3 sm:grid-cols-1 sm:gap-10">
                     <div className="flex flex-col justify-between sm:gap-5">
                       <Text type="h4" text={project.description} />
-                      <DetailsButton href={`/projects/${project.id}`} text="Подробнее" />
+                      <DetailsButton href={`/projects/${project.slug}`} text="Подробнее" />
                     </div>
 
                     <div className="mt-1 space-y-4">
@@ -67,12 +67,13 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                           filteredResidents.map(({name, status, type, area}) => (
                             <div key={area} className="space-y-1.5 py-1.5 border-b-[1px] border-transparent hover:border-red cursor-pointer">
                               <div className="flex justify-between">
-                                <Text type="sub" className="text-gray font-extralight" text={status} />
-                                {type && <Text type="sub" className="font-bold" text={type} />}
+                                <Text type="sub" className="text-gray font-extralight" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
+                                {type && <Text type="sub" className="self-end text-gray font-extralight" text={type} />}
                               </div>
+
                               <div className="flex justify-between">
                                 <Text type="h4" className="font-bold" text={name} />
-                                <Text type="sub" className="text-gray font-extralight" text={`${area} м2`} />
+                                <Text type="sub" className="self-end font-bold" text={`${area} м2`} />
                               </div>
                             </div>
                           ))
