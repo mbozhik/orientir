@@ -1,4 +1,4 @@
-import {headerConfig} from './Header/Header'
+import {siteRoutes} from '@/lib/constants'
 import {ArrowUpRight} from 'lucide-react'
 import LogoImage from '$/logo.svg'
 
@@ -54,7 +54,7 @@ export default function Footer() {
           <Text type="p" className="font-bold" text="Карта сайта" />
 
           <div className="flex flex-col gap-3">
-            {Object.entries(headerConfig).map(([key, label]) => (
+            {Object.entries(siteRoutes).map(([key, label]) => (
               <Link className="hover:underline" href={`/${key}`} key={key}>
                 <Text type="p" text={label} />
               </Link>

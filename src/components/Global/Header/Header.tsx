@@ -1,20 +1,15 @@
 'use client'
 
+import {usePathname} from 'next/navigation'
+import {siteRoutes} from '@/lib/constants'
 import {containerStyles} from '~/Global/Container'
-import LogoImage from '$/logo.svg'
+
 import {Menu} from 'lucide-react'
+import LogoImage from '$/logo.svg'
 
 import Link from 'next/link'
 import Image from 'next/image'
 import LangSwitch from '~/Global/Header/LangSwitch'
-import {usePathname} from 'next/navigation'
-
-export const headerConfig = {
-  company: 'Компания',
-  directions: 'Направления',
-  projects: 'Проекты',
-  news: 'Новости',
-}
 
 export default function Header() {
   const pathname = usePathname()
@@ -29,7 +24,7 @@ export default function Header() {
             </div>
           </Link>
 
-          {Object.entries(headerConfig).map(([key, label]) => (
+          {Object.entries(siteRoutes).map(([key, label]) => (
             <Link className={`leading-none sm:hidden ${pathname === `/${key}` ? 'text-red' : ''}`} href={`/${key}`} key={key}>
               {label}
             </Link>
