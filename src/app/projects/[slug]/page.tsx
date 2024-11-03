@@ -1,6 +1,8 @@
 import {API_URL} from '@/lib/constants'
 import {TProject} from '@/app/api/projects/route'
 
+import Showcase from '~~/projects/slug/Showcase'
+
 import Container, {sitePadding} from '~/Global/Container'
 import Heading from '~/UI/Heading'
 
@@ -17,8 +19,11 @@ export default async function ProjectPage({params}: {params: Promise<{slug: stri
   const project: TProject = await getProject(slug)
 
   return (
-    <Container className={`space-y-4 ${sitePadding}`}>
-      <Heading type="h1" className="mt-10 sm:mt-5 sm:text-[35px]" text={project.division} />
-    </Container>
+    <>
+      <Showcase project={project} />
+      <Container className={`space-y-4 ${sitePadding}`}>
+        <Heading type="h1" className="mt-10 sm:mt-5 sm:text-[35px]" text={project.project} />
+      </Container>
+    </>
   )
 }

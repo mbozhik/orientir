@@ -64,10 +64,10 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                         {filteredResidents.length === 0 ? (
                           <Text type="h4" text="Нет резидентов для данного фильтра." />
                         ) : (
-                          filteredResidents.map(({name, status, type, area}) => (
-                            <div key={area} className="space-y-1.5 py-1.5 border-b-[1px] border-transparent hover:border-red cursor-pointer">
+                          filteredResidents.map(({name, status, type, area}, index) => (
+                            <div key={index} className="space-y-1.5 py-1.5 border-b-[1px] border-transparent hover:border-red cursor-pointer">
                               <div className="flex justify-between">
-                                <Text type="sub" className="text-gray font-extralight" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
+                                <Text type="sub" className="lowercase text-gray font-extralight" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
                                 {type && <Text type="sub" className="self-end text-gray font-extralight" text={type} />}
                               </div>
 
