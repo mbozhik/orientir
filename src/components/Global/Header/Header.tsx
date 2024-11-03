@@ -6,6 +6,7 @@ import {containerStyles} from '~/Global/Container'
 
 import {Menu} from 'lucide-react'
 import LogoImage from '$/logo.svg'
+import LogoMonoImage from '$/logo-mono.svg'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -13,14 +14,15 @@ import LangSwitch from '~/Global/Header/LangSwitch'
 
 export default function Header() {
   const pathname = usePathname()
+  const isProjectPage = pathname.includes('/projects/')
 
   return (
-    <header className="absolute w-full z-[99] py-6 xl:py-5 sm:py-3.5 text-2xl xl:text-xl bg-background text-foreground">
+    <header className={`absolute w-full z-[99] py-6 xl:py-5 sm:py-3.5 text-2xl xl:text-xl ${!isProjectPage ? 'bg-background text-foreground' : 'bg-gradient-to-b from-foreground/40 to-foreground/0 text-background'} `}>
       <div className={`flex justify-between items-center ${containerStyles.width}`}>
         <nav className="flex items-end gap-10 xl:gap-7">
           <Link href="/" className="">
             <div className="w-[200px] xl:w-44">
-              <Image className="object-contain w-full" src={LogoImage} alt="Логтип Ориентир" />
+              <Image className="object-contain w-full" src={!isProjectPage ? LogoImage : LogoMonoImage} alt="Логтип Ориентир" />
             </div>
           </Link>
 

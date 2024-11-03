@@ -10,7 +10,7 @@ const blockHeight = 'h-[87svh] h-[87vh] sm:h-screen sm:!h-svh'
 
 export default function Hero({className}: {className?: string}) {
   return (
-    <section data-section="hero-index" className={cn('sm:!mx-0', containerStyles.width, className)}>
+    <section data-section="hero-index" className={cn('sm:!mx-0 sm:pt-0', containerStyles.width, className)}>
       <div className={`relative w-full ${blockHeight}`}>
         <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-foreground/5 via-foreground/20 to-foreground/30"></div>
         <Image quality={100} className="object-cover w-full h-full" src={HeroImage} alt="Здание Ориентир" />
