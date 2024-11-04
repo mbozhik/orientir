@@ -18,6 +18,7 @@ export type TProject = {
   image: StaticImageData
   description: string
   residents: Record<number, Resident>
+  award?: string
 }
 
 type Resident = {
@@ -26,6 +27,7 @@ type Resident = {
   type?: 'ФФФ' | 'ПК' | 'РЦ'
   area: string
   image: StaticImageData
+  award?: string
 }
 
 export type ResidentStatus = 'Завершен' | 'В процессе' | 'Свободные земельные участки'
@@ -37,6 +39,7 @@ const projects: TProject[] = [
     project: 'Ориентир Запад',
     image: OrientirZapadImage,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+    award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
     residents: {
       1: {
         name: 'OZON',
@@ -44,6 +47,7 @@ const projects: TProject[] = [
         type: 'ФФФ',
         area: '157 000',
         image: ResidentOneImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       2: {
         name: 'ТехноАвиа',
@@ -51,6 +55,7 @@ const projects: TProject[] = [
         type: 'ПК',
         area: '40 000',
         image: ResidentTwoImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       3: {
         name: 'Золотое яблоко',
@@ -58,12 +63,6 @@ const projects: TProject[] = [
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
-      },
-      4: {
-        name: 'Свободное назначение',
-        status: 'Свободные земельные участки',
-        area: '46 000',
-        image: ResidentOneImage,
       },
     },
   },
@@ -73,12 +72,14 @@ const projects: TProject[] = [
     project: 'Ориентир Север',
     image: OrientirSeverImage,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+    award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
     residents: {
       1: {
         name: 'Свободное назначение',
         status: 'Свободные земельные участки',
         area: '25 000',
         image: ResidentOneImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       2: {
         name: 'Свободное назначение',
@@ -100,12 +101,14 @@ const projects: TProject[] = [
         status: 'Свободные земельные участки',
         area: '25 000',
         image: ResidentThreeImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       2: {
         name: 'Свободное назначение',
         status: 'Свободные земельные участки',
         area: '25 000',
         image: ResidentTwoImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
     },
   },
@@ -129,6 +132,7 @@ const projects: TProject[] = [
         type: 'ПК',
         area: '40 000',
         image: ResidentTwoImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       3: {
         name: 'Золотое яблоко',
@@ -136,12 +140,6 @@ const projects: TProject[] = [
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
-      },
-      4: {
-        name: 'Свободное назначение',
-        status: 'Завершен',
-        area: '46 000',
-        image: ResidentOneImage,
       },
     },
   },
@@ -158,6 +156,7 @@ const projects: TProject[] = [
         type: 'ФФФ',
         area: '157 000',
         image: ResidentTwoImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       2: {
         name: 'ТехноАвиа',
@@ -165,6 +164,20 @@ const projects: TProject[] = [
         type: 'ПК',
         area: '40 000',
         image: ResidentThreeImage,
+      },
+      3: {
+        name: 'Свободное назначение',
+        status: 'Свободные земельные участки',
+        area: '25 000',
+        image: ResidentOneImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+      },
+      4: {
+        name: 'Свободное назначение',
+        status: 'Свободные земельные участки',
+        area: '25 000',
+        image: ResidentTwoImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
     },
   },

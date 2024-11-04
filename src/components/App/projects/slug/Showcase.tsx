@@ -1,12 +1,14 @@
 'use client'
 
 import {cn} from '@/lib/utils'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 import {TProject} from '@/app/api/projects/route'
 import {containerStyles} from '~/Global/Container'
 
 import {X} from 'lucide-react'
+import AwardImage from '$/projects/award.png'
+
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
@@ -15,6 +17,15 @@ const screenHeight = 'h-screen !h-svh'
 
 export default function Showcase({project}: {project: TProject}) {
   const [activeTab, setActiveTab] = useState<number | null>(null)
+  const [activeAward, setActiveAward] = useState<{index: number | null; text: string | null}>({index: null, text: null})
+
+  const combinedAwards = [...(project.award ? [{image: AwardImage, text: project.award}] : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
+
+  useEffect(() => {
+    if (project.award) {
+      setActiveAward({index: 0, text: project.award})
+    }
+  }, [project.award])
 
   const residentsGridConfig = {
     base: 'grid-cols-10',
@@ -26,7 +37,7 @@ export default function Showcase({project}: {project: TProject}) {
   return (
     <section data-section="showcase-project" className={`relative ${screenHeight}`}>
       <div className={`h-full pb-10 ${containerStyles.width}`}>
-        <div className="flex items-end h-full">
+        <div className="flex items-end justify-between h-full">
           <div className="flex flex-col gap-1.5">
             {activeTab !== null && (
               <div className="flex gap-1.5">
@@ -61,7 +72,7 @@ export default function Showcase({project}: {project: TProject}) {
               </div>
             )}
 
-            <div className="flex gap-1.5">
+            <div className="flex flex-wrap max-w-[55vw] gap-1.5">
               {Object.values(project.residents).map(({name, status, type, area}, index) => (
                 <div className={cn('p-2.5 flex flex-col gap-1.5 duration-200 cursor-pointer', activeTab === index ? 'bg-red text-background' : 'bg-background hover:bg-blue group hover:text-background')} key={index} onClick={() => setActiveTab(index)}>
                   <div className={cn('flex justify-between gap-16 duration-200 text-gray group-hover:text-background font-extralight', activeTab === index && 'text-background')}>
@@ -77,6 +88,24 @@ export default function Showcase({project}: {project: TProject}) {
               ))}
             </div>
           </div>
+
+          {combinedAwards.length > 0 && (
+            <div className="flex flex-col gap-1.5 items-end">
+              {activeAward.text && (
+                <div className="p-4 bg-background">
+                  <Text type="sub" className="max-w-[45ch] font-extralight" text={activeAward.text} />
+                </div>
+              )}
+
+              <div className="flex gap-2.5 px-4 py-3.5 w-fit bg-background">
+                {combinedAwards.map((award, index) => (
+                  <div key={index} className={cn('cursor-pointer duration-300', activeAward.index === index && 'scale-[1.2]')} onClick={() => setActiveAward({index, text: award.text})}>
+                    <Image quality={100} src={award.image} alt={award.text} />
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
