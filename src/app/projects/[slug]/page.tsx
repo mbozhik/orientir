@@ -1,12 +1,12 @@
 import {API_URL} from '@/lib/constants'
-import {TProject} from '@/app/api/projects/route'
-
-import Showcase from '~~/projects/slug/Showcase'
+import {TProjectExtra} from '@/app/api/projects/route'
 
 import Container, {sitePadding} from '~/Global/Container'
 import Heading from '~/UI/Heading'
 
-async function getProject(slug: string): Promise<TProject> {
+import Showcase from '~~/projects/slug/Showcase'
+
+async function getProject(slug: string): Promise<TProjectExtra> {
   const res = await fetch(`${API_URL}/api/projects?slug=${slug}`, {cache: 'no-store'})
   if (!res.ok) {
     throw new Error('Failed to fetch project')
@@ -16,7 +16,7 @@ async function getProject(slug: string): Promise<TProject> {
 
 export default async function ProjectPage({params}: {params: Promise<{slug: string}>}) {
   const slug = (await params).slug
-  const project: TProject = await getProject(slug)
+  const project: TProjectExtra = await getProject(slug)
 
   return (
     <>
