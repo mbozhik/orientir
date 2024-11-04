@@ -28,6 +28,17 @@ function DeskShowcase({project}: {project: TProject}) {
     }
   }, [project.award])
 
+  const handleTabClick = (index: number) => {
+    setActiveTab(index)
+
+    const resident = Object.values(project.residents)[index]
+    if (resident.award) {
+      setActiveAward({index: index + (project.award ? 1 : 0), text: resident.award})
+    } else {
+      setActiveAward({index: null, text: null})
+    }
+  }
+
   const residentsGridConfig = {
     base: 'grid-cols-10',
     name: 'col-span-5',
@@ -45,19 +56,19 @@ function DeskShowcase({project}: {project: TProject}) {
                 {Object.values(project.residents).map(
                   ({name, status, type, area, image}, index) =>
                     activeTab === index && (
-                      <div className="flex gap-3 p-2.5 max-w-[45vw] bg-background" key={index}>
+                      <div className="flex gap-3 p-2.5 max-w-[45vw] xl:max-w-[50vw] bg-background" key={index}>
                         <div className="w-[30vw] bg-background aspect-square">
                           <Image className="object-cover s-full" src={image} alt={name} />
                         </div>
 
                         <div className="flex flex-col gap-7">
                           <div className={`grid ${residentsGridConfig.base}`}>
-                            <div className={`pt-1.5 flex flex-col justify-between gap-1 ${residentsGridConfig.name}`}>
+                            <div className={`pt-1.5 flex flex-col justify-between gap-2 ${residentsGridConfig.name}`}>
                               <Text type="sub" className="text-gray font-extralight" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
-                              <Heading type="h3" text={name} />
+                              <Heading type="h3" className="leading-none" text={name} />
                             </div>
 
-                            <div className={`pt-1.5 flex flex-col justify-between text-gray font-extralight ${residentsGridConfig.info}`}>
+                            <div className={`pt-1.5 flex flex-col gap-4 text-gray font-extralight ${residentsGridConfig.info}`}>
                               {type && <Text type="sub" text={type === 'ФФФ' ? 'Фулфилмент - фабрика' : type} />}
                               <Text type="sub" text={`${area} м2`} />
                             </div>
@@ -75,7 +86,7 @@ function DeskShowcase({project}: {project: TProject}) {
 
             <div className="flex flex-wrap max-w-[55vw] gap-1.5">
               {Object.values(project.residents).map(({name, status, type, area}, index) => (
-                <div className={cn('p-2.5 flex flex-col gap-1.5 duration-200 cursor-pointer', activeTab === index ? 'bg-red text-background' : 'bg-background hover:bg-blue group hover:text-background')} key={index} onClick={() => setActiveTab(index)}>
+                <div onClick={() => handleTabClick(index)} className={cn('p-2.5 flex flex-col gap-1.5 duration-200 cursor-pointer', activeTab === index ? 'bg-red text-background' : 'bg-background hover:bg-blue group hover:text-background')} key={index}>
                   <div className={cn('flex justify-between gap-16 duration-200 text-gray group-hover:text-background font-extralight', activeTab === index && 'text-background')}>
                     <Text type="sub" className="lowercase" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
                     {type && <Text type="sub" className="self-end" text={type} />}
