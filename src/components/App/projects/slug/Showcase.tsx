@@ -2,6 +2,7 @@
 
 import {cn} from '@/lib/utils'
 import {useState, useEffect} from 'react'
+import {isMobile} from '@bozzhik/is-mobile'
 
 import {TProject} from '@/app/api/projects/route'
 import {containerStyles} from '~/Global/Container'
@@ -15,7 +16,7 @@ import Text from '~/UI/Text'
 
 const screenHeight = 'h-screen !h-svh'
 
-export default function Showcase({project}: {project: TProject}) {
+function DeskShowcase({project}: {project: TProject}) {
   const [activeTab, setActiveTab] = useState<number | null>(null)
   const [activeAward, setActiveAward] = useState<{index: number | null; text: string | null}>({index: null, text: null})
 
@@ -35,7 +36,7 @@ export default function Showcase({project}: {project: TProject}) {
   }
 
   return (
-    <section data-section="showcase-project" className={`relative ${screenHeight}`}>
+    <section data-section="desk-showcase-project" className={`relative ${screenHeight}`}>
       <div className={`h-full pb-10 ${containerStyles.width}`}>
         <div className="flex items-end justify-between h-full">
           <div className="flex flex-col gap-1.5">
@@ -93,7 +94,7 @@ export default function Showcase({project}: {project: TProject}) {
             <div className="flex flex-col gap-1.5 items-end">
               {activeAward.text && (
                 <div className="p-4 bg-background">
-                  <Text type="sub" className="max-w-[45ch] font-extralight" text={activeAward.text} />
+                  <Text type="sub" className="max-w-[45ch] xl:max-w-[40ch] font-extralight" text={activeAward.text} />
                 </div>
               )}
 
@@ -112,4 +113,37 @@ export default function Showcase({project}: {project: TProject}) {
       <Image className="absolute inset-0 object-cover w-full h-full -z-20" src={project.image} alt="" />
     </section>
   )
+}
+
+function MobileShowcase({project}: {project: TProject}) {
+  const combinedAwards = [...(project.award ? [{image: AwardImage, text: project.award}] : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
+
+  return (
+    <section data-section="desk-showcase-project" className="relative space-y-5">
+      <Image className="object-cover w-full h-[40vh]" src={project.image} alt="" />
+
+      <div className={`space-y-3 ${containerStyles.width}`}>
+        <Heading type="h1" className="sm:text-[35px]" text={project.project} />
+
+        {combinedAwards.length > 0 && (
+          <div className="p-3 space-y-3 border border-gray-light">
+            <Heading type="h2" className="sm:text-2xl text-gray" text="Награды" />
+
+            <div className="flex flex-col gap-3">
+              {combinedAwards.map((award, index) => (
+                <div key={index} className="flex gap-5">
+                  <Image quality={100} className="object-contain s-14" src={award.image} alt={award.text} />
+                  <Text type="p" className="sm:text-xs" text={award.text} />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
+
+export default function Showcase({project}: {project: TProject}) {
+  return <>{!isMobile ? <DeskShowcase project={project} /> : <MobileShowcase project={project} />}</>
 }
