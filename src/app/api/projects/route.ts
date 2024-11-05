@@ -42,7 +42,7 @@ export type TProjectExtra = TProject & {
   project_area: string
   zone_area: string
   location: {address: string; link: string}
-  additional_info?: {image: StaticImageData; text: string}
+  more_info?: {image: StaticImageData; text: string}[]
   specifications: {heading: string; caption: string}[]
   gallery: StaticImageData[]
 }
@@ -88,7 +88,16 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9', link: 'https://yandex.ru/maps/-/CDhhjL1K'},
-    additional_info: {image: OrientirZapadImage, text: 'Lorem ipsum dolor sit amet consectetur. Semper euismod arcu lorem nibh ut sem ac in fermentum. Adipiscing pellentesque phasellus aliquet quis morbi nunc cursus sed ac. Faucibus mi quam maecenas quis. Aliquam ultrices a mi pharetra accumsan elementum. Nunc et tempor laoreet tortor ut velit nulla augue neque. Lorem sagittis augue in amet ipsum placerat ornare facilisi vestibulum.'},
+    more_info: [
+      {
+        image: OrientirZapadImage,
+        text: 'Lorem ipsum dolor sit amet consectetur. Semper euismod arcu lorem nibh ut sem ac in fermentum. Adipiscing pellentesque phasellus aliquet quis morbi nunc cursus sed ac. Faucibus mi quam maecenas quis. Aliquam ultrices a mi pharetra accumsan elementum. Nunc et tempor laoreet tortor ut velit nulla augue neque. Lorem sagittis augue in amet ipsum placerat ornare facilisi vestibulum.',
+      },
+      {
+        image: OrientirSeverImage,
+        text: 'Lorem ipsum dolor sit amet consectetur. Semper euismod arcu lorem nibh ut sem ac in fermentum. Adipiscing pellentesque phasellus aliquet quis morbi nunc cursus sed ac. Faucibus mi quam maecenas quis. Aliquam ultrices a mi pharetra accumsan elementum. Nunc et tempor laoreet tortor ut velit nulla augue neque. Lorem sagittis augue in amet ipsum placerat ornare facilisi vestibulum.',
+      },
+    ],
     specifications: [
       {
         heading: 'Worem',

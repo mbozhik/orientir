@@ -1,10 +1,9 @@
 import {API_URL} from '@/lib/constants'
 import {TProjectExtra} from '@/app/api/projects/route'
 
-import Container, {sitePadding} from '~/Global/Container'
-import Heading from '~/UI/Heading'
-
+import Container from '~/Global/Container'
 import Showcase from '~~/projects/slug/Showcase'
+import Info from '~~/projects/slug/Info'
 
 async function getProject(slug: string): Promise<TProjectExtra> {
   const res = await fetch(`${API_URL}/api/projects?slug=${slug}`, {cache: 'no-store'})
@@ -21,8 +20,8 @@ export default async function ProjectPage({params}: {params: Promise<{slug: stri
   return (
     <>
       <Showcase project={project} />
-      <Container className={`space-y-4 ${sitePadding}`}>
-        <Heading type="h1" className="mt-10 sm:mt-5 sm:text-[35px]" text={project.project} />
+      <Container className="space-y-4">
+        <Info project={project} />
       </Container>
     </>
   )
