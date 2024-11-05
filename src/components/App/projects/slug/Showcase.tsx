@@ -134,7 +134,7 @@ function MobileShowcase({project}: {project: TProject}) {
       <Image className="object-cover w-full h-[40vh]" src={project.image} alt="" />
 
       <div className={`space-y-3 ${containerStyles.width}`}>
-        <Heading type="h1" className="sm:text-[35px]" text={project.project} />
+        <Heading type="h1" className="sm:text-[33px]" text={project.project} />
 
         {combinedAwards.length > 0 && (
           <div className="p-3 space-y-3 border border-gray-light">

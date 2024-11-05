@@ -9,7 +9,7 @@ import Text from '~/UI/Text'
 export default function Info({project}: {project: TProjectExtra}) {
   return (
     <section data-section="info-project" className="space-y-7 sm:space-y-5">
-      <Heading type="h1" className="mt-10 sm:mt-5 sm:text-[35px]" text={project.project} />
+      <Heading type="h1" className="mt-10 sm:hidden" text={project.project} />
 
       <div className="grid grid-cols-2 sm:grid-cols-1 gap-14 xl:gap-10 sm:gap-7 px-44 xl:px-24 sm:px-0">
         {project.full_description.map((text, index) => (
