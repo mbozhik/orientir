@@ -6,6 +6,7 @@ import Showcase from '~~/projects/slug/Showcase'
 import Info from '~~/projects/slug/Info'
 import Specs from '~~/projects/slug/Specs'
 import MapPoint from '~~/projects/slug/MapPoint'
+import Gallery from '~~/projects/slug/Gallery'
 
 async function getProject(slug: string): Promise<TProjectExtra> {
   const res = await fetch(`${API_URL}/api/projects?slug=${slug}`, {cache: 'no-store'})
@@ -22,9 +23,10 @@ export default async function ProjectPage({params}: {params: Promise<{slug: stri
   return (
     <>
       <Showcase project={project} />
-      <Container className="space-y-20">
+      <Container className="mb-24 space-y-24">
         <Info project={project} />
         <Specs project={project} />
+        <Gallery project={project} />
       </Container>
       <MapPoint project={project} />
     </>

@@ -8,8 +8,15 @@
   }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+[data-slider='swiper'] {
+  --swiper-navigation-color: #fff;
+  --swiper-pagination-color: #fff;
+}
+
+[data-slider='thumbs'] .swiper-slide {
+  @apply opacity-40;
+}
+
+[data-slider='thumbs'] .swiper-slide-thumb-active {
+  @apply opacity-100;
 }
