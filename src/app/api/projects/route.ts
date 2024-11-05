@@ -41,7 +41,7 @@ export type TProjectExtra = TProject & {
   full_description: string[]
   project_area: string
   zone_area: string
-  location: {address: string; link: string}
+  location: {address: string; link: string; widget: string}
   more_info?: {image: StaticImageData; text: string}[]
   specifications: {heading: string; caption: string}[]
   gallery: StaticImageData[]
@@ -87,7 +87,11 @@ const projects: TProjectExtra[] = [
     full_description: ['Lorem ipsum dolor sit amet consectetur. Pellentesque egestas viverra netus sed viverra purus pellentesque quam amet. Vestibulum venenatis viverra nunc ultricies tortor nunc ac. Nisi euismod eu in lacinia commodo.', 'Vitae leo nulla dolor amet nec id. Scelerisque nibh sed mauris nibh pharetra. Semper malesuada vitae ut habitasse cursus. Id odio consequat orci malesuada cras et risus magna. Commodo.'],
     project_area: '400 000',
     zone_area: '107',
-    location: {address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9', link: 'https://yandex.ru/maps/-/CDhhjL1K'},
+    location: {
+      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      link: 'https://yandex.ru/maps/-/CDhhjL1K',
+      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
+    },
     more_info: [
       {
         image: OrientirZapadImage,
@@ -145,7 +149,11 @@ const projects: TProjectExtra[] = [
     full_description: ['Lorem ipsum dolor sit amet consectetur. Pellentesque egestas viverra netus sed viverra purus pellentesque quam amet. Vestibulum venenatis viverra nunc ultricies tortor nunc ac. Nisi euismod eu in lacinia commodo.', 'Vitae leo nulla dolor amet nec id. Scelerisque nibh sed mauris nibh pharetra. Semper malesuada vitae ut habitasse cursus. Id odio consequat orci malesuada cras et risus magna. Commodo.'],
     project_area: '400 000',
     zone_area: '107',
-    location: {address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9', link: 'https://yandex.ru/maps/-/CDhhjL1K'},
+    location: {
+      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      link: 'https://yandex.ru/maps/-/CDhhjL1K',
+      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
+    },
     specifications: [
       {
         heading: 'Worem',
@@ -193,7 +201,11 @@ const projects: TProjectExtra[] = [
     full_description: ['Lorem ipsum dolor sit amet consectetur. Pellentesque egestas viverra netus sed viverra purus pellentesque quam amet. Vestibulum venenatis viverra nunc ultricies tortor nunc ac. Nisi euismod eu in lacinia commodo.', 'Vitae leo nulla dolor amet nec id. Scelerisque nibh sed mauris nibh pharetra. Semper malesuada vitae ut habitasse cursus. Id odio consequat orci malesuada cras et risus magna. Commodo.'],
     project_area: '400 000',
     zone_area: '107',
-    location: {address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9', link: 'https://yandex.ru/maps/-/CDhhjL1K'},
+    location: {
+      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      link: 'https://yandex.ru/maps/-/CDhhjL1K',
+      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
+    },
     specifications: [
       {
         heading: 'Worem',
@@ -249,7 +261,11 @@ const projects: TProjectExtra[] = [
     full_description: ['Lorem ipsum dolor sit amet consectetur. Pellentesque egestas viverra netus sed viverra purus pellentesque quam amet. Vestibulum venenatis viverra nunc ultricies tortor nunc ac. Nisi euismod eu in lacinia commodo.', 'Vitae leo nulla dolor amet nec id. Scelerisque nibh sed mauris nibh pharetra. Semper malesuada vitae ut habitasse cursus. Id odio consequat orci malesuada cras et risus magna. Commodo.'],
     project_area: '400 000',
     zone_area: '107',
-    location: {address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9', link: 'https://yandex.ru/maps/-/CDhhjL1K'},
+    location: {
+      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      link: 'https://yandex.ru/maps/-/CDhhjL1K',
+      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
+    },
     specifications: [
       {
         heading: 'Worem',
@@ -312,7 +328,11 @@ const projects: TProjectExtra[] = [
     full_description: ['Lorem ipsum dolor sit amet consectetur. Pellentesque egestas viverra netus sed viverra purus pellentesque quam amet. Vestibulum venenatis viverra nunc ultricies tortor nunc ac. Nisi euismod eu in lacinia commodo.', 'Vitae leo nulla dolor amet nec id. Scelerisque nibh sed mauris nibh pharetra. Semper malesuada vitae ut habitasse cursus. Id odio consequat orci malesuada cras et risus magna. Commodo.'],
     project_area: '400 000',
     zone_area: '107',
-    location: {address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9', link: 'https://yandex.ru/maps/-/CDhhjL1K'},
+    location: {
+      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      link: 'https://yandex.ru/maps/-/CDhhjL1K',
+      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
+    },
     specifications: [
       {
         heading: 'Worem',
