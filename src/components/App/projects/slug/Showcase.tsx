@@ -7,12 +7,12 @@ import {isMobile} from '@bozzhik/is-mobile'
 import {TProject} from '@/app/api/projects/route'
 import {containerStyles} from '~/Global/Container'
 
-import {X} from 'lucide-react'
 import AwardImage from '$/projects/award.png'
 
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
+import {ResidentCard} from '~~/projects/slug/ShowcaseResident'
 
 const screenHeight = 'h-screen !h-svh'
 
@@ -39,13 +39,6 @@ function DeskShowcase({project}: {project: TProject}) {
     }
   }
 
-  const residentsGridConfig = {
-    base: 'grid-cols-10',
-    name: 'col-span-5',
-    info: 'col-span-4',
-    close: 'col-span-1',
-  }
-
   return (
     <section data-section="desk-showcase-project" className={`relative ${screenHeight}`}>
       <div className={`h-full pb-10 ${containerStyles.width}`}>
@@ -53,34 +46,9 @@ function DeskShowcase({project}: {project: TProject}) {
           <div className="flex flex-col gap-1.5">
             {activeTab !== null && (
               <div className="flex gap-1.5">
-                {Object.values(project.residents).map(
-                  ({name, status, type, area, image}, index) =>
-                    activeTab === index && (
-                      <div className="flex gap-3 p-2.5 max-w-[45vw] xl:max-w-[50vw] bg-background" key={index}>
-                        <div className="w-[30vw] bg-background aspect-square">
-                          <Image className="object-cover s-full" src={image} alt={name} />
-                        </div>
-
-                        <div className="flex flex-col gap-7">
-                          <div className={`grid ${residentsGridConfig.base}`}>
-                            <div className={`pt-1.5 flex flex-col justify-between gap-2 ${residentsGridConfig.name}`}>
-                              <Text type="sub" className="text-gray font-extralight" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
-                              <Heading type="h3" className="leading-none" text={name} />
-                            </div>
-
-                            <div className={`pt-1.5 flex flex-col gap-4 text-gray font-extralight ${residentsGridConfig.info}`}>
-                              {type && <Text type="sub" text={type === 'ФФФ' ? 'Фулфилмент - фабрика' : type} />}
-                              <Text type="sub" text={`${area} м2`} />
-                            </div>
-
-                            <X className={`cursor-pointer justify-self-end hover:text-red hover:scale-[1.1] duration-200 ${residentsGridConfig.close}`} onClick={() => setActiveTab(null)} />
-                          </div>
-
-                          <Text type="p" text={project.description} />
-                        </div>
-                      </div>
-                    ),
-                )}
+                {Object.values(project.residents).map((resident, index) => {
+                  return activeTab === index ? <ResidentCard key={index} resident={resident} isExtra={resident.variant === 'extra'} /> : null
+                })}
               </div>
             )}
 
