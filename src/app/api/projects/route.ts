@@ -52,6 +52,7 @@ export type TProject = {
   slug: string
   project: string
   image: StaticImageData
+  description: string
   residents: Record<number, TResident | TResidentExtra>
   award?: string
 }
@@ -74,6 +75,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-zapad',
     project: 'Ориентир Запад',
     image: OrientirZapadImage,
+    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
     award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
 
     residents: {
@@ -193,6 +195,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever',
     project: 'Ориентир Север',
     image: OrientirSeverImage,
+    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
     award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
 
     residents: {
@@ -274,6 +277,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever-2',
     project: 'Ориентир Север-2',
     image: OrientirSever2Image,
+    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
       1: {
@@ -354,6 +358,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-zapad-2',
     project: 'Ориентир Запад-2',
     image: OrientirZapad2Image,
+    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
       1: {
@@ -446,6 +451,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-zapad-3',
     project: 'Ориентир Запад-3',
     image: OrientirZapad3Image,
+    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
       1: {
