@@ -6,7 +6,7 @@ import Text from '~/UI/Text'
 export default function Specs({project}: {project: TProjectExtra}) {
   return (
     <section data-section="specs-project" className="space-y-10 sm:space-y-7">
-      <Heading type="h1" className="mt-10 sm:mt-5 sm:text-[33px]" text="Характеристики" />
+      <Heading type="h1" className="sm:text-[33px]" text="Характеристики" />
 
       <div className="grid grid-cols-2 sm:grid-cols-1 gap-y-10 xl:gap-y-8 px-44 xl:px-24 sm:px-0">
         {project.specifications.map((spec, index) => (

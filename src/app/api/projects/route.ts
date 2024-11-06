@@ -44,7 +44,7 @@ export type TProjectExtra = TProject & {
   location: {address: string; link: string; widget: string}
   more_info?: {image: StaticImageData; text: string}[]
   specifications: {heading: string; caption: string}[]
-  gallery: StaticImageData[]
+  gallery: {image: StaticImageData; caption: string}[]
 }
 
 export type ResidentStatus = 'Завершен' | 'В процессе' | 'Свободные земельные участки'
@@ -120,7 +120,32 @@ const projects: TProjectExtra[] = [
         caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
       },
     ],
-    gallery: [ProjectOneImage, ProjectTwoImage, ProjectThreeImage, ProjectFourImage, ProjectFiveImage, ProjectSixImage],
+    gallery: [
+      {
+        image: ProjectOneImage,
+        caption: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet',
+      },
+      {
+        image: ProjectTwoImage,
+        caption: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut',
+      },
+      {
+        image: ProjectThreeImage,
+        caption: 'Sed do eiusmod tempor incididunt ut labore et dolore magna',
+      },
+      {
+        image: ProjectFourImage,
+        caption: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      },
+      {
+        image: ProjectFiveImage,
+        caption: 'Laboris nisi ut aliquip ex ea commodo consequat',
+      },
+      {
+        image: ProjectSixImage,
+        caption: 'Duis aute irure dolor in reprehenderit in voluptate',
+      },
+    ],
   },
   {
     id: 2,
@@ -172,7 +197,32 @@ const projects: TProjectExtra[] = [
         caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
       },
     ],
-    gallery: [ProjectOneImage, ProjectTwoImage, ProjectThreeImage, ProjectFourImage, ProjectFiveImage, ProjectSixImage],
+    gallery: [
+      {
+        image: ProjectOneImage,
+        caption: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet',
+      },
+      {
+        image: ProjectTwoImage,
+        caption: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut',
+      },
+      {
+        image: ProjectThreeImage,
+        caption: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      },
+      {
+        image: ProjectFourImage,
+        caption: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      },
+      {
+        image: ProjectFiveImage,
+        caption: 'Laboris nisi ut aliquip ex ea commodo consequat',
+      },
+      {
+        image: ProjectSixImage,
+        caption: 'Duis aute irure dolor in reprehenderit in voluptate',
+      },
+    ],
   },
   {
     id: 3,
@@ -224,7 +274,32 @@ const projects: TProjectExtra[] = [
         caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
       },
     ],
-    gallery: [ProjectOneImage, ProjectTwoImage, ProjectThreeImage, ProjectFourImage, ProjectFiveImage, ProjectSixImage],
+    gallery: [
+      {
+        image: ProjectOneImage,
+        caption: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet',
+      },
+      {
+        image: ProjectTwoImage,
+        caption: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut',
+      },
+      {
+        image: ProjectThreeImage,
+        caption: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      },
+      {
+        image: ProjectFourImage,
+        caption: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      },
+      {
+        image: ProjectFiveImage,
+        caption: 'Laboris nisi ut aliquip ex ea commodo consequat',
+      },
+      {
+        image: ProjectSixImage,
+        caption: 'Duis aute irure dolor in reprehenderit in voluptate',
+      },
+    ],
   },
   {
     id: 4,
@@ -284,7 +359,32 @@ const projects: TProjectExtra[] = [
         caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
       },
     ],
-    gallery: [ProjectOneImage, ProjectTwoImage, ProjectThreeImage, ProjectFourImage, ProjectFiveImage, ProjectSixImage],
+    gallery: [
+      {
+        image: ProjectOneImage,
+        caption: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet',
+      },
+      {
+        image: ProjectTwoImage,
+        caption: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut',
+      },
+      {
+        image: ProjectThreeImage,
+        caption: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      },
+      {
+        image: ProjectFourImage,
+        caption: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      },
+      {
+        image: ProjectFiveImage,
+        caption: 'Laboris nisi ut aliquip ex ea commodo consequat',
+      },
+      {
+        image: ProjectSixImage,
+        caption: 'Duis aute irure dolor in reprehenderit in voluptate',
+      },
+    ],
   },
   {
     id: 5,
@@ -351,7 +451,32 @@ const projects: TProjectExtra[] = [
         caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
       },
     ],
-    gallery: [ProjectOneImage, ProjectTwoImage, ProjectThreeImage, ProjectFourImage, ProjectFiveImage, ProjectSixImage],
+    gallery: [
+      {
+        image: ProjectOneImage,
+        caption: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet',
+      },
+      {
+        image: ProjectTwoImage,
+        caption: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut',
+      },
+      {
+        image: ProjectThreeImage,
+        caption: 'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      },
+      {
+        image: ProjectFourImage,
+        caption: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      },
+      {
+        image: ProjectFiveImage,
+        caption: 'Laboris nisi ut aliquip ex ea commodo consequat',
+      },
+      {
+        image: ProjectSixImage,
+        caption: 'Duis aute irure dolor in reprehenderit in voluptate',
+      },
+    ],
   },
 ]
 
