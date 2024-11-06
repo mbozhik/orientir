@@ -18,13 +18,33 @@ import ProjectFourImage from '$/projects/gallery/project-4.jpg'
 import ProjectFiveImage from '$/projects/gallery/project-5.jpg'
 import ProjectSixImage from '$/projects/gallery/project-6.jpg'
 
-type Resident = {
+export type TResident = {
+  variant?: 'default' | 'extra'
   name: string
+  description: string
   status: ResidentStatus
   type?: 'ФФФ' | 'ПК' | 'РЦ'
   area: string
   image: StaticImageData
   award?: string
+  completion_time?: string
+}
+
+export type TResidentExtra = TResident & {
+  working_height: string
+  column_spacing: string
+  flooring: string
+  floor_load: string
+  spot_loads: string
+  fire_protection: string
+  communication_systems: string
+  connection: string
+  hub_capacity: string
+  safety_system: string
+  docking_density: string
+  flooring_type: string
+  mezzanine: string
+  energy_efficiency: string
 }
 
 export type TProject = {
@@ -32,8 +52,7 @@ export type TProject = {
   slug: string
   project: string
   image: StaticImageData
-  description: string
-  residents: Record<number, Resident>
+  residents: Record<number, TResident | TResidentExtra>
   award?: string
 }
 
@@ -55,32 +74,54 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-zapad',
     project: 'Ориентир Запад',
     image: OrientirZapadImage,
-    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
     award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
 
     residents: {
       1: {
+        variant: 'default',
         name: 'OZON',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
         type: 'ФФФ',
         area: '157 000',
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        completion_time: '12 мес.',
       },
       2: {
+        variant: 'default',
         name: 'ТехноАвиа',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
         type: 'ПК',
         area: '40 000',
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        completion_time: '11 мес.',
       },
       3: {
+        variant: 'extra',
         name: 'Золотое яблоко',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'В процессе',
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
+
+        working_height: '15м и 12м',
+        column_spacing: '6х6 м, 12х12 м и 12х24 м',
+        flooring: 'С антипылевым покрытием',
+        floor_load: 'От 8 т/м²',
+        spot_loads: 'До 120 т',
+        fire_protection: 'Многоуровневая',
+        communication_systems: 'Отопления и вентиляции',
+        connection: 'К инженерной инфраструктуре',
+        hub_capacity: 'До 800 000 посылок в сутки',
+        safety_system: 'Централизованная',
+        docking_density: '1док на 870 м²',
+        flooring_type: 'Железобетонные в два этажа площадью 41 000 м²',
+        mezzanine: 'Шестиуровневый',
+        energy_efficiency: 'Повышенное: 8 мВт ',
       },
     },
 
@@ -152,22 +193,26 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever',
     project: 'Ориентир Север',
     image: OrientirSeverImage,
-    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
     award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
 
     residents: {
       1: {
+        variant: 'default',
         name: 'Свободное назначение',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
         area: '25 000',
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       2: {
+        variant: 'default',
         name: 'Свободное назначение',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
         area: '25 000',
         image: ResidentTwoImage,
+        completion_time: '12 мес.',
       },
     },
 
@@ -229,18 +274,21 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever-2',
     project: 'Ориентир Север-2',
     image: OrientirSever2Image,
-    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
       1: {
+        variant: 'default',
         name: 'Свободное назначение',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
         area: '25 000',
         image: ResidentThreeImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       2: {
+        variant: 'default',
         name: 'Свободное назначение',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
         area: '25 000',
         image: ResidentTwoImage,
@@ -306,30 +354,37 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-zapad-2',
     project: 'Ориентир Запад-2',
     image: OrientirZapad2Image,
-    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
       1: {
+        variant: 'default',
         name: 'OZON',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'В процессе',
         type: 'ФФФ',
         area: '157 000',
         image: ResidentOneImage,
       },
       2: {
+        variant: 'default',
         name: 'ТехноАвиа',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
         type: 'ПК',
         area: '40 000',
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        completion_time: '10 мес.',
       },
       3: {
+        variant: 'default',
         name: 'Золотое яблоко',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
+        completion_time: '9 мес.',
       },
     },
 
@@ -391,33 +446,42 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-zapad-3',
     project: 'Ориентир Запад-3',
     image: OrientirZapad3Image,
-    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
       1: {
+        variant: 'default',
         name: 'OZON',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
         type: 'ФФФ',
         area: '157 000',
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        completion_time: '12 мес.',
       },
       2: {
+        variant: 'default',
         name: 'ТехноАвиа',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
         type: 'ПК',
         area: '40 000',
         image: ResidentThreeImage,
+        completion_time: '11 мес.',
       },
       3: {
+        variant: 'default',
         name: 'Свободное назначение',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
         area: '25 000',
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       4: {
+        variant: 'default',
         name: 'Свободное назначение',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
         area: '25 000',
         image: ResidentTwoImage,
