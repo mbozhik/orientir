@@ -19,7 +19,6 @@ import ProjectFiveImage from '$/projects/gallery/project-5.jpg'
 import ProjectSixImage from '$/projects/gallery/project-6.jpg'
 
 export type TResident = {
-  variant?: 'default' | 'extra'
   name: string
   description: string
   status: ResidentStatus
@@ -28,23 +27,7 @@ export type TResident = {
   image: StaticImageData
   award?: string
   completion_time?: string
-}
-
-export type TResidentExtra = TResident & {
-  working_height: string
-  column_spacing: string
-  flooring: string
-  floor_load: string
-  spot_loads: string
-  fire_protection: string
-  communication_systems: string
-  connection: string
-  hub_capacity: string
-  safety_system: string
-  docking_density: string
-  flooring_type: string
-  mezzanine: string
-  energy_efficiency: string
+  extra_info?: {label: string; text: string}[]
 }
 
 export type TProject = {
@@ -53,7 +36,7 @@ export type TProject = {
   project: string
   image: StaticImageData
   description: string
-  residents: Record<number, TResident | TResidentExtra>
+  residents: Record<number, TResident>
   award?: string
 }
 
@@ -80,7 +63,6 @@ const projects: TProjectExtra[] = [
 
     residents: {
       1: {
-        variant: 'default',
         name: 'OZON',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
@@ -91,7 +73,6 @@ const projects: TProjectExtra[] = [
         completion_time: '12 мес.',
       },
       2: {
-        variant: 'default',
         name: 'ТехноАвиа',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
@@ -102,7 +83,6 @@ const projects: TProjectExtra[] = [
         completion_time: '11 мес.',
       },
       3: {
-        variant: 'extra',
         name: 'Золотое яблоко',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'В процессе',
@@ -110,20 +90,22 @@ const projects: TProjectExtra[] = [
         area: '46 000',
         image: ResidentThreeImage,
 
-        working_height: '15м и 12м',
-        column_spacing: '6х6 м, 12х12 м и 12х24 м',
-        flooring: 'С антипылевым покрытием',
-        floor_load: 'От 8 т/м²',
-        spot_loads: 'До 120 т',
-        fire_protection: 'Многоуровневая',
-        communication_systems: 'Отопления и вентиляции',
-        connection: 'К инженерной инфраструктуре',
-        hub_capacity: 'До 800 000 посылок в сутки',
-        safety_system: 'Централизованная',
-        docking_density: '1док на 870 м²',
-        flooring_type: 'Железобетонные в два этажа площадью 41 000 м²',
-        mezzanine: 'Шестиуровневый',
-        energy_efficiency: 'Повышенное: 8 мВт ',
+        extra_info: [
+          {label: 'Рабочая высота', text: '15м и 12м'},
+          {label: 'Подключение', text: 'К инженерной инфраструктуре'},
+          {label: 'Шаг колонн', text: '6х6, 12х12, 12х24 м'},
+          {label: 'Мощность хаба', text: 'до 800 000 шт/сутки'},
+          {label: 'Бетонный пол', text: 'С антипылевым покрытием'},
+          {label: 'Система безопасности', text: 'Централизованная'},
+          {label: 'Нагрузка на пол', text: 'От 8 т/м²'},
+          {label: 'Точечные нагрузки', text: 'До 120 т'},
+          {label: 'Система пожаротушения', text: 'Многоуровневая'},
+          {label: 'Системы коммуникаций', text: 'Отопления и вентиляции'},
+          {label: 'Высокая доковооруженность', text: '1 док на 870 м²'},
+          {label: 'Железобетонные перекрытия', text: 'Два этажа площадью 41 000 м²'},
+          {label: 'Мезонин', text: 'Шестиуровневый'},
+          {label: 'Энергосбережение', text: 'Повышенное: 8 мВт'},
+        ],
       },
     },
 
@@ -200,7 +182,6 @@ const projects: TProjectExtra[] = [
 
     residents: {
       1: {
-        variant: 'default',
         name: 'Свободное назначение',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
@@ -209,7 +190,6 @@ const projects: TProjectExtra[] = [
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       2: {
-        variant: 'default',
         name: 'Свободное назначение',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
@@ -281,7 +261,6 @@ const projects: TProjectExtra[] = [
 
     residents: {
       1: {
-        variant: 'default',
         name: 'Свободное назначение',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
@@ -290,7 +269,6 @@ const projects: TProjectExtra[] = [
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       2: {
-        variant: 'default',
         name: 'Свободное назначение',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
@@ -362,7 +340,6 @@ const projects: TProjectExtra[] = [
 
     residents: {
       1: {
-        variant: 'default',
         name: 'OZON',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'В процессе',
@@ -371,7 +348,6 @@ const projects: TProjectExtra[] = [
         image: ResidentOneImage,
       },
       2: {
-        variant: 'default',
         name: 'ТехноАвиа',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
@@ -382,7 +358,6 @@ const projects: TProjectExtra[] = [
         completion_time: '10 мес.',
       },
       3: {
-        variant: 'default',
         name: 'Золотое яблоко',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
@@ -455,7 +430,6 @@ const projects: TProjectExtra[] = [
 
     residents: {
       1: {
-        variant: 'default',
         name: 'OZON',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Завершен',
@@ -466,17 +440,14 @@ const projects: TProjectExtra[] = [
         completion_time: '12 мес.',
       },
       2: {
-        variant: 'default',
-        name: 'ТехноАвиа',
+        name: 'Золотое яблоко',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-        status: 'Завершен',
-        type: 'ПК',
-        area: '40 000',
+        status: 'В процессе',
+        type: 'РЦ',
+        area: '46 000',
         image: ResidentThreeImage,
-        completion_time: '11 мес.',
       },
       3: {
-        variant: 'default',
         name: 'Свободное назначение',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',
@@ -485,7 +456,6 @@ const projects: TProjectExtra[] = [
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
       4: {
-        variant: 'default',
         name: 'Свободное назначение',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
         status: 'Свободные земельные участки',

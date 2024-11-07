@@ -1,4 +1,4 @@
-import {TResident, TResidentExtra} from '@/app/api/projects/route'
+import {TResident} from '@/app/api/projects/route'
 import {X} from 'lucide-react'
 
 import Image from 'next/image'
@@ -14,13 +14,12 @@ function ResidentDetail({label, value}: {label: string; value: string}) {
   )
 }
 
-export function ResidentCard({resident, isExtra}: {resident: TResident | TResidentExtra; isExtra: boolean}) {
-  const {name, description, status, type, area, image, completion_time} = resident
-  const residentExtra = resident as TResidentExtra
+export function ResidentCard({resident, isExtra}: {resident: TResident; isExtra: boolean}) {
+  const {name, description, status, type, area, image, completion_time, extra_info} = resident
 
   return (
     <div className="flex gap-3 p-2.5 max-w-[45vw] xl:max-w-[50vw] bg-background">
-      <div className={`bg-background aspect-square ${!isExtra ? 'w-[30vw]' : 'w-[23vw]'}`}>
+      <div className={`bg-background aspect-square ${!isExtra ? 'w-[30vw]' : 'w-[13vw]'}`}>
         <Image className="object-cover s-full" src={image} alt={name} />
       </div>
 
@@ -41,24 +40,7 @@ export function ResidentCard({resident, isExtra}: {resident: TResident | TReside
 
         {!isExtra && <Text type="p" text={description} />}
 
-        {isExtra && (
-          <div className="grid grid-cols-2 gap-2">
-            <ResidentDetail label="Рабочая высота" value={residentExtra.working_height} />
-            <ResidentDetail label="Подключение" value={residentExtra.connection} />
-            <ResidentDetail label="Шаг колонн" value={residentExtra.column_spacing} />
-            <ResidentDetail label="Мощность хаба" value={residentExtra.hub_capacity} />
-            <ResidentDetail label="Бетонный пол" value={residentExtra.flooring} />
-            <ResidentDetail label="Система безопасности" value={residentExtra.safety_system} />
-            <ResidentDetail label="Нагрузка на пол" value={residentExtra.floor_load} />
-            <ResidentDetail label="Высокая доковооруженность" value={residentExtra.docking_density} />
-            <ResidentDetail label="Точечные нагрузки" value={residentExtra.spot_loads} />
-            <ResidentDetail label="Перекрытия" value={residentExtra.flooring_type} />
-            <ResidentDetail label="Система пожаротушения" value={residentExtra.fire_protection} />
-            <ResidentDetail label="Мезонин" value={residentExtra.mezzanine} />
-            <ResidentDetail label="Системы коммуникаций" value={residentExtra.communication_systems} />
-            <ResidentDetail label="Энергосбережение" value={residentExtra.energy_efficiency} />
-          </div>
-        )}
+        {isExtra && <div className="grid grid-cols-2 gap-2">{extra_info && extra_info.map((info, index) => <ResidentDetail key={index} label={info.label} value={info.text} />)}</div>}
       </div>
     </div>
   )

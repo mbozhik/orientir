@@ -47,7 +47,7 @@ function DeskShowcase({project}: {project: TProject}) {
             {activeTab !== null && (
               <div className="flex gap-1.5">
                 {Object.values(project.residents).map((resident, index) => {
-                  return activeTab === index ? <ResidentCard key={index} resident={resident} isExtra={resident.variant === 'extra'} /> : null
+                  return activeTab === index ? <ResidentCard key={index} resident={resident} isExtra={!!resident.extra_info} /> : null
                 })}
               </div>
             )}
