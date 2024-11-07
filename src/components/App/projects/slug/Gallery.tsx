@@ -31,7 +31,7 @@ export default function Gallery({project}: {project: TProjectExtra}) {
       </div>
 
       <div className="sm:space-y-1">
-        <Swiper data-slider="swiper" className="w-full h-[85vh] sm:h-[50vh]" onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} thumbs={{swiper: thumbsSwiper}} loop={true} spaceBetween={10} navigation={true} modules={[FreeMode, Navigation, Thumbs]}>
+        <Swiper data-slider="gallery" className="w-full h-[85vh] sm:h-[50vh]" onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} thumbs={{swiper: thumbsSwiper}} loop={true} spaceBetween={10} navigation={true} modules={[FreeMode, Navigation, Thumbs]}>
           {project.gallery.map(({image, caption}, index) => (
             <SwiperSlide className="bg-center bg-cover" key={index}>
               <Image quality={100} className="block object-cover s-full" src={image} width={2000} height={2000} alt={caption} />
@@ -39,11 +39,11 @@ export default function Gallery({project}: {project: TProjectExtra}) {
           ))}
         </Swiper>
 
-        <div className="absolute sm:static z-50 w-full bottom-4">
+        <div className="absolute z-50 w-full sm:static bottom-4">
           <div className="bg-background p-1 sm:px-0 w-1/2 sm:w-full mx-auto h-[10vh] sm:h-[7vh]">
             <Swiper data-slider="thumbs" className="h-full" onSwiper={setThumbsSwiper} loop={true} spaceBetween={4} slidesPerView={6} freeMode={true} watchSlidesProgress={true} modules={[FreeMode, Navigation, Thumbs]}>
               {project.gallery.map(({image, caption}, index) => (
-                <SwiperSlide className="bg-center bg-cover bg-foreground cursor-pointer" key={index}>
+                <SwiperSlide className="bg-center bg-cover cursor-pointer bg-foreground" key={index}>
                   <Image quality={100} className="block object-cover s-full" src={image} width={500} height={500} alt={caption} />
                 </SwiperSlide>
               ))}

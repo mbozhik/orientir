@@ -59,15 +59,15 @@ function DeskShowcase({project}: {project: TProject}) {
           {combinedAwards.length > 0 && (
             <div className="flex flex-col gap-1.5 items-end">
               {activeAward.text && (
-                <div className="p-4 bg-background">
-                  <Text type="sub" className="max-w-[45ch] xl:max-w-[40ch] font-extralight" text={activeAward.text} />
+                <div className="p-4 bg-background max-w-[45ch] xl:max-w-[40ch]">
+                  <Text type="sub" className="font-extralight" text={activeAward.text} />
                 </div>
               )}
 
-              <div className="flex gap-2.5 px-4 py-3.5 w-fit bg-background">
+              <div className="flex gap-2.5 xl:gap-1.5 px-4 xl:px-2.5 py-3.5 w-fit bg-background">
                 {combinedAwards.map((award, index) => (
                   <div key={index} className={cn('cursor-pointer duration-300', activeAward.index === index && 'scale-[1.2]')} onClick={() => setActiveAward({index, text: award.text})}>
-                    <Image quality={100} src={award.image} alt={award.text} />
+                    <Image quality={100} className="object-contain xl:h-16" src={award.image} alt={award.text} />
                   </div>
                 ))}
               </div>

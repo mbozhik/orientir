@@ -8,7 +8,7 @@ interface Props {
 export const sitePadding = 'pt-[88px] xl:pt-16'
 
 export const containerStyles = {
-  width: 'mx-[6.25rem] xl:mx-[2.5rem] sm:mx-3',
+  width: 'mx-[6.25rem] xl:mx-[3.5rem] sm:mx-3',
 }
 const {width} = containerStyles
 
