@@ -6,8 +6,12 @@ import {isMobile} from '@bozzhik/is-mobile'
 
 import {TProject} from '@/app/api/projects/route'
 import {containerStyles} from '~/Global/Container'
-
 import AwardImage from '$/projects/award.png'
+
+import {Swiper, SwiperSlide} from 'swiper/react'
+import {Pagination} from 'swiper/modules'
+import 'swiper/css'
+import 'swiper/css/pagination'
 
 import Image from 'next/image'
 import Heading from '~/UI/Heading'
@@ -81,29 +85,27 @@ function DeskShowcase({project}: {project: TProject}) {
   )
 }
 
-function MobileShowcase({project}: {project: TProject}) {
+function MobileAwards({project}: {project: TProject}) {
   const combinedAwards = [...(project.award ? [{image: AwardImage, text: project.award}] : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
 
   return (
-    <section data-section="desk-showcase-project" className="relative space-y-5">
+    <section data-section="mob-awards-project" className="relative mb-5 space-y-5 overflow-hidden">
       <Image className="object-cover w-full h-[40vh]" src={project.image} alt="" />
 
       <div className={`space-y-3 ${containerStyles.width}`}>
         <Heading type="h1" className="sm:text-[33px]" text={project.project} />
 
         {combinedAwards.length > 0 && (
-          <div className="p-3 space-y-3 border border-gray-light">
-            <Heading type="h2" className="sm:text-2xl text-gray" text="Награды" />
-
-            <div className="flex flex-col gap-3">
-              {combinedAwards.map((award, index) => (
-                <div key={index} className="flex gap-5">
+          <Swiper data-slider="mobile-awards" className="flex w-full gap-3" spaceBetween={30} pagination={{clickable: true}} modules={[Pagination]}>
+            {combinedAwards.map((award, index) => (
+              <SwiperSlide key={index}>
+                <div className="flex items-center gap-6 px-3 pl-4 py-2.5 border border-gray-light">
                   <Image quality={100} className="object-contain s-14" src={award.image} alt={award.text} />
                   <Text type="p" className="sm:text-xs" text={award.text} />
                 </div>
-              ))}
-            </div>
-          </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         )}
       </div>
     </section>
@@ -111,5 +113,5 @@ function MobileShowcase({project}: {project: TProject}) {
 }
 
 export default function Showcase({project}: {project: TProject}) {
-  return <>{!isMobile ? <DeskShowcase project={project} /> : <MobileShowcase project={project} />}</>
+  return <>{!isMobile ? <DeskShowcase project={project} /> : <MobileAwards project={project} />}</>
 }

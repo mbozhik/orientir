@@ -41,3 +41,17 @@
     --swiper-navigation-size: 24px !important;
   }
 }
+
+/* mobile awards slider */
+
+[data-slider='mobile-awards'] {
+  @apply !overflow-visible;
+}
+
+[data-slider='mobile-awards'] .swiper-pagination {
+  @apply !top-[6.4rem];
+}
+
+[data-slider='mobile-awards'] .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  @apply !bg-red;
+}
