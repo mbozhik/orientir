@@ -2,7 +2,7 @@ import {API_URL} from '@/lib/constants'
 import {TProjectExtra} from '@/app/api/projects/route'
 
 import Container from '~/Global/Container'
-import Showcase from '~~/projects/slug/Showcase'
+import Showcase from '~~/projects/slug/showcase/Showcase'
 import Info from '~~/projects/slug/Info'
 import Specs from '~~/projects/slug/Specs'
 import MapPoint from '~~/projects/slug/MapPoint'

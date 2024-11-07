@@ -14,7 +14,7 @@ function ResidentDetail({label, value}: {label: string; value: string}) {
   )
 }
 
-export function ResidentCard({resident, isExtra}: {resident: TResident; isExtra: boolean}) {
+export default function ResidentCard({resident, isExtra}: {resident: TResident; isExtra: boolean}) {
   const {name, description, status, type, area, image, completion_time, extra_info} = resident
 
   return (
