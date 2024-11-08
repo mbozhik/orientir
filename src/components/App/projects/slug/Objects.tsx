@@ -1,8 +1,7 @@
 'use client'
 
 import {TProjectExtra} from '@/app/api/projects/route'
-// import {isMobile} from '@bozzhik/is-mobile'
-const isMobile = true
+import {isMobile} from '@bozzhik/is-mobile'
 
 import {useState, useRef} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
