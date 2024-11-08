@@ -1,7 +1,7 @@
 import {cn} from '@/lib/utils'
-import {useRef} from 'react'
 import {TProject} from '@/app/api/projects/route'
 
+import {useRef} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {SwiperRef} from 'swiper/react'
 

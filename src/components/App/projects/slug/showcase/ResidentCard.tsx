@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Text from '~/UI/Text'
 import Heading from '~/UI/Heading'
 
-function ResidentDetail({label, value}: {label: string; value: string}) {
+export function CardDetails({label, value}: {label: string; value: string}) {
   return (
     <div className="flex flex-col">
       <Text type="sub" className="text-base text-gray-dark font-extralight" text={label} />
@@ -40,7 +40,7 @@ export default function ResidentCard({resident, isExtra}: {resident: TResident; 
 
         {!isExtra && <Text type="p" text={description} />}
 
-        {isExtra && <div className="grid grid-cols-2 gap-2">{extra_info && extra_info.map((info, index) => <ResidentDetail key={index} label={info.label} value={info.text} />)}</div>}
+        {isExtra && <div className="grid grid-cols-2 gap-2">{extra_info && extra_info.map((info, index) => <CardDetails key={index} label={info.label} value={info.text} />)}</div>}
       </div>
     </div>
   )
