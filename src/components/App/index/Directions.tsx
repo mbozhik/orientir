@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import DirectionsModule from '~/App/index/DirectionsModule'
+import {ExpandButton} from '~/UI/Button'
 
 const directionsConfig = {
   '01': {
@@ -51,12 +52,10 @@ export default function Directions() {
       <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-3">
         <Heading type="h1" text="Направления" />
 
-        <div className="flex">
+        <div className="flex gap-10">
           <Text type="h4" text="Наша компания осуществляет весь спектр работ по строительству и эксплуатации объектов: от разработки концепции до полной реализации и последующего технического обслуживания." />
 
-          <Link className="w-full text-end sm:hidden" href="/services">
-            <Text type="h4" className="font-bold underline hover:no-underline underline-offset-[8px]" text="Все услуги" />
-          </Link>
+          <ExpandButton href="/services" className="sm:hidden" text="Все услуги" />
         </div>
       </div>
 
@@ -66,9 +65,7 @@ export default function Directions() {
         <DirectionsModule config={directionsConfig} />
       </div>
 
-      <Link className="hidden sm:block" href="/services">
-        <Text type="h4" className="font-bold underline hover:no-underline underline-offset-[8px]" text="Все услуги" />
-      </Link>
+      <ExpandButton href="/services" className="hidden sm:block" text="Все услуги" />
     </section>
   )
 }

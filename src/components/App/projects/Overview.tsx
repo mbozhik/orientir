@@ -7,7 +7,7 @@ import {TProject, ResidentStatus} from '@/app/api/projects/route'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {ArrowDownRight} from '~/UI/Icons'
-import DetailsButton from '~/UI/DetailsButton'
+import {DetailsButton} from '~/UI/Button'
 
 const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'Завершен', 'В процессе', 'Свободные земельные участки']
 

@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import DetailsButton from '~/UI/DetailsButton'
+import {DetailsButton} from '~/UI/Button'
 import {ArrowX} from '~/UI/Icons'
 
 export default function ProjectsModule() {
