@@ -21,9 +21,9 @@ export default function DirectionsModule({directions}: {directions: TDirection[]
   }
 
   return (
-    <div className="space-y-3 xl:space-y-2">
+    <div className="space-y-3 xl:space-y-2 sm:space-y-3.5">
       {directions.map((direction) => (
-        <div key={direction.id} className="space-y-5 sm:space-y-3.5 border-b-[1px] pb-5 xl:pb-4 sm:pb-2 border-gray-light group">
+        <div key={direction.id} className="space-y-5 sm:space-y-3.5 border-b-[1px] pb-5 xl:pb-4 sm:pb-3.5 border-gray-light group">
           <div className="flex items-end justify-between gap-10 cursor-pointer" onClick={() => handleToggle(direction.id)}>
             <div className="flex gap-5">
               <Text type="sub" className={cn('mt-1 sm:mt-0 font-light sm:hidden', interactiveClasses.text, openTab === direction.id && 'text-red')} text={direction.id} />
