@@ -6,8 +6,8 @@ import Image from 'next/image'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import DirectionsModule from '~/App/index/DirectionsModule'
 import {ExpandButton} from '~/UI/Button'
+import DirectionsModule from '~/App/index/DirectionsModule'
 
 async function getDirections(): Promise<TDirection[]> {
   const res = await fetch(`${API_URL}/api/directions`, {cache: 'no-store'})
@@ -27,7 +27,7 @@ export default async function Directions() {
 
         <div className="flex gap-10">
           <Text type="h4" text="Наша компания осуществляет весь спектр работ по строительству и эксплуатации объектов: от разработки концепции до полной реализации и последующего технического обслуживания." />
-          <ExpandButton href="/services" className="sm:hidden" text="Все услуги" />
+          <ExpandButton href="/services" view="desktop" text="Все услуги" />
         </div>
       </div>
 
@@ -37,7 +37,7 @@ export default async function Directions() {
         <DirectionsModule directions={directions} />
       </div>
 
-      <ExpandButton href="/services" className="hidden sm:block" text="Все услуги" />
+      <ExpandButton href="/services" view="mobile" text="Все услуги" />
     </section>
   )
 }
