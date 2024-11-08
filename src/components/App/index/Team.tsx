@@ -5,10 +5,10 @@ import OlgaKaskarovaPhoto from '$/index/team/olga-kaskarova.jpg'
 import DmitriiBelousPhoto from '$/index/team/dmirtii-belous.jpg'
 import AnarDamirovPhoto from '$/index/team/anar-damirov.jpg'
 
+import {cn} from '@/lib/utils'
 import Image, {StaticImageData} from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import {cn} from '@/lib/utils'
 
 const teamConfig = [
   {
@@ -43,18 +43,20 @@ const teamConfig = [
   },
 ]
 
-interface Person {
+type TPerson = {
   photo: StaticImageData
   name: string
   position: string
 }
 
-function TeamCard({person, className}: {person: Person; className?: string}) {
+function TeamCard({person, className}: {person: TPerson; className?: string}) {
   const {position, name, photo} = person
 
   return (
     <div className={cn('space-y-3 sm:space-y-2', className)}>
-      <Image quality={100} className={cn('w-full object-cover', name === 'Елена Бондарчук' && 'h-[75vh]')} src={photo} alt={name} />
+      <div className={cn('w-full xl:w-[25vw] sm:w-full', name === 'Елена Бондарчук' && 'w-[33vw] xl:w-[34vw]')}>
+        <Image quality={100} className="block object-cover w-full h-full" src={photo} alt={name} />
+      </div>
 
       <div className="space-y-1 xl:-space-y-1">
         <Heading type="h3" text={name} />
@@ -72,16 +74,16 @@ export default function Team() {
         <Text type="h4" className="hidden sm:block" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
       </div>
 
-      <div className="flex flex-col gap-5 xl:gap-10 sm:gap-7 w-fit">
-        <div className="flex xl:flex-col items-end gap-5 sm:gap-7">
+      <div className="flex flex-col gap-5 sm:gap-7 w-fit">
+        <div className="flex items-end gap-5 sm:flex-col sm:gap-7">
           {teamConfig.slice(0, 3).map((person, index) => (
-            <TeamCard person={person} className={[1, 2].includes(index) ? 'pb-[72px] xl:pb-0' : ''} key={index} />
+            <TeamCard person={person} className={[1, 2].includes(index) ? 'pb-[65px] xl:pb-[62px] sm:pb-0' : ''} key={index} />
           ))}
         </div>
 
         <Text type="h4" className="hidden sm:block" text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus erat libero, dictum nec ligula congue, semper euismod massa. Praesent mattis metus id justo blandit, blandit cursus tellus feugiat. " />
 
-        <div className="flex xl:flex-col self-end gap-5 sm:gap-7">
+        <div className="flex self-end gap-5 sm:flex-col sm:gap-7">
           {teamConfig.slice(3, 6).map((person, index) => (
             <TeamCard person={person} key={index} />
           ))}

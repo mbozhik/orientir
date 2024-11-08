@@ -1,6 +1,6 @@
 import {cn} from '@/lib/utils'
 
-interface Props {
+type Props = {
   type: 'h1' | 'h2' | 'h3'
   text: string
   className?: string
