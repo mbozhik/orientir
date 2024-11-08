@@ -6,10 +6,17 @@ import {TProject, ResidentStatus} from '@/app/api/projects/route'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import {ArrowDownRight} from '~/UI/Icons'
 import {DetailsButton} from '~/UI/Button'
 
 const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'Завершен', 'В процессе', 'Свободные земельные участки']
+
+function ArrowDownRight({className}: {className?: string}) {
+  return (
+    <svg className={className} width="39" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="m22.96 31.84-1.98-1.98 12.463-12.464H.597v-2.792h32.846L20.98 2.141 22.96.16 38.799 16l-15.84 15.838Z" />
+    </svg>
+  )
+}
 
 export default function Overview({items: projects}: {items: TProject[]}) {
   const [activeTab, setActiveTab] = useState<number | null>(null)
@@ -46,9 +53,9 @@ export default function Overview({items: projects}: {items: TProject[]}) {
 
             return (
               <div className="space-y-4" key={project.slug}>
-                <div className={cn('flex items-center justify-between px-6 py-5 sm:py-4 text-background cursor-pointer hover:bg-red duration-200 group', activeTab === index ? 'bg-red' : 'bg-blue')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
+                <div className={cn('flex items-center justify-between px-6 py-5 sm:py-4 text-background cursor-pointer hover:bg-red duration-300 group', activeTab === index ? 'bg-red' : 'bg-blue')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
                   <Heading type="h2" className="sm:text-[28px]" text={project.project} />
-                  <ArrowDownRight className={cn('scale-[1.3] xl:scale-[1.0] sm:scale-[1.1] fill-background group-hover:rotate-45 duration-200', activeTab === index && 'rotate-45')} />
+                  <ArrowDownRight className={cn('scale-[1.3] xl:scale-[1.0] sm:scale-[1.1] fill-background group-hover:rotate-45 duration-300', activeTab === index && 'rotate-45')} />{' '}
                 </div>
 
                 {activeTab === index && (

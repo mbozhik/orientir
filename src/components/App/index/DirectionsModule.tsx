@@ -6,7 +6,7 @@ import {TDirection} from '@/app/api/directions/route'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import {ArrowDownRight} from '~/UI/Icons'
+import {ArrowRight} from 'lucide-react'
 
 export default function DirectionsModule({directions}: {directions: TDirection[]}) {
   const [openTab, setOpenTab] = useState<string | null>(directions[0]?.id || null)
@@ -17,20 +17,20 @@ export default function DirectionsModule({directions}: {directions: TDirection[]
 
   const interactiveClasses = {
     text: 'text-gray-dark duration-300 group-hover:text-red',
-    icon: 'fill-gray group-hover:rotate-45 group-hover:fill-red duration-300',
+    icon: 'text-gray group-hover:rotate-45 group-hover:text-red duration-300',
   }
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-3 xl:space-y-2">
       {directions.map((direction) => (
-        <div key={direction.id} className="pb-4 space-y-5 sm:space-y-3.5 border-b-[1px] xl:pb-4 sm:pb-2 border-gray-light group">
-          <div className="flex justify-between gap-10 cursor-pointer" onClick={() => handleToggle(direction.id)}>
+        <div key={direction.id} className="space-y-5 sm:space-y-3.5 border-b-[1px] pb-5 xl:pb-4 sm:pb-2 border-gray-light group">
+          <div className="flex items-end justify-between gap-10 cursor-pointer" onClick={() => handleToggle(direction.id)}>
             <div className="flex gap-5">
               <Text type="sub" className={cn('mt-1 sm:mt-0 font-light sm:hidden', interactiveClasses.text, openTab === direction.id && 'text-red')} text={direction.id} />
-              <Heading type="h2" className={cn(interactiveClasses.text, openTab === direction.id && 'text-red')} text={direction.heading} />
+              <Heading type="h2" className={cn(interactiveClasses.text, openTab === direction.id && 'text-red', 'xl:text-3xl')} text={direction.heading} />
             </div>
 
-            <ArrowDownRight className={cn('sm:scale-[0.6]', interactiveClasses.icon, openTab === direction.id && 'rotate-45 fill-red')} />
+            <ArrowRight className={cn('s-12 xl:s-10', interactiveClasses.icon, openTab === direction.id && 'rotate-45 text-red')} strokeWidth={1.25} />
           </div>
 
           {openTab === direction.id && (
