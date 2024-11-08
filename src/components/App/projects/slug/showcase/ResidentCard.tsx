@@ -1,9 +1,10 @@
 import {TResident} from '@/app/api/projects/route'
 import {X} from 'lucide-react'
 
-import Image from 'next/image'
+// import Image from 'next/image'
 import Text from '~/UI/Text'
 import Heading from '~/UI/Heading'
+import {cn} from '@/lib/utils'
 
 export function CardDetails({label, value}: {label: string; value: string}) {
   return (
@@ -14,14 +15,14 @@ export function CardDetails({label, value}: {label: string; value: string}) {
   )
 }
 
-export default function ResidentCard({resident, isExtra}: {resident: TResident; isExtra: boolean}) {
-  const {name, description, status, type, area, image, completion_time, extra_info} = resident
+export default function ResidentCard({resident, isExtra, onClose}: {resident: TResident; isExtra: boolean; onClose: () => void}) {
+  const {name, description, status, type, area, completion_time, extra_info} = resident
 
   return (
-    <div className="flex gap-3 p-2.5 max-w-[45vw] xl:max-w-[50vw] bg-background">
-      <div className={`bg-background aspect-square ${!isExtra ? 'w-[30vw]' : 'w-[13vw]'}`}>
+    <div className={cn('flex gap-3 p-2.5 bg-background', !isExtra ? 'max-w-[30vw] xl:max-w-[40vw]' : 'max-w-[45vw] xl:max-w-[50vw]')}>
+      {/* <div className={`bg-background aspect-square ${!isExtra ? 'w-[30vw]' : 'w-[13vw]'}`}>
         <Image className="object-cover s-full" src={image} alt={name} />
-      </div>
+      </div> */}
 
       <div className="flex flex-col gap-5">
         <div className="grid grid-cols-10">
@@ -35,7 +36,7 @@ export default function ResidentCard({resident, isExtra}: {resident: TResident; 
             <Text type="sub" text={`${area} м2`} />
           </div>
 
-          <X className="col-span-1 cursor-pointer justify-self-end hover:text-red hover:scale-[1.1] duration-200" />
+          <X onClick={onClose} className="col-span-1 cursor-pointer justify-self-end hover:text-red hover:scale-[1.1] duration-200" />
         </div>
 
         {!isExtra && <Text type="p" text={description} />}

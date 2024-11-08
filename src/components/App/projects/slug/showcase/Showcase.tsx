@@ -44,6 +44,11 @@ function DeskShowcase({project}: {project: TProject}) {
     }
   }
 
+  const handleCloseCard = () => {
+    setActiveTab(null)
+    setActiveAward({index: null, text: null})
+  }
+
   return (
     <section data-section="desk-showcase-project" className={`relative ${screenHeight}`}>
       <div className={`h-full pb-10 ${containerStyles.width}`}>
@@ -52,7 +57,7 @@ function DeskShowcase({project}: {project: TProject}) {
             {activeTab !== null && (
               <div className="flex gap-1.5">
                 {Object.values(project.residents).map((resident, index) => {
-                  return activeTab === index ? <ResidentCard key={index} resident={resident} isExtra={!!resident.extra_info} /> : null
+                  return activeTab === index ? <ResidentCard key={index} resident={resident} isExtra={!!resident.extra_info} onClose={handleCloseCard} /> : null
                 })}
               </div>
             )}
