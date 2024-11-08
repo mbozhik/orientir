@@ -9,7 +9,7 @@ export default async function Projects() {
   const projects: TProject[] = await getProjects()
 
   return (
-    <section data-section="projects-index" className="space-y-12 sm:space-y-5">
+    <section data-section="projects-index" className="space-y-12 sm:space-y-7">
       <div className="flex justify-between">
         <Heading className="max-w-[50ch]" type="h1" text="Проекты компании «Ориентир» соответствуют самым высоким российским и европейским стандартам качества." />
 

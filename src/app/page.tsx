@@ -12,7 +12,7 @@ export default function HomePage() {
   return (
     <>
       <Hero className={sitePadding} />
-      <Container className="space-y-36 xl:space-y-28 sm:space-y-20 my-36 xl:my-28 sm:my-20">
+      <Container className="space-y-36 xl:space-y-28 sm:space-y-20 my-36 xl:my-28 sm:my-16">
         <Directions />
         <Clients />
         <Projects />

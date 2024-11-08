@@ -13,7 +13,7 @@ export default async function Directions() {
   const directions: TDirection[] = await getDirections()
 
   return (
-    <section data-section="directions-index" className="space-y-20 sm:space-y-5">
+    <section data-section="directions-index" className="space-y-20 sm:space-y-7">
       <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-3">
         <Heading type="h1" text="Направления" />
 

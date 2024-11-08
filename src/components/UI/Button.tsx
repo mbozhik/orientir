@@ -13,9 +13,9 @@ type Props = {
 
 export function DetailsButton({href, text, className}: Props) {
   return (
-    <Link href={href} className={cn('w-fit flex items-center gap-1 pb-0.5 border-b-[2px] sm:border-b-[1px] border-foreground hover:border-transparent', className)}>
+    <Link href={href} className={cn('group w-fit flex items-center gap-1 pb-0.5 duration-150 border-b-[2px] sm:border-b-[1px] border-foreground hover:border-transparent', className)}>
       <Text type="h4" className="tracking-[-0.01em] sm:text-lg" text={text} />
-      <ArrowUpRight className="s-8 sm:s-6" strokeWidth={1.25} />
+      <ArrowUpRight className="duration-300 s-8 sm:s-6 group-hover:rotate-45" strokeWidth={1.25} />
     </Link>
   )
 }
