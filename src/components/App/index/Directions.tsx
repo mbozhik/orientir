@@ -1,5 +1,5 @@
 import {TDirection} from '@/app/api/directions/route'
-import {API_URL} from '@/lib/constants'
+import {getDirections} from '@/utils/getData'
 
 import DirectionsImage from '$/index/directions.jpg'
 import Image from 'next/image'
@@ -8,14 +8,6 @@ import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {ExpandButton} from '~/UI/Button'
 import DirectionsModule from '~/App/index/DirectionsModule'
-
-async function getDirections(): Promise<TDirection[]> {
-  const res = await fetch(`${API_URL}/api/directions`, {cache: 'no-store'})
-  if (!res.ok) {
-    throw new Error('Failed to fetch directions')
-  }
-  return res.json()
-}
 
 export default async function Directions() {
   const directions: TDirection[] = await getDirections()
