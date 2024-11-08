@@ -2,26 +2,17 @@
 
 import {cn} from '@/lib/utils'
 import {useState} from 'react'
+import {TDirection} from '@/app/api/directions/route'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {ArrowDownRight} from '~/UI/Icons'
 
-interface DirectionsModuleProps {
-  config: {
-    [key: string]: {
-      heading: string
-      list: {[key: number]: string}
-    }
-  }
-}
+export default function DirectionsModule({directions}: {directions: TDirection[]}) {
+  const [openTab, setOpenTab] = useState<string | null>(directions[0]?.id || null)
 
-export default function DirectionsModule({config}: DirectionsModuleProps) {
-  const [openTab, setOpenTab] = useState<string | null>('01')
-
-  const handleToggle = (key: string) => {
-    setOpenTab(openTab === key ? null : key)
-    console.log(key)
+  const handleToggle = (id: string) => {
+    setOpenTab(openTab === id ? null : id)
   }
 
   const interactiveClasses = {
@@ -31,20 +22,20 @@ export default function DirectionsModule({config}: DirectionsModuleProps) {
 
   return (
     <div className="space-y-5">
-      {Object.entries(config).map(([key, value]) => (
-        <div key={key} className="pb-3 space-y-5 sm:space-y-3.5 border-b-2 xl:pb-4 sm:pb-2 border-gray-light group">
-          <div className="flex justify-between gap-10 cursor-pointer" onClick={() => handleToggle(key)}>
+      {directions.map((direction) => (
+        <div key={direction.id} className="pb-4 space-y-5 sm:space-y-3.5 border-b-[1px] xl:pb-4 sm:pb-2 border-gray-light group">
+          <div className="flex justify-between gap-10 cursor-pointer" onClick={() => handleToggle(direction.id)}>
             <div className="flex gap-5">
-              <Text type="sub" className={cn('mt-1 sm:mt-0 font-light sm:hidden', interactiveClasses, openTab === key && 'text-red')} text={key} />
-              <Heading type="h2" className={cn(interactiveClasses.text, openTab === key && 'text-red')} text={value.heading} />
+              <Text type="sub" className={cn('mt-1 sm:mt-0 font-light sm:hidden', interactiveClasses.text, openTab === direction.id && 'text-red')} text={direction.id} />
+              <Heading type="h2" className={cn(interactiveClasses.text, openTab === direction.id && 'text-red')} text={direction.heading} />
             </div>
 
-            <ArrowDownRight className={cn('sm:scale-[0.6]', interactiveClasses.icon, openTab === key && 'rotate-45 fill-red')} />
+            <ArrowDownRight className={cn('sm:scale-[0.6]', interactiveClasses.icon, openTab === direction.id && 'rotate-45 fill-red')} />
           </div>
 
-          {openTab === key && (
-            <div className="flex flex-col gap-2 xl:gap-1.5 ml-10 sm:ml-0 text-gray-dark">
-              {Object.values(value.list).map((item, index) => (
+          {openTab === direction.id && (
+            <div className="flex flex-col gap-1.5 ml-10 sm:ml-0 text-gray-dark">
+              {direction.list.map((item, index) => (
                 <Text type="p" text={item} key={index} />
               ))}
             </div>
