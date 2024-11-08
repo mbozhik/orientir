@@ -21,7 +21,7 @@ export default function ClientsModule({items}: {items: string[]}) {
   }, [])
 
   return (
-    <div className="w-[75%] xl:w-full mx-auto border-t-[1px] border-gray-light">
+    <div className="w-[75%] xl:w-[89%] sm:w-full mx-auto border-t-[1px] border-gray-light">
       <div ref={marqueeRef} className="relative flex overflow-hidden">
         {items.map((logo, index) => (
           <div data-marquee="item" className="w-[350px] xl:w-[300px] sm:w-[200px] py-8 shrink-0 flex items-center justify-center" key={index}>
