@@ -1,0 +1,32 @@
+import {TDirection} from '@/app/api/directions/route'
+import {getDirections} from '@/utils/getData'
+
+import DirectionsImage from '$/directions.jpg'
+
+import Image from 'next/image'
+import Heading from '~/UI/Heading'
+
+import Container, {containerStyles, sitePadding} from '~/Global/Container'
+
+export default async function DirectionsPage() {
+  const directions: TDirection[] = await getDirections()
+
+  return (
+    <>
+      <section className={`${containerStyles.width} ${sitePadding}`}>
+        <div className="flex items-start justify-between mt-10 sm:mt-5">
+          <Heading type="h1" text="Направления" />
+          <div>
+            <Heading type="h2" className="max-w-[45ch]" text="<span class='text-red'>Мы подбираем и реализуем оптимальное складское решение для ваших бизнес-процессов</span>– от аренды стандартного сухого склада в нашем парке до строительства на вашей земле специализированного объекта «под ключ» и его автоматизации." />
+          </div>
+        </div>
+      </section>
+
+      <Image quality={100} priority={true} className="mt-12" src={DirectionsImage} alt="" />
+
+      <Container className="space-y-36 xl:space-y-28 sm:space-y-20 my-36 xl:my-28 sm:my-16">
+        <mark>направления</mark>
+      </Container>
+    </>
+  )
+}
