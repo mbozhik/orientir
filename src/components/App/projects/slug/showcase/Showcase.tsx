@@ -1,8 +1,8 @@
 'use client'
 
 import {cn} from '@/lib/utils'
-import {useState, useEffect} from 'react'
 import {isMobile} from '@bozzhik/is-mobile'
+import {useState, useEffect} from 'react'
 
 import {TProject} from '@/app/api/projects/route'
 import {containerStyles} from '~/Global/Container'
@@ -94,7 +94,7 @@ function MobileAwards({project}: {project: TProject}) {
   const combinedAwards = [...(project.award ? [{image: AwardImage, text: project.award}] : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
 
   return (
-    <section data-section="mob-awards-project" className="relative mb-5 space-y-5 overflow-hidden">
+    <section data-section="mob-awards-project" className="relative mb-10 space-y-5">
       <Image className="object-cover w-full h-[40vh]" src={project.image} alt="" />
 
       <div className={`space-y-3 ${containerStyles.width}`}>

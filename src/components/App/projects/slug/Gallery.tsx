@@ -30,7 +30,7 @@ export default function Gallery({project}: {project: TProjectExtra}) {
         </div>
       </div>
 
-      <div className="sm:space-y-1">
+      <div>
         <Swiper data-slider="gallery" className="w-full h-[85vh] sm:h-[50vh]" onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} thumbs={{swiper: thumbsSwiper}} loop={true} spaceBetween={10} navigation={true} modules={[FreeMode, Navigation, Thumbs]}>
           {project.gallery.map(({image, caption}, index) => (
             <SwiperSlide className="bg-center bg-cover" key={index}>

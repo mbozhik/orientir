@@ -17,20 +17,20 @@ export default function Info({project}: {project: TProjectExtra}) {
         ))}
 
         <div className="space-y-1.5 sm:space-y-5">
-          <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-1">
+          <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-0">
             <Text type="sub" className="font-extralight" text="Площадь проекта" />
             <Text type="p" className="font-bold" text={`${project.project_area} м2`} />
           </div>
 
-          <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-1">
+          <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-0">
             <Text type="sub" className="font-extralight" text="Площадь проекта" />
             <Text type="p" className="font-bold" text={`${project.zone_area} га`} />
           </div>
         </div>
 
-        <div className="flex sm:flex-col sm:items-start gap-2.5 sm:gap-1">
+        <div className="flex sm:flex-col sm:items-start gap-2.5 sm:gap-0">
           <Text type="sub" className="font-extralight xl:mt-1.5 sm:mt-0" text="Локация" />
-          <Link href={project.location.address} className="hover:underline">
+          <Link href={project.location.address} className="hover:underline sm:underline sm:underline-offset-2">
             <Text type="p" className="font-bold" text={project.location.address} />
           </Link>
         </div>

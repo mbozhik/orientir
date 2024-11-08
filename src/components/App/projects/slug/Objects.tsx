@@ -26,30 +26,30 @@ export default function Specs({project}: {project: TProjectExtra}) {
 
   return (
     <section data-section="mob-objects-project" className="space-y-4">
-      <div className="flex justify-between items-end">
+      <div className="flex items-end justify-between">
         <Heading type="h1" className="sm:text-[33px]" text="Объекты" />
 
         <div className="flex justify-between gap-3">
-          <ArrowLeft className="s-12 text-gray-dark" strokeWidth={1.3} onClick={() => swiperRef.current?.swiper.slidePrev()} />
-          <ArrowRight className="s-12 text-gray-dark" strokeWidth={1.3} onClick={() => swiperRef.current?.swiper.slideNext()} />
+          <ArrowLeft className="s-12 sm:s-10 text-gray-dark" strokeWidth={1.3} onClick={() => swiperRef.current?.swiper.slidePrev()} />
+          <ArrowRight className="s-12 sm:s-10 text-gray-dark" strokeWidth={1.3} onClick={() => swiperRef.current?.swiper.slideNext()} />
         </div>
       </div>
 
-      <Swiper ref={swiperRef} data-slider="mobile-objects" spaceBetween={30} onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}>
+      <Swiper ref={swiperRef} data-slider="mobile-objects" spaceBetween={30} loop={true} onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}>
         {Object.values(project.residents).map((resident, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col items-center gap-5">
-              <Tab className="bg-blue w-full text-background" name={resident.name} status={resident.status} type={resident.type} area={resident.area} isActive={index === activeIndex} />
-              <Image quality={100} className="object-cover w-full h-40" src={resident.image} alt={resident.name} />
+            <div className="flex flex-col items-center gap-5 sm:gap-3">
+              <Tab className="w-full bg-blue text-background" name={resident.name} status={resident.status} type={resident.type} area={resident.area} isActive={index === activeIndex} />
+              <Image quality={100} className="object-cover w-full h-[35vh]" src={resident.image} alt={resident.name} />
 
               <div className="flex flex-col gap-5">
                 <div className="">
-                  <div className="flex flex-row-reverse w-full justify-between gap-2">
+                  <div className="flex flex-row-reverse justify-between w-full gap-2">
                     <Text type="sub" className="font-extralight" text={resident.status === 'Завершен' && resident.completion_time ? `Завершен <span class="font-bold">за ${resident.completion_time}</span>` : resident.status === 'Свободные земельные участки' ? 'Свободные ЗУ' : resident.status} />
                     <Heading type="h3" className="leading-none" text={resident.name} />
                   </div>
 
-                  <div className="flex flex-row w-full justify-between font-extralight">
+                  <div className="flex flex-row justify-between w-full font-extralight">
                     {resident.type && <Text type="sub" text={resident.type} />}
                     <Text type="sub" text={`${resident.area} м2`} />
                   </div>

@@ -21,7 +21,7 @@ const headingStyles = 'text-[220px] xl:text-[150px] sm:text-2xl sm:text-gray lea
 
 export default function Awards() {
   return (
-    <section data-section="awards-index" className="space-y-20 sm:space-y-5">
+    <section data-section="awards-index" className="space-y-20 sm:space-y-7">
       <Heading className="max-w-[50ch]" type="h1" text="Награды" />
 
       {(isMobile ? awardsConfig : awardsConfig.slice(0, 1)).map((award, index) => (

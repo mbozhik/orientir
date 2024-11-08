@@ -47,15 +47,15 @@ export default function Overview({items: projects}: {items: TProject[]}) {
       </div>
 
       <div className="grid grid-cols-2 gap-6 sm:flex sm:flex-col-reverse">
-        <div className="space-y-2.5 sm:space-y-1.5">
+        <div className="space-y-2.5 xl:space-y-2 sm:space-y-1.5">
           {filteredProjects.map((project, index) => {
             const filteredResidents = selectedState === 'Все' ? Object.values(project.residents) : Object.values(project.residents).filter((resident) => resident.status === selectedState)
 
             return (
               <div className="space-y-4" key={project.slug}>
-                <div className={cn('flex items-center justify-between px-6 py-5 sm:py-4 text-background cursor-pointer hover:bg-red duration-300 group', activeTab === index ? 'bg-red' : 'bg-blue')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
-                  <Heading type="h2" className="sm:text-[28px]" text={project.project} />
-                  <ArrowDownRight className={cn('scale-[1.3] xl:scale-[1.0] sm:scale-[1.1] fill-background group-hover:rotate-45 duration-300', activeTab === index && 'rotate-45')} />{' '}
+                <div className={cn('flex items-center justify-between px-6 py-5 xl:py-4 sm:px-4 text-background cursor-pointer hover:bg-red duration-300 group', activeTab === index ? 'bg-red' : 'bg-blue')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
+                  <Heading type="h2" className="xl:text-3xl sm:text-[28px]" text={project.project} />
+                  <ArrowDownRight className={cn('scale-[1.3] xl:scale-[0.9] fill-background group-hover:rotate-45 duration-300', activeTab === index && 'rotate-45')} />{' '}
                 </div>
 
                 {activeTab === index && (
@@ -65,8 +65,8 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                       <DetailsButton href={`/projects/${project.slug}`} text="Подробнее" />
                     </div>
 
-                    <div className="mt-1 space-y-4">
-                      <Heading type="h3" text="Резиденты:" />
+                    <div className="mt-1 space-y-4 xl:space-y-3 sm:space-y-1">
+                      <Heading type="h3" className="xl:text-[26px]" text="Резиденты:" />
                       <div className="space-y-1">
                         {filteredResidents.length === 0 ? (
                           <Text type="h4" text="Нет резидентов для данного фильтра." />
