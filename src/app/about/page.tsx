@@ -1,3 +1,9 @@
+import Hero from '~~/about/Hero'
+
 export default function AboutPage() {
-  return <mark>о проекте</mark>
+  return (
+    <>
+      <Hero />
+    </>
+  )
 }
