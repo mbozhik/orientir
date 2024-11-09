@@ -6,6 +6,7 @@ import {containerStyles, sitePadding} from '~/Global/Container'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {DetailsButton} from '~/UI/Button'
+import NewsContent from '~~/news/slug/NewsContent'
 
 export default async function ProjectPage({params}: {params: Promise<{slug: string}>}) {
   const slug = (await params).slug
@@ -24,7 +25,9 @@ export default async function ProjectPage({params}: {params: Promise<{slug: stri
         </div>
       </section>
 
-      <Image quality={100} priority={true} className="object-cover mt-12 sm:mt-10 sm:h-[35vh]" src={news.image} alt="" />
+      <Image quality={100} priority={true} className="object-cover mt-12 sm:mt-10 sm:h-[35vh]" src={news.image} alt={news.heading} />
+
+      <NewsContent content={news.content} extraImage={news.extra_image} />
     </>
   )
 }

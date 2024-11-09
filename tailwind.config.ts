@@ -25,7 +25,11 @@ const config: Config = {
       blue: '#0033a0',
       transparent: 'transparent',
     },
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        20: 'repeat(20, minmax(0, 1fr))',
+      },
+    },
   },
   plugins: [
     plugin(function sizePlugin(api) {
