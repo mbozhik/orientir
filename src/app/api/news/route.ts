@@ -41,6 +41,7 @@ export type TNews = TNewsCard & {
   extra_image?: StaticImageData
   content: TNewsContent[]
   quote: TNewsQuote
+  source: string
 }
 
 const itemQuote: TNewsQuote = {
@@ -107,6 +108,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '18.03.24',
@@ -117,6 +119,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '23.02.24',
@@ -127,6 +130,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '10.01.24',
@@ -137,6 +141,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '15.12.23',
@@ -147,6 +152,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '05.11.23',
@@ -157,6 +163,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '30.10.23',
@@ -167,6 +174,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '20.09.23',
@@ -177,6 +185,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '01.09.23',
@@ -187,6 +196,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '18.08.23',
@@ -197,6 +207,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '05.07.23',
@@ -207,6 +218,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '22.06.23',
@@ -217,6 +229,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '10.05.23',
@@ -227,6 +240,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
   {
     date: '25.04.23',
@@ -237,6 +251,7 @@ const news: TNews[] = [
     extra_image: NewsExtraImage,
     content: itemContent,
     quote: itemQuote,
+    source: 'https://cre-league.com/news/7',
   },
 ]
 

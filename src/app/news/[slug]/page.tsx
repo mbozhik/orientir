@@ -21,7 +21,7 @@ export default async function ProjectPage({params}: {params: Promise<{slug: stri
             <Text type="sub" className="font-bold text-gray" text={news.date} />
           </div>
 
-          <DetailsButton href="" text="Источник" />
+          <DetailsButton href={news.source} target="_blank" text="Источник" />
         </div>
       </section>
 

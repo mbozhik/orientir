@@ -9,13 +9,14 @@ type Props = {
   text: string
   className?: string
   view?: 'desktop' | 'mobile' | null
+  target?: '_self' | '_blank'
 }
 
-export function DetailsButton({href, text, className}: Props) {
+export function DetailsButton({href, text, className, target = '_self'}: Props) {
   return (
-    <Link href={href} className={cn('group w-fit flex items-center gap-1 pb-0.5 xl:pb-0 duration-150 border-b-[2px] sm:border-b-[1px] border-foreground hover:border-transparent', className)}>
-      <Text type="h4" className="tracking-[-0.01em] sm:text-xl" text={text} />
-      <ArrowUpRight className="duration-300 s-8 sm:s-6 group-hover:rotate-45" strokeWidth={1.25} />
+    <Link href={href} target={target} className={cn('group w-fit flex items-center gap-1 pb-0.5 xl:pb-0 duration-150 border-b-[2px] sm:border-b-[1px] border-foreground hover:border-transparent', className)}>
+      <Text type="h4" className="tracking-[-0.01em] sm:text-xl duration-300 group-hover:text-blue" text={text} />
+      <ArrowUpRight className="duration-300 s-8 sm:s-6 group-hover:rotate-45 group-hover:text-blue" strokeWidth={1.25} />
     </Link>
   )
 }
