@@ -1,12 +1,11 @@
-import {cn} from '@/lib/utils'
-import {containerStyles} from '~/Global/Container'
-
 import {TNews} from '@/app/api/news/route'
+import {containerStyles} from '~/Global/Container'
 import {getNews} from '@/utils/getData'
+import {cn} from '@/lib/utils'
 
 import Heading from '~/UI/Heading'
-import Text from '~/UI/Text'
-import {DetailsButton, ExpandButton} from '~/UI/Button'
+import {ExpandButton} from '~/UI/Button'
+import NewsCard from '~~/news/NewsCard'
 
 export default async function News() {
   const news: TNews[] = await getNews()
@@ -18,20 +17,9 @@ export default async function News() {
         <ExpandButton href="/news" view="desktop" text="Все новости" />
       </div>
 
-      <div className={cn('grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-3', containerStyles.min_width)}>
+      <div className={cn('grid grid-cols-2 gap-3 sm:grid-cols-1', containerStyles.min_width)}>
         {news.slice(0, 2).map((newsItem, index) => (
-          <div className="flex flex-col justify-between px-10 border-[1px] py-9 sm:px-6 sm:py-5 gap-14 xl:gap-10 sm:gap-4 border-gray-light" key={index}>
-            <div className="space-y-4 sm:space-y-2">
-              <Text type="sub" className="font-bold text-gray-dark" text={newsItem.tag} />
-              <Text type="h4" className="max-w-[40ch] line-clamp-3" text={newsItem.heading} />
-            </div>
-
-            <div className="flex items-center justify-between sm:flex-col sm:gap-3 sm:items-start">
-              <Text type="sub" className="font-bold text-gray-dark" text={newsItem.date} />
-
-              <DetailsButton href={`/news/${newsItem.slug}`} text="Читать дальше" />
-            </div>
-          </div>
+          <NewsCard key={index} tag={newsItem.tag} heading={newsItem.heading} date={newsItem.date} slug={newsItem.slug} />
         ))}
       </div>
 
