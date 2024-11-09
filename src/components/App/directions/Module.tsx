@@ -1,0 +1,34 @@
+import {TDirection} from '@/app/api/directions/route'
+
+import DirectionsImage from '$/index/directions.jpg'
+
+import Image from 'next/image'
+import Heading from '~/UI/Heading'
+import Text from '~/UI/Text'
+
+export default async function Module({items}: {items: TDirection[]}) {
+  return (
+    <section data-section="module-directions" className="space-y-20 sm:space-y-7">
+      <div className="grid grid-cols-10 gap-20 sm:flex sm:flex-col xl:gap-14">
+        <Image className="col-span-2 sm:w-full" src={DirectionsImage} alt="Здание Ориентир" />
+
+        <div className="grid grid-cols-2 col-span-8 sm:grid-cols-1 gap-y-7 xl:gap-x-7 xl:gap-y-5">
+          {items.map((direction) => (
+            <div key={direction.id} className={`flex flex-col gap-5 sm:gap-3.5 group ${['01', '02'].includes(direction.id) && 'border-b-[1px] pb-9 xl:pb-5 sm:pb-3.5 border-gray-light'}`}>
+              <div className="flex items-start gap-5">
+                <Text type="sub" className="mt-1 font-light sm:mt-0 text-red" text={direction.id} />
+                <Heading type="h2" className="text-red xl:text-3xl" text={direction.heading} />
+              </div>
+
+              <div className="flex flex-col gap-1.5 ml-10 sm:mr-3 text-gray-dark">
+                {direction.list.map((item, index) => (
+                  <Text type="p" text={item} key={index} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

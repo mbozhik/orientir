@@ -19,7 +19,7 @@ export default async function Directions() {
 
         <div className="flex gap-10">
           <Text type="h4" text="Наша компания осуществляет весь спектр работ по строительству и эксплуатации объектов: от разработки концепции до полной реализации и последующего технического обслуживания." />
-          <ExpandButton href="/services" view="desktop" text="Все услуги" />
+          <ExpandButton href="/directions" view="desktop" text="Все услуги" />
         </div>
       </div>
 
@@ -29,7 +29,7 @@ export default async function Directions() {
         <DirectionsModule directions={directions} />
       </div>
 
-      <ExpandButton href="/services" view="mobile" text="Все услуги" />
+      <ExpandButton href="/directions" view="mobile" text="Все услуги" />
     </section>
   )
 }
