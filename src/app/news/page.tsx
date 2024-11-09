@@ -5,7 +5,7 @@ import {cn} from '@/lib/utils'
 import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import NewsModule from '~~/news/NewsModule'
+import NewsModule from '~~/news/slug/NewsModule'
 
 export default async function NewsPage() {
   const news: TNews[] = await getNews()
