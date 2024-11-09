@@ -29,11 +29,14 @@ export type TNewsQuote = {
   image: StaticImageData
 }
 
-export type TNews = {
+export type TNewsCard = {
   date: string
   tag: string
   heading: string
   slug: string
+}
+
+export type TNews = TNewsCard & {
   image: StaticImageData
   extra_image?: StaticImageData
   content: TNewsContent[]
