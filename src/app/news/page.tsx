@@ -5,7 +5,7 @@ import {cn} from '@/lib/utils'
 import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import NewsGrid from '~~/news/NewsGrid'
+import NewsModule from '~~/news/NewsModule'
 
 export default async function NewsPage() {
   const news: TNews[] = await getNews()
@@ -17,8 +17,8 @@ export default async function NewsPage() {
         <Text type="h4" className="max-w-[50ch] font-bold sm:font-normal" text="Sed vestibulum non erat non semper. Nunc malesuada tristique scelerisque. Quisque porttitor tempor dapibus. Quisque in dignissim nisi, ac volutpat dolor." />
       </section>
 
-      <section data-section="grid-news">
-        <NewsGrid items={news} className={containerStyles.min_width} />
+      <section data-section="module-news">
+        <NewsModule items={news} className={containerStyles.min_width} />
       </section>
     </Container>
   )
