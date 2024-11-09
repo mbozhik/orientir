@@ -1,3 +1,6 @@
+import {cn} from '@/lib/utils'
+import {containerStyles} from '~/Global/Container'
+
 import {TNews} from '@/app/api/news/route'
 import {getNews} from '@/utils/getData'
 
@@ -15,7 +18,7 @@ export default async function News() {
         <ExpandButton href="/news" view="desktop" text="Все новости" />
       </div>
 
-      <div className="w-[75%] xl:w-[89%] sm:w-full mx-auto grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-3">
+      <div className={cn('grid grid-cols-2 gap-4 sm:grid-cols-1 sm:gap-3', containerStyles.min_width)}>
         {news.slice(0, 2).map((newsItem, index) => (
           <div className="flex flex-col justify-between px-10 border-[1px] py-9 sm:px-6 sm:py-5 gap-14 xl:gap-10 sm:gap-4 border-gray-light" key={index}>
             <div className="space-y-4 sm:space-y-2">

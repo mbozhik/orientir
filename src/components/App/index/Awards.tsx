@@ -1,5 +1,6 @@
-import {isMobile} from '@bozzhik/is-mobile'
 import {cn} from '@/lib/utils'
+import {isMobile} from '@bozzhik/is-mobile'
+import {containerStyles} from '~/Global/Container'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
@@ -25,7 +26,7 @@ export default function Awards() {
       <Heading className="max-w-[50ch]" type="h1" text="Награды" />
 
       {(isMobile ? awardsConfig : awardsConfig.slice(0, 1)).map((award, index) => (
-        <div key={index} className="w-[75%] sm:w-full mx-auto flex sm:flex-col">
+        <div key={index} className={cn('flex sm:flex-col', containerStyles.min_width)}>
           <h1 className={cn(headingStyles, 'sm:hidden')}>20</h1>
 
           <div className="flex justify-between w-full gap-32 border-b-2 sm:pb-3 sm:gap-0 sm:flex-col border-gray-light">

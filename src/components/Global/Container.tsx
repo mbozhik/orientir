@@ -9,6 +9,7 @@ export const sitePadding = 'pt-[88px] xl:pt-16'
 
 export const containerStyles = {
   width: 'mx-[6.25rem] xl:mx-[3.5rem] sm:mx-3',
+  min_width: 'w-[75%] xl:w-[89%] sm:w-full mx-auto',
 }
 const {width} = containerStyles
 
