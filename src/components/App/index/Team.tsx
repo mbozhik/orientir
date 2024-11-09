@@ -54,7 +54,7 @@ function TeamCard({person, className}: {person: TPerson; className?: string}) {
 
   return (
     <div className={cn('space-y-3 sm:space-y-2', className)}>
-      <div className={cn('w-full xl:w-[25vw] sm:w-full', name === 'Елена Бондарчук' && 'w-[33vw] xl:w-[34vw]')}>
+      <div className={cn('w-full xl:w-[25vw] sm:w-full', name === 'Елена Бондарчук' && 'w-[31vw] xl:w-[33vw]')}>
         <Image quality={100} className="block object-cover w-full h-full" src={photo} alt={name} />
       </div>
 
