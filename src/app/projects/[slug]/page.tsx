@@ -1,5 +1,5 @@
-import {API_URL} from '@/lib/constants'
 import {TProjectExtra} from '@/app/api/projects/route'
+import {getProjectItem} from '@/utils/getData'
 
 import Container from '~/Global/Container'
 import Showcase from '~~/projects/slug/showcase/Showcase'
@@ -9,17 +9,9 @@ import Objects from '~~/projects/slug/Objects'
 import MapPoint from '~~/projects/slug/MapPoint'
 import Gallery from '~~/projects/slug/Gallery'
 
-async function getProject(slug: string): Promise<TProjectExtra> {
-  const res = await fetch(`${API_URL}/api/projects?slug=${slug}`, {cache: 'no-store'})
-  if (!res.ok) {
-    throw new Error('Failed to fetch project')
-  }
-  return res.json()
-}
-
 export default async function ProjectPage({params}: {params: Promise<{slug: string}>}) {
   const slug = (await params).slug
-  const project: TProjectExtra = await getProject(slug)
+  const project: TProjectExtra = await getProjectItem(slug)
 
   return (
     <>
