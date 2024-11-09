@@ -8,13 +8,18 @@ import Text from '~/UI/Text'
 
 export default async function Module({items}: {items: TDirection[]}) {
   return (
-    <section data-section="module-directions" className="space-y-20 sm:space-y-7">
-      <div className="grid grid-cols-10 gap-20 sm:flex sm:flex-col xl:gap-14">
+    <section data-section="module-directions" className="space-y-20 sm:space-y-5">
+      <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-4">
+        <Heading type="h1" className="!leading-none" text="Комплексный <br/> подход" />
+        <Text type="h4" className="max-w-[45ch]" text="Наша компания осуществляет весь спектр работ по строительству и эксплуатации объектов: от разработки концепции до полной реализации и последующего технического обслуживания." />
+      </div>
+
+      <div className="grid grid-cols-10 gap-20 sm:flex sm:flex-col xl:gap-14 sm:gap-12">
         <Image className="col-span-2 sm:w-full" src={DirectionsImage} alt="Здание Ориентир" />
 
-        <div className="grid grid-cols-2 col-span-8 sm:grid-cols-1 gap-y-7 xl:gap-x-7 xl:gap-y-5">
+        <div className="grid grid-cols-2 col-span-8 sm:grid-cols-1 gap-y-7 xl:gap-x-7 xl:gap-y-5 sm:gap-y-7">
           {items.map((direction) => (
-            <div key={direction.id} className={`flex flex-col gap-5 sm:gap-3.5 group ${['01', '02'].includes(direction.id) && 'border-b-[1px] pb-9 xl:pb-5 sm:pb-3.5 border-gray-light'}`}>
+            <div key={direction.id} className="flex flex-col gap-5 sm:gap-3.5 group border-b-[1px] pb-9 xl:pb-5 sm:pb-7 border-gray-light">
               <div className="flex items-start gap-5">
                 <Text type="sub" className="mt-1 font-light sm:mt-0 text-red" text={direction.id} />
                 <Heading type="h2" className="text-red xl:text-3xl" text={direction.heading} />
