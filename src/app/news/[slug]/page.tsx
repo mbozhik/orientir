@@ -27,7 +27,7 @@ export default async function ProjectPage({params}: {params: Promise<{slug: stri
 
       <Image quality={100} priority={true} className="object-cover mt-12 sm:mt-10 sm:h-[35vh]" src={news.image} alt={news.heading} />
 
-      <NewsContent content={news.content} extraImage={news.extra_image} />
+      <NewsContent content={news.content} quote={news.quote} extraImage={news.extra_image} />
     </>
   )
 }
