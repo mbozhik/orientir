@@ -129,20 +129,20 @@ const projects: TProjectExtra[] = [
     ],
     specifications: [
       {
-        heading: 'Worem',
-        caption: 'Horem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Инфраструктура',
+        caption: 'Современная инфраструктура с резервными мощностями инженерных систем.',
       },
       {
-        heading: 'Corem',
-        caption: 'Yorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Транспорт',
+        caption: 'Удобная транспортная доступность с прямым выездом на федеральные трассы А-107 и М-9.',
       },
       {
-        heading: 'Norem',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Планировка',
+        caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
       },
       {
-        heading: 'Rorem',
-        caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Безопасность',
+        caption: 'Комплексная система безопасности с круглосуточным видеонаблюдением и контролем доступа.',
       },
     ],
     gallery: [
@@ -209,20 +209,20 @@ const projects: TProjectExtra[] = [
     },
     specifications: [
       {
-        heading: 'Worem',
-        caption: 'Horem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Инфраструктура',
+        caption: 'Современная инфраструктура с резервными мощностями инженерных систем.',
       },
       {
-        heading: 'Corem',
-        caption: 'Yorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Транспорт',
+        caption: 'Удобная транспортная доступность с прямым выездом на федеральные трассы А-107 и М-9.',
       },
       {
-        heading: 'Norem',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Планировка',
+        caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
       },
       {
-        heading: 'Rorem',
-        caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Безопасность',
+        caption: 'Комплексная система безопасности с круглосуточным видеонаблюдением и контролем доступа.',
       },
     ],
     gallery: [
@@ -288,20 +288,20 @@ const projects: TProjectExtra[] = [
     },
     specifications: [
       {
-        heading: 'Worem',
-        caption: 'Horem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Инфраструктура',
+        caption: 'Современная инфраструктура с резервными мощностями инженерных систем.',
       },
       {
-        heading: 'Corem',
-        caption: 'Yorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Транспорт',
+        caption: 'Удобная транспортная доступность с прямым выездом на федеральные трассы А-107 и М-9.',
       },
       {
-        heading: 'Norem',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Планировка',
+        caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
       },
       {
-        heading: 'Rorem',
-        caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Безопасность',
+        caption: 'Комплексная система безопасности с круглосуточным видеонаблюдением и контролем доступа.',
       },
     ],
     gallery: [
@@ -378,20 +378,20 @@ const projects: TProjectExtra[] = [
     },
     specifications: [
       {
-        heading: 'Worem',
-        caption: 'Horem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Инфраструктура',
+        caption: 'Современная инфраструктура с резервными мощностями инженерных систем.',
       },
       {
-        heading: 'Corem',
-        caption: 'Yorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Транспорт',
+        caption: 'Удобная транспортная доступность с прямым выездом на федеральные трассы А-107 и М-9.',
       },
       {
-        heading: 'Norem',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Планировка',
+        caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
       },
       {
-        heading: 'Rorem',
-        caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Безопасность',
+        caption: 'Комплексная система безопасности с круглосуточным видеонаблюдением и контролем доступа.',
       },
     ],
     gallery: [
@@ -475,20 +475,20 @@ const projects: TProjectExtra[] = [
     },
     specifications: [
       {
-        heading: 'Worem',
-        caption: 'Horem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Инфраструктура',
+        caption: 'Современная инфраструктура с резервными мощностями инженерных систем.',
       },
       {
-        heading: 'Corem',
-        caption: 'Yorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Транспорт',
+        caption: 'Удобная транспортная доступность с прямым выездом на федеральные трассы А-107 и М-9.',
       },
       {
-        heading: 'Norem',
-        caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Планировка',
+        caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
       },
       {
-        heading: 'Rorem',
-        caption: 'Borem ipsum dolor sit amet, consectetur adipiscing elit.',
+        heading: 'Безопасность',
+        caption: 'Комплексная система безопасности с круглосуточным видеонаблюдением и контролем доступа.',
       },
     ],
     gallery: [
