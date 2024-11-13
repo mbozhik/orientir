@@ -18,7 +18,7 @@ export default async function ProjectPage({params}: {params: Promise<{slug: stri
       <Showcase project={project} />
       <Container className="mb-24 space-y-24 sm:space-y-16 sm:mb-16">
         <Info project={project} />
-        <Specs project={project} />
+        <Specs data={project.specifications} />
         <Objects project={project} />
         <Gallery project={project} />
       </Container>

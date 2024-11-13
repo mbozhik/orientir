@@ -9,7 +9,7 @@ import Text from '~/UI/Text'
 import {ExpandButton} from '~/UI/Button'
 import DirectionsModule from '~/App/index/DirectionsModule'
 
-export default async function Directions() {
+export default async function Directions({isIndex = true}: {isIndex?: boolean}) {
   const directions: TDirection[] = await getDirections()
 
   return (
@@ -19,7 +19,7 @@ export default async function Directions() {
 
         <div className="flex gap-10">
           <Text type="h4" text="Наша компания осуществляет весь спектр работ по строительству и эксплуатации объектов: от разработки концепции до полной реализации и последующего технического обслуживания." />
-          <ExpandButton href="/directions" view="desktop" text="Все услуги" />
+          {isIndex && <ExpandButton href="/directions" view="desktop" text="Все услуги" />}
         </div>
       </div>
 
