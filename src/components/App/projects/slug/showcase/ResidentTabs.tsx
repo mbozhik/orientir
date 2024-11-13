@@ -28,12 +28,12 @@ type Props = {
   handleTabClick: (index: number) => void
 }
 
-export function Tab({name, status, type, area, isActive, onClick, className}: TabProps) {
+export function Tab({name, status, area, isActive, onClick, className}: TabProps) {
   return (
-    <div onClick={onClick} className={cn('p-2.5 xl:pb-1 flex flex-col gap-1.5 xl:gap-1 duration-200 cursor-pointer', isActive ? 'bg-red text-background' : 'bg-background hover:bg-blue group hover:text-background', className)}>
+    <div onClick={onClick} className={cn('p-2.5 xl:pb-1 sm:px-2.5 sm:py-1.5 flex flex-col gap-1.5 xl:gap-1 duration-200 cursor-pointer', isActive ? 'bg-red text-background' : 'bg-background hover:bg-blue group hover:text-background', className)}>
       <div className={cn('flex justify-between gap-16 duration-200 text-gray group-hover:text-background font-extralight', isActive && 'text-background')}>
         <Text type="sub" className="lowercase" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
-        {type && <Text type="sub" className="self-end" text={type} />}
+        {/* {type && <Text type="sub" className="self-end" text={type} />} */}
       </div>
 
       <div className="flex justify-between gap-16">

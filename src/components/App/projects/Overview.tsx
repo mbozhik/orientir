@@ -65,17 +65,17 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                       <DetailsButton href={`/projects/${project.slug}`} text="Подробнее" />
                     </div>
 
-                    <div className="mt-1 space-y-4 xl:space-y-3 sm:space-y-1">
+                    <div className="mt-1 space-y-4 xl:space-y-3 sm:space-y-2">
                       <Heading type="h3" className="xl:text-[26px]" text="Резиденты:" />
                       <div className="space-y-1">
                         {filteredResidents.length === 0 ? (
                           <Text type="h4" text="Нет резидентов для данного фильтра." />
                         ) : (
                           filteredResidents.map(({name, status, type, area}, index) => (
-                            <div key={index} className="space-y-1.5 py-1.5 border-b-[1px] border-transparent hover:border-red cursor-pointer">
+                            <div key={index} className="space-y-1.5 py-1.5 sm:py-0 border-b-[1px] border-transparent hover:border-red cursor-pointer">
                               <div className="flex justify-between">
                                 <Text type="sub" className="lowercase text-gray font-extralight" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
-                                {type && <Text type="sub" className="self-end text-gray font-extralight" text={type} />}
+                                {type && <Text type="sub" className="opacity-0 self-end text-gray font-extralight" text={type} />}
                               </div>
 
                               <div className="flex justify-between">

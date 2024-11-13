@@ -43,7 +43,7 @@ export default function Specs({project}: {project: TProjectExtra}) {
               <Image quality={100} className="object-cover w-full h-[35vh]" src={resident.image} alt={resident.name} />
 
               <div className="flex flex-col gap-5">
-                <div className="">
+                {/* <div className="">
                   <div className="flex flex-row-reverse justify-between w-full gap-2">
                     <Text type="sub" className="font-extralight" text={resident.status === 'Завершен' && resident.completion_time ? `Завершен <span class="font-bold">за ${resident.completion_time}</span>` : resident.status === 'Свободные земельные участки' ? 'Свободные ЗУ' : resident.status} />
                     <Heading type="h3" className="leading-none" text={resident.name} />
@@ -53,7 +53,7 @@ export default function Specs({project}: {project: TProjectExtra}) {
                     {resident.type && <Text type="sub" text={resident.type} />}
                     <Text type="sub" text={`${resident.area} м2`} />
                   </div>
-                </div>
+                </div> */}
 
                 <Text type="p" text={resident.description} />
 

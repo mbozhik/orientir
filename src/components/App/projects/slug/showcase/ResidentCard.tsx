@@ -32,7 +32,7 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
           </div>
 
           <div className="col-span-4 pt-1.5 flex flex-col gap-4 text-gray font-extralight">
-            {type && <Text type="sub" text={type === 'ФФФ' ? 'Фулфилмент - фабрика' : type} />}
+            {type && <Text type="sub" className="opacity-0" text={type === 'ФФФ' ? 'Фулфилмент - фабрика' : type} />}
             <Text type="sub" text={`${area} м2`} />
           </div>
 
