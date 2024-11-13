@@ -21,8 +21,8 @@ export default function Gallery({project}: {project: TProjectExtra}) {
   const activeCaption = project.gallery[activeIndex]?.caption || ''
 
   return (
-    <section data-section="gallery-project" className="relative w-[79%] xl:w-[85%] sm:w-full mx-auto">
-      <div className="absolute z-20 flex flex-col s-fit inset-4 sm:inset-2 bg-background">
+    <section data-section="gallery-project" className="relative mx-auto">
+      <div className="absolute z-20 flex flex-col s-fit top-4 left-5 sm:inset-2 bg-background">
         <div className="w-full h-2 bg-blue"></div>
 
         <div className="px-5 py-4 sm:px-3 sm:py-2">

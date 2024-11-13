@@ -29,11 +29,11 @@
 }
 
 [data-slider='gallery'] .swiper-button-prev {
-  @apply ml-1 sm:-ml-0.5;
+  @apply ml-2 sm:-ml-0.5;
 }
 
 [data-slider='gallery'] .swiper-button-next {
-  @apply mr-1 sm:-mr-0.5;
+  @apply mr-2 sm:-mr-0.5;
 }
 
 @media (max-width: 767px) {
