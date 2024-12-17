@@ -3,15 +3,26 @@ import Text from '~/UI/Text'
 
 export default function MapPoint({project}: {project: TProjectExtra}) {
   return (
-    <section data-section="map_point-project" className="relative overflow-hidden w-full h-[60vh] xl:h-[50vh] sm:h-[40vh] bg-gray">
-      <div className="absolute flex flex-col s-fit top-10 left-20 sm:inset-4 bg-background">
-        <div className="w-full h-2 bg-red"></div>
-        <div className="px-5 py-4 sm:px-3 sm:py-2">
+    <section data-section="map_point-project" className="relative overflow-hidden w-full h-[75vh] sm:h-[40vh] bg-gray">
+      <div className="flex flex-col gap-4 absolute top-10 left-8 xl:top-8 xl:left-8 sm:inset-4">
+        <div className="px-5 py-4 sm:px-3 sm:py-2 bg-background">
           <Text type="sub" className="max-w-[50ch] sm:text-sm sm:leading-[1.2]" text={project.location.address} />
+        </div>
+
+        <div className="grid grid-cols-2 gap-2">
+          {project.location.availability.map((item, index) => (
+            <div className="flex flex-col bg-background" key={index}>
+              <div className="h-2 bg-red"></div>
+              <div className="inline-flex gap-1 px-3.5 py-4 sm:px-3 sm:py-2">
+                <Text type="sub" className="max-w-[50ch] sm:text-sm sm:leading-[1.2] font-bold" text={item.gap} />
+                <Text type="sub" className="max-w-[50ch] sm:text-sm sm:leading-[1.2]" text={item.benchmark} />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
-      <iframe className="w-full h-full" src={project.location.widget} allowFullScreen={true}></iframe>
+      <iframe className="pointer-events-none w-full h-full" src={project.location.widget} allowFullScreen={true}></iframe>
     </section>
   )
 }
