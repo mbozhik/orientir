@@ -19,7 +19,7 @@ export function ArrowDownRight({className}: {className?: string}) {
 }
 
 export default function Overview({items: projects}: {items: TProject[]}) {
-  const [activeTab, setActiveTab] = useState<number | null>(null)
+  const [activeTab, setActiveTab] = useState<number | null>(0)
   const [selectedState, setSelectedState] = useState<ResidentStatus | 'Все'>('Все')
 
   const residentCounts = projectStates.map((state) => {
@@ -53,16 +53,16 @@ export default function Overview({items: projects}: {items: TProject[]}) {
 
             return (
               <div className="space-y-4" key={project.slug}>
-                <div className={cn('flex items-center justify-between px-6 py-5 xl:py-4 sm:px-4 text-background cursor-pointer hover:bg-red duration-300 group', activeTab === index ? 'bg-red' : 'bg-blue')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
+                <div className={cn('flex items-center justify-between px-6 py-5 xl:py-4 sm:px-4 text-foreground cursor-pointer border-[2px] hover:bg-red hover:text-background hover:border-red  border-foreground duration-300 group', activeTab === index ? 'bg-red text-background border-red' : 'bg-transparent')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
                   <Heading type="h2" className="xl:text-3xl sm:text-[28px]" text={project.project} />
-                  <ArrowDownRight className={cn('scale-[1.3] xl:scale-[0.9] fill-background group-hover:rotate-45 duration-300', activeTab === index && 'rotate-45')} />{' '}
+                  <ArrowDownRight className={cn('scale-[1.3] xl:scale-[0.9] fill-foreground group-hover:rotate-45 group-hover:fill-background duration-300', activeTab === index && 'rotate-45 fill-background')} />
                 </div>
 
                 {activeTab === index && (
                   <div className="grid grid-cols-2 gap-8 pb-5 sm:pb-3 sm:grid-cols-1 sm:gap-10">
                     <div className="flex flex-col justify-between sm:gap-5">
                       <Text type="h4" text={project.description} />
-                      <DetailsButton href={`/projects/${project.slug}`} text="Подробнее" />
+                      <DetailsButton className="hover:text-red" href={`/projects/${project.slug}`} text="Подробнее" />
                     </div>
 
                     <div className="mt-1 space-y-4 xl:space-y-3 sm:space-y-2">
@@ -72,10 +72,10 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                           <Text type="h4" text="Нет резидентов для данного фильтра." />
                         ) : (
                           filteredResidents.map(({name, status, type, area}, index) => (
-                            <div key={index} className="space-y-1.5 py-1.5 sm:py-0 border-b-[1px] border-transparent hover:border-red cursor-pointer">
+                            <div key={index} className="space-y-1.5 py-1.5 sm:py-0 border-b-2 duration-200 border-transparent hover:border-red cursor-pointer">
                               <div className="flex justify-between">
                                 <Text type="sub" className="lowercase text-gray font-extralight" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
-                                {type && <Text type="sub" className="opacity-0 self-end text-gray font-extralight" text={type} />}
+                                {type && <Text type="sub" className="self-end opacity-0 text-gray font-extralight" text={type} />}
                               </div>
 
                               <div className="flex justify-between">
