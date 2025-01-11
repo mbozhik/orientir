@@ -7,6 +7,7 @@ import {TProject, ResidentStatus} from '@/app/api/projects/route'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {DetailsButton} from '~/UI/Button'
+import YandexMap from '~/UI/Map'
 
 const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'Завершен', 'В процессе', 'Свободные земельные участки']
 
@@ -94,9 +95,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
           })}
         </div>
 
-        <div className="relative overflow-hidden w-full bg-gray aspect-[10/8]">
-          <iframe className="w-full h-full" src="https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8" allowFullScreen={true}></iframe>
-        </div>
+        <YandexMap />
       </div>
     </section>
   )
