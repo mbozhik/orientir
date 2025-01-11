@@ -9,7 +9,7 @@ type Props = {
   height?: string
 }
 
-export default function YandexMap({coordinates, placemarks, zoom = 15, height = '70vh'}: Props) {
+export default function YandexMap({coordinates, placemarks, zoom = 15, height = '80vh'}: Props) {
   return (
     <YMaps query={{lang: 'ru_RU'}}>
       <div className="relative w-full overflow-hidden" style={{height: `calc(${height} - 35px)`}}>

@@ -103,7 +103,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
           })}
         </div>
 
-        <YandexMap coordinates={mapCoordinates} placemarks={placemarks} />
+        <YandexMap height="75vh" coordinates={mapCoordinates} placemarks={placemarks} />
       </div>
     </section>
   )
