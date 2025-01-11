@@ -5,7 +5,7 @@ import {useState} from 'react'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
-import {ArrowDownRight} from '~~/projects/Overview'
+import {ArrowDownRight} from '~/UI/Icons'
 
 const indicatorsData = [
   {

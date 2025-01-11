@@ -27,6 +27,7 @@ export type TResident = {
   image: StaticImageData
   award?: string
   completion_time?: string
+  placemark: number[]
   extra_info?: {label: string; text: string}[]
 }
 
@@ -38,13 +39,13 @@ export type TProject = {
   description: string
   residents: Record<number, TResident>
   award?: string
+  location: {coordinates: number[]; address: string; availability: {gap: string; benchmark: string}[]}
 }
 
 export type TProjectExtra = TProject & {
   full_description: string[]
   project_area: string
   zone_area: string
-  location: {address: string; availability: {gap: string; benchmark: string}[]; link: string; widget: string}
   more_info?: {image: StaticImageData; text: string}[]
   specifications: {heading: string; caption: string}[]
   gallery: {image: StaticImageData; caption: string}[]
@@ -71,6 +72,7 @@ const projects: TProjectExtra[] = [
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
         completion_time: '12 мес.',
+        placemark: [53.1923, 50.1046],
       },
       2: {
         name: 'ТехноАвиа',
@@ -81,6 +83,7 @@ const projects: TProjectExtra[] = [
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
         completion_time: '11 мес.',
+        placemark: [53.1955, 50.0948],
       },
       3: {
         name: 'Золотое яблоко',
@@ -89,6 +92,7 @@ const projects: TProjectExtra[] = [
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
+        placemark: [53.1979, 50.1022],
 
         extra_info: [
           {label: 'Рабочая высота', text: '15м и 12м'},
@@ -113,6 +117,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
+      coordinates: [53.1959, 50.1002],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -132,9 +137,6 @@ const projects: TProjectExtra[] = [
           benchmark: 'от м. Речной Вокзал',
         },
       ],
-
-      link: 'https://yandex.ru/maps/-/CDhhjL1K',
-      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
     },
     more_info: [
       {
@@ -207,6 +209,7 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        placemark: [59.93268, 30.3325],
       },
       2: {
         name: 'Свободное назначение',
@@ -215,6 +218,7 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentTwoImage,
         completion_time: '12 мес.',
+        placemark: [59.93548, 30.3363],
       },
     },
 
@@ -222,6 +226,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
+      coordinates: [59.93428, 30.3351],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -241,8 +246,6 @@ const projects: TProjectExtra[] = [
           benchmark: 'от м. Речной Вокзал',
         },
       ],
-      link: 'https://yandex.ru/maps/-/CDhhjL1K',
-      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
     },
     specifications: [
       {
@@ -304,6 +307,7 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentThreeImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        placemark: [55.83083, 49.06148],
       },
       2: {
         name: 'Свободное назначение',
@@ -312,6 +316,7 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        placemark: [55.83203, 49.06768],
       },
     },
 
@@ -319,6 +324,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
+      coordinates: [55.83043, 49.06608],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -338,8 +344,6 @@ const projects: TProjectExtra[] = [
           benchmark: 'от м. Речной Вокзал',
         },
       ],
-      link: 'https://yandex.ru/maps/-/CDhhjL1K',
-      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
     },
     specifications: [
       {
@@ -401,6 +405,7 @@ const projects: TProjectExtra[] = [
         type: 'ФФФ',
         area: '157 000',
         image: ResidentOneImage,
+        placemark: [55.008753, 82.936133],
       },
       2: {
         name: 'ТехноАвиа',
@@ -411,6 +416,7 @@ const projects: TProjectExtra[] = [
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
         completion_time: '10 мес.',
+        placemark: [55.009153, 82.932533],
       },
       3: {
         name: 'Золотое яблоко',
@@ -420,6 +426,7 @@ const projects: TProjectExtra[] = [
         area: '46 000',
         image: ResidentThreeImage,
         completion_time: '9 мес.',
+        placemark: [55.009553, 82.936933],
       },
     },
 
@@ -427,6 +434,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
+      coordinates: [55.008353, 82.935733],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -446,8 +454,6 @@ const projects: TProjectExtra[] = [
           benchmark: 'от м. Речной Вокзал',
         },
       ],
-      link: 'https://yandex.ru/maps/-/CDhhjL1K',
-      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
     },
     specifications: [
       {
@@ -511,6 +517,7 @@ const projects: TProjectExtra[] = [
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
         completion_time: '12 мес.',
+        placemark: [43.6032, 39.7346],
       },
       2: {
         name: 'Золотое яблоко',
@@ -519,6 +526,7 @@ const projects: TProjectExtra[] = [
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
+        placemark: [43.604, 39.7354],
       },
       3: {
         name: 'Свободное назначение',
@@ -527,6 +535,7 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        placemark: [43.6014, 39.7358],
       },
       4: {
         name: 'Свободное назначение',
@@ -535,6 +544,7 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        placemark: [43.6048, 39.7362],
       },
     },
 
@@ -542,6 +552,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
+      coordinates: [43.6028, 39.7342],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -561,8 +572,6 @@ const projects: TProjectExtra[] = [
           benchmark: 'от м. Речной Вокзал',
         },
       ],
-      link: 'https://yandex.ru/maps/-/CDhhjL1K',
-      widget: 'https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8',
     },
     specifications: [
       {

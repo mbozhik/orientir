@@ -1,26 +1,37 @@
 'use client'
 
-import {cn} from '@/lib/utils'
-import {useState} from 'react'
 import {TProject, ResidentStatus} from '@/app/api/projects/route'
+
+import {cn} from '@/lib/utils'
+import {useState, useEffect} from 'react'
 
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {DetailsButton} from '~/UI/Button'
+import YandexMap from '~/UI/Map'
+import {ArrowDownRight} from '~/UI/Icons'
 
 const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'Завершен', 'В процессе', 'Свободные земельные участки']
 
-export function ArrowDownRight({className}: {className?: string}) {
-  return (
-    <svg className={className} width="39" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="m22.96 31.84-1.98-1.98 12.463-12.464H.597v-2.792h32.846L20.98 2.141 22.96.16 38.799 16l-15.84 15.838Z" />
-    </svg>
-  )
-}
-
 export default function Overview({items: projects}: {items: TProject[]}) {
   const [activeTab, setActiveTab] = useState<number | null>(0)
+  const [mapCoordinates, setMapCoordinates] = useState<number[]>(projects[0]?.location.coordinates || [])
+  const [placemarks, setPlacemarks] = useState<number[][]>([])
   const [selectedState, setSelectedState] = useState<ResidentStatus | 'Все'>('Все')
+
+  const filteredProjects = selectedState === 'Все' ? projects : projects.filter((project) => Object.values(project.residents).some((resident) => resident.status === selectedState))
+
+  useEffect(() => {
+    if (activeTab !== null) {
+      const project = filteredProjects[activeTab]
+      if (project) {
+        setMapCoordinates(project.location.coordinates)
+
+        const projectPlacemarks = Object.values(project.residents).map((resident) => resident.placemark!)
+        setPlacemarks(projectPlacemarks)
+      }
+    }
+  }, [activeTab, filteredProjects])
 
   const residentCounts = projectStates.map((state) => {
     if (state === 'Все') {
@@ -33,13 +44,11 @@ export default function Overview({items: projects}: {items: TProject[]}) {
     }, 0)
   })
 
-  const filteredProjects = selectedState === 'Все' ? projects : projects.filter((project) => Object.values(project.residents).some((resident) => resident.status === selectedState))
-
   return (
     <section data-section="overview-projects" className="pb-20 space-y-3 sm:space-y-5">
       <div className="flex gap-8 sm:flex-wrap sm:gap-x-4 sm:gap-y-1.5">
         {projectStates.map((state, index) => (
-          <div className={cn('flex gap-1 cursor-pointer', selectedState === state ? 'text-red' : 'text-gray')} onClick={() => setSelectedState(state)} key={index}>
+          <div key={index} className={cn('flex gap-1 cursor-pointer', selectedState === state ? 'text-red' : 'text-gray')} onClick={() => setSelectedState(state)}>
             <Text type="p" text={state} />
             <span className="text-xs font-bold">({residentCounts[index]})</span>
           </div>
@@ -53,7 +62,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
 
             return (
               <div className="space-y-4" key={project.slug}>
-                <div className={cn('flex items-center justify-between px-6 py-5 xl:py-4 sm:px-4 text-foreground cursor-pointer border-[2px] hover:bg-red hover:text-background hover:border-red  border-foreground duration-300 group', activeTab === index ? 'bg-red text-background border-red' : 'bg-transparent')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
+                <div className={cn('flex items-center justify-between px-6 py-5 xl:py-4 sm:px-4 text-foreground cursor-pointer border-[2px] hover:bg-red hover:text-background hover:border-red border-foreground duration-300 group', activeTab === index ? 'bg-red text-background border-red' : 'bg-transparent')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
                   <Heading type="h2" className="xl:text-3xl sm:text-[28px]" text={project.project} />
                   <ArrowDownRight className={cn('scale-[1.3] xl:scale-[0.9] fill-foreground group-hover:rotate-45 group-hover:fill-background duration-300', activeTab === index && 'rotate-45 fill-background')} />
                 </div>
@@ -72,7 +81,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                           <Text type="h4" text="Нет резидентов для данного фильтра." />
                         ) : (
                           filteredResidents.map(({name, status, type, area}, index) => (
-                            <div key={index} className="space-y-1.5 py-1.5 sm:py-0 border-b-2 duration-200 border-transparent hover:border-red cursor-pointer">
+                            <div className="space-y-1.5 py-1.5 sm:py-0 border-b-2 duration-200 border-transparent hover:border-red cursor-pointer" key={index}>
                               <div className="flex justify-between">
                                 <Text type="sub" className="lowercase text-gray font-extralight" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
                                 {type && <Text type="sub" className="self-end opacity-0 text-gray font-extralight" text={type} />}
@@ -94,9 +103,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
           })}
         </div>
 
-        <div className="relative overflow-hidden w-full bg-gray aspect-[10/8]">
-          <iframe className="w-full h-full" src="https://yandex.ru/map-widget/v1/?ll=37.619406%2C55.749228&mode=poi&poi%5Bpoint%5D=37.618879%2C55.751426&poi%5Buri%5D=ymapsbm1%3A%2F%2Forg%3Foid%3D1023322799&z=16.8" allowFullScreen={true}></iframe>
-        </div>
+        <YandexMap height="75vh" coordinates={mapCoordinates} placemarks={placemarks} />
       </div>
     </section>
   )
