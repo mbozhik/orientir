@@ -13,22 +13,31 @@ import {ArrowDownRight} from '~/UI/Icons'
 
 const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'Завершен', 'В процессе', 'Свободные земельные участки']
 
+const defaultRussiaCoordinates = [55.751244, 40.018423]
+
 export default function Overview({items: projects}: {items: TProject[]}) {
   const [activeTab, setActiveTab] = useState<number | null>(0)
   const [mapCoordinates, setMapCoordinates] = useState<number[]>(projects[0]?.location.coordinates || [])
-  const [placemarks, setPlacemarks] = useState<number[][]>([])
+  const [mapPlacemarks, setMapPlacemarks] = useState<number[][] | undefined>(undefined)
   const [selectedState, setSelectedState] = useState<ResidentStatus | 'Все'>('Все')
 
   const filteredProjects = selectedState === 'Все' ? projects : projects.filter((project) => Object.values(project.residents).some((resident) => resident.status === selectedState))
 
   useEffect(() => {
-    if (activeTab !== null) {
+    if (activeTab === null) {
+      if (filteredProjects.length > 0) {
+        const allCoordinates = filteredProjects.map((project) => project.location.coordinates)
+        setMapPlacemarks(allCoordinates)
+        setMapCoordinates(defaultRussiaCoordinates)
+      } else {
+        setMapPlacemarks(undefined)
+        setMapCoordinates(defaultRussiaCoordinates)
+      }
+    } else {
       const project = filteredProjects[activeTab]
       if (project) {
         setMapCoordinates(project.location.coordinates)
-
-        const projectPlacemarks = Object.values(project.residents).map((resident) => resident.placemark!)
-        setPlacemarks(projectPlacemarks)
+        setMapPlacemarks(undefined)
       }
     }
   }, [activeTab, filteredProjects])
@@ -103,7 +112,12 @@ export default function Overview({items: projects}: {items: TProject[]}) {
           })}
         </div>
 
-        <YandexMap height="75vh" coordinates={mapCoordinates} placemarks={placemarks} />
+        <YandexMap
+          height="75vh"
+          coordinates={mapCoordinates}
+          placemarks={mapPlacemarks}
+          zoom={activeTab === null ? 4.5 : undefined} // default 16
+        />
       </div>
     </section>
   )

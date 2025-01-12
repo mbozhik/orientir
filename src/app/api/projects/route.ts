@@ -423,7 +423,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [55.008353, 82.935733],
+      coordinates: [57.6261, 39.8845],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -537,7 +537,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [43.6028, 39.7342],
+      coordinates: [54.1931, 37.6177],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
