@@ -4,10 +4,6 @@ import Text from '~/UI/Text'
 import YandexMap from '~/UI/Map'
 
 export default function MapPoint({project}: {project: TProjectExtra}) {
-  const projectPlacemarks = Object.values(project.residents)
-    .map((resident) => resident.placemark!)
-    .filter(Boolean)
-
   return (
     <section data-section="map_point-project" className="relative overflow-hidden w-full sm:space-y-5 h-[75vh] sm:h-auto bg-gray-light">
       <div className="z-20 flex flex-col gap-4 absolute sm:static inset-6 xl:inset-4 sm:p-3 sm:pb-0">
@@ -28,7 +24,7 @@ export default function MapPoint({project}: {project: TProjectExtra}) {
         </div>
       </div>
 
-      <YandexMap coordinates={project.location.coordinates} placemarks={projectPlacemarks} />
+      <YandexMap coordinates={project.location.coordinates} />
     </section>
   )
 }

@@ -27,7 +27,6 @@ export type TResident = {
   image: StaticImageData
   award?: string
   completion_time?: string
-  placemark: number[]
   extra_info?: {label: string; text: string}[]
 }
 
@@ -72,7 +71,6 @@ const projects: TProjectExtra[] = [
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
         completion_time: '12 мес.',
-        placemark: [53.1923, 50.1046],
       },
       2: {
         name: 'ТехноАвиа',
@@ -83,7 +81,6 @@ const projects: TProjectExtra[] = [
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
         completion_time: '11 мес.',
-        placemark: [53.1955, 50.0948],
       },
       3: {
         name: 'Золотое яблоко',
@@ -92,7 +89,6 @@ const projects: TProjectExtra[] = [
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
-        placemark: [53.1979, 50.1022],
 
         extra_info: [
           {label: 'Рабочая высота', text: '15м и 12м'},
@@ -209,7 +205,6 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-        placemark: [59.93268, 30.3325],
       },
       2: {
         name: 'Свободное назначение',
@@ -218,7 +213,6 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentTwoImage,
         completion_time: '12 мес.',
-        placemark: [59.93548, 30.3363],
       },
     },
 
@@ -307,7 +301,6 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentThreeImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-        placemark: [55.83083, 49.06148],
       },
       2: {
         name: 'Свободное назначение',
@@ -316,7 +309,6 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-        placemark: [55.83203, 49.06768],
       },
     },
 
@@ -405,7 +397,6 @@ const projects: TProjectExtra[] = [
         type: 'ФФФ',
         area: '157 000',
         image: ResidentOneImage,
-        placemark: [55.008753, 82.936133],
       },
       2: {
         name: 'ТехноАвиа',
@@ -416,7 +407,6 @@ const projects: TProjectExtra[] = [
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
         completion_time: '10 мес.',
-        placemark: [55.009153, 82.932533],
       },
       3: {
         name: 'Золотое яблоко',
@@ -426,7 +416,6 @@ const projects: TProjectExtra[] = [
         area: '46 000',
         image: ResidentThreeImage,
         completion_time: '9 мес.',
-        placemark: [55.009553, 82.936933],
       },
     },
 
@@ -517,7 +506,6 @@ const projects: TProjectExtra[] = [
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
         completion_time: '12 мес.',
-        placemark: [43.6032, 39.7346],
       },
       2: {
         name: 'Золотое яблоко',
@@ -526,7 +514,6 @@ const projects: TProjectExtra[] = [
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
-        placemark: [43.604, 39.7354],
       },
       3: {
         name: 'Свободное назначение',
@@ -535,7 +522,6 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentOneImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-        placemark: [43.6014, 39.7358],
       },
       4: {
         name: 'Свободное назначение',
@@ -544,7 +530,6 @@ const projects: TProjectExtra[] = [
         area: '25 000',
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-        placemark: [43.6048, 39.7362],
       },
     },
 
