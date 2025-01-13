@@ -53,9 +53,9 @@ function TeamCard({person, className}: {person: TPerson; className?: string}) {
   const {position, name, photo} = person
 
   return (
-    <div className={cn('space-y-3 sm:space-y-2', className)}>
+    <div className={cn('space-y-3 sm:space-y-2 w-full', className)}>
       <div className={cn('w-full xl:w-[25vw] sm:w-full', name === 'Елена Бондарчук' && 'w-[31vw] xl:w-[33vw]')}>
-        <Image quality={100} className="block object-cover w-full h-full" src={photo} alt={name} />
+        <Image quality={100} className="block object-cover w-full" src={photo} alt={name} />
       </div>
 
       <div className="space-y-1 xl:-space-y-1">
@@ -83,7 +83,7 @@ export default function Team() {
 
         <Text type="h4" className="hidden sm:block" text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus erat libero, dictum nec ligula congue, semper euismod massa. Praesent mattis metus id justo blandit, blandit cursus tellus feugiat. " />
 
-        <div className="flex self-end gap-5 sm:flex-col sm:gap-7">
+        <div className="flex self-end gap-5 sm:flex-col sm:gap-7 w-full">
           {teamConfig.slice(3, 6).map((person, index) => (
             <TeamCard person={person} key={index} />
           ))}
