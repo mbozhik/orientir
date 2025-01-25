@@ -19,17 +19,17 @@ export default async function Directions({isIndex = true}: {isIndex?: boolean}) 
 
         <div className="flex gap-10">
           <Text type="h4" text="Наша компания осуществляет весь спектр работ по строительству и эксплуатации объектов: от разработки концепции до полной реализации и последующего технического обслуживания." />
-          {isIndex && <ExpandButton href="/directions" view="desktop" text="Все услуги" />}
+          {isIndex && <ExpandButton href="/directions" view="desktop" text="Подробнее" />}
         </div>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-5">
-        <Image className="sm:h-[40vh]" src={DirectionsImage} alt="Здание Ориентир" />
+        <Image className="w-[55%] xl:w-[75%] sm:w-full sm:h-[40vh] aspect-[9/10] object-cover" src={DirectionsImage} alt="Здание Ориентир" />
 
         <DirectionsModule directions={directions} />
       </div>
 
-      <ExpandButton href="/directions" view="mobile" text="Все услуги" />
+      <ExpandButton href="/directions" view="mobile" text="Подробнее" />
     </section>
   )
 }
