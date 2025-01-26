@@ -5,8 +5,10 @@ import OlgaKaskarovaPhoto from '$/index/team/olga-kaskarova.jpg'
 import DmitriiBelousPhoto from '$/index/team/dmirtii-belous.jpg'
 import AnarDamirovPhoto from '$/index/team/anar-damirov.jpg'
 
+import {containerStyles} from '~/Global/Container'
 import {cn} from '@/lib/utils'
-import Image, {StaticImageData} from 'next/image'
+
+import Image, {type StaticImageData} from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 
@@ -53,14 +55,12 @@ function TeamCard({person, className}: {person: TPerson; className?: string}) {
   const {position, name, photo} = person
 
   return (
-    <div className={cn('space-y-3 sm:space-y-2 w-full', className)}>
-      <div className={cn('w-full xl:w-[25vw] sm:w-full', name === 'Елена Бондарчук' && 'w-[31vw] xl:w-[33vw]')}>
-        <Image quality={100} className="block object-cover w-full" src={photo} alt={name} />
-      </div>
+    <div className={cn('flex flex-col gap-3 sm:gap-2 w-full', className)}>
+      <Image quality={100} className="block object-cover h-full" src={photo} alt={name} />
 
       <div className="space-y-1 xl:-space-y-1">
         <Heading type="h3" text={name} />
-        <Text type="sub" className={cn('text-gray xl:text-base sm:leading-[1.25]', name === 'Анар Дамиров' && 'max-w-[30ch]')} text={position} />
+        <Text type="sub" className="text-gray xl:text-base sm:leading-[1.25]" text={position} />
       </div>
     </div>
   )
@@ -74,16 +74,26 @@ export default function Team() {
         <Text type="h4" className="hidden sm:block" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
       </div>
 
-      <div className="flex flex-col gap-5 sm:gap-7 w-fit">
-        <div className="flex items-end gap-5 sm:flex-col sm:gap-7">
-          {teamConfig.slice(0, 3).map((person, index) => (
-            <TeamCard person={person} className={[1, 2].includes(index) ? 'pb-[65px] xl:pb-[62px] sm:pb-0' : ''} key={index} />
+      <div className={cn('flex flex-col gap-14 xl:gap-10 w-fit', containerStyles.min_width)}>
+        <div className="grid grid-cols-3 gap-5 xl:gap-3.5 sm:gap-5 sm:flex sm:flex-col">
+          {teamConfig.slice(0, 1).map((person, index) => (
+            <TeamCard person={person} className="" key={index} />
           ))}
+
+          <div className="col-span-2 space-y-10 xl:space-y-7 sm:space-y-0">
+            <Text type="h4" className="max-w-[55ch] sm:hidden" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
+
+            <div className="grid grid-cols-2 gap-5 xl:gap-3.5 sm:gap-5 sm:flex sm:flex-col">
+              {teamConfig.slice(1, 3).map((person, index) => (
+                <TeamCard person={person} key={index} />
+              ))}
+            </div>
+          </div>
         </div>
 
         <Text type="h4" className="hidden sm:block" text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus erat libero, dictum nec ligula congue, semper euismod massa. Praesent mattis metus id justo blandit, blandit cursus tellus feugiat. " />
 
-        <div className="flex self-end gap-5 sm:flex-col sm:gap-7 w-full">
+        <div className="flex self-end gap-5 sm:flex-col xl:gap-3.5 sm:gap-5 w-full">
           {teamConfig.slice(3, 6).map((person, index) => (
             <TeamCard person={person} key={index} />
           ))}
