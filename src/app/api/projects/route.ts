@@ -4,8 +4,8 @@ import {StaticImageData} from 'next/image'
 import OrientirZapadImage from '$/projects/orientir-zapad.jpg'
 import OrientirSeverImage from '$/projects/orientir-sever.jpg'
 import OrientirSever2Image from '$/projects/orientir-sever-2.jpg'
-import OrientirZapad2Image from '$/projects/orientir-zapad-2.jpg'
-import OrientirZapad3Image from '$/projects/orientir-zapad-3.jpg'
+import OrientirSever3Image from '$/projects/orientir-sever-3.jpg'
+import OrientirUgImage from '$/projects/orientir-ug.jpg'
 
 import ResidentOneImage from '$/projects/resident-1.jpg'
 import ResidentTwoImage from '$/projects/resident-2.jpg'
@@ -384,38 +384,45 @@ const projects: TProjectExtra[] = [
   },
   {
     id: 4,
-    slug: 'orientir-zapad-2',
-    project: 'Ориентир Запад-2',
-    image: OrientirZapad2Image,
+    slug: 'orientir-sever-3',
+    project: 'Ориентир Север-3',
+    image: OrientirSever3Image,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
       1: {
         name: 'OZON',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-        status: 'В процессе',
+        status: 'Завершен',
         type: 'ФФФ',
         area: '157 000',
-        image: ResidentOneImage,
-      },
-      2: {
-        name: 'ТехноАвиа',
-        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-        status: 'Завершен',
-        type: 'ПК',
-        area: '40 000',
         image: ResidentTwoImage,
         award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-        completion_time: '10 мес.',
+        completion_time: '12 мес.',
       },
-      3: {
+      2: {
         name: 'Золотое яблоко',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-        status: 'Завершен',
+        status: 'В процессе',
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
-        completion_time: '9 мес.',
+      },
+      3: {
+        name: 'Свободное назначение',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+        status: 'Свободные земельные участки',
+        area: '25 000',
+        image: ResidentOneImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+      },
+      4: {
+        name: 'Свободное назначение',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+        status: 'Свободные земельные участки',
+        area: '25 000',
+        image: ResidentTwoImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
       },
     },
 
@@ -423,7 +430,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [57.6261, 39.8845],
+      coordinates: [54.1931, 37.6177],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -491,45 +498,38 @@ const projects: TProjectExtra[] = [
   },
   {
     id: 5,
-    slug: 'orientir-zapad-3',
-    project: 'Ориентир Запад-3',
-    image: OrientirZapad3Image,
+    slug: 'orientir-ug',
+    project: 'Ориентир Юг',
+    image: OrientirUgImage,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
       1: {
         name: 'OZON',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-        status: 'Завершен',
+        status: 'В процессе',
         type: 'ФФФ',
         area: '157 000',
-        image: ResidentTwoImage,
-        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-        completion_time: '12 мес.',
+        image: ResidentOneImage,
       },
       2: {
+        name: 'ТехноАвиа',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+        status: 'Завершен',
+        type: 'ПК',
+        area: '40 000',
+        image: ResidentTwoImage,
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        completion_time: '10 мес.',
+      },
+      3: {
         name: 'Золотое яблоко',
         description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-        status: 'В процессе',
+        status: 'Завершен',
         type: 'РЦ',
         area: '46 000',
         image: ResidentThreeImage,
-      },
-      3: {
-        name: 'Свободное назначение',
-        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-        status: 'Свободные земельные участки',
-        area: '25 000',
-        image: ResidentOneImage,
-        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-      },
-      4: {
-        name: 'Свободное назначение',
-        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-        status: 'Свободные земельные участки',
-        area: '25 000',
-        image: ResidentTwoImage,
-        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        completion_time: '9 мес.',
       },
     },
 
@@ -537,7 +537,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [54.1931, 37.6177],
+      coordinates: [57.6261, 39.8845],
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
