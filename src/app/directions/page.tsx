@@ -17,8 +17,8 @@ export default async function DirectionsPage() {
     <>
       <section data-section="hero-directions" className={`${containerStyles.width} ${sitePadding}`}>
         <div className="flex items-start justify-between mt-10 sm:flex-col sm:gap-5 sm:mt-5">
-          <Heading type="h1" text="Направления" />
-          <Heading type="h2" className="max-w-[45ch] xl:text-3xl" text="<span class='text-red'>Мы подбираем и реализуем оптимальное складское решение для ваших бизнес-процессов</span>– от аренды стандартного сухого склада в нашем парке до строительства на вашей земле специализированного объекта «под ключ» и его автоматизации." />
+          <Heading type="h1" text="Области </br> экспертизы" />
+          <Heading type="h2" className="font-normal max-w-[45ch] xl:text-3xl" text="<span class='text-red'>Мы подбираем и реализуем оптимальное складское решение для ваших бизнес-процессов</span>– от аренды стандартного сухого склада в нашем парке до строительства на вашей земле специализированного объекта «под ключ» и его автоматизации." />
         </div>
       </section>
 
