@@ -1,3 +1,6 @@
+import ResourcesImage from '$/about-resources.svg'
+
+import Image from 'next/image'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 
@@ -22,8 +25,14 @@ const resourcesData = [
 
 export default function Resources() {
   return (
-    <section data-section="resources-about" className="grid grid-cols-10 pt-16 sm:grid-cols-1 sm:gap-7 xl:pt-12 sm:pt-0">
-      <Heading type="h1" className="col-span-5 xl:col-span-4" text="Ресурсы" />
+    <section data-section="resources-about" className="grid grid-cols-10 pt-16 sm:flex sm:flex-col sm:gap-7 xl:pt-12 sm:pt-0">
+      <div className="col-span-5 xl:col-span-4 flex flex-col gap-12 xl:gap-24 sm:gap-4">
+        <Heading type="h1" text="Ресурсы" />
+
+        <div className="relative w-full h-[85%] xl:h-[65%] sm:h-[33vh] pr-20 sm:pr-0 overflow-hidden">
+          <Image fill={true} className="w-full object-contain sm:object-cover object-left" src={ResourcesImage} alt="Ориентир ресурсы" />
+        </div>
+      </div>
 
       <div className="flex flex-col col-span-5 gap-10 xl:gap-7 sm:gap-5 xl:col-span-6">
         {resourcesData.map(({heading, text}, index) => (
