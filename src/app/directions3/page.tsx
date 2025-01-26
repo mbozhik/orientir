@@ -1,6 +1,5 @@
 import {TDirection} from '@/app/api/directions/route'
 import {getDirections} from '@/utils/getData'
-import {indicatorsData} from '@/app/directions2/page'
 
 import DirectionsImage from '$/directions.jpg'
 
@@ -10,6 +9,25 @@ import Heading from '~/UI/Heading'
 import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import Module from '~~/directions/Module'
 import Specs from '~~/projects/slug/Specs'
+
+const indicatorsData = [
+  {
+    heading: '7 парков',
+    caption: 'расположенных в самых востребованных локациях Московской и Ленинградской области',
+  },
+  {
+    heading: 'Свыше 500.000 м²',
+    caption: 'построено в Московской области, обеспечивая высокий уровень складской инфраструктуры региона',
+  },
+  {
+    heading: '54% проектов',
+    caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
+  },
+  {
+    heading: '47% проектов',
+    caption: 'составляют мультитемпературные и лицензируемые комплексы, отвечающие современным требованиям рынка',
+  },
+]
 
 export default async function DirectionsPage() {
   const directions: TDirection[] = await getDirections()

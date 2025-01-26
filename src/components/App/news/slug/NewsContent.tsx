@@ -5,7 +5,7 @@ import {cn} from '@/lib/utils'
 import QuoteImage from '$/quote.svg'
 import Image, {StaticImageData} from 'next/image'
 
-import {containerStyles} from '@/components/Global/Container'
+import {containerStyles} from '~/Global/Container'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 

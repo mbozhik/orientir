@@ -76,7 +76,7 @@ function DeskShowcase({project}: {project: TProject}) {
               <div className="flex gap-2.5 xl:gap-1.5 px-4 xl:px-2.5 py-3.5 w-fit bg-background">
                 {combinedAwards.map((award, index) => (
                   <div key={index} className={cn('cursor-pointer duration-300', activeAward.index === index && 'scale-[1.2]')} onClick={() => setActiveAward({index, text: award.text})}>
-                    <Image quality={100} className="object-contain xl:h-16" src={award.image} alt={award.text} />
+                    <Image unoptimized className="object-contain xl:h-16" src={award.image} alt={award.text} />
                   </div>
                 ))}
               </div>

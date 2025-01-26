@@ -76,7 +76,7 @@ export default function ProjectsModule({items}: {items: TProject[]}) {
       <div className="absolute inset-0 w-full h-full -z-10">
         {bgImages.map((img) => (
           <div key={img.id} className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out" style={{opacity: img.opacity}}>
-            <Image className="object-cover w-full h-full" src={img.src} alt="" priority />
+            <Image quality={100} className="object-cover w-full h-full" src={img.src} alt="" priority />
           </div>
         ))}
       </div>

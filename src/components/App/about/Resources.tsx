@@ -30,7 +30,7 @@ export default function Resources() {
         <Heading type="h1" text="Ресурсы" />
 
         <div className="relative w-full h-[85%] xl:h-[65%] sm:h-[33vh] pr-20 sm:pr-0 overflow-hidden">
-          <Image fill={true} className="w-full object-contain sm:object-cover object-left" src={ResourcesImage} alt="Ориентир ресурсы" />
+          <Image fill={true} quality={100} className="w-full object-contain sm:object-cover object-left" src={ResourcesImage} alt="Ориентир ресурсы" />
         </div>
       </div>
 

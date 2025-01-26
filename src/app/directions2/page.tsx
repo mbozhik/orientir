@@ -7,7 +7,7 @@ import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import Directions from '~~/index/Directions'
 import Specs from '~~/projects/slug/Specs'
 
-export const indicatorsData = [
+const indicatorsData = [
   {
     heading: '7 парков',
     caption: 'расположенных в самых востребованных локациях Московской и Ленинградской области',
