@@ -6,7 +6,7 @@ import {containerStyles} from '~/Global/Container'
 
 import {Menu} from 'lucide-react'
 import LogoImage from '$/logo.svg'
-// import LogoMonoImage from '$/logo-mono.svg'
+import LogoMonoImage from '$/logo-mono.svg'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -23,8 +23,7 @@ export default function Header() {
         <nav className="flex items-end gap-10 xl:gap-7">
           <Link href="/" className="">
             <div className="w-[200px] xl:w-44">
-              {/* <Image className="object-contain w-full" src={!isFullPage ? LogoImage : LogoMonoImage} alt="Логтип Ориентир" /> */}
-              <Image className="object-contain w-full" src={LogoImage} alt="Логтип Ориентир" />
+              <Image className="object-contain w-full" src={!isFullPage ? LogoImage : LogoMonoImage} alt="Логтип Ориентир" />
             </div>
           </Link>
 
