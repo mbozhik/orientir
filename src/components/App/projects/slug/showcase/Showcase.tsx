@@ -95,7 +95,7 @@ function MobileAwards({project}: {project: TProject}) {
 
   return (
     <section data-section="mob-awards-project" className="relative mb-10 space-y-5">
-      <Image className="object-cover w-full h-[40vh]" src={project.image} alt="" />
+      <Image className="object-cover w-full h-[40vh]" src={project.mobile_image} alt="" />
 
       <div className={`space-y-3 ${containerStyles.width}`}>
         <Heading type="h1" className="sm:text-[33px]" text={project.project} />

@@ -2,9 +2,12 @@ import {NextResponse} from 'next/server'
 import {StaticImageData} from 'next/image'
 
 import OrientirZapadImage from '$/projects/orientir-zapad.jpg'
+import OrientirZapadMobileImage from '$/projects/orientir-zapad-mobile.jpg'
 import OrientirSeverImage from '$/projects/orientir-sever.jpg'
 import OrientirSever2Image from '$/projects/orientir-sever-2.jpg'
+import OrientirSever2MobileImage from '$/projects/orientir-sever-2-mobile.jpg'
 import OrientirSever3Image from '$/projects/orientir-sever-3.jpg'
+import OrientirSever3MobileImage from '$/projects/orientir-sever-3-mobile.jpg'
 import OrientirUgImage from '$/projects/orientir-ug.jpg'
 
 import ResidentOneImage from '$/projects/resident-1.jpg'
@@ -35,6 +38,7 @@ export type TProject = {
   slug: string
   project: string
   image: StaticImageData
+  mobile_image: StaticImageData
   description: string
   residents: Record<number, TResident>
   award?: string
@@ -58,6 +62,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-zapad',
     project: 'Ориентир Запад',
     image: OrientirZapadImage,
+    mobile_image: OrientirZapadMobileImage,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
     award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
 
@@ -194,6 +199,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever',
     project: 'Ориентир Север',
     image: OrientirSeverImage,
+    mobile_image: OrientirZapadMobileImage,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
     award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
 
@@ -291,6 +297,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever-2',
     project: 'Ориентир Север-2',
     image: OrientirSever2Image,
+    mobile_image: OrientirSever2MobileImage,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
@@ -387,6 +394,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever-3',
     project: 'Ориентир Север-3',
     image: OrientirSever3Image,
+    mobile_image: OrientirSever3MobileImage,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
@@ -501,6 +509,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-ug',
     project: 'Ориентир Юг',
     image: OrientirUgImage,
+    mobile_image: OrientirZapadMobileImage,
     description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
 
     residents: {
