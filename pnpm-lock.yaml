@@ -14,9 +14,6 @@ importers:
       '@gsap/react':
         specifier: ^2.1.1
         version: 2.1.1
-      '@pbe/react-yandex-maps':
-        specifier: ^1.2.5
-        version: 1.2.5(react@18.3.1)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -47,6 +44,9 @@ importers:
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.14)
+      ymap3-components:
+        specifier: ^1.2.3
+        version: 1.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -57,6 +57,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.1
+      '@yandex/ymaps3-types':
+        specifier: ^1.0.15731128
+        version: 1.0.15731128(@types/react-dom@18.3.1)(@types/react@18.3.12)
       eslint:
         specifier: ^8
         version: 8.57.1
@@ -214,12 +217,6 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@pbe/react-yandex-maps@1.2.5':
-    resolution: {integrity: sha512-cBojin5e1fPx9XVCAqHQJsCnHGMeBNsP0TrNfpWCrPFfxb30ye+JgcGr2mn767Gbr1d+RufBLRiUcX2kaiAwjQ==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      react: ^16.x || ^17.x || ^18.x
-
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
@@ -250,9 +247,6 @@ packages:
 
   '@types/react@18.3.12':
     resolution: {integrity: sha512-D2wOSq/d6Agt28q7rSI3jhU7G6aiuzljDGZ2hTZHIkrTLUI+AF3WMeKkEZ9nN2fkBAlcktT6vcZjDFiIhMYEQw==}
-
-  '@types/yandex-maps@2.1.29':
-    resolution: {integrity: sha512-nuibRWj3RU/9KXlCzTrRtDE+n6V9l7NbT9JakicqZ5OXIdwyb6blvV2Uwn6lB58WYm3DSUDP2I2AWlnWMc8z2w==}
 
   '@typescript-eslint/eslint-plugin@8.13.0':
     resolution: {integrity: sha512-nQtBLiZYMUPkclSeC3id+x4uVd1SGtHuElTxL++SfP47jR0zfkZBJHc+gL4qPsgTuypz0k8Y2GheaDYn6Gy3rg==}
@@ -313,6 +307,20 @@ packages:
 
   '@ungap/structured-clone@1.2.0':
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
+
+  '@yandex/ymaps3-types@1.0.15731128':
+    resolution: {integrity: sha512-MMfxh4IM7wPTkmRxoZhIOY91yoRvFNO3Fk1urTqwH2pqF7Fhli2tb5Gdv1YoOPlacHyxl2BYxKHGOMzNrDZqQg==}
+    peerDependencies:
+      '@types/react': 16-18
+      '@types/react-dom': 16-18
+      '@vue/runtime-core': '3'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      '@types/react-dom':
+        optional: true
+      '@vue/runtime-core':
+        optional: true
 
   acorn-jsx@5.3.2:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -1588,6 +1596,12 @@ packages:
     engines: {node: '>= 14'}
     hasBin: true
 
+  ymap3-components@1.2.3:
+    resolution: {integrity: sha512-VEye49LEMleEpbjF/c+XYPRlC9bKPGfQeWw5fiRbupGZsPJJhi9kOo0akp3L5GAA5uhpgQrnxmYQeb1Ng+ijCA==}
+    peerDependencies:
+      react: ^18.2.0 || ^19.0.0
+      react-dom: ^18.2.0 || ^19.0.0
+
   yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
@@ -1711,11 +1725,6 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@pbe/react-yandex-maps@1.2.5(react@18.3.1)':
-    dependencies:
-      '@types/yandex-maps': 2.1.29
-      react: 18.3.1
-
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
@@ -1746,8 +1755,6 @@ snapshots:
     dependencies:
       '@types/prop-types': 15.7.13
       csstype: 3.1.3
-
-  '@types/yandex-maps@2.1.29': {}
 
   '@typescript-eslint/eslint-plugin@8.13.0(@typescript-eslint/parser@8.13.0(eslint@8.57.1)(typescript@5.6.3))(eslint@8.57.1)(typescript@5.6.3)':
     dependencies:
@@ -1831,6 +1838,11 @@ snapshots:
       eslint-visitor-keys: 3.4.3
 
   '@ungap/structured-clone@1.2.0': {}
+
+  '@yandex/ymaps3-types@1.0.15731128(@types/react-dom@18.3.1)(@types/react@18.3.12)':
+    optionalDependencies:
+      '@types/react': 18.3.12
+      '@types/react-dom': 18.3.1
 
   acorn-jsx@5.3.2(acorn@8.14.0):
     dependencies:
@@ -3342,5 +3354,10 @@ snapshots:
   wrappy@1.0.2: {}
 
   yaml@2.6.0: {}
+
+  ymap3-components@1.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   yocto-queue@0.1.0: {}

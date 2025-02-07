@@ -1,33 +1,42 @@
 'use client'
 
-import {YMaps, Map, Placemark} from '@pbe/react-yandex-maps'
+import type {YMapLocationRequest, LngLat, VectorCustomizationItem} from '@yandex/ymaps3-types'
+import CustomYMap from '@/lib/custom-ymap.json'
+
+import React from 'react'
+import {YMap, YMapComponentsProvider, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapListener, YMapDefaultMarker} from 'ymap3-components'
+
+export type YMapCoordinates = YMapLocationRequest & {
+  center: LngLat
+  zoom: number
+}
 
 type Props = {
-  coordinates: number[]
-  placemarks?: number[][]
-  zoom?: number
+  coordinates: YMapCoordinates
+  placemarks?: YMapCoordinates[]
   height?: string
 }
 
-export default function YandexMap({coordinates, placemarks, zoom = 16, height = '80vh'}: Props) {
-  const mapPlacemarks = placemarks?.length ? placemarks : [coordinates]
+const customYMapData: VectorCustomizationItem[] = CustomYMap as VectorCustomizationItem[]
+
+export function Map({coordinates, placemarks, height = '80vh'}: Props) {
+  const mapPlacemarks: LngLat[] = placemarks?.length ? placemarks.map((placemark) => placemark.center) : [coordinates.center]
 
   return (
-    <YMaps query={{lang: 'ru_RU'}}>
+    <YMapComponentsProvider apiKey={process.env.NEXT_PUBLIC_YMAPS_API_KEY ?? ''} lang="ru_RU">
       <div className="relative w-full overflow-hidden" style={{height: `calc(${height} - 35px)`}}>
-        <Map className="absolute inset-0 w-full saturate-0" style={{height}} state={{center: coordinates, zoom}}>
-          {mapPlacemarks.map((placemark, index) => (
-            <Placemark
-              key={index}
-              geometry={placemark}
-              options={{
-                preset: 'islands#circleIcon',
-                iconColor: '#000',
-              }}
-            />
-          ))}
-        </Map>
+        <div style={{height}}>
+          <YMap key="map" location={coordinates} mode="vector" theme="dark">
+            <YMapDefaultSchemeLayer customization={customYMapData} />
+            <YMapDefaultFeaturesLayer />
+            <YMapListener />
+
+            {mapPlacemarks.map((placemark, idx) => (
+              <YMapDefaultMarker coordinates={placemark} key={idx} color="#0033a0" />
+            ))}
+          </YMap>
+        </div>
       </div>
-    </YMaps>
+    </YMapComponentsProvider>
   )
 }

@@ -8,17 +8,17 @@ import {useState, useEffect} from 'react'
 import Heading from '~/UI/Heading'
 import Text from '~/UI/Text'
 import {DetailsButton} from '~/UI/Button'
-import YandexMap from '~/UI/Map'
+import {Map, type YMapCoordinates} from '~/UI/Map'
 import {ArrowDownRight} from '~/UI/Icons'
 
 const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'Завершен', 'В процессе', 'Свободные земельные участки']
 
-const defaultRussiaCoordinates = [55.751244, 40.018423]
+const defaultRussiaCoordinates: YMapCoordinates = {center: [41.22566876344172, 56.014099613823724], zoom: 5}
 
 export default function Overview({items: projects}: {items: TProject[]}) {
   const [activeTab, setActiveTab] = useState<number | null>(0)
-  const [mapCoordinates, setMapCoordinates] = useState<number[]>(projects[0]?.location.coordinates || [])
-  const [mapPlacemarks, setMapPlacemarks] = useState<number[][] | undefined>(undefined)
+  const [mapCoordinates, setMapCoordinates] = useState<YMapCoordinates>(projects[0]?.location.coordinates || [])
+  const [mapPlacemarks, setMapPlacemarks] = useState<YMapCoordinates[] | undefined>(undefined)
   const [selectedState, setSelectedState] = useState<ResidentStatus | 'Все'>('Все')
 
   const filteredProjects = selectedState === 'Все' ? projects : projects.filter((project) => Object.values(project.residents).some((resident) => resident.status === selectedState))
@@ -26,7 +26,8 @@ export default function Overview({items: projects}: {items: TProject[]}) {
   useEffect(() => {
     if (activeTab === null) {
       if (filteredProjects.length > 0) {
-        const allCoordinates = filteredProjects.map((project) => project.location.coordinates)
+        const allCoordinates: YMapCoordinates[] = filteredProjects.map((project) => project.location.coordinates)
+
         setMapPlacemarks(allCoordinates)
         setMapCoordinates(defaultRussiaCoordinates)
       } else {
@@ -112,12 +113,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
           })}
         </div>
 
-        <YandexMap
-          height="75vh"
-          coordinates={mapCoordinates}
-          placemarks={mapPlacemarks}
-          zoom={activeTab === null ? 4.5 : undefined} // default 16
-        />
+        <Map coordinates={mapCoordinates} placemarks={mapPlacemarks} />
       </div>
     </section>
   )
