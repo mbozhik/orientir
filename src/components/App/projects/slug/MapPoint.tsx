@@ -1,7 +1,7 @@
 import {TProjectExtra} from '@/app/api/projects/route'
 
 import Text from '~/UI/Text'
-import YandexMap from '~/UI/Map'
+import {Map} from '~/UI/Map'
 
 export default function MapPoint({project}: {project: TProjectExtra}) {
   return (
@@ -24,7 +24,7 @@ export default function MapPoint({project}: {project: TProjectExtra}) {
         </div>
       </div>
 
-      <YandexMap coordinates={project.location.coordinates} />
+      <Map coordinates={project.location.coordinates} />
     </section>
   )
 }

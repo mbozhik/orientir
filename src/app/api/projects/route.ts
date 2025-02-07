@@ -1,6 +1,8 @@
 import {NextResponse} from 'next/server'
 import {StaticImageData} from 'next/image'
 
+import type {YMapCoordinates} from '~/UI/Map'
+
 import OrientirZapadImage from '$/projects/orientir-zapad.jpg'
 import OrientirZapadMobileImage from '$/projects/orientir-zapad-mobile.jpg'
 import OrientirSeverImage from '$/projects/orientir-sever.jpg'
@@ -42,7 +44,7 @@ export type TProject = {
   description: string
   residents: Record<number, TResident>
   award?: string
-  location: {coordinates: number[]; address: string; availability: {gap: string; benchmark: string}[]}
+  location: {coordinates: YMapCoordinates; address: string; availability: {gap: string; benchmark: string}[]}
 }
 
 export type TProjectExtra = TProject & {
@@ -118,7 +120,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [53.1959, 50.1002],
+      coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -226,7 +228,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [59.93428, 30.3351],
+      coordinates: {center: [30.250329954480875, 59.92963764537041], zoom: 15},
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -323,7 +325,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [55.83043, 49.06608],
+      coordinates: {center: [49.09248423001092, 55.78171150330224], zoom: 15},
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -438,7 +440,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [54.1931, 37.6177],
+      coordinates: {center: [37.59016299978628, 54.18964298851719], zoom: 15},
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
@@ -546,7 +548,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: [57.6261, 39.8845],
+      coordinates: {center: [39.899743000206115, 57.6193524198258], zoom: 15},
       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
       availability: [
         {
