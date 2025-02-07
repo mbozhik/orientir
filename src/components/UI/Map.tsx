@@ -14,7 +14,9 @@ type Props = {
   placemarks?: YMapCoordinates[]
 }
 
-export function Map({coordinates}: Props) {
+export function Map({coordinates, placemarks}: Props) {
+  const mapPlacemarks: LngLat[] = placemarks?.length ? placemarks.map((placemark) => placemark.center) : [coordinates.center]
+
   return (
     <YMapComponentsProvider apiKey={process.env.NEXT_PUBLIC_YMAPS_API_KEY ?? ''} lang="ru_RU">
       <YMap key="map" className="h-screen" location={coordinates} mode="vector" theme="dark">
@@ -22,7 +24,9 @@ export function Map({coordinates}: Props) {
         <YMapDefaultFeaturesLayer />
         <YMapListener />
 
-        {'center' in coordinates && <YMapDefaultMarker coordinates={coordinates.center} />}
+        {mapPlacemarks.map((placemark, idx) => (
+          <YMapDefaultMarker coordinates={placemark} key={idx} />
+        ))}
       </YMap>
     </YMapComponentsProvider>
   )
