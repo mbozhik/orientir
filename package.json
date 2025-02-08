@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "explorer http://localhost:2000 & next dev -p 2000",
-    "dev:host": "explorer http://10.99.12.151:2000 & next dev -p 2000 -H 10.99.12.151",
+    "dev": "next dev -p 2000",
+    "dev:host": "next dev -p 2000 -H 10.99.12.151",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@bozzhik/is-mobile": "^0.1.1",
     "@gsap/react": "^2.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

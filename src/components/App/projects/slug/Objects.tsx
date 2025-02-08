@@ -1,7 +1,7 @@
 'use client'
 
 import {TProjectExtra} from '@/app/api/projects/route'
-import {isMobile} from '@bozzhik/is-mobile'
+import {useMediaQuery} from '@/lib/use-media-query'
 
 import {useState, useRef} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
@@ -20,7 +20,9 @@ export default function Specs({project}: {project: TProjectExtra}) {
   const [activeIndex, setActiveIndex] = useState(0)
   const swiperRef = useRef<SwiperRef | null>(null)
 
-  if (!isMobile) {
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+
+  if (isDesktop) {
     return null
   }
 

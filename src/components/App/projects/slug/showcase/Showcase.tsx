@@ -1,7 +1,7 @@
 'use client'
 
 import {cn} from '@/lib/utils'
-import {isMobile} from '@bozzhik/is-mobile'
+import {useMediaQuery} from '@/lib/use-media-query'
 import {useState, useEffect} from 'react'
 
 import {TProject} from '@/app/api/projects/route'
@@ -118,5 +118,7 @@ function MobileAwards({project}: {project: TProject}) {
 }
 
 export default function Showcase({project}: {project: TProject}) {
-  return <>{!isMobile ? <DeskShowcase project={project} /> : <MobileAwards project={project} />}</>
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+
+  return <>{isDesktop ? <DeskShowcase project={project} /> : <MobileAwards project={project} />}</>
 }
