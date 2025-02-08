@@ -100,18 +100,20 @@ function MobileAwards({project}: {project: TProject}) {
       <div className={`space-y-3 ${containerStyles.width}`}>
         <Heading type="h1" className="sm:text-[33px]" text={project.project} />
 
-        {combinedAwards.length > 0 && (
-          <Swiper data-slider="mobile-awards" className="flex w-full gap-3" spaceBetween={30} pagination={{clickable: true}} modules={[Pagination]}>
-            {combinedAwards.map((award, index) => (
-              <SwiperSlide key={index}>
-                <div className="flex items-center gap-6 px-3 pl-4 py-2.5 border border-gray-light">
-                  <Image quality={100} className="object-contain s-14" src={award.image} alt={award.text} />
-                  <Text type="p" className="sm:text-xs" text={award.text} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        )}
+        <div className="overflow-hidden pb-4">
+          {combinedAwards.length > 0 && (
+            <Swiper data-slider="mobile-awards" className="flex w-full gap-3" spaceBetween={30} pagination={{clickable: true}} modules={[Pagination]}>
+              {combinedAwards.map((award, index) => (
+                <SwiperSlide key={index}>
+                  <div className="flex items-center gap-6 px-3 pl-4 py-2.5 border border-gray-light">
+                    <Image quality={100} className="object-contain s-14" src={award.image} alt={award.text} />
+                    <Text type="p" className="sm:text-xs" text={award.text} />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          )}
+        </div>
       </div>
     </section>
   )
