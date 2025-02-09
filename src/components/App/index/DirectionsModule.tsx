@@ -4,8 +4,7 @@ import {cn} from '@/lib/utils'
 import {useState} from 'react'
 import {TDirection} from '@/app/api/directions/route'
 
-import Heading from '~/UI/Heading'
-import Text from '~/UI/Text'
+import Typography from '~/UI/Typography'
 import {ArrowRight} from 'lucide-react'
 
 export default function DirectionsModule({directions}: {directions: TDirection[]}) {
@@ -26,8 +25,8 @@ export default function DirectionsModule({directions}: {directions: TDirection[]
         <div key={direction.id} className="space-y-5 sm:space-y-3.5 border-b-[1px] pb-5 xl:pb-4 sm:pb-3.5 border-gray-light group">
           <div className="flex items-end justify-between gap-10 cursor-pointer" onClick={() => handleToggle(direction.id)}>
             <div className="flex gap-5">
-              <Text type="sub" className={cn('mt-1 sm:mt-0 font-light sm:hidden', interactiveClasses.text, openTab === direction.id && 'text-red')} text={direction.id} />
-              <Heading type="h2" className={cn(interactiveClasses.text, openTab === direction.id && 'text-red', 'xl:text-3xl')} text={direction.heading} />
+              <Typography type="span" className={cn('mt-1 sm:mt-0 font-light sm:hidden', interactiveClasses.text, openTab === direction.id && 'text-red')} text={direction.id} />
+              <Typography type="h2" className={cn(interactiveClasses.text, openTab === direction.id && 'text-red', 'xl:text-3xl')} text={direction.heading} />
             </div>
 
             <ArrowRight className={cn('s-12 xl:s-10', interactiveClasses.icon, openTab === direction.id && 'rotate-45 text-red')} strokeWidth={1.25} />
@@ -36,7 +35,7 @@ export default function DirectionsModule({directions}: {directions: TDirection[]
           {openTab === direction.id && (
             <div className="flex flex-col gap-1.5 ml-10 sm:ml-0 text-gray-dark">
               {direction.list.map((item, index) => (
-                <Text type="p" text={item} key={index} />
+                <Typography type="p" text={item} key={index} />
               ))}
             </div>
           )}

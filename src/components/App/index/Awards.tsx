@@ -1,7 +1,6 @@
 import {cn} from '@/lib/utils'
 import {containerStyles} from '~/Global/Container'
-import Heading from '~/UI/Heading'
-import Text from '~/UI/Text'
+import Typography from '~/UI/Typography'
 
 const awardsConfig = [
   {year: 19, title: 'CRE Awards', description: ['Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper, metus sit amet imperdiet dignissim, lectus nunc imperdiet leo, mattis efficitur metus orci at enim. Praesent laoreet nulla et est malesuada vestibulum. Aliquam sodales posuere nunc vel mattis.', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ullamcorper, metus sit amet imperdiet dignissim, lectus nunc imperdiet leo, mattis efficitur metus orci at enim. Praesent laoreet nulla et est malesuada vestibulum. Aliquam sodales posuere nunc vel mattis.']},
@@ -16,7 +15,7 @@ const headingStyles = 'text-[220px] xl:text-[150px] sm:text-2xl sm:text-gray lea
 export default function Awards() {
   return (
     <section data-section="awards-index" className="relative space-y-20 sm:space-y-7">
-      <Heading className="max-w-[50ch]" type="h1" text="Награды" />
+      <Typography className="max-w-[50ch]" type="h1" text="Награды" />
 
       <div className={cn('flex', containerStyles.min_width)}>
         <h1 className={cn(headingStyles, 'sticky top-52 self-start sm:hidden')}>20</h1>
@@ -31,9 +30,9 @@ export default function Awards() {
                 </h1>
 
                 <div className="mt-2 space-y-5 sm:space-y-2 pb-20 sm:pb-4">
-                  <Heading type="h2" text={award.title} />
+                  <Typography type="h2" text={award.title} />
                   {award.description.map((sentence, i) => (
-                    <Text key={i} type="p" text={sentence} />
+                    <Typography key={i} type="p" text={sentence} />
                   ))}
                 </div>
               </div>

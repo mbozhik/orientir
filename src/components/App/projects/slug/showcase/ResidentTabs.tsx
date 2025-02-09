@@ -9,7 +9,7 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
-import Text from '~/UI/Text'
+import Typography from '~/UI/Typography'
 import {ChevronLeft, ChevronRight} from 'lucide-react'
 
 type TabProps = {
@@ -32,13 +32,13 @@ export function Tab({name, status, area, isActive, onClick, className}: TabProps
   return (
     <div onClick={onClick} className={cn('p-2.5 xl:pb-1 sm:px-2.5 sm:py-1.5 flex flex-col gap-1.5 xl:gap-1 duration-200 cursor-pointer', isActive ? 'bg-red text-background' : 'bg-background hover:bg-blue group hover:text-background', className)}>
       <div className={cn('flex justify-between gap-16 duration-200 text-gray group-hover:text-background font-extralight', isActive && 'text-background')}>
-        <Text type="sub" className="lowercase" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
-        {/* {type && <Text type="sub" className="self-end" text={type} />} */}
+        <Typography type="span" className="lowercase" text={status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status} />
+        {/* {type && <Typography type="span" className="self-end" text={type} />} */}
       </div>
 
       <div className="flex justify-between gap-16">
-        <Text type="h4" className="font-bold leading-none" text={name} />
-        <Text type="sub" className="self-end font-bold" text={`${area} м2`} />
+        <Typography type="h4" className="font-bold leading-none" text={name} />
+        <Typography type="span" className="self-end font-bold" text={`${area} м2`} />
       </div>
     </div>
   )

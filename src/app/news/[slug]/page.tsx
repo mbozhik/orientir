@@ -3,8 +3,7 @@ import {getNewsItem} from '@/utils/getData'
 
 import Image from 'next/image'
 import {containerStyles, sitePadding} from '~/Global/Container'
-import Heading from '~/UI/Heading'
-import Text from '~/UI/Text'
+import Typography from '~/UI/Typography'
 import {DetailsButton} from '~/UI/Button'
 import NewsContent from '~~/news/slug/NewsContent'
 
@@ -17,8 +16,8 @@ export default async function ProjectPage({params}: {params: Promise<{slug: stri
       <section data-section="hero-news" className={`${containerStyles.width} ${sitePadding}`}>
         <div className="flex items-end justify-between mt-10 sm:flex-col sm:gap-5 sm:mt-5">
           <div className="space-y-5">
-            <Heading type="h1" className="max-w-[30ch]" text={news.heading} />
-            <Text type="sub" className="font-bold text-gray" text={news.date} />
+            <Typography type="h1" className="max-w-[30ch]" text={news.heading} />
+            <Typography type="span" className="font-bold text-gray" text={news.date} />
           </div>
 
           <DetailsButton href={news.source} target="_blank" text="Источник" />

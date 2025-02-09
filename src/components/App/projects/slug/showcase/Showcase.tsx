@@ -14,8 +14,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 import Image from 'next/image'
-import Heading from '~/UI/Heading'
-import Text from '~/UI/Text'
+import Typography from '~/UI/Typography'
 import ResidentCard from '~~/projects/slug/showcase/ResidentCard'
 import ResidentTabs from '~~/projects/slug/showcase/ResidentTabs'
 
@@ -69,7 +68,7 @@ function DeskShowcase({project}: {project: TProject}) {
             <div className="flex flex-col gap-1.5 items-end">
               {activeAward.text && (
                 <div className="p-4 bg-background max-w-[45ch] xl:max-w-[40ch]">
-                  <Text type="sub" className="font-extralight" text={activeAward.text} />
+                  <Typography type="span" className="font-extralight" text={activeAward.text} />
                 </div>
               )}
 
@@ -98,7 +97,7 @@ function MobileAwards({project}: {project: TProject}) {
       <Image className="object-cover w-full h-[40vh]" src={project.mobile_image} alt="" />
 
       <div className={`space-y-3 ${containerStyles.width}`}>
-        <Heading type="h1" className="sm:text-[33px]" text={project.project} />
+        <Typography type="h1" className="sm:text-[33px]" text={project.project} />
 
         <div className="overflow-hidden pb-4">
           {combinedAwards.length > 0 && (
@@ -107,7 +106,7 @@ function MobileAwards({project}: {project: TProject}) {
                 <SwiperSlide key={index}>
                   <div className="flex items-center gap-6 px-3 pl-4 py-2.5 border border-gray-light">
                     <Image quality={100} className="object-contain s-14" src={award.image} alt={award.text} />
-                    <Text type="p" className="sm:text-xs" text={award.text} />
+                    <Typography type="p" className="sm:text-xs" text={award.text} />
                   </div>
                 </SwiperSlide>
               ))}

@@ -13,8 +13,7 @@ import {ChevronLeft, ChevronRight} from 'lucide-react'
 import LogoImage from '$/logo-min.svg'
 
 import Image from 'next/image'
-import Heading from '~/UI/Heading'
-import Text from '~/UI/Text'
+import Typography from '~/UI/Typography'
 import {DetailsButton} from '~/UI/Button'
 
 export default function ProjectsModule({items}: {items: TProject[]}) {
@@ -101,9 +100,9 @@ export default function ProjectsModule({items}: {items: TProject[]}) {
           <SwiperSlide key={index}>
             <div className="flex justify-between px-14 py-14 sm:flex-col-reverse sm:px-6 sm:py-4 sm:gap-6 sm:pb-12 sm:w-auto sm:mx-3 bg-background">
               <div className="py-7 sm:py-0 space-y-7 sm:space-y-3">
-                <Text type="sub" className="font-bold text-gray" text={`${index + 1}/${items.length}`} />
-                <Heading type="h2" text={project.project} />
-                <Text type="p" className="max-w-[37ch]" text={project.description} />
+                <Typography type="span" className="font-bold text-gray" text={`${index + 1}/${items.length}`} />
+                <Typography type="h2" text={project.project} />
+                <Typography type="p" className="max-w-[37ch]" text={project.description} />
                 <DetailsButton href={`/projects/${project.slug}`} text="Подробнее" />
               </div>
 
