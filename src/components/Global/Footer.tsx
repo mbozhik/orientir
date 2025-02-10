@@ -1,4 +1,4 @@
-import {siteRoutes} from '@/lib/constants'
+import {WEBSITE_PATHS, WEBSITE_RESOURCES} from '@/lib/constants'
 import {ArrowUpRight} from 'lucide-react'
 import LogoImage from '$/logo.svg'
 
@@ -6,19 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import {H2, P, SPAN} from '~/UI/Typography'
 
-const footerConfig = {
-  info: {
-    'Отдел продаж': 'sales@orientir.ru',
-    Сотрудничество: 'contact@orientir.ru',
-    'Отдел кадров': 'hr@orientir.ru',
-  },
-  contacts: {
-    '+7 (499) 940 12-20': 'tel:+74999401220',
-    'info@orientir.ru': 'mailto:info@orientir.ru',
-    'Пресненская набережная, 10, <br /> Блок С, 25-й этаж': 'https://yandex.ru/maps/-/CDHoJ8JB',
-  },
-}
-const {info, contacts} = footerConfig
+const {info, contacts} = WEBSITE_RESOURCES
 
 export default function Footer() {
   const gridConfig = {
@@ -39,7 +27,7 @@ export default function Footer() {
 
             <div className="flex flex-wrap gap-5 sm:gap-3.5">
               {Object.entries(info).map(([department, email], index) => (
-                <div key={index} className="space-y-2 sm:w-full">
+                <div key={index} className="space-y-2 sm:space-y-1 sm:w-full">
                   <SPAN>{`${department}:`}</SPAN>
 
                   <Link href={`mailto:${email}`} className="flex items-center sm:justify-center gap-2 pl-4 pr-2.5 py-0.5 sm:w-full border-2 group w-fit border-gray hover:border-blue duration-200">
@@ -56,7 +44,7 @@ export default function Footer() {
           <P className="font-bold">Карта сайта</P>
 
           <div className="flex flex-col gap-3 xl:gap-1.5">
-            {Object.entries(siteRoutes).map(([key, label]) => (
+            {Object.entries(WEBSITE_PATHS).map(([key, label]) => (
               <Link className="hover:underline" href={`/${key}`} key={key}>
                 <P>{label}</P>
               </Link>
@@ -69,7 +57,7 @@ export default function Footer() {
 
           <div className="flex flex-col justify-between gap-3 xl:gap-1.5">
             {Object.entries(contacts).map(([label, link]) => (
-              <Link className="hover:underline" href={link} key={link}>
+              <Link className="hover:underline sm:max-w-[30ch]" href={link} key={link}>
                 <P>{label}</P>
               </Link>
             ))}
