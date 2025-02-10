@@ -1,10 +1,17 @@
 'use client'
 
+import React from 'react'
+import dynamic from 'next/dynamic'
+
+const YMap = dynamic(() => import('ymap3-components').then((mod) => mod.YMap), {ssr: false})
+const YMapComponentsProvider = dynamic(() => import('ymap3-components').then((mod) => mod.YMapComponentsProvider), {ssr: false})
+const YMapDefaultSchemeLayer = dynamic(() => import('ymap3-components').then((mod) => mod.YMapDefaultSchemeLayer), {ssr: false})
+const YMapDefaultFeaturesLayer = dynamic(() => import('ymap3-components').then((mod) => mod.YMapDefaultFeaturesLayer), {ssr: false})
+const YMapListener = dynamic(() => import('ymap3-components').then((mod) => mod.YMapListener), {ssr: false})
+const YMapDefaultMarker = dynamic(() => import('ymap3-components').then((mod) => mod.YMapDefaultMarker), {ssr: false})
+
 import type {YMapLocationRequest, LngLat, VectorCustomizationItem} from '@yandex/ymaps3-types'
 import CustomYMap from '@/lib/custom-ymap.json'
-
-import React from 'react'
-import {YMap, YMapComponentsProvider, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapListener, YMapDefaultMarker} from 'ymap3-components'
 
 export type YMapCoordinates = YMapLocationRequest & {
   center: LngLat

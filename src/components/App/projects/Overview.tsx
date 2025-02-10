@@ -4,6 +4,7 @@ import {TProject, ResidentStatus} from '@/app/api/projects/route'
 
 import {cn} from '@/lib/utils'
 import {useState, useEffect} from 'react'
+import {motion} from 'framer-motion'
 
 import {H2, H3, H4, P, SPAN} from '~/UI/Typography'
 import {DetailsButton} from '~/UI/Button'
@@ -115,7 +116,18 @@ export default function Overview({items: projects}: {items: TProject[]}) {
           })}
         </div>
 
-        <Map coordinates={mapCoordinates} placemarks={mapPlacemarks} />
+        <motion.div
+          key={JSON.stringify({mapCoordinates, mapPlacemarks})} // Ensures animation on change
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          variants={{
+            hidden: {opacity: 0, scale: 0.95},
+            visible: {opacity: 1, scale: 1, transition: {duration: 0.5, ease: 'easeInOut'}},
+          }}
+        >
+          <Map coordinates={mapCoordinates} placemarks={mapPlacemarks} />
+        </motion.div>
       </div>
     </section>
   )
