@@ -6,7 +6,7 @@ import QuoteImage from '$/quote.svg'
 import Image, {StaticImageData} from 'next/image'
 
 import {containerStyles} from '~/Global/Container'
-import Typography from '~/UI/Typography'
+import {H2, H3, P} from '~/UI/Typography'
 
 type Props = {
   content: TNewsContent[]
@@ -21,7 +21,7 @@ export default function NewsContent({content, quote, extraImage}: Props) {
         <Fragment key={index}>
           <section className={cn('grid grid-cols-20 sm:grid-cols-1 sm:gap-y-10', containerStyles.width, !contentItem.caption && 'sm:flex sm:flex-col-reverse')} data-section={`news-block-${index + 1}`}>
             <div className="flex flex-col justify-between col-span-8 sm:gap-7">
-              {contentItem.caption && <Typography type="h2" className="xl:text-[34px] max-w-[35ch] sm:leading-[1.2]" text={contentItem.caption} />}
+              {contentItem.caption && <H2 className="xl:text-[34px] max-w-[35ch] sm:leading-[1.2]">{contentItem.caption}</H2>}
               {contentItem.image && <Image quality={100} className={cn('object-cover w-full', !contentItem.caption && 'h-full max-h-[70vh] xl:max-h-[50vh]')} src={contentItem.image} alt={contentItem.caption || 'Content image'} />}
             </div>
 
@@ -30,8 +30,9 @@ export default function NewsContent({content, quote, extraImage}: Props) {
             <div className="flex flex-col col-span-10 gap-10 xl:gap-7 sm:flex-col-reverse">
               {contentItem.blocks.map((block, blockIndex) => (
                 <div key={blockIndex} className="space-y-4 xl:space-y-2.5">
-                  {block.heading && <Typography type="h3" className="font-normal" text={block.heading} />}
-                  <Typography type="p" className="max-w-[65ch]" text={block.text} />
+                  {block.heading && <H3 className="font-normal">{block.heading}</H3>}
+
+                  <P className="max-w-[65ch]">{block.text}</P>
                 </div>
               ))}
             </div>
@@ -44,13 +45,13 @@ export default function NewsContent({content, quote, extraImage}: Props) {
               <div className="flex items-end col-span-4 gap-3">
                 <Image quality={100} className="object-cover s-48 xl:s-32" src={quote.image} alt={quote.person} />
                 <div className="flex flex-col gap-1.5 sm:gap-8 sm:justify-between">
-                  <Typography type="p" className="font-bold !leading-none sm:text-lg" text={quote.person} />
-                  <Typography type="p" className="max-w-[25ch] xl:!leading-[1.1] sm:text-lg" text={quote.position} />
+                  <P className="font-bold !leading-none sm:text-lg">{quote.person}</P>
+                  <P className="max-w-[25ch] xl:!leading-[1.1] sm:text-lg">{quote.position}</P>
                 </div>
               </div>
 
               <div className="relative col-span-6">
-                <Typography type="h2" className="sm:text-[22px] sm:leading-[1.1]" text={quote.speech} />
+                <H2 className="sm:text-[22px] sm:leading-[1.1]">{quote.speech}</H2>
 
                 <Image className="absolute -top-7 -left-5 sm:-inset-3 s-24 sm:s-20 -z-20" src={QuoteImage} alt="" />
               </div>

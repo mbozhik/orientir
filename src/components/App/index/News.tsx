@@ -2,7 +2,7 @@ import {TNews} from '@/app/api/news/route'
 import {containerStyles} from '~/Global/Container'
 import {getNews} from '@/utils/getData'
 
-import Typography from '~/UI/Typography'
+import {H1} from '~/UI/Typography'
 import {ExpandButton} from '~/UI/Button'
 import NewsGrid from '~~/news/NewsGrid'
 
@@ -12,7 +12,7 @@ export default async function News() {
   return (
     <section data-section="news-index" className="space-y-20 sm:space-y-7">
       <div className="flex justify-between">
-        <Typography type="h1" text="Новости" />
+        <H1>Новости</H1>
         <ExpandButton href="/news" view="desktop" text="Все новости" />
       </div>
 

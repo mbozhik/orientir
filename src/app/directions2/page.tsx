@@ -1,7 +1,7 @@
 import DirectionsImage from '$/directions.jpg'
 
 import Image from 'next/image'
-import Typography from '~/UI/Typography'
+import {H1, H2} from '~/UI/Typography'
 
 import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import Directions from '~~/index/Directions'
@@ -31,8 +31,12 @@ export default async function DirectionsPage() {
     <>
       <section data-section="hero-directions" className={`${containerStyles.width} ${sitePadding}`}>
         <div className="flex items-start justify-between mt-10 sm:flex-col sm:gap-5 sm:mt-5">
-          <Typography type="h1" text="Направления" />
-          <Typography type="h2" className="max-w-[45ch] xl:text-3xl" text="<span class='text-red'>Мы подбираем и реализуем оптимальное складское решение для ваших бизнес-процессов</span>– от аренды стандартного сухого склада в нашем парке до строительства на вашей земле специализированного объекта «под ключ» и его автоматизации." />
+          <H1>
+            Области <br /> экспертизы
+          </H1>
+          <H2 className="font-normal max-w-[45ch] xl:text-3xl">
+            <span className="text-red">Мы подбираем и реализуем оптимальное складское решение для ваших бизнес-процессов</span>– от аренды стандартного сухого склада в нашем парке до строительства на вашей земле специализированного объекта «под ключ» и его автоматизации.
+          </H2>
         </div>
       </section>
 

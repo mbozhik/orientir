@@ -12,7 +12,7 @@ import 'swiper/css/thumbs'
 
 import {TProjectExtra} from '@/app/api/projects/route'
 import Image from 'next/image'
-import Typography from '~/UI/Typography'
+import {SPAN} from '~/UI/Typography'
 
 export default function Gallery({project}: {project: TProjectExtra}) {
   const [thumbsSwiper, setThumbsSwiper] = useState<SwiperCore | null>(null)
@@ -26,7 +26,7 @@ export default function Gallery({project}: {project: TProjectExtra}) {
         <div className="w-full h-2 sm:h-1.5 bg-blue"></div>
 
         <div className="px-5 py-4 sm:px-3 sm:py-2">
-          <Typography type="span" className="max-w-[50ch] sm:text-sm sm:leading-[1.2]" text={activeCaption} />
+          <SPAN className="max-w-[50ch] sm:text-sm sm:leading-[1.2]">{activeCaption}</SPAN>
         </div>
       </div>
 

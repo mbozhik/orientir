@@ -9,7 +9,7 @@ import {containerStyles} from '~/Global/Container'
 import {cn} from '@/lib/utils'
 
 import Image, {type StaticImageData} from 'next/image'
-import Typography from '~/UI/Typography'
+import {H1, H3, H4, SPAN} from '~/UI/Typography'
 
 const teamConfig = [
   {
@@ -58,8 +58,8 @@ function TeamCard({person, className}: {person: TPerson; className?: string}) {
       <Image quality={100} className="block object-cover h-full" src={photo} alt={name} />
 
       <div className="space-y-1 xl:-space-y-1">
-        <Typography type="h3" text={name} />
-        <Typography type="span" className="text-gray xl:text-base sm:leading-[1.25]" text={position} />
+        <H3>{name}</H3>
+        <SPAN className="text-gray xl:text-base sm:leading-[1.25]">{position}</SPAN>
       </div>
     </div>
   )
@@ -69,8 +69,8 @@ export default function Team() {
   return (
     <section data-section="team-index" className="space-y-14 sm:space-y-7">
       <div className="space-y-2">
-        <Typography className="max-w-[50ch]" type="h1" text="Команда" />
-        <Typography type="h4" className="hidden sm:block" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
+        <H1 className="max-w-[50ch]">Команда</H1>
+        <H4 className="hidden sm:block">Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.</H4>
       </div>
 
       <div className={cn('flex flex-col gap-14 xl:gap-10 w-fit', containerStyles.min_width)}>
@@ -80,7 +80,7 @@ export default function Team() {
           ))}
 
           <div className="col-span-2 space-y-10 xl:space-y-7 sm:space-y-0">
-            <Typography type="h4" className="max-w-[55ch] sm:hidden" text="Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue." />
+            <H4 className="max-w-[55ch] sm:hidden">Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.</H4>
 
             <div className="grid grid-cols-2 gap-5 xl:gap-3.5 sm:gap-5 sm:flex sm:flex-col">
               {teamConfig.slice(1, 3).map((person, index) => (
@@ -90,7 +90,7 @@ export default function Team() {
           </div>
         </div>
 
-        <Typography type="h4" className="hidden sm:block" text="Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus erat libero, dictum nec ligula congue, semper euismod massa. Praesent mattis metus id justo blandit, blandit cursus tellus feugiat. " />
+        <H4 className="hidden sm:block">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus erat libero, dictum nec ligula congue, semper euismod massa. Praesent mattis metus id justo blandit, blandit cursus tellus feugiat.</H4>
 
         <div className="flex self-end gap-5 sm:flex-col xl:gap-3.5 sm:gap-5 w-full">
           {teamConfig.slice(3, 6).map((person, index) => (

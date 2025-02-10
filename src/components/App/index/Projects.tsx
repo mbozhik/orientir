@@ -1,7 +1,7 @@
 import {TProject} from '@/app/api/projects/route'
 import {getProjects} from '@/utils/getData'
 
-import Typography from '~/UI/Typography'
+import {H1} from '~/UI/Typography'
 import {ExpandButton} from '~/UI/Button'
 import ProjectsModule from '~~/index/ProjectsModule'
 
@@ -11,7 +11,7 @@ export default async function Projects() {
   return (
     <section data-section="projects-index" className="space-y-12 sm:space-y-7">
       <div className="flex justify-between">
-        <Typography className="max-w-[50ch]" type="h1" text="Проекты компании «Ориентир» соответствуют самым высоким российским и европейским стандартам качества." />
+        <H1 className="max-w-[50ch]">Проекты компании «Ориентир» соответствуют самым высоким российским и европейским стандартам качества.</H1>
 
         <ExpandButton href="/projects" view="desktop" text="Все проекты" />
       </div>

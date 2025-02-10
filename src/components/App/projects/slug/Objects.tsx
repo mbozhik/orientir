@@ -10,7 +10,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 import Image from 'next/image'
-import Typography from '~/UI/Typography'
+import {H1, P} from '~/UI/Typography'
 import {Tab} from '~~/projects/slug/showcase/ResidentTabs'
 // import {CardDetails} from '~~/projects/slug/showcase/ResidentCard'
 import {ArrowLeft, ArrowRight} from 'lucide-react'
@@ -28,7 +28,7 @@ export default function Specs({project}: {project: TProjectExtra}) {
   return (
     <section data-section="mob-objects-project" className="space-y-4">
       <div className="flex items-end justify-between">
-        <Typography type="h1" className="sm:text-[33px]" text="Объекты" />
+        <H1 className="sm:text-[33px]">Объекты</H1>
 
         <div className="flex justify-between gap-3">
           <ArrowLeft className="s-12 sm:s-10 text-gray-dark" strokeWidth={1.3} onClick={() => swiperRef.current?.swiper.slidePrev()} />
@@ -56,7 +56,7 @@ export default function Specs({project}: {project: TProjectExtra}) {
                   </div>
                 </div> */}
 
-                <Typography type="p" text={resident.description} />
+                <P>{resident.description}</P>
 
                 {/* {resident.extra_info && (
                   <div className="grid grid-cols-2 gap-2">

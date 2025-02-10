@@ -3,34 +3,35 @@ import Image from 'next/image'
 
 import Link from 'next/link'
 import {Fragment} from 'react'
-import Typography from '~/UI/Typography'
+import {H1, H4, P, SPAN} from '~/UI/Typography'
 
 export default function Info({project}: {project: TProjectExtra}) {
   return (
     <section data-section="info-project" className="space-y-7 sm:space-y-5">
-      <Typography type="h1" className="mt-10 sm:hidden" text={project.project} />
+      <H1 className="mt-10 sm:hidden">{project.project}</H1>
 
       <div className="grid grid-cols-2 sm:grid-cols-1 gap-14 xl:gap-10 sm:gap-7 px-44 xl:px-24 sm:px-0">
         {project.full_description.map((text, index) => (
-          <Typography type="h4" text={text} key={index} />
+          <H4 key={index}>{text}</H4>
         ))}
 
         <div className="space-y-1.5 sm:space-y-5">
           <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-0">
-            <Typography type="span" className="font-extralight" text="Площадь проекта" />
-            <Typography type="p" className="font-bold text-red" text={`${project.project_area} м2`} />
+            <SPAN className="font-extralight">Площадь проекта</SPAN>
+            <P className="font-bold text-red">{project.project_area} м2</P>
           </div>
 
           <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-0">
-            <Typography type="span" className="font-extralight" text="Площадь проекта" />
-            <Typography type="p" className="font-bold text-red" text={`${project.zone_area} га`} />
+            <SPAN className="font-extralight">Площадь участка</SPAN>
+            <P className="font-bold text-red">{project.zone_area} га</P>
           </div>
         </div>
 
         <div className="flex sm:flex-col sm:items-start gap-2.5 sm:gap-0">
-          <Typography type="span" className="font-extralight xl:mt-1.5 sm:mt-0" text="Локация" />
+          <SPAN className="font-extralight xl:mt-1.5 sm:mt-0">Локация</SPAN>
+
           <Link href={project.location.address} className="hover:underline sm:underline sm:underline-offset-2">
-            <Typography type="p" className="font-bold text-red" text={project.location.address} />
+            <P className="font-bold text-red">{project.location.address}</P>
           </Link>
         </div>
 
@@ -38,7 +39,7 @@ export default function Info({project}: {project: TProjectExtra}) {
           project.more_info.map((info, index) => (
             <Fragment key={index}>
               <Image className="w-[70%] sm:w-full object-cover" src={info.image} alt={project.project} />
-              <Typography type="p" className="sm:-mt-3" text={info.text} />
+              <P className="sm:-mt-3">{info.text}</P>
             </Fragment>
           ))}
       </div>

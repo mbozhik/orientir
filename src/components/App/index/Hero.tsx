@@ -4,7 +4,7 @@ import {cn} from '@/lib/utils'
 import {containerStyles} from '~/Global/Container'
 
 import Image from 'next/image'
-import Typography from '~/UI/Typography'
+import {H1} from '~/UI/Typography'
 
 const blockHeight = 'h-[87svh] h-[87vh] sm:h-screen sm:!h-svh'
 
@@ -16,7 +16,7 @@ export default function Hero({className}: {className?: string}) {
         <Image quality={100} className="object-cover w-full h-full" src={HeroImage} alt="Здание Ориентир" />
 
         <div className="absolute left-20 bottom-20 xl:left-14 xl:bottom-14 sm:left-2 sm:bottom-2">
-          <Typography type="h1" className="xl:text-5xl sm:text-[28px] sm:leading-[1.2] text-background max-w-[30ch] sm:max-w-none" text="ОРИЕНТИР&nbsp;&mdash; девелопер полного цикла в&nbsp;сфере складской и&nbsp;индустриальной недвижимости." />
+          <H1 className="xl:text-5xl sm:text-[28px] sm:leading-[1.2] text-background max-w-[30ch] sm:max-w-none">ОРИЕНТИР&nbsp;&mdash; девелопер полного цикла в&nbsp;сфере складской и&nbsp;индустриальной недвижимости.</H1>
         </div>
       </div>
     </section>

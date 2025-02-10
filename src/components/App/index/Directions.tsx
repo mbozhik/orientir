@@ -4,7 +4,7 @@ import {getDirections} from '@/utils/getData'
 import DirectionsImage from '$/index/directions.jpg'
 import Image from 'next/image'
 
-import Typography from '~/UI/Typography'
+import {H1, H4} from '~/UI/Typography'
 import {ExpandButton} from '~/UI/Button'
 import DirectionsModule from '~/App/index/DirectionsModule'
 
@@ -14,10 +14,11 @@ export default async function Directions({isIndex = true}: {isIndex?: boolean}) 
   return (
     <section data-section="directions-index" className="space-y-20 sm:space-y-7">
       <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-3">
-        <Typography type="h1" text="Направления" />
+        <H1>Направления</H1>
 
         <div className="flex gap-10">
-          <Typography type="h4" text="Наша компания осуществляет весь спектр работ по строительству и эксплуатации объектов: от разработки концепции до полной реализации и последующего технического обслуживания." />
+          <H4>Наша компания осуществляет весь спектр работ по строительству и эксплуатации объектов: от разработки концепции до полной реализации и последующего технического обслуживания.</H4>
+
           {isIndex && <ExpandButton href="/directions" view="desktop" text="Подробнее" />}
         </div>
       </div>

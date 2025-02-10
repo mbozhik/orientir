@@ -1,4 +1,4 @@
-import Typography from '~/UI/Typography'
+import {H1, P} from '~/UI/Typography'
 
 type Props = {
   heading: string
@@ -8,14 +8,14 @@ type Props = {
 export default function Specs({heading = 'Характеристики', data}: {heading?: string; data: Props[]}) {
   return (
     <section data-section="specs-project" className="space-y-10">
-      <Typography type="h1" className="sm:text-[33px]" text={heading} />
+      <H1 className="sm:text-[33px]">{heading}</H1>
 
       <div className="grid grid-cols-2 sm:grid-cols-1 gap-y-10 xl:gap-y-8 px-44 xl:px-24 sm:px-0">
         {data.map((spec, index) => (
           <div key={index} className="space-y-10 xl:space-y-7 sm:space-y-5">
             <div className="flex flex-col justify-between gap-14 xl:gap-12 sm:gap-8 px-10 xl:px-7 sm:px-5 border-l-[1px] border-gray">
-              <Typography type="h1" className="text-blue" text={spec.heading} />
-              <Typography type="p" className="max-w-[30ch] line-clamp-3" text={spec.caption} />
+              <H1 className="text-blue">{spec.heading}</H1>
+              <P className="max-w-[30ch] line-clamp-3">{spec.caption}</P>
             </div>
 
             {[0, 1].includes(index) && <div className="w-[90%] mx-auto border-gray border-b-[1px]"></div>}

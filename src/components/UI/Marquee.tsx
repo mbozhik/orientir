@@ -2,7 +2,7 @@
 
 import {cn} from '@/lib/utils'
 
-interface MarqueeProps {
+type MarqueeProps = {
   className?: string
   reverse?: boolean
   pauseOnHover?: boolean
