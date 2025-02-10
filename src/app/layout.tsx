@@ -4,6 +4,7 @@ import './globals.css'
 
 import Header from '~/Global/Header/Header'
 import Footer from '~/Global/Footer'
+import YandexMetrika from '~/Global/Analytics'
 
 export default function RootLayout({
   children,
@@ -16,6 +17,8 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+
+        {process.env.NODE_ENV === 'production' && <YandexMetrika />}
       </body>
     </html>
   )
