@@ -1,15 +1,18 @@
 'use client'
 
 import React, {useRef, useEffect} from 'react'
-import {gsap} from 'gsap'
+import {motion, useAnimate, stagger} from 'framer-motion'
+import {cn} from '@/lib/utils'
 
 type Props = {
   children: React.ReactNode
   triggerRef?: React.RefObject<HTMLElement>
+  className?: string
 }
 
-export default function HoverText({children, triggerRef}: Props) {
+export default function HoverText({children, triggerRef, className}: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
+  const [, animate] = useAnimate()
 
   useEffect(() => {
     const targetRef = triggerRef || containerRef
@@ -23,15 +26,10 @@ export default function HoverText({children, triggerRef}: Props) {
     const splitText = (element: HTMLElement) => {
       const text = element.innerText
       element.innerHTML = ''
-
       return Array.from(text).map((char) => {
         const span = document.createElement('span')
         span.style.display = 'inline-block'
-        if (char === ' ') {
-          span.innerHTML = '&nbsp;'
-        } else {
-          span.textContent = char
-        }
+        span.textContent = char === ' ' ? '\u00A0' : char
         element.appendChild(span)
         return span
       })
@@ -40,32 +38,23 @@ export default function HoverText({children, triggerRef}: Props) {
     const originalChars = splitText(originalElement)
     const clonedChars = splitText(clonedElement)
 
-    gsap.set(clonedChars, {yPercent: 100})
+    originalChars.forEach((char) => {
+      char.style.transform = 'translateY(0%)'
+    })
+    clonedChars.forEach((char) => {
+      char.style.transform = 'translateY(100%)'
+    })
 
-    const tl = gsap.timeline({paused: true})
-
-    tl.to(originalChars, {
-      yPercent: -100,
-      duration: 0.3,
-      stagger: 0.02,
-      ease: 'power2.in',
-    }).to(
-      clonedChars,
-      {
-        yPercent: 0,
-        duration: 0.3,
-        stagger: 0.02,
-        ease: 'power2.out',
-      },
-      '<0.15',
-    )
+    animate(clonedChars, {y: '100%'}, {duration: 0})
 
     const handleMouseEnter = () => {
-      tl.play()
+      animate(originalChars, {y: '-100%'}, {duration: 0.3, ease: 'easeInOut', delay: stagger(0.02)})
+      animate(clonedChars, {y: '0%'}, {duration: 0.3, ease: 'easeInOut', delay: stagger(0.02)})
     }
 
     const handleMouseLeave = () => {
-      tl.reverse()
+      animate(originalChars, {y: '0%'}, {duration: 0.3, ease: 'easeInOut', delay: stagger(0.02)})
+      animate(clonedChars, {y: '100%'}, {duration: 0.3, ease: 'easeInOut', delay: stagger(0.02)})
     }
 
     const triggerElement = targetRef.current
@@ -75,21 +64,21 @@ export default function HoverText({children, triggerRef}: Props) {
     return () => {
       triggerElement.removeEventListener('mouseenter', handleMouseEnter)
       triggerElement.removeEventListener('mouseleave', handleMouseLeave)
-      tl.kill()
     }
-  }, [triggerRef])
+  }, [triggerRef, animate])
 
   return (
     <div ref={containerRef} className="relative inline-block overflow-hidden">
-      {children}
-      {React.Children.map(children, (child) =>
-        React.isValidElement(child)
-          ? React.cloneElement(child, {
-              ...child.props,
-              className: `sm:hidden absolute top-0 left-0 ${child.props.className || ''}`,
-            })
-          : child,
-      )}
+      <motion.div className={className}>{children}</motion.div>
+      <motion.div className={cn('absolute top-0 left-0', className)}>
+        {React.Children.map(children, (child) =>
+          React.isValidElement(child)
+            ? React.cloneElement(child, {
+                ...child.props,
+              })
+            : child,
+        )}
+      </motion.div>
     </div>
   )
 }
