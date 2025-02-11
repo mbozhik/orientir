@@ -35,6 +35,8 @@ export default function Header() {
   const fullPages = ['/projects/', '/about']
   const isFullPage = fullPages.some((page) => pathname.includes(page))
 
+  const menuHeight = 'h-screen !h-svh'
+
   return (
     <>
       <header className={cn('absolute sm:fixed z-[150] inset-0 w-full h-fit py-6 xl:py-5 sm:py-3.5 text-2xl xl:text-xl', !isDesktop ? 'bg-background text-foreground' : !isFullPage ? 'bg-background text-foreground' : 'bg-gradient-to-b from-foreground/25 to-foreground/0 text-background')}>
@@ -67,28 +69,30 @@ export default function Header() {
 
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div className={cn('fixed z-[100] inset-0 p-2.5 pt-28 pb-8 flex flex-col gap-4 justify-between', 'bg-background')} initial={{opacity: 0, y: '-100%'}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: '-100%'}} transition={{duration: 0.5, ease: 'easeInOut'}}>
-            <nav className="flex flex-col gap-2 w-full">
+          <motion.div className={cn('fixed z-[100] inset-0 p-2.5 pb-4 bg-background', 'flex flex-col gap-8 justify-end', menuHeight)} initial={{opacity: 0, y: '-100%'}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: '-100%'}} transition={{duration: 0.5, ease: 'easeInOut'}}>
+            <nav className="flex flex-col gap-3 w-full">
               {Object.entries(WEBSITE_PATHS).map(([key, label]) => (
                 <motion.div initial={{opacity: 0, y: 30}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: 30}} transition={{delay: 0.4, duration: 0.5}} key={key}>
                   <Link href={`/${key}`} onClick={toggleMenu}>
-                    <P className="sm:text-3xl">{label}</P>
+                    <P className="sm:text-[26px]">{label}</P>
                   </Link>
                 </motion.div>
               ))}
             </nav>
 
-            <div className="flex flex-col justify-between gap-3">
-              {Object.entries(WEBSITE_RESOURCES.contacts).map(([label, link]) => (
-                <motion.div className="mr-20" initial={{opacity: 0, y: 30}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: 30}} transition={{delay: 0.6, duration: 0.5}} key={link}>
-                  <Link className="hover:underline" href={link}>
-                    <P>{label}</P>
-                  </Link>
-                </motion.div>
-              ))}
+            <div className="flex flex-col justify-between gap-1.5">
+              {Object.entries(WEBSITE_RESOURCES.contacts)
+                .slice(0, 2)
+                .map(([label, link]) => (
+                  <motion.div className="mr-20" initial={{opacity: 0, y: 30}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: 30}} transition={{delay: 0.6, duration: 0.5}} key={link}>
+                    <Link className="hover:underline text-base" href={link}>
+                      <P>{label}</P>
+                    </Link>
+                  </motion.div>
+                ))}
             </div>
 
-            <div className="flex flex-wrap gap-3.5">
+            <div className="flex flex-wrap gap-2">
               {Object.entries(WEBSITE_RESOURCES.info).map(([department, email], index) => (
                 <motion.div className="space-y-1 w-full" initial={{opacity: 0, y: 30}} animate={{opacity: 1, y: 0}} exit={{opacity: 0, y: 30}} transition={{delay: 0.8, duration: 0.5}} key={index}>
                   <SPAN>{`${department}:`}</SPAN>
