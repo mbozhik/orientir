@@ -15,7 +15,7 @@ export function CardDetails({label, value}: {label: string; value: string}) {
 }
 
 export default function ResidentCard({resident, isExtra, onClose}: {resident: TResident; isExtra: boolean; onClose: () => void}) {
-  const {name, description, status, type, area, completion_time, extra_info} = resident
+  const {name, description, status, area, completion_time, extra_info} = resident
 
   return (
     <div className={cn('flex gap-3 p-2.5 bg-background', !isExtra ? 'max-w-[30vw] xl:max-w-[40vw]' : 'max-w-[45vw] xl:max-w-[50vw]')}>
@@ -31,7 +31,7 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
           </div>
 
           <div className="col-span-4 pt-1.5 flex flex-col gap-4 text-gray font-extralight">
-            {type && <SPAN className="opacity-0">{type === 'ФФФ' ? 'Фулфилмент - фабрика' : type}</SPAN>}
+            {/* {type && <SPAN className="!opacity-0">{type === 'ФФФ' ? 'Фулфилмент - фабрика' : type}</SPAN>} */}
             <SPAN>{`${area} м2`}</SPAN>
           </div>
 

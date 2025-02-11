@@ -92,12 +92,12 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                         {filteredResidents.length === 0 ? (
                           <H4>Нет резидентов для данного фильтра.</H4>
                         ) : (
-                          filteredResidents.map(({name, status, type, area}, index) => (
+                          filteredResidents.map(({name, status, area}, index) => (
                             <div className="space-y-1.5 py-1.5 sm:py-0 border-b-2 duration-200 border-transparent hover:border-red cursor-pointer" key={index}>
                               <div className="flex justify-between">
                                 <SPAN className="lowercase text-gray font-extralight">{status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status}</SPAN>
 
-                                {type && <SPAN className="self-end opacity-0 text-gray font-extralight">{type}</SPAN>}
+                                {/* {type && <SPAN className="self-end opacity-0 text-gray font-extralight">{type}</SPAN>} */}
                               </div>
 
                               <div className="flex justify-between">

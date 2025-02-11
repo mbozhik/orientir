@@ -17,18 +17,24 @@ export default function Info({project}: {project: TProjectExtra}) {
 
         <div className="space-y-1.5 sm:space-y-5">
           <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-0">
-            <SPAN className="font-extralight">Площадь проекта</SPAN>
+            <SPAN animated={false} className="font-extralight">
+              Площадь проекта
+            </SPAN>
             <P className="font-bold text-red">{project.project_area} м2</P>
           </div>
 
           <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-0">
-            <SPAN className="font-extralight">Площадь участка</SPAN>
+            <SPAN animated={false} className="font-extralight">
+              Площадь участка
+            </SPAN>
             <P className="font-bold text-red">{project.zone_area} га</P>
           </div>
         </div>
 
         <div className="flex sm:flex-col sm:items-start gap-2.5 sm:gap-0">
-          <SPAN className="font-extralight xl:mt-1.5 sm:mt-0">Локация</SPAN>
+          <SPAN animated={false} className="font-extralight xl:mt-1.5 sm:mt-0">
+            Локация
+          </SPAN>
 
           <Link href={project.location.map.link} className="hover:underline sm:underline sm:underline-offset-2">
             <P className="font-bold text-red">{project.location.map.address}</P>
