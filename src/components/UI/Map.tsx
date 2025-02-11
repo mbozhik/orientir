@@ -2,6 +2,7 @@
 
 import React from 'react'
 import dynamic from 'next/dynamic'
+import {useMediaQuery} from '@/lib/use-media-query'
 
 const YMap = dynamic(() => import('ymap3-components').then((mod) => mod.YMap), {ssr: false})
 const YMapComponentsProvider = dynamic(() => import('ymap3-components').then((mod) => mod.YMapComponentsProvider), {ssr: false})
@@ -28,11 +29,14 @@ const customYMapData: VectorCustomizationItem[] = CustomYMap as VectorCustomizat
 
 export function Map({coordinates, placemarks, height = '80vh'}: Props) {
   const mapPlacemarks: LngLat[] = placemarks?.length ? placemarks.map((placemark) => placemark.center) : [coordinates.center]
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+
+  const mapHeight = isDesktop ? height : '50vh'
 
   return (
     <YMapComponentsProvider apiKey={process.env.NEXT_PUBLIC_YMAPS_API_KEY ?? ''} lang="ru_RU">
-      <div className="relative w-full overflow-hidden" style={{height: `calc(${height} - 35px)`}}>
-        <div style={{height}}>
+      <div className="relative w-full overflow-hidden" style={{height: `calc(${mapHeight} - 35px)`}}>
+        <div style={{height: mapHeight}}>
           <YMap key="map" location={coordinates} mode="vector" theme="dark">
             <YMapDefaultSchemeLayer customization={customYMapData} />
             <YMapDefaultFeaturesLayer />

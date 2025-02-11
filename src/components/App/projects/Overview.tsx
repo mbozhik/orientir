@@ -65,7 +65,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
         ))}
       </div>
 
-      <div className="grid grid-cols-2 gap-6 sm:flex sm:flex-col-reverse">
+      <div className="grid grid-cols-2 gap-6 sm:flex sm:flex-col">
         <div className="space-y-2.5 xl:space-y-2 sm:space-y-1.5">
           {filteredProjects.map((project, index) => {
             const filteredResidents = selectedState === 'Все' ? Object.values(project.residents) : Object.values(project.residents).filter((resident) => resident.status === selectedState)
