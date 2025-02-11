@@ -8,7 +8,26 @@ import {H1, H2} from '~/UI/Typography'
 
 import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import Module from '~~/directions/Module'
-import Indicators from '~~/directions/Indicators'
+import Specs from '~~/projects/slug/Specs'
+
+const indicatorsData = [
+  {
+    heading: '7 парков',
+    caption: 'расположенных в самых востребованных локациях Московской и Ленинградской области',
+  },
+  {
+    heading: 'Свыше 500.000 м²',
+    caption: 'построено в Московской области, обеспечивая высокий уровень складской инфраструктуры региона',
+  },
+  {
+    heading: '54% проектов',
+    caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
+  },
+  {
+    heading: '47% проектов',
+    caption: 'составляют мультитемпературные и лицензируемые комплексы, отвечающие современным требованиям рынка',
+  },
+]
 
 export default async function DirectionsPage() {
   const directions: TDirection[] = await getDirections()
@@ -30,7 +49,7 @@ export default async function DirectionsPage() {
 
       <Container className="space-y-36 xl:space-y-28 sm:space-y-20 my-36 xl:my-28 sm:my-16">
         <Module items={directions} />
-        <Indicators />
+        <Specs heading="Показатели" data={indicatorsData} />
       </Container>
     </>
   )
