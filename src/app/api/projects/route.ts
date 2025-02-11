@@ -44,7 +44,7 @@ export type TProject = {
   description: string
   residents: Record<number, TResident>
   award?: string
-  location: {coordinates: YMapCoordinates; address: string; availability: {gap: string; benchmark: string}[]}
+  location: {coordinates: YMapCoordinates; map: {address: string; link: string}; availability: {gap: string; benchmark: string}[]}
 }
 
 export type TProjectExtra = TProject & {
@@ -121,7 +121,10 @@ const projects: TProjectExtra[] = [
     zone_area: '107',
     location: {
       coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
-      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      map: {
+        address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+        link: 'https://yandex.ru/maps/-/CHq6mAjA',
+      },
       availability: [
         {
           gap: '5км',
@@ -229,7 +232,10 @@ const projects: TProjectExtra[] = [
     zone_area: '107',
     location: {
       coordinates: {center: [30.250329954480875, 59.92963764537041], zoom: 15},
-      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      map: {
+        address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+        link: 'https://yandex.ru/maps/-/CHq6mAjA',
+      },
       availability: [
         {
           gap: '5км',
@@ -326,7 +332,10 @@ const projects: TProjectExtra[] = [
     zone_area: '107',
     location: {
       coordinates: {center: [49.09248423001092, 55.78171150330224], zoom: 15},
-      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      map: {
+        address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+        link: 'https://yandex.ru/maps/-/CHq6mAjA',
+      },
       availability: [
         {
           gap: '5км',
@@ -441,7 +450,10 @@ const projects: TProjectExtra[] = [
     zone_area: '107',
     location: {
       coordinates: {center: [37.59016299978628, 54.18964298851719], zoom: 15},
-      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      map: {
+        address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+        link: 'https://yandex.ru/maps/-/CHq6mAjA',
+      },
       availability: [
         {
           gap: '5км',
@@ -549,7 +561,10 @@ const projects: TProjectExtra[] = [
     zone_area: '107',
     location: {
       coordinates: {center: [39.899743000206115, 57.6193524198258], zoom: 15},
-      address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+      map: {
+        address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+        link: 'https://yandex.ru/maps/-/CHq6mAjA',
+      },
       availability: [
         {
           gap: '5км',

@@ -30,8 +30,8 @@ export default function Info({project}: {project: TProjectExtra}) {
         <div className="flex sm:flex-col sm:items-start gap-2.5 sm:gap-0">
           <SPAN className="font-extralight xl:mt-1.5 sm:mt-0">Локация</SPAN>
 
-          <Link href={project.location.address} className="hover:underline sm:underline sm:underline-offset-2">
-            <P className="font-bold text-red">{project.location.address}</P>
+          <Link href={project.location.map.link} className="hover:underline sm:underline sm:underline-offset-2">
+            <P className="font-bold text-red">{project.location.map.address}</P>
           </Link>
         </div>
 
