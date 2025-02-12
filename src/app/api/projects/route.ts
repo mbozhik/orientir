@@ -3,25 +3,8 @@ import {StaticImageData} from 'next/image'
 
 import type {YMapCoordinates} from '~/UI/Map'
 
-import OrientirZapadImage from '$/projects/orientir-zapad.jpg'
-import OrientirZapadMobileImage from '$/projects/orientir-zapad-mobile.jpg'
-import OrientirSeverImage from '$/projects/orientir-sever.jpg'
-import OrientirSever2Image from '$/projects/orientir-sever-2.jpg'
-import OrientirSever2MobileImage from '$/projects/orientir-sever-2-mobile.jpg'
-import OrientirSever3Image from '$/projects/orientir-sever-3.jpg'
-import OrientirSever3MobileImage from '$/projects/orientir-sever-3-mobile.jpg'
-import OrientirUgImage from '$/projects/orientir-ug.jpg'
-
-import ResidentOneImage from '$/projects/resident-1.jpg'
-import ResidentTwoImage from '$/projects/resident-2.jpg'
-import ResidentThreeImage from '$/projects/resident-3.jpg'
-
-import ProjectOneImage from '$/projects/gallery/project-1.jpg'
-import ProjectTwoImage from '$/projects/gallery/project-2.jpg'
-import ProjectThreeImage from '$/projects/gallery/project-3.jpg'
-import ProjectFourImage from '$/projects/gallery/project-4.jpg'
-import ProjectFiveImage from '$/projects/gallery/project-5.jpg'
-import ProjectSixImage from '$/projects/gallery/project-6.jpg'
+import {projectImages} from '@/app/api/projects/images'
+const {units, residents, gallery} = projectImages
 
 export type TResident = {
   name: string
