@@ -11,9 +11,7 @@ export default function Info({project}: {project: TProjectExtra}) {
       <H1 className="mt-10 sm:hidden">{project.project}</H1>
 
       <div className="grid grid-cols-2 sm:grid-cols-1 gap-14 xl:gap-10 sm:gap-7 px-44 xl:px-24 sm:px-0">
-        {project.full_description.map((text, index) => (
-          <H4 key={index}>{text}</H4>
-        ))}
+        {project.full_description && Array.isArray(project.full_description) ? project.full_description.map((text, index) => <H4 key={index}>{text}</H4>) : <H4 className="col-span-2">{project.full_description}</H4>}
 
         <div className="space-y-1.5 sm:space-y-5">
           <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-0">

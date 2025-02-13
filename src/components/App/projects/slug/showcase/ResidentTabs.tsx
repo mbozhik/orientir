@@ -16,7 +16,7 @@ type TabProps = {
   name: string
   status: string
   type?: string
-  area: string
+  area?: string
   isActive?: boolean
   onClick?: () => void
   className?: string
@@ -38,7 +38,7 @@ export function Tab({name, status, area, isActive, onClick, className}: TabProps
 
       <div className="flex justify-between gap-16">
         <H4 className="font-bold leading-none">{name}</H4>
-        <SPAN className="self-end font-bold">{area} м2</SPAN>
+        {area && <SPAN className="self-end font-bold">{area} м2</SPAN>}
       </div>
     </div>
   )

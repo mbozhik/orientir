@@ -102,7 +102,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
 
                               <div className="flex justify-between">
                                 <H4 className="font-bold">{name}</H4>
-                                <SPAN className="self-end font-bold">{area} м2</SPAN>
+                                {area && <SPAN className="self-end font-bold">{area} м2</SPAN>}
                               </div>
                             </div>
                           ))

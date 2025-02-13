@@ -32,7 +32,7 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
 
           <div className="col-span-4 pt-1.5 flex flex-col gap-4 text-gray font-extralight">
             {/* {type && <SPAN className="!opacity-0">{type === 'ФФФ' ? 'Фулфилмент - фабрика' : type}</SPAN>} */}
-            <SPAN>{`${area} м2`}</SPAN>
+            {area && <SPAN>{`${area} м2`}</SPAN>}
           </div>
 
           <X onClick={onClose} className="col-span-1 cursor-pointer justify-self-end hover:text-red hover:scale-[1.1] duration-200" />
