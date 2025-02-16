@@ -972,6 +972,138 @@ const projects: TProjectExtra[] = [
 
     gallery: mockGallery,
   },
+  {
+    id: 10,
+    slug: 'orientir-test',
+    project: 'Ориентир Тест',
+    image: units.zapad.default,
+    mobile_image: units.zapad.mobile,
+    description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+    award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
+
+    residents: {
+      1: {
+        name: 'OZON',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+        status: 'Завершен',
+        type: 'ФФФ',
+        area: '157 000',
+        image: residents[1],
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        completion_time: '12 мес.',
+      },
+      2: {
+        name: 'ТехноАвиа',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+        status: 'Завершен',
+        type: 'ПК',
+        area: '40 000',
+        image: residents[2],
+        award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
+        completion_time: '11 мес.',
+      },
+      3: {
+        name: 'Золотое яблоко',
+        description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
+        status: 'В процессе',
+        type: 'РЦ',
+        area: '46 000',
+        image: residents[3],
+
+        extra_info: [
+          {label: 'Рабочая высота', text: '15м и 12м'},
+          {label: 'Подключение', text: 'К инженерной инфраструктуре'},
+          {label: 'Шаг колонн', text: '6х6, 12х12, 12х24 м'},
+          {label: 'Мощность хаба', text: 'до 800 000 шт/сутки'},
+          {label: 'Бетонный пол', text: 'С антипылевым покрытием'},
+          {label: 'Система безопасности', text: 'Централизованная'},
+          {label: 'Нагрузка на пол', text: 'От 8 т/м²'},
+          {label: 'Точечные нагрузки', text: 'До 120 т'},
+          {label: 'Система пожаротушения', text: 'Многоуровневая'},
+          {label: 'Системы коммуникаций', text: 'Отопления и вентиляции'},
+          {label: 'Высокая доковооруженность', text: '1 док на 870 м²'},
+          {label: 'Железобетонные перекрытия', text: 'Два этажа площадью 41 000 м²'},
+          {label: 'Мезонин', text: 'Шестиуровневый'},
+          {label: 'Энергосбережение', text: 'Повышенное: 8 мВт'},
+        ],
+      },
+    },
+
+    full_description: ['Lorem ipsum dolor sit amet consectetur. Pellentesque egestas viverra netus sed viverra purus pellentesque quam amet. Vestibulum venenatis viverra nunc ultricies tortor nunc ac. Nisi euismod eu in lacinia commodo.', 'Vitae leo nulla dolor amet nec id. Scelerisque nibh sed mauris nibh pharetra. Semper malesuada vitae ut habitasse cursus. Id odio consequat orci malesuada cras et risus magna. Commodo.'],
+    project_area: '400 000',
+    zone_area: '107',
+    location: {
+      coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
+      map: {
+        address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
+        link: 'https://yandex.ru/maps/-/CHq6mAjA',
+      },
+      availability: [
+        {
+          gap: '5км',
+          benchmark: 'до ЦКАД',
+        },
+        {
+          gap: '45мин',
+          benchmark: 'от а/п Шереметьево',
+        },
+        {
+          gap: '1км',
+          benchmark: 'до МКАД',
+        },
+        {
+          gap: '45мин',
+          benchmark: 'от м. Речной Вокзал',
+        },
+      ],
+    },
+    more_info: [
+      {
+        image: units.ug.default,
+        text: 'Lorem ipsum dolor sit amet consectetur. Semper euismod arcu lorem nibh ut sem ac in fermentum. Adipiscing pellentesque phasellus aliquet quis morbi nunc cursus sed ac. Faucibus mi quam maecenas quis. Aliquam ultrices a mi pharetra accumsan elementum. Nunc et tempor laoreet tortor ut velit nulla augue neque. Lorem sagittis augue in amet ipsum placerat ornare facilisi vestibulum.',
+      },
+      {
+        image: units.zapad.default,
+        text: 'Lorem ipsum dolor sit amet consectetur. Semper euismod arcu lorem nibh ut sem ac in fermentum. Adipiscing pellentesque phasellus aliquet quis morbi nunc cursus sed ac. Faucibus mi quam maecenas quis. Aliquam ultrices a mi pharetra accumsan elementum. Nunc et tempor laoreet tortor ut velit nulla augue neque. Lorem sagittis augue in amet ipsum placerat ornare facilisi vestibulum.',
+      },
+    ],
+    specifications: [
+      {
+        heading: 'Инфраструктура',
+        caption: 'Современная инфраструктура с резервными мощностями инженерных систем.',
+      },
+      {
+        heading: 'Транспорт',
+        caption: 'Удобная транспортная доступность с прямым выездом на федеральные трассы А-107 и М-9.',
+      },
+      {
+        heading: 'Планировка',
+        caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
+      },
+      {
+        heading: 'Безопасность',
+        caption: 'Комплексная система безопасности с круглосуточным видеонаблюдением и контролем доступа.',
+      },
+    ],
+    gallery: [
+      {
+        image: gallery[1],
+        caption: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet',
+      },
+      {
+        image: gallery[2],
+        caption: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut',
+      },
+      {
+        image: gallery[3],
+        caption: 'Sed do eiusmod tempor incididunt ut labore et dolore magna',
+      },
+      {
+        image: gallery[4],
+        caption: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
+      },
+    ],
+  },
 ]
 
 export async function GET(req: Request) {

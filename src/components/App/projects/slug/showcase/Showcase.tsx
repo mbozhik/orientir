@@ -93,14 +93,14 @@ function MobileAwards({project}: {project: TProject}) {
   const combinedAwards = [...(project.award ? [{image: AwardImage, text: project.award}] : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
 
   return (
-    <section data-section="mob-awards-project" className="relative mb-10 space-y-5">
+    <section data-section="mob-awards-project" className="relative mb-6 space-y-5">
       <Image className="object-cover w-full h-[40vh]" src={project.mobile_image} alt="" />
 
       <div className={`space-y-3 ${containerStyles.width}`}>
         <H1 className="sm:text-[33px]">{project.project}</H1>
 
-        <div className="overflow-hidden pb-4">
-          {combinedAwards.length > 0 && (
+        {combinedAwards.length > 0 && (
+          <div className="overflow-hidden pb-4">
             <Swiper data-slider="mobile-awards" className="flex w-full gap-3" spaceBetween={30} pagination={{clickable: true}} modules={[Pagination]}>
               {combinedAwards.map((award, index) => (
                 <SwiperSlide key={index}>
@@ -111,8 +111,8 @@ function MobileAwards({project}: {project: TProject}) {
                 </SwiperSlide>
               ))}
             </Swiper>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   )

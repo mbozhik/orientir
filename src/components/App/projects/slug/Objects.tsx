@@ -10,9 +10,9 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 import Image from 'next/image'
-import {H1, P} from '~/UI/Typography'
+import {H1, H3, P, SPAN} from '~/UI/Typography'
 import {Tab} from '~~/projects/slug/showcase/ResidentTabs'
-// import {CardDetails} from '~~/projects/slug/showcase/ResidentCard'
+import {CardDetails} from '~~/projects/slug/showcase/ResidentCard'
 import {ArrowLeft, ArrowRight} from 'lucide-react'
 
 export default function Specs({project}: {project: TProjectExtra}) {
@@ -36,7 +36,7 @@ export default function Specs({project}: {project: TProjectExtra}) {
         </div>
       </div>
 
-      <Swiper ref={swiperRef} data-slider="mobile-objects" spaceBetween={30} loop={true} onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}>
+      <Swiper ref={swiperRef} data-slider="mobile-objects" spaceBetween={30} autoHeight={true} loop={true} onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}>
         {Object.values(project.residents).map((resident, index) => (
           <SwiperSlide key={index}>
             <div className="flex flex-col items-center gap-5 sm:gap-3">
@@ -44,27 +44,31 @@ export default function Specs({project}: {project: TProjectExtra}) {
               <Image quality={100} className="object-cover w-full h-[35vh]" src={resident.image} alt={resident.name} />
 
               <div className="flex flex-col gap-5">
-                {/* <div className="">
+                <div className="">
                   <div className="flex flex-row-reverse justify-between w-full gap-2">
-                    <Typography type="span" className="font-extralight" text={resident.status === 'Завершен' && resident.completion_time ? `Завершен <span class="font-bold">за ${resident.completion_time}</span>` : resident.status === 'Свободные земельные участки' ? 'Свободные ЗУ' : resident.status} />
-                    <Typography type="h3" className="leading-none" text={resident.name} />
+                    <div className="inline-flex gap-1">
+                      <SPAN className="text-gray font-extralight">{resident.status === 'Завершен' && resident.completion_time ? `Завершен` : resident.status === 'Свободные земельные участки' ? 'Свободные ЗУ' : resident.status}</SPAN>
+                      {resident.status === 'Завершен' && resident.completion_time && <SPAN className="text-gray font-bold">{resident.completion_time}</SPAN>}
+                    </div>
+
+                    <H3 className="leading-none">{resident.name}</H3>
                   </div>
 
                   <div className="flex flex-row justify-between w-full font-extralight">
-                    {resident.type && <Typography type="span" text={resident.type} />}
-                    <Typography type="span" text={`${resident.area} м2`} />
+                    {resident.type && <SPAN>{resident.type}</SPAN>}
+                    <SPAN>{`${resident.area} м2`}</SPAN>
                   </div>
-                </div> */}
+                </div>
 
                 <P>{resident.description}</P>
 
-                {/* {resident.extra_info && (
+                {resident.extra_info && (
                   <div className="grid grid-cols-2 gap-2">
                     {resident.extra_info.map((info, index) => (
                       <CardDetails key={index} label={info.label} value={info.text} />
                     ))}
                   </div>
-                )} */}
+                )}
               </div>
             </div>
           </SwiperSlide>
