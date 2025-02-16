@@ -80,7 +80,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
 
                 {activeTab === index && (
                   <div className="grid grid-cols-2 gap-8 pb-5 sm:pb-3 sm:grid-cols-1 sm:gap-10">
-                    <div className="flex flex-col justify-between sm:gap-5">
+                    <div className="flex flex-col justify-between gap-5">
                       <H4>{project.description}</H4>
                       <DetailsButton className="hover:text-red" href={`/projects/${project.slug}`} text="Подробнее" />
                     </div>

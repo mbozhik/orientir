@@ -36,8 +36,8 @@ export function Tab({name, status, area, isActive, onClick, className}: TabProps
         {/* {type && <Typography type="span" className="self-end" text={type} />} */}
       </div>
 
-      <div className="flex justify-between gap-16">
-        <H4 className="font-bold leading-none">{name}</H4>
+      <div className="flex justify-between gap-12 xl:gap-8">
+        <H4 className="font-bold !leading-[1.05]">{name}</H4>
         {area && <SPAN className="self-end font-bold">{area} м2</SPAN>}
       </div>
     </div>
@@ -49,7 +49,7 @@ export default function ResidentTabs({project, activeTab, handleTabClick}: Props
   const swiperRef = useRef<SwiperRef | null>(null)
 
   return (
-    <div className="relative flex max-w-[55vw] xl:max-w-[60vw] gap-1.5">
+    <div className="relative flex max-w-[55vw] xl:max-w-[65vw] gap-1.5">
       {residents.length > 3 ? (
         <>
           <Swiper ref={swiperRef} spaceBetween={6} slidesPerView="auto" centeredSlides={false} className="!w-full">

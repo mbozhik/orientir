@@ -9,7 +9,7 @@ export function CardDetails({label, value}: {label: string; value: string}) {
   return (
     <div className="flex flex-col">
       <SPAN className="text-base text-gray-dark font-extralight">{label}</SPAN>
-      <P>{value}</P>
+      <P className="max-w-[30ch] !leading-[1.05]">{value}</P>
     </div>
   )
 }
@@ -26,7 +26,11 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
       <div className="flex flex-col gap-5">
         <div className="grid grid-cols-10">
           <div className="col-span-5 pt-1.5 flex flex-col justify-between gap-2">
-            <SPAN className="text-gray font-extralight">{status === 'Завершен' && completion_time ? `Завершен <span class="font-bold">за ${completion_time}</span>` : status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status}</SPAN>
+            <div className="inline-flex gap-1">
+              <SPAN className="text-gray font-extralight">{status === 'Завершен' && completion_time ? `Завершен` : status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status}</SPAN>
+              {status === 'Завершен' && completion_time && <SPAN className="text-gray font-bold">{completion_time}</SPAN>}
+            </div>
+
             <H3 className="leading-none">{name}</H3>
           </div>
 
@@ -40,7 +44,7 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
 
         {!isExtra && <P>{description}</P>}
 
-        {isExtra && <div className="grid grid-cols-2 gap-2">{extra_info && extra_info.map((info, index) => <CardDetails key={index} label={info.label} value={info.text} />)}</div>}
+        {isExtra && <div className="grid grid-cols-2 gap-x-4 gap-y-2">{extra_info && extra_info.map((info, index) => <CardDetails key={index} label={info.label} value={info.text} />)}</div>}
       </div>
     </div>
   )
