@@ -117,7 +117,8 @@ export default function Overview({items: projects}: {items: TProject[]}) {
         </div>
 
         <motion.div
-          key={JSON.stringify({mapCoordinates, mapPlacemarks})} // Ensures animation on change
+          key={JSON.stringify({mapCoordinates, mapPlacemarks})}
+          className="sticky sm:relative top-4 right-0 h-[80vh] w-[44vw] sm:size-auto z-50 overflow-hidden"
           initial="hidden"
           animate="visible"
           exit="hidden"
@@ -126,7 +127,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
             visible: {opacity: 1, scale: 1, transition: {duration: 0.5, ease: 'easeInOut'}},
           }}
         >
-          <Map coordinates={mapCoordinates} placemarks={mapPlacemarks} />
+          <Map coordinates={mapCoordinates} placemarks={mapPlacemarks} height="85vh" />
         </motion.div>
       </div>
     </section>
