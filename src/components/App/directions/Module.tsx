@@ -19,10 +19,10 @@ export default async function Module({items}: {items: TDirection[]}) {
         <Image className="col-span-2 sm:w-full" src={DirectionsImage} alt="Здание Ориентир" />
 
         <div className="grid grid-cols-2 col-span-8 sm:grid-cols-1 gap-y-7 xl:gap-x-7 xl:gap-y-5 sm:gap-y-7">
-          {items.map((direction, index) => (
-            <div className="flex flex-col gap-5 sm:gap-3.5 group border-b-[1px] pb-9 xl:pb-5 sm:pb-7 border-gray-light" key={index}>
+          {items.map((direction) => (
+            <div className="flex flex-col gap-5 sm:gap-3.5 group border-b-[1px] pb-9 xl:pb-5 sm:pb-7 border-gray-light" key={direction.id}>
               <div className="flex items-start gap-5">
-                <SPAN className="mt-1 font-light sm:mt-0 text-red">{'0' + (index + 1)}</SPAN>
+                <SPAN className="mt-1 font-light sm:mt-0 text-red">{direction.id}</SPAN>
                 <H2 className="text-red xl:text-3xl">{direction.heading}</H2>
               </div>
 
