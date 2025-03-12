@@ -14,7 +14,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-full text-background">
         <div className="flex justify-between px-24 sm:flex-col sm:gap-3 xl:px-16 sm:px-3 pb-14 sm:pb-5">
           <H1 className="xl:text-5xl sm:text-[28px] sm:leading-[1.2]">О компании</H1>
-          <H2 className="max-w-[40ch] xl:text-3xl xl:leading-[1.15] sm:text-lg sm:leading-[1.2] sm:font-normal">ОРИЕНТИР&nbsp;&mdash; эксперты в&nbsp;современном индустриальном девелопменте. Используя собственные строительные и&nbsp;производственные мощности, мы&nbsp;создаём уникальные складские и&nbsp;промышленные комплексы&nbsp;&mdash; от&nbsp;разработки концепции до&nbsp;управления построенными нами объектами. </H2>
+          <H2 className="max-w-[40ch] xl:text-3xl xl:leading-[1.15] sm:text-lg sm:leading-[1.2] sm:font-normal">ГК «Ориентир» - эксперты в современном индустриальном девелопменте. Используя собственные строительные и производственные мощности, мы создаём уникальные высокотехнологичные комплексы – от разработки концепции до управления построенными нами объектами.</H2>
         </div>
       </div>
     </section>
