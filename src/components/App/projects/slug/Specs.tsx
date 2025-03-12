@@ -6,7 +6,7 @@ type Props = {
   caption: string
 }
 
-export default function Specs({heading = 'Характеристики', data}: {heading?: string; data: Props[]}) {
+export default function Specs({heading = 'Инженерные мощности', data}: {heading?: string; data: Props[]}) {
   return (
     <section data-section="specs-project" className="space-y-10">
       <H1 className="sm:text-[33px]">{heading}</H1>

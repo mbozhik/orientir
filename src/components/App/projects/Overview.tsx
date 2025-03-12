@@ -13,7 +13,7 @@ import {ArrowDownRight} from '~/UI/Icons'
 
 const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'Завершен', 'В процессе', 'Свободные земельные участки']
 
-const defaultRussiaCoordinates: YMapCoordinates = {center: [41.22566876344172, 56.014099613823724], zoom: 5}
+const defaultRussiaCoordinates: YMapCoordinates = {center: [37.136252026184, 56.066764158270715], zoom: 15}
 
 export default function Overview({items: projects}: {items: TProject[]}) {
   const [activeTab, setActiveTab] = useState<number | null>(0)

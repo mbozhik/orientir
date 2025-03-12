@@ -15,7 +15,7 @@ export function CardDetails({label, value}: {label: string; value: string}) {
 }
 
 export default function ResidentCard({resident, isExtra, onClose}: {resident: TResident; isExtra: boolean; onClose: () => void}) {
-  const {name, description, status, area, completion_time, extra_info} = resident
+  const {name, description, type, status, area, completion_time, extra_info} = resident
 
   return (
     <div className={cn('flex gap-3 p-2.5 bg-background', !isExtra ? 'max-w-[30vw] xl:max-w-[40vw]' : 'max-w-[45vw] xl:max-w-[50vw]')}>
@@ -34,9 +34,9 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
             <H3 className="leading-none">{name}</H3>
           </div>
 
-          <div className="col-span-4 pt-1.5 flex flex-col gap-4 text-gray font-extralight">
-            {/* {type && <SPAN className="!opacity-0">{type === 'ФФФ' ? 'Фулфилмент - фабрика' : type}</SPAN>} */}
+          <div className="col-span-4 pt-1.5 flex flex-col gap-2 text-gray font-extralight">
             {area && <SPAN>{`${area} м2`}</SPAN>}
+            {type && <SPAN>{type}</SPAN>}
           </div>
 
           <X onClick={onClose} className="col-span-1 cursor-pointer justify-self-end hover:text-red hover:scale-[1.1] duration-200" />
@@ -44,7 +44,24 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
 
         {!isExtra && <P>{description}</P>}
 
-        {isExtra && <div className="grid grid-cols-2 gap-x-4 gap-y-2">{extra_info && extra_info.map((info, index) => <CardDetails key={index} label={info.label} value={info.text} />)}</div>}
+        {isExtra && (
+          <div className="grid grid-cols-2 gap-x-4 gap-y-2">
+            {extra_info && (
+              <>
+                <div className="space-y-2">
+                  {extra_info.slice(0, Math.ceil(extra_info.length / 2)).map((info, index) => (
+                    <CardDetails key={index} label={info.label} value={info.text} />
+                  ))}
+                </div>
+                <div className="space-y-2">
+                  {extra_info.slice(Math.ceil(extra_info.length / 2)).map((info, index) => (
+                    <CardDetails key={index} label={info.label} value={info.text} />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        )}
       </div>
     </div>
   )

@@ -24,20 +24,22 @@ function DeskShowcase({project}: {project: TProject}) {
   const [activeTab, setActiveTab] = useState<number | null>(null)
   const [activeAward, setActiveAward] = useState<{index: number | null; text: string | null}>({index: null, text: null})
 
-  const combinedAwards = [...(project.award ? [{image: AwardImage, text: project.award}] : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
+  const combinedAwards = [...(project.awards ? (Array.isArray(project.awards) ? project.awards : [project.awards]).map((text) => ({image: AwardImage, text})) : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
 
   useEffect(() => {
-    if (project.award) {
-      setActiveAward({index: 0, text: project.award})
+    if (project.awards) {
+      const firstAward = Array.isArray(project.awards) ? project.awards[0] : project.awards
+      setActiveAward({index: 0, text: firstAward})
     }
-  }, [project.award])
+  }, [project.awards])
 
   const handleTabClick = (index: number) => {
     setActiveTab(index)
 
     const resident = Object.values(project.residents)[index]
     if (resident.award) {
-      setActiveAward({index: index + (project.award ? 1 : 0), text: resident.award})
+      const projectAwardsCount = project.awards ? (Array.isArray(project.awards) ? project.awards.length : 1) : 0
+      setActiveAward({index: index + projectAwardsCount, text: resident.award})
     } else {
       setActiveAward({index: null, text: null})
     }
@@ -90,7 +92,7 @@ function DeskShowcase({project}: {project: TProject}) {
 }
 
 function MobileAwards({project}: {project: TProject}) {
-  const combinedAwards = [...(project.award ? [{image: AwardImage, text: project.award}] : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
+  const combinedAwards = [...(project.awards ? (Array.isArray(project.awards) ? project.awards : [project.awards]).map((text) => ({image: AwardImage, text})) : []), ...Object.values(project.residents).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : []))]
 
   return (
     <section data-section="mob-awards-project" className="relative mb-6 space-y-5">
