@@ -74,7 +74,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever-1',
     project: 'Ориентир Север-1',
     image: units.sever.default,
-    mobile_image: units.sever.mobile,
+    mobile_image: units.sever.default,
     description: 'Самая крупная инвестиционная сделка в 2020 году с участием иностранных инвесторов по продаже логистического парка',
     full_description: 'Добавить полное описание',
 
@@ -169,7 +169,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever-2',
     project: 'Ориентир Север-2',
     image: units.sever2.default,
-    mobile_image: units.sever2.mobile,
+    mobile_image: units.sever2.default,
     description: 'Современный складской комплекс класса А+ с полностью автономной инфраструктурой, оснащенный передовыми инженерными системами.',
     full_description: 'Добавить полное описание',
 
@@ -295,7 +295,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever-3',
     project: 'Ориентир Север-3',
     image: units.sever3.default,
-    mobile_image: units.sever3.mobile,
+    mobile_image: units.sever3.default,
     description: 'Крупнейший в России специализированный мультитемпературный РЦ для online food retailer',
     full_description: 'Добавить полное описание',
 
@@ -382,7 +382,7 @@ const projects: TProjectExtra[] = [
     slug: 'orientir-sever-4',
     project: 'Ориентир Север-4',
     image: units.sever4.default,
-    mobile_image: units.sever4.mobile,
+    mobile_image: units.sever4.default,
     description: 'Качественный проект с продуманной концепцией и отличным расположением, что делает его привлекательным для широкого круга российских и международных клиентов.',
     full_description: 'Добавить полное описание', // ##
 
