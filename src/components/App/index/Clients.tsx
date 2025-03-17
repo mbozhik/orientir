@@ -14,7 +14,7 @@ export default function Clients() {
     <section data-section="clients-index" className="space-y-14 sm:space-y-7">
       <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-3">
         <H1>Клиенты</H1>
-        <H4 className="max-w-[50ch]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur in odio sed rhoncus.</H4>
+        <H4 className="max-w-[50ch]">Крупнейшие партнеры и игроки рынка e-commerce, retail, grocery, infrastructure, fashion, production.</H4>
       </div>
 
       <ClientsModule items={logos} />

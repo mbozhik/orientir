@@ -39,7 +39,7 @@ const teamConfig = [
   },
   {
     name: 'Яна Трухан',
-    position: 'Директор',
+    position: 'Директор юридического департамента',
     photo: YanaTruhanPhoto,
   },
 ]
@@ -70,7 +70,7 @@ export default function Team() {
     <section data-section="team-index" className="space-y-14 sm:space-y-7">
       <div className="space-y-2">
         <H1 className="max-w-[50ch]">Команда</H1>
-        <H4 className="hidden sm:block">Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.</H4>
+        <H4 className="hidden sm:block">Наша команда – это единый механизм, который работает для реализации самых масштабных и высокотехнологичных проектов. Мы ценим долгосрочные партнерские отношения и стремимся к тому, чтобы каждый проект приносил максимальную пользу нашему клиенту.</H4>
       </div>
 
       <div className={cn('flex flex-col gap-14 xl:gap-10 w-fit', containerStyles.min_width)}>
@@ -79,8 +79,8 @@ export default function Team() {
             <TeamCard person={person} key={index} />
           ))}
 
-          <div className="col-span-2 space-y-10 xl:space-y-7 sm:space-y-0">
-            <H4 className="max-w-[55ch] sm:hidden">Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.</H4>
+          <div className="col-span-2 space-y-7 sm:space-y-0">
+            <H4 className="max-w-[55ch] sm:hidden">Наша команда – это единый механизм, который работает для реализации самых масштабных и высокотехнологичных проектов. Мы ценим долгосрочные партнерские отношения и стремимся к тому, чтобы каждый проект приносил максимальную пользу нашему клиенту.</H4>
 
             <div className="grid grid-cols-2 gap-5 sm:gap-5 sm:flex sm:flex-col">
               {teamConfig.slice(1, 3).map((person, index) => (
