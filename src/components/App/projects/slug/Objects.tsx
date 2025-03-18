@@ -63,10 +63,19 @@ export default function Specs({project}: {project: TProjectExtra}) {
                 <P>{resident.description}</P>
 
                 {resident.extra_info && (
-                  <div className="grid grid-cols-2 gap-2">
-                    {resident.extra_info.map((info, index) => (
-                      <CardDetails key={index} label={info.label} value={info.text} />
-                    ))}
+                  <div className="grid grid-cols-2 gap-4">
+                    <>
+                      <div className="space-y-2">
+                        {resident.extra_info.slice(0, Math.ceil(resident.extra_info.length / 2)).map((info, index) => (
+                          <CardDetails key={index} label={info.label} value={info.text} />
+                        ))}
+                      </div>
+                      <div className="space-y-2">
+                        {resident.extra_info.slice(Math.ceil(resident.extra_info.length / 2)).map((info, index) => (
+                          <CardDetails key={index} label={info.label} value={info.text} />
+                        ))}
+                      </div>
+                    </>
                   </div>
                 )}
               </div>
