@@ -60,7 +60,7 @@ export default function Specs({project}: {project: TProjectExtra}) {
                   </div>
                 </div>
 
-                <P>{resident.description}</P>
+                <P>{resident.caption}</P>
 
                 {resident.extra_info && (
                   <div className="grid grid-cols-2 gap-4">

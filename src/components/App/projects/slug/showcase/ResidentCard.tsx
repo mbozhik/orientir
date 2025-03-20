@@ -15,7 +15,7 @@ export function CardDetails({label, value}: {label: string; value: string}) {
 }
 
 export default function ResidentCard({resident, isExtra, onClose}: {resident: TResident; isExtra: boolean; onClose: () => void}) {
-  const {name, description, type, status, area, completion_time, extra_info} = resident
+  const {name, caption, type, status, area, completion_time, extra_info} = resident
 
   return (
     <div className={cn('flex gap-3 p-2.5 bg-background', !isExtra ? 'max-w-[30vw] xl:max-w-[40vw]' : 'max-w-[45vw] xl:max-w-[50vw]')}>
@@ -42,7 +42,7 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
           <X onClick={onClose} className="col-span-1 cursor-pointer justify-self-end hover:text-red hover:scale-[1.1] duration-200" />
         </div>
 
-        {!isExtra && <P>{description}</P>}
+        {<P>{caption}</P>}
 
         {isExtra && (
           <div className="grid grid-cols-2 gap-x-4 gap-y-2">

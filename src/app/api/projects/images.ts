@@ -1,15 +1,19 @@
 import OrientirSeverImage from '$/projects/orientir-sever.jpg'
-import OrientirSeverMobileImage from '$/projects/orientir-zapad-mobile.jpg'
+import OrientirSeverMobileImage from '$/projects/orientir-zapad-mobile.jpg' // ##
 import OrientirSever2Image from '$/projects/orientir-sever-2.jpg'
 import OrientirSever2MobileImage from '$/projects/orientir-sever-2-mobile.jpg'
 import OrientirSever3Image from '$/projects/orientir-sever-3.jpg'
 import OrientirSever3MobileImage from '$/projects/orientir-sever-3-mobile.jpg'
 import OrientirSever4Image from '$/projects/orientir-sever-4.jpg'
-import OrientirSever4MobileImage from '$/projects/orientir-sever-2-mobile.jpg'
+import OrientirSever4MobileImage from '$/projects/orientir-sever-2-mobile.jpg' // ##
 import OrientirZapadImage from '$/projects/orientir-zapad.jpg'
 import OrientirZapadMobileImage from '$/projects/orientir-zapad-mobile.jpg'
 import OrientirUgImage from '$/projects/orientir-ug.jpg'
-import OrientirUgMobileImage from '$/projects/orientir-zapad-mobile.jpg'
+import OrientirUgMobileImage from '$/projects/orientir-zapad-mobile.jpg' // ##
+import OrientirSpbUgImage from '$/projects/orientir-ug.jpg'
+import OrientirSpbUgMobileImage from '$/projects/orientir-zapad-mobile.jpg' // ##
+import OrientirKaliningradImage from '$/projects/orientir-zapad.jpg' // ##
+import OrientirKaliningradMobileImage from '$/projects/orientir-zapad-mobile.jpg' // ##
 
 import Resident1Image from '$/projects/resident-1.jpg'
 import Resident2Image from '$/projects/resident-2.jpg'
@@ -47,6 +51,14 @@ export const projectImages = {
     ug: {
       default: OrientirUgImage,
       mobile: OrientirUgMobileImage,
+    },
+    spbug: {
+      default: OrientirSpbUgImage,
+      mobile: OrientirSpbUgMobileImage,
+    },
+    kaliningrad: {
+      default: OrientirKaliningradImage,
+      mobile: OrientirKaliningradMobileImage,
     },
   },
   residents: {

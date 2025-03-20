@@ -8,7 +8,7 @@ const {units, residents, gallery} = projectImages
 
 export type TResident = {
   name: string
-  description?: string
+  caption?: string
   status: ResidentStatus
   type?: string
   area?: string
@@ -252,7 +252,7 @@ const projects: TProjectExtra[] = [
       },
       2: {
         name: 'X5 Group',
-        description: 'Мультитемпературный РЦ',
+        type: 'Мультитемпературный РЦ',
         status: 'Завершен',
         completion_time: '7 мес.',
         area: '45 000',
@@ -270,7 +270,7 @@ const projects: TProjectExtra[] = [
       },
       3: {
         name: 'Столичные поставки',
-        description: 'Логистический центр',
+        type: 'Логистический центр',
         status: 'Завершен',
         completion_time: '12 мес.',
         area: '10 300',
@@ -356,7 +356,7 @@ const projects: TProjectExtra[] = [
     residents: {
       1: {
         name: 'Утконос',
-        description: 'Многофункциональный СК',
+        type: 'Многофункциональный СК',
         status: 'Завершен',
         completion_time: '10 мес.',
         area: '70 000',
@@ -447,7 +447,7 @@ const projects: TProjectExtra[] = [
     residents: {
       1: {
         name: 'X5 Group / Перекресток',
-        description: 'Мультитемпературный РЦ',
+        type: 'Мультитемпературный РЦ',
         status: 'Завершен',
         completion_time: '8 мес.',
         area: '45 000',
@@ -467,7 +467,7 @@ const projects: TProjectExtra[] = [
       },
       2: {
         name: 'СТА Карго',
-        description: 'Логистический центр',
+        type: 'Логистический центр',
         status: 'Завершен',
         completion_time: '10 мес.',
         area: '10 000',
@@ -487,7 +487,7 @@ const projects: TProjectExtra[] = [
       },
       3: {
         name: 'Ahlers',
-        description: 'Логистический центр',
+        type: 'Логистический центр',
         status: 'Завершен',
         completion_time: '10 мес.',
         area: '10 000',
@@ -507,7 +507,7 @@ const projects: TProjectExtra[] = [
       },
       4: {
         name: 'X5 Group / Чижик',
-        description: 'Распределительный центр',
+        type: 'Распределительный центр',
         status: 'Завершен',
         completion_time: '10 мес.',
         area: '17 500',
@@ -527,7 +527,7 @@ const projects: TProjectExtra[] = [
       },
       5: {
         name: 'Ruston',
-        description: 'Логистический центр',
+        type: 'Логистический центр',
         status: 'Завершен',
         completion_time: '10 мес.',
         area: '17 500',
@@ -631,7 +631,7 @@ const projects: TProjectExtra[] = [
     residents: {
       1: {
         name: 'OZON',
-        description: 'Фулфилмент-центр',
+        type: 'Фулфилмент-центр',
         status: 'Завершен',
         completion_time: '12 мес.',
         area: '132 855',
@@ -657,7 +657,7 @@ const projects: TProjectExtra[] = [
       },
       2: {
         name: 'OZON',
-        description: 'Сортирвочный центр',
+        type: 'Сортирвочный центр',
         status: 'Завершен',
         completion_time: '12 мес.',
         area: '24 199',
@@ -677,7 +677,7 @@ const projects: TProjectExtra[] = [
       },
       3: {
         name: 'Техноавия',
-        description: 'Производственно-складской комплекс',
+        type: 'Производственно-складской комплекс',
         status: 'Завершен',
         completion_time: '12 мес.',
         area: '38 570',
@@ -697,7 +697,7 @@ const projects: TProjectExtra[] = [
       },
       4: {
         name: 'Золотое яблоко',
-        description: 'Распределительный центр',
+        type: 'Распределительный центр',
         status: 'Завершен',
         completion_time: '12 мес.',
         area: '47 043',
@@ -721,7 +721,8 @@ const projects: TProjectExtra[] = [
       },
       5: {
         name: 'СберЛогистика',
-        description: 'Фулфилмент-центр + FMCG',
+        type: 'Фулфилмент-центр + FMCG',
+        caption: 'Объект в процессе строительства. Ввод запланирован на III квартал 2025 года.',
         status: 'В процессе',
         area: '156 170',
         image: residents[3],
@@ -797,7 +798,7 @@ const projects: TProjectExtra[] = [
     residents: {
       1: {
         name: 'Глория Джинс',
-        description: 'Производственно-складской комплекс',
+        type: 'Производственно-складской комплекс',
         status: 'Завершен',
         completion_time: '16 мес.',
         area: '27 000',
@@ -817,7 +818,7 @@ const projects: TProjectExtra[] = [
       },
       2: {
         name: 'VS Real Estate',
-        description: 'Логистический комплекс',
+        type: 'Логистический комплекс',
         status: 'Завершен',
         completion_time: '13 мес.',
         area: '133 000',
@@ -840,96 +841,177 @@ const projects: TProjectExtra[] = [
     gallery: mockGallery,
     awards: ['Победитель в номинации «Лучший складской комплекс 2023» в рамках профессиональной премии в области коммерческой недвижимости Arendator Awards.', 'Победитель в номинации «Индустриальная и складская недвижимость 2023» в рамках профессиональной премии в области коммерческой недвижимости PROESTATE & TOBY Awards.'],
   },
-  // {
-  //   id: 7,
-  //   slug: 'orientir-spb-ug',
-  //   project: 'Ориентир СПб, Юг',
-  //   image: units.ug.default,
-  //   mobile_image: units.ug.mobile,
-  //   description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-  //   full_description: 'Флагманский производственно-складской объект для компании Лента построен в собственность в стратегическом для клиента регионе - в парке ОРИЕНТИР Санкт-Петербург ЮГ. Объект располагается на первой линии важнейшей транспортной артерии - трассы М-10, что позволило не только закрепить лидерство компании в регионе, но и начать реализовывать новые гибкие форматы доставки до конечного потребителя в условиях меняющегося рынка в COVID-19.',
+  {
+    id: 7,
+    slug: 'orientir-spb-ug',
+    project: 'Ориентир СПб, Юг',
+    image: units.spbug.default,
+    mobile_image: units.spbug.mobile,
+    description: 'Современный парк, на территории которого создана вся необходимая инженерная, энергетическая и транспортная инфраструктура для строительства высокотехнологичных объектов.',
+    full_description: 'Добавить полное описание', // ##
 
-  //   project_area: '650 000',
-  //   zone_area: '135',
-  //   location: {
-  //     coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
-  //     map: {
-  //       address: 'Ленинградская область, Тосненский район, Красноборское городское поселение на трассе М-10',
-  //       link: 'https://yandex.ru/maps/-/CHqGzQ71',
-  //     },
-  //     availability: [
-  //       {
-  //         gap: '20 км',
-  //         benchmark: 'от КАД',
-  //       },
-  //       {
-  //         gap: '31 км',
-  //         benchmark: 'от а/п Пулково',
-  //       },
-  //     ],
-  //   },
+    project_area: '650 000',
+    zone_area: '135',
+    location: {
+      coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
+      map: {
+        address: 'Ленинградская область, Тосненский район, Красноборское городское поселение на трассе М-10',
+        link: 'https://yandex.ru/maps/-/CHqGzQ71',
+      },
+      availability: [
+        {
+          gap: '20 км',
+          benchmark: 'от КАД',
+        },
+        {
+          gap: '31 км',
+          benchmark: 'от а/п Пулково',
+        },
+      ],
+    },
 
-  //   more_info: [
-  //     {
-  //       image: units.sever.default,
-  //       text: '"Лента" - это полностью автономный складской и производственный объект, включающий в себя заготовочную фабрику полуфабрикатов и кулинарных изделий, 6 отделов с различными температурными режимами, в том числе сухим, холодильным, морозильным. РЦ позволил централизовать хранение, повысил качество продукции и позволил сократить время доставки.',
-  //     },
-  //     {
-  //       image: units.zapad.default,
-  //       text: 'Победитель в номинации «Складской комплекс 2021» в рамках профессиональной премии в области коммерческой недвижимости CRE Federal Awards. Победитель в номинации «Индустриальная и складская недвижимость. Регионы 2021» в рамках профессиональной премии в области коммерческой недвижимости PROESTATE & TOBY Awards',
-  //     },
-  //   ],
+    more_info: [
+      {
+        image: units.sever.default,
+        text: ['"Лента" - это полностью автономный складской и производственный объект, включающий в себя заготовочную фабрику полуфабрикатов и кулинарных изделий, 6 отделов с различными температурными режимами, в том числе сухим, холодильным, морозильным. РЦ позволил централизовать хранение, повысил качество продукции и позволил сократить время доставки.', 'Сочетая передовые технологии, современную инфраструктуру и строгое соблюдение международных стандартов, мы предлагаем решения, которые обеспечивают сохранность качества продукции и оптимизируют логистические процессы.'],
+      },
+      {
+        image: units.zapad.default,
+        text: 'Победитель в номинации «Складской комплекс 2021» в рамках профессиональной премии в области коммерческой недвижимости CRE Federal Awards. Победитель в номинации «Индустриальная и складская недвижимость. Регионы 2021» в рамках профессиональной премии в области коммерческой недвижимости PROESTATE & TOBY Awards',
+      },
+    ],
 
-  //   specifications: [
-  //     {
-  //       heading: 'Электроснабжение',
-  //       caption: 'Подпись ...',
-  //     },
-  //     {
-  //       heading: 'Водоснабжение',
-  //       caption: 'Подпись ...',
-  //     },
-  //     {
-  //       heading: 'Котельная на биотопливе',
-  //       caption: 'Подпись ...',
-  //     },
-  //     {
-  //       heading: 'Система отопления и вентиляции',
-  //       caption: 'Подпись ...',
-  //     },
-  //   ],
+    specifications: [
+      {
+        heading: 'Электроснабжение',
+        caption: '5,4 мВт',
+      },
+      {
+        heading: 'Водоснабжение',
+        caption: '3000 м³/сутки',
+      },
+      {
+        heading: 'Теплоснабжение',
+        caption: '1 500 Гкал/час',
+      },
+      {
+        heading: 'Собственная котельная',
+        caption: '',
+      },
+    ],
 
-  //   residents: {
-  //     1: {
-  //       name: 'Лента',
-  //       description: 'Мультитемпературный производственно-складской центр',
-  //       status: 'Завершен',
-  //       completion_time: '8 мес.',
-  //       area: '70 000',
-  //       image: residents[1],
+    residents: {
+      1: {
+        name: 'Лента',
+        type: 'Мультитемпературный производственно-складской центр',
+        status: 'Завершен',
+        completion_time: '15 мес.',
+        area: '70 000',
+        image: residents[1],
 
-  //       extra_info: [
-  //         {label: 'Рабочая высота', text: '12 м'},
-  //         {label: 'Шаг колонн', text: '12х24 м'},
-  //         {label: 'Бетонный пол', text: 'с антипылевым покрытием'},
-  //         {label: 'Нагрузка на пол', text: 'От 8 т/м²'},
-  //         {label: 'Типы помещений', text: 'производственный блок, заготовочная фабрика полуфабрикатови кулинарных изделий'},
-  //         {label: 'Склад хранения', text: 'с шестью температурными режимами'},
-  //         {label: 'Система рекуперации тепла', text: 'от холодильных систем'},
-  //       ],
-  //     },
-  //     2: {
-  //       name: 'Сводобный земельный участок',
-  //       description: 'Сводобный земельный участок',
-  //       status: 'Завершен',
-  //       completion_time: '8 мес.',
-  //       area: '380 000',
-  //       image: residents[2],
-  //     },
-  //   },
+        extra_info: [
+          {label: 'Рабочая высота', text: '12 м'},
+          {label: 'Шаг колонн', text: '12х24 м'},
+          {label: 'Нагрузка на пол', text: '8 т/м²'},
+          {label: 'Парковка', text: '560 м/м'},
+          {label: 'Доковооруженность', text: '1 док на 390 м²'},
+          {label: 'Погрузочно', text: 'разгрузочные доки 180 шт.'},
 
-  //   gallery: mockGallery,
-  // },
+          {label: 'Смешанный', text: 'температурный режим'},
+          {label: 'Камеры', text: 'холодильные и морозильные'},
+          {label: 'Система контроля', text: 'доступа, видеонаблюдение'},
+          {label: 'Помещения', text: 'производства и заготовочной фабрики'},
+          {label: 'Система', text: 'рекуперации тепла от холодильных систем'},
+          {label: 'Подключение', text: 'к центральной системе водоснабжения'},
+        ],
+      },
+    },
+
+    gallery: mockGallery,
+    awards: ['Победитель в номинации «Складской комплекс 2021» в рамках профессиональной премии в области коммерческой недвижимости CRE Federal Awards', 'Победитель в номинации «Индустриальная и складская недвижимость. Регионы 2021» в рамках профессиональной премии в области коммерческой недвижимости PROESTATE & TOBY Awards'],
+  },
+  {
+    id: 8,
+    slug: 'orientir-kaliningrad',
+    project: 'Ориентир Калининград',
+    image: units.kaliningrad.default,
+    mobile_image: units.kaliningrad.mobile,
+    description: 'Мультитемпературный распределительный центр с производством «Фабрика кухни» – это не только технически оснащенный объект, но и важный элемент инфраструктуры, способствующий экономическому и социальному развитию региона.',
+    full_description: 'Добавить полное описание', // ##
+
+    project_area: '66 500',
+    zone_area: '6,6',
+    location: {
+      coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
+      map: {
+        address: 'Калининградская область, Гурьевский муниципальный округ, п. Кутузово',
+        link: 'https://yandex.ru/maps/-/CHqKAH-F',
+      },
+      availability: [
+        {
+          gap: '4 км',
+          benchmark: 'от КАД',
+        },
+        {
+          gap: '34 км',
+          benchmark: 'от а/п Пулково',
+        },
+      ],
+    },
+
+    more_info: [
+      {
+        image: units.sever.default,
+        text: ['Мультитемпературный распределительный центр с собственным производством «Фабрика кухни» представляет собой ключевой объект, имеющий важное социально-экономическое значение для региона. Его создание способствует решению ряда стратегических задач:', 'Создание новых рабочих мест. Реализация проекта обеспечит занятость населения, что положительно скажется на уровне жизни в регионе.', 'Развитие локальных поставщиков. Укрепление связей с местными производителями и поставщиками сырья способствует поддержке региональной экономики.', 'Повышение качества обслуживания покупателей. Центр обеспечит бесперебойные поставки товаров повседневного спроса, что повысит доступность и качество обслуживания потребителей.', 'Оптимизация логистических процессов. Внедрение современных технологий хранения, обработки и распределения грузов позволит сократить издержки и повысить эффективность цепочек поставок.', 'Таким образом, мультитемпературный распределительный центр с производством «Фабрика кухни» станет не только важным элементом инфраструктуры региона, но и драйвером его экономического и социального развития.'],
+      },
+    ],
+
+    specifications: [
+      {
+        heading: 'Электроснабжение',
+        caption: '3,5 мВт',
+      },
+      {
+        heading: 'Водоснабжение',
+        caption: '160 м³/сутки',
+      },
+      {
+        heading: 'Теплоснабжение',
+        caption: '1903 Гкал/час',
+      },
+      {
+        heading: 'Собственная котельная',
+        caption: '',
+      },
+    ],
+
+    residents: {
+      1: {
+        name: 'Х5 Group / Пятерочка',
+        type: 'Мультитемпературный распределительный центр',
+        caption: 'Ввод объекта запланирован на II квартал 2025г.',
+        status: 'В процессе',
+        area: '26 803',
+        image: residents[1],
+
+        extra_info: [
+          {label: 'Рабочая высота', text: '12,5 м'},
+          {label: 'Шаг колонн', text: '24х18 м и 18х18 м'},
+          {label: 'Нагрузка на пол', text: '9 т/м²'},
+          {label: 'Парковка', text: 'на 133 м/м'},
+          {label: 'Погрузочно', text: 'разгрузочные доки 35 шт'},
+
+          {label: 'Помещения', text: '«фров», «фреш», «алкоголь»'},
+          {label: 'Собственное производство', text: '«фабрика кухни»'},
+          {label: 'Камеры', text: 'морозильные и холодильные'},
+          {label: 'Собственная', text: 'АРМ мастерская'},
+          {label: 'Системы', text: 'климат-контроля'},
+        ],
+      },
+    },
+
+    gallery: mockGallery,
+  },
   // {
   //   id: 8,
   //   slug: 'orientir-spb-sever',
@@ -988,219 +1070,6 @@ const projects: TProjectExtra[] = [
   //   },
 
   //   gallery: mockGallery,
-  // },
-  // {
-  //   id: 9,
-  //   slug: 'orientir-kaliningrad',
-  //   project: 'Ориентир Калининград',
-  //   image: units.ug.default,
-  //   mobile_image: units.ug.mobile,
-  //   description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-  //   full_description: 'Сделка по купле-продаже мультитемпературного РЦ с собственным производством «Фабрика кухни» для торговой сети «Пятёрочка» площадью 26 803 м2 между Ориентир и X5 Group – является стратегически важной и социально-значимой для региона, поскольку его строительство позволит создать новые рабочие места и укрепить связи с локальными поставщиками, а также улучшить обслуживание покупателей и обеспечить их товарами повседневного спроса.',
-
-  //   project_area: '26 803',
-  //   zone_area: '6,6',
-  //   location: {
-  //     coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
-  //     map: {
-  //       address: 'Ленинградская область, Всеволожский район, Заневское городское поселение, массив Янино-2, первая линия Колтушского ш.',
-  //       link: 'https://yandex.ru/maps/-/CHqKAH-F',
-  //     },
-  //     availability: [
-  //       {
-  //         gap: '4 км',
-  //         benchmark: 'от КАД',
-  //       },
-  //       {
-  //         gap: '34 км',
-  //         benchmark: 'от а/п Пулково',
-  //       },
-  //     ],
-  //   },
-
-  //   more_info: [
-  //     {
-  //       image: units.sever.default,
-  //       text: 'Проект реализуется по схеме BTS на обособленной территории с необходимой инфраструктурой. РЦ будет включать в себя производственный блок «Фабрика кухни» для заготовок полуфабрикатов и кулинарных изделий c собственной системой мониторинга и автоматической поддержкой температуры, а также зоны с несколькими температурными режимами.',
-  //     },
-  //     {
-  //       image: units.zapad.default,
-  //       text: 'Ввод запланирован на II кв. 2025г. Расположение РЦ на первой линии а/д Северный обход и в 1,5 км от Приморского кольца (федерального назначения), обеспечит высокий уровень транспортной доступности и возможность построения эффективных логистических схем.',
-  //     },
-  //   ],
-
-  //   specifications: [
-  //     {
-  //       heading: 'Электроснабжение',
-  //       caption: 'Подпись ...',
-  //     },
-  //     {
-  //       heading: 'Водоснабжение',
-  //       caption: 'Подпись ...',
-  //     },
-  //     {
-  //       heading: 'Котельная на биотопливе',
-  //       caption: 'Подпись ...',
-  //     },
-  //     {
-  //       heading: 'Система отопления и вентиляции',
-  //       caption: 'Подпись ...',
-  //     },
-  //   ],
-
-  //   residents: {
-  //     1: {
-  //       name: 'Х5 Retail Group',
-  //       description: 'Мультитемпературный распределительный центр',
-  //       status: 'В процессе',
-  //       area: '26 900',
-  //       image: residents[1],
-
-  //       extra_info: [
-  //         {label: 'Рабочая высота', text: '12,5 м'},
-  //         {label: 'Шаг колонн', text: '12х24 м'},
-  //         {label: 'Бетонный пол', text: 'с антипылевым покрытием'},
-  //         {label: 'Нагрузка на пол', text: 'От 9 т/м²'},
-  //         {label: 'Типы помещений', text: 'складские, офисные, фреш, фров'},
-  //         {label: 'Фабрики-Кухни', text: 'для производства готовой продукции'},
-  //         {label: 'Несколько', text: 'цехов для разной заготовок'},
-  //       ],
-  //     },
-  //   },
-
-  //   gallery: mockGallery,
-  // },
-  // {
-  //   id: 10,
-  //   slug: 'orientir-test',
-  //   project: 'Ориентир Тест',
-  //   image: units.zapad.default,
-  //   mobile_image: units.zapad.mobile,
-  //   description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-  //   awards: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (проект)',
-
-  //   residents: {
-  //     1: {
-  //       name: 'OZON',
-  //       description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-  //       status: 'Завершен',
-  //       type: 'ФФФ',
-  //       area: '157 000',
-  //       image: residents[1],
-  //       award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-  //       completion_time: '12 мес.',
-  //     },
-  //     2: {
-  //       name: 'ТехноАвиа',
-  //       description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-  //       status: 'Завершен',
-  //       type: 'ПК',
-  //       area: '40 000',
-  //       image: residents[2],
-  //       award: 'Победитель в номинации «Сделка Года. Индустриальная недвижимость 2021» в рамках ежегодной профессиональной премии в области коммерческой недвижимости Commercial Real Estate Awards (резидент)',
-  //       completion_time: '11 мес.',
-  //     },
-  //     3: {
-  //       name: 'Золотое яблоко',
-  //       description: 'Lorem ipsum dolor sit amet consectetur. In euismod malesuada nunc quam cras odio eu sed tortor. Mauris sed orci diam aliquet augue.',
-  //       status: 'В процессе',
-  //       type: 'РЦ',
-  //       area: '46 000',
-  //       image: residents[3],
-
-  //       extra_info: [
-  //         {label: 'Рабочая высота', text: '15м и 12м'},
-  //         {label: 'Подключение', text: 'К инженерной инфраструктуре'},
-  //         {label: 'Шаг колонн', text: '6х6, 12х12, 12х24 м'},
-  //         {label: 'Мощность хаба', text: 'до 800 000 шт/сутки'},
-  //         {label: 'Бетонный пол', text: 'С антипылевым покрытием'},
-  //         {label: 'Система безопасности', text: 'Централизованная'},
-  //         {label: 'Нагрузка на пол', text: 'От 8 т/м²'},
-  //         {label: 'Точечные нагрузки', text: 'До 120 т'},
-  //         {label: 'Система пожаротушения', text: 'Многоуровневая'},
-  //         {label: 'Системы коммуникаций', text: 'Отопления и вентиляции'},
-  //         {label: 'Высокая доковооруженность', text: '1 док на 870 м²'},
-  //         {label: 'Железобетонные перекрытия', text: 'Два этажа площадью 41 000 м²'},
-  //         {label: 'Мезонин', text: 'Шестиуровневый'},
-  //         {label: 'Энергосбережение', text: 'Повышенное: 8 мВт'},
-  //       ],
-  //     },
-  //   },
-
-  //   full_description: ['Lorem ipsum dolor sit amet consectetur. Pellentesque egestas viverra netus sed viverra purus pellentesque quam amet. Vestibulum venenatis viverra nunc ultricies tortor nunc ac. Nisi euismod eu in lacinia commodo.', 'Vitae leo nulla dolor amet nec id. Scelerisque nibh sed mauris nibh pharetra. Semper malesuada vitae ut habitasse cursus. Id odio consequat orci malesuada cras et risus magna. Commodo.'],
-  //   project_area: '400 000',
-  //   zone_area: '107',
-  //   location: {
-  //     coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
-  //     map: {
-  //       address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
-  //       link: 'https://yandex.ru/maps/-/CHq6mAjA',
-  //     },
-  //     availability: [
-  //       {
-  //         gap: '5км',
-  //         benchmark: 'до ЦКАД',
-  //       },
-  //       {
-  //         gap: '45мин',
-  //         benchmark: 'от а/п Шереметьево',
-  //       },
-  //       {
-  //         gap: '1км',
-  //         benchmark: 'до МКАД',
-  //       },
-  //       {
-  //         gap: '45мин',
-  //         benchmark: 'от м. Речной Вокзал',
-  //       },
-  //     ],
-  //   },
-  //   more_info: [
-  //     {
-  //       image: units.ug.default,
-  //       text: 'Lorem ipsum dolor sit amet consectetur. Semper euismod arcu lorem nibh ut sem ac in fermentum. Adipiscing pellentesque phasellus aliquet quis morbi nunc cursus sed ac. Faucibus mi quam maecenas quis. Aliquam ultrices a mi pharetra accumsan elementum. Nunc et tempor laoreet tortor ut velit nulla augue neque. Lorem sagittis augue in amet ipsum placerat ornare facilisi vestibulum.',
-  //     },
-  //     {
-  //       image: units.zapad.default,
-  //       text: 'Lorem ipsum dolor sit amet consectetur. Semper euismod arcu lorem nibh ut sem ac in fermentum. Adipiscing pellentesque phasellus aliquet quis morbi nunc cursus sed ac. Faucibus mi quam maecenas quis. Aliquam ultrices a mi pharetra accumsan elementum. Nunc et tempor laoreet tortor ut velit nulla augue neque. Lorem sagittis augue in amet ipsum placerat ornare facilisi vestibulum.',
-  //     },
-  //   ],
-  //   specifications: [
-  //     {
-  //       heading: 'Инфраструктура',
-  //       caption: 'Современная инфраструктура с резервными мощностями инженерных систем.',
-  //     },
-  //     {
-  //       heading: 'Транспорт',
-  //       caption: 'Удобная транспортная доступность с прямым выездом на федеральные трассы А-107 и М-9.',
-  //     },
-  //     {
-  //       heading: 'Планировка',
-  //       caption: 'Эффективная планировка территории с учетом оптимизации логистических потоков.',
-  //     },
-  //     {
-  //       heading: 'Безопасность',
-  //       caption: 'Комплексная система безопасности с круглосуточным видеонаблюдением и контролем доступа.',
-  //     },
-  //   ],
-  //   gallery: [
-  //     {
-  //       image: gallery[1],
-  //       caption: 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet',
-  //     },
-  //     {
-  //       image: gallery[2],
-  //       caption: 'Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut',
-  //     },
-  //     {
-  //       image: gallery[3],
-  //       caption: 'Sed do eiusmod tempor incididunt ut labore et dolore magna',
-  //     },
-  //     {
-  //       image: gallery[4],
-  //       caption: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco',
-  //     },
-  //   ],
   // },
 ]
 
