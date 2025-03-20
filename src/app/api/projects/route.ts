@@ -81,7 +81,7 @@ const projects: TProjectExtra[] = [
     project_area: '114 000',
     zone_area: '19,56',
     location: {
-      coordinates: {center: [37.13440666638175, 56.073479269283574], zoom: 15},
+      coordinates: {center: [37.210227, 56.125411], zoom: 15},
       map: {
         address: 'Московская область, Солнечногорский район, деревня Хоругвино, рядом с трассами А-107, ЦКАД, М-11 и М-10',
         link: 'https://yandex.ru/maps/-/CHqn5Ek6',
@@ -176,7 +176,7 @@ const projects: TProjectExtra[] = [
     project_area: '270 000',
     zone_area: '50',
     location: {
-      coordinates: {center: [37.13422112414382, 56.06699172282484], zoom: 15},
+      coordinates: {center: [37.179279, 56.11644], zoom: 15},
       map: {
         address: 'Московская область, Солнечногорский район, деревня Литвиново, рядом с трассами ЦКАД, М-11 и М-10',
         link: 'https://yandex.ru/maps/-/CHqn5AjS',
@@ -302,7 +302,7 @@ const projects: TProjectExtra[] = [
     project_area: '100 000',
     zone_area: '22',
     location: {
-      coordinates: {center: [37.127901839704734, 56.06534123006062], zoom: 15},
+      coordinates: {center: [37.206764, 56.118697], zoom: 15},
       map: {
         address: 'Московская область, Солнечногорский район, деревня Хоругвино, рядом с трассами А-107, ЦКАД, М-11 и М-10',
         link: 'https://yandex.ru/maps/-/CHqn5Ek6',
@@ -389,7 +389,7 @@ const projects: TProjectExtra[] = [
     project_area: '100 000',
     zone_area: '27',
     location: {
-      coordinates: {center: [37.14556197367469, 56.061009396485105], zoom: 15}, // ##
+      coordinates: {center: [37.191512, 56.111493], zoom: 15}, // ##
       map: {
         address: 'Московская область, Солнечногорский район, деревня Литвиново, рядом с трассами А-107, ЦКАД, М-11 и М-10',
         link: 'https://yandex.ru/maps/-/CHqn5Ek6', // ##
@@ -561,7 +561,7 @@ const projects: TProjectExtra[] = [
     project_area: '400 000',
     zone_area: '107',
     location: {
-      coordinates: {center: [36.80371730089041, 55.85199732263542], zoom: 15}, // ##
+      coordinates: {center: [36.874065, 55.836552], zoom: 15}, // ##
       map: {
         address: 'Московская область, Городской округ Истра, село Петровское на пересечении федеральных трасс А-107 и М-9',
         link: 'https://yandex.ru/maps/-/CHqn5Ek6', // ##
@@ -744,7 +744,7 @@ const projects: TProjectExtra[] = [
     project_area: '160 000',
     zone_area: '36',
     location: {
-      coordinates: {center: [37.58924399999989, 55.34740270423577], zoom: 15},
+      coordinates: {center: [37.572407, 55.355375], zoom: 15},
       map: {
         address: 'Московская область, Подольский район, с/о Сынковский, вблизи села Сынково, рядом с трассами А-107 и М-2',
         link: 'https://yandex.ru/maps/-/CHqGnEJj',
@@ -853,7 +853,7 @@ const projects: TProjectExtra[] = [
     project_area: '650 000',
     zone_area: '135',
     location: {
-      coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
+      coordinates: {center: [30.630521, 59.682647], zoom: 15},
       map: {
         address: 'Ленинградская область, Тосненский район, Красноборское городское поселение на трассе М-10',
         link: 'https://yandex.ru/maps/-/CHqGzQ71',
@@ -942,7 +942,7 @@ const projects: TProjectExtra[] = [
     project_area: '66 500',
     zone_area: '6,6',
     location: {
-      coordinates: {center: [50.12321844175395, 53.209391913316], zoom: 15},
+      coordinates: {center: [20.518313, 54.772671], zoom: 15},
       map: {
         address: 'Калининградская область, Гурьевский муниципальный округ, п. Кутузово',
         link: 'https://yandex.ru/maps/-/CHqKAH-F',
