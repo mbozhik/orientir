@@ -98,11 +98,15 @@ export default function ProjectsModule({items}: {items: TProject[]}) {
       >
         {items.map((project, index) => (
           <SwiperSlide key={index}>
-            <div className="flex justify-between px-14 py-14 sm:flex-col-reverse sm:px-6 sm:py-4 sm:gap-6 sm:pb-12 sm:w-auto sm:mx-3 bg-background">
+            <div className="flex justify-between px-14 py-14 sm:flex-col-reverse sm:px-4 sm:py-3 sm:gap-6 sm:pb-14 sm:w-auto sm:mx-3 bg-background">
               <div className="py-7 sm:py-0 space-y-7 sm:space-y-3">
                 <SPAN className="font-bold text-gray">{`${index + 1}/${items.length}`}</SPAN>
                 <H2 className="max-w-[37ch]">{project.project}</H2>
-                <P>{project.description}</P>
+                <div className="grid grid-rows-[repeat(3,1fr)] sm:block sm:h-auto h-[4.5em]">
+                  <P animated={false} className="sm:line-clamp-4">
+                    <P animated={false}>{project.description.length > 150 ? `${project.description.substring(0, project.description.substring(0, 150).lastIndexOf(' '))}...` : project.description}</P>
+                  </P>
+                </div>
 
                 <DetailsButton href={`/projects/${project.slug}`} text="Подробнее" />
               </div>
@@ -116,9 +120,9 @@ export default function ProjectsModule({items}: {items: TProject[]}) {
               </div>
 
               <div className="absolute bottom-0 left-0 w-full px-3.5">
-                <div className="flex p-1.5 gap-1.5">
+                <div className="flex p-1.5 gap-1.5 sm:gap-1">
                   {items.map((_, index) => (
-                    <div key={index} className="flex-1 h-1.5 bg-gray">
+                    <div key={index} className="flex-1 h-1.5 sm:h-1 bg-gray">
                       <div
                         className="h-full bg-red transition-all duration-100 ease-linear"
                         style={{
