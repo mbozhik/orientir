@@ -24,7 +24,7 @@ export default async function Directions({isIndex = true}: {isIndex?: boolean}) 
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-5">
-        <Image className="w-[55%] xl:w-[75%] sm:w-full sm:h-[40vh] aspect-[9/10] object-cover" src={DirectionsImage} alt="Здание Ориентир" />
+        <Image quality={100} className="w-[55%] xl:w-[75%] sm:w-full sm:h-[40vh] aspect-[9/10] object-cover" src={DirectionsImage} alt="Здание Ориентир" />
 
         <DirectionsModule directions={directions} />
       </div>

@@ -9,7 +9,7 @@ export default function Hero() {
   return (
     <section data-section="hero-about" className={`relative w-full ${blockHeight}`}>
       <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-foreground/0 to-foreground/30 xl:to-foreground/50"></div>
-      <Image quality={100} priority={true} className="object-cover w-full h-full" src={HeroImage} alt="Один из проектов компании 'Ориентир'" />
+      <Image priority={true} quality={100} className="object-cover w-full h-full" src={HeroImage} alt="Один из проектов компании 'Ориентир'" />
 
       <div className="absolute bottom-0 left-0 w-full text-background">
         <div className="flex justify-between px-24 sm:flex-col sm:gap-3 xl:px-16 sm:px-3 pb-14 sm:pb-5">

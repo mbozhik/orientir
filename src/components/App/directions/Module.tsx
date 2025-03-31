@@ -1,6 +1,6 @@
 import {TDirection} from '@/app/api/directions/route'
 
-import DirectionsImage from '$/index/directions.jpg'
+import DirectionsImage from '$/index/directions2.jpg'
 
 import Image from 'next/image'
 import {H1, H2, H4, P, SPAN} from '~/UI/Typography'
