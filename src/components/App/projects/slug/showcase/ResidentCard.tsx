@@ -42,7 +42,17 @@ export default function ResidentCard({resident, isExtra, onClose}: {resident: TR
           <X onClick={onClose} className="col-span-1 cursor-pointer justify-self-end hover:text-red hover:scale-[1.1] duration-200" />
         </div>
 
-        {<P>{caption}</P>}
+        {caption && (
+          <div className="space-y-2">
+            {Array.isArray(caption) ? (
+              caption.map((text, index) => (
+                <P key={index}>{text}</P> // is array
+              ))
+            ) : (
+              <P>{caption}</P>
+            )}
+          </div>
+        )}
 
         {isExtra && (
           <div className="grid grid-cols-2 gap-x-4 gap-y-2">

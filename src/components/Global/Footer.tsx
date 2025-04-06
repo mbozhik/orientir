@@ -21,9 +21,7 @@ export default function Footer() {
       <div className={`grid gap-20 ${gridConfig.base} sm:flex sm:flex-col sm:gap-10`}>
         <section className={`${gridConfig.info}`}>
           <div className="space-y-14 sm:space-y-7">
-            <H2 className="font-normal">
-              Cras euismod porttitor ullamcorper. <br /> Vivamus vitae pellentesque justo.
-            </H2>
+            <H2 className="font-normal">Написать нам</H2>
 
             <div className="flex flex-wrap gap-5 sm:gap-3.5">
               {Object.entries(info).map(([department, email], index) => (

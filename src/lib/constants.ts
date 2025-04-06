@@ -10,9 +10,9 @@ export const WEBSITE_PATHS = {
 
 export const WEBSITE_RESOURCES = {
   info: {
-    'Отдел продаж': 'sales@orientir.ru',
-    Сотрудничество: 'contact@orientir.ru',
-    'Отдел кадров': 'hr@orientir.ru',
+    'По общим вопросам': 'info@orientir.ru',
+    'PR-служба (для СМИ)': 'pr@orientir.ru',
+    // 'Отдел кадров': 'hr@orientir.ru',
   },
   contacts: {
     '+7 (499) 940 12-20': 'tel:+74999401220',

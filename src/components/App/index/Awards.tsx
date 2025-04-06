@@ -80,7 +80,7 @@ export default function Awards() {
                   <span>{yearData.year}</span>
                 </h1>
 
-                <div className={cn('col-span-7', 'mt-2 space-y-10 sm:space-y-2 pb-20 last:pb-0 sm:pb-4')}>
+                <div className={cn('col-span-7', 'mt-2 space-y-10 sm:space-y-2 !pb-16 last:!pb-0 sm:!pb-4')}>
                   {yearData.awards.map((award: Award, awardIndex: number) => (
                     <div key={awardIndex}>
                       <H2>{award.award}</H2>
