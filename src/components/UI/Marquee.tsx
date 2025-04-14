@@ -1,6 +1,7 @@
 'use client'
 
 import {cn} from '@/lib/utils'
+import {useMediaQuery} from '@/lib/use-media-query'
 
 type MarqueeProps = {
   className?: string
@@ -13,11 +14,14 @@ type MarqueeProps = {
 }
 
 export default function Marquee({className, reverse, pauseOnHover = false, children, vertical = false, repeat = 4, ...props}: MarqueeProps) {
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+
   return (
     <div
       {...props}
       className={cn(
-        'group flex overflow-hidden px-2 [--duration:6s] [--gap:10rem] [gap:var(--gap)]',
+        'group flex overflow-hidden px-2 [--duration:22s] [gap:var(--gap)]',
+        isDesktop ? '[--gap:5rem]' : '[--gap:2rem]',
         {
           'flex-row': !vertical,
           'flex-col': vertical,
