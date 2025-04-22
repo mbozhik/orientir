@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 2000",
+    "dev": "next dev --turbopack -p 2000",
     "dev:host": "next dev -p 2000 -H 10.99.12.151",
     "build": "next build",
     "start": "next start",
@@ -14,9 +14,9 @@
     "clsx": "^2.1.1",
     "framer-motion": "^12.4.2",
     "lucide-react": "^0.445.0",
-    "next": "14.2.13",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "15.3.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
     "swiper": "^11.1.14",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
@@ -24,13 +24,19 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
+    "@types/react": "19.1.2",
+    "@types/react-dom": "19.1.2",
     "@yandex/ymaps3-types": "^1.0.15731128",
     "eslint": "^8",
-    "eslint-config-next": "14.2.13",
+    "eslint-config-next": "15.3.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "19.1.2",
+      "@types/react-dom": "19.1.2"
+    }
   }
 }
