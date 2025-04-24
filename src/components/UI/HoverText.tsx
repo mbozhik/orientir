@@ -74,7 +74,7 @@ export default function HoverText({children, triggerRef, className}: Props) {
         {React.Children.map(children, (child) =>
           React.isValidElement(child)
             ? React.cloneElement(child, {
-                ...child.props,
+                ...((React.isValidElement(child) && typeof child.props === 'object' ? child.props : {}) as object),
               })
             : child,
         )}
