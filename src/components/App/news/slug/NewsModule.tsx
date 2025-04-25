@@ -1,17 +1,13 @@
 'use client'
 
-import {TNews} from '@/app/api/news/route'
+import type {NEWS_QUERYResult} from '-/sanity.types'
+
 import {useState} from 'react'
 
 import NewsGrid from '~~/news/NewsGrid'
 import {ArrowUpRight} from 'lucide-react'
 
-type Props = {
-  items: TNews[]
-  className?: string
-}
-
-export default function NewsBlock({items, className}: Props) {
+export default function NewsBlock({items, className}: {items: NEWS_QUERYResult; className?: string}) {
   const [displayLimit, setDisplayLimit] = useState(8)
 
   const handleLoadMore = () => {
@@ -20,7 +16,7 @@ export default function NewsBlock({items, className}: Props) {
 
   return (
     <div className={`space-y-8 sm:space-y-6 ${className}`}>
-      <NewsGrid items={items} limit={displayLimit} />
+      <NewsGrid items={items} />
 
       {displayLimit < items.length && (
         <button onClick={handleLoadMore} className="group mx-auto w-fit sm:w-full flex items-center sm:justify-center px-5 pt-2 pb-1.5 gap-1 border-[1px] border-gray">

@@ -1,13 +1,12 @@
-import {TNews} from '@/app/api/news/route'
+import {getNews} from '@/sanity/lib/requests'
 import {containerStyles} from '~/Global/Container'
-import {getNews} from '@/utils/getData'
 
 import {H1} from '~/UI/Typography'
 import {ExpandButton} from '~/UI/Button'
 import NewsGrid from '~~/news/NewsGrid'
 
 export default async function News() {
-  const news: TNews[] = await getNews()
+  const news = await getNews()
 
   return (
     <section data-section="news-index" className="space-y-20 sm:space-y-7">
