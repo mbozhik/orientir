@@ -1,11 +1,11 @@
-import {TDirection} from '@/app/api/directions/route'
+import type {DIRECTIONS_QUERYResult} from '-/sanity.types'
 
 import DirectionsImage from '$/index/directions2.jpg'
 
 import Image from 'next/image'
 import {H1, H2, H4, P, SPAN} from '~/UI/Typography'
 
-export default async function Module({items}: {items: TDirection[]}) {
+export default async function Module({items}: {items: DIRECTIONS_QUERYResult}) {
   return (
     <section data-section="module-directions" className="space-y-20 sm:space-y-5">
       <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-4">
@@ -26,11 +26,7 @@ export default async function Module({items}: {items: TDirection[]}) {
                 <H2 className="text-red xl:text-3xl">{direction.heading}</H2>
               </div>
 
-              <div className="flex flex-col gap-1.5 ml-10 sm:mr-3 text-gray-dark">
-                {direction.list.map((item, index) => (
-                  <P key={index}>{item}</P>
-                ))}
-              </div>
+              <div className="flex flex-col gap-1.5 ml-10 sm:mr-3 text-gray-dark">{direction.params?.map((param, idx) => <P key={idx}>{param}</P>)}</div>
             </div>
           ))}
         </div>

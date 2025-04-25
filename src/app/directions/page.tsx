@@ -1,5 +1,4 @@
-import {TDirection} from '@/app/api/directions/route'
-import {getDirections} from '@/utils/getData'
+import {getDirections} from '@/sanity/lib/requests'
 
 import DirectionsImage from '$/directions.jpg'
 
@@ -30,7 +29,7 @@ const indicatorsData = [
 ]
 
 export default async function DirectionsPage() {
-  const directions: TDirection[] = await getDirections()
+  const directions = await getDirections()
 
   return (
     <>

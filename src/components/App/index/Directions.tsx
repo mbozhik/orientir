@@ -1,5 +1,4 @@
-import {TDirection} from '@/app/api/directions/route'
-import {getDirections} from '@/utils/getData'
+import {getDirections} from '@/sanity/lib/requests'
 
 import DirectionsImage from '$/index/directions.jpg'
 import Image from 'next/image'
@@ -9,7 +8,7 @@ import {ExpandButton} from '~/UI/Button'
 import DirectionsModule from '~/App/index/DirectionsModule'
 
 export default async function Directions({isIndex = true}: {isIndex?: boolean}) {
-  const directions: TDirection[] = await getDirections()
+  const directions = await getDirections()
 
   return (
     <section data-section="directions-index" className="space-y-20 sm:space-y-7">

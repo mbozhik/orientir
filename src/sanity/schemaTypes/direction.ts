@@ -9,11 +9,13 @@ export const direction = defineType({
   fields: [
     defineField({
       name: 'id',
+      title: 'ID',
       type: 'number',
       validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'heading',
+      title: 'Заголовок',
       type: 'string',
       validation: (rule) => rule.required(),
     }),
