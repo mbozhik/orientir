@@ -1,3 +1,5 @@
+import type {DIRECTIONS_QUERYResult} from '-/sanity.types'
+
 import {sanityFetch} from '@/sanity/lib/live'
 import {defineQuery} from 'next-sanity'
 
@@ -10,7 +12,7 @@ export async function getDirections() {
   try {
     const directions = await sanityFetch({query: DIRECTIONS_QUERY})
 
-    return directions.data || []
+    return (directions.data as DIRECTIONS_QUERYResult) || []
   } catch (error) {
     console.log('Error fetching directions:', error)
     return []

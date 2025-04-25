@@ -7,9 +7,11 @@
     "dev:host": "next dev -p 2000 -H 10.99.12.151",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "typegen": "npx sanity@latest schema extract & npx sanity@latest typegen generate"
   },
   "dependencies": {
+    "@sanity/client": "^6.29.1",
     "@sanity/icons": "^3.7.0",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
