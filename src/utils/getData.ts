@@ -17,11 +17,3 @@ export async function getProjectItem(slug: string): Promise<TProjectExtra> {
   }
   return res.json()
 }
-
-export async function getNewsItem(slug: string): Promise<TNews> {
-  const res = await fetch(`${API_URL}/api/news?slug=${slug}`, {cache: 'no-store'})
-  if (!res.ok) {
-    throw new Error('Failed to fetch news item')
-  }
-  return res.json()
-}

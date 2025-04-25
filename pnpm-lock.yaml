@@ -12,6 +12,12 @@ importers:
 
   .:
     dependencies:
+      '@portabletext/react':
+        specifier: ^3.2.1
+        version: 3.2.1(react@19.1.0)
+      '@sanity/asset-utils':
+        specifier: ^2.2.1
+        version: 2.2.1
       '@sanity/client':
         specifier: ^6.29.1
         version: 6.29.1(debug@4.3.7)

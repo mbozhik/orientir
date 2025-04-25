@@ -1,32 +1,24 @@
-import {TNews} from '@/app/api/news/route'
-import {getNewsItem} from '@/utils/getData'
+import {containerStyles, sitePadding} from '~/Global/Container'
+
+import {getNewsItem} from '@/sanity/lib/requests'
+import {urlFor} from '@/sanity/lib/image'
+import {cn} from '@/lib/utils'
 
 import Image from 'next/image'
-import {containerStyles, sitePadding} from '~/Global/Container'
-import {H1, SPAN} from '~/UI/Typography'
-import {DetailsButton} from '~/UI/Button'
-import NewsContent from '~~/news/slug/NewsContent'
+import HeroNews from '~~/news/slug/HeroNews'
+import {PortableBlock} from '~/UI/PortableBlock'
 
-export default async function ProjectPage({params}: {params: Promise<{slug: string}>}) {
+export default async function NewsItemPage({params}: {params: Promise<{slug: string}>}) {
   const slug = (await params).slug
-  const news: TNews = await getNewsItem(slug)
+  const newsItem = await getNewsItem(slug)
 
   return (
     <>
-      <section data-section="hero-news" className={`${containerStyles.width} ${sitePadding}`}>
-        <div className="flex items-end justify-between mt-10 sm:flex-col sm:gap-5 sm:mt-5">
-          <div className="space-y-5">
-            <H1 className="max-w-[30ch]">{news.heading}</H1>
-            <SPAN className="font-bold text-gray">{news.date}</SPAN>
-          </div>
+      <HeroNews item={newsItem} className={cn(containerStyles.width, sitePadding)} />
 
-          <DetailsButton href={news.source} target="_blank" text="Источник" />
-        </div>
-      </section>
+      {newsItem?.cover && <Image quality={100} priority={true} className="object-cover mt-12 sm:mt-10 sm:h-[35vh] h-[80vh]" width={2000} height={100} src={urlFor(newsItem?.cover).url()} alt={newsItem?.cover?.alt || ''} />}
 
-      <Image quality={100} priority={true} className="object-cover mt-12 sm:mt-10 sm:h-[35vh]" src={news.image} alt={news.heading} />
-
-      <NewsContent content={news.content} quote={news.quote} extraImage={news.extra_image} />
+      <PortableBlock value={newsItem?.content} className={cn(containerStyles.width, sitePadding)} />
     </>
   )
 }
