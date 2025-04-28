@@ -77,6 +77,13 @@ export const project = defineType({
       validation: (rule) => rule.required().min(1),
     }),
     defineField({
+      name: 'residents',
+      title: 'Резиденты',
+      type: 'array',
+      of: [{type: 'typeResident'}],
+      validation: (rule) => rule.required().min(1),
+    }),
+    defineField({
       name: 'area',
       title: 'Площадь',
       type: 'object',
