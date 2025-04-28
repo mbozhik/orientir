@@ -18,6 +18,7 @@ export const typeParams = defineType({
           name: 'value',
           title: 'Значение',
           type: 'string',
+          validation: (rule) => rule.required(),
         },
       ],
 
@@ -28,7 +29,7 @@ export const typeParams = defineType({
         },
         prepare({param, value}) {
           return {
-            title: `${param} ${value ? `— ${value}` : ''}`,
+            title: `${param} ${value && value !== ' ' ? ` — ${value}` : ''}`,
           }
         },
       },

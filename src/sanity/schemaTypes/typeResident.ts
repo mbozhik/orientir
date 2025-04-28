@@ -1,6 +1,12 @@
 import {defineType} from 'sanity'
 
-export const STATUS_VALUES = ['Завершен', 'В процессе', 'Свободный участок']
+export const STATUS_VALUES = {
+  completed: 'Завершен',
+  in_progress: 'В процессе',
+  free_lots: 'Свободный участок',
+} as const
+
+export type ResidentStatus = keyof typeof STATUS_VALUES
 
 export const typeResident = defineType({
   title: 'Резидент',
@@ -24,7 +30,10 @@ export const typeResident = defineType({
       title: 'Статус',
       type: 'string',
       options: {
-        list: STATUS_VALUES.map((value) => ({title: value, value})),
+        list: Object.entries(STATUS_VALUES).map(([value, title]) => ({
+          title,
+          value,
+        })),
       },
       validation: (rule) => rule.required(),
     },
@@ -33,7 +42,7 @@ export const typeResident = defineType({
       title: 'Время завершения',
       type: 'string',
       validation: (rule) => rule.regex(/^\d+ мес.$/),
-      hidden: ({parent}) => parent?.status !== 'Завершен',
+      hidden: ({parent}) => parent?.status !== Object.keys(STATUS_VALUES)[0],
     },
     {
       name: 'area',
@@ -72,10 +81,10 @@ export const typeResident = defineType({
       type: 'type',
       status: 'status',
     },
-    prepare({naming, type, status}) {
+    prepare({naming, type, status}: {naming: string; type: string; status: ResidentStatus}) {
       return {
         title: naming,
-        subtitle: `${type} — ${status}`,
+        subtitle: `${type} — ${STATUS_VALUES[status]}`,
       }
     },
   },

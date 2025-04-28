@@ -68,6 +68,26 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type TypeResident = {
+  _type: "typeResident";
+  naming?: string;
+  type?: string;
+  status?: "completed" | "in_progress" | "free_lots";
+  completion_time?: string;
+  area?: string;
+  info?: Array<{
+    param?: string;
+    value?: string;
+    _key: string;
+  }>;
+};
+
+export type TypeParams = Array<{
+  param?: string;
+  value?: string;
+  _key: string;
+}>;
+
 export type TypeBlock = Array<{
   children?: Array<{
     marks?: Array<string>;
@@ -125,6 +145,100 @@ export type News = {
     _type: "image";
   };
   content?: TypeBlock;
+};
+
+export type Direction = {
+  _id: string;
+  _type: "direction";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  id?: number;
+  heading?: string;
+  params?: Array<string>;
+};
+
+export type Project = {
+  _id: string;
+  _type: "project";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  naming?: string;
+  slug?: Slug;
+  id?: number;
+  description?: string;
+  information?: Array<{
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    text?: TypeBlock;
+    _key: string;
+  }>;
+  residents?: Array<{
+    _key: string;
+  } & TypeResident>;
+  area?: {
+    project?: string;
+    zone?: string;
+  };
+  location?: {
+    address?: string;
+    link?: string;
+    coordinates?: string;
+    availability?: TypeParams;
+  };
+  specifications?: TypeParams;
+  awards?: Array<string>;
+  image?: {
+    desktop?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    mobile?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    alt?: string;
+  };
+  gallery?: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }>;
 };
 
 export type SanityImageCrop = {
@@ -190,20 +304,166 @@ export type Slug = {
   source?: string;
 };
 
-export type Direction = {
-  _id: string;
-  _type: "direction";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: number;
-  heading?: string;
-  params?: Array<string>;
-};
-
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | TypeBlock | News | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug | Direction;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | TypeResident | TypeParams | TypeBlock | News | Direction | Project | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/requests.ts
+// Variable: PROJECTS_QUERY
+// Query: *[_type == "project"] | order(id asc) {        naming, slug, id, description, information, residents, area, location, specifications, awards, image, gallery    }
+export type PROJECTS_QUERYResult = Array<{
+  naming: string | null;
+  slug: Slug | null;
+  id: number | null;
+  description: string | null;
+  information: Array<{
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    text?: TypeBlock;
+    _key: string;
+  }> | null;
+  residents: Array<{
+    _key: string;
+  } & TypeResident> | null;
+  area: {
+    project?: string;
+    zone?: string;
+  } | null;
+  location: {
+    address?: string;
+    link?: string;
+    coordinates?: string;
+    availability?: TypeParams;
+  } | null;
+  specifications: TypeParams | null;
+  awards: Array<string> | null;
+  image: {
+    desktop?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    mobile?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    alt?: string;
+  } | null;
+  gallery: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }> | null;
+}>;
+// Variable: PROJECTS_ITEM_QUERY
+// Query: *[_type == "project" && slug.current == $slug][0]{        naming, slug, description, information, residents, area, location, specifications, awards, image, gallery    }
+export type PROJECTS_ITEM_QUERYResult = {
+  naming: string | null;
+  slug: Slug | null;
+  description: string | null;
+  information: Array<{
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    text?: TypeBlock;
+    _key: string;
+  }> | null;
+  residents: Array<{
+    _key: string;
+  } & TypeResident> | null;
+  area: {
+    project?: string;
+    zone?: string;
+  } | null;
+  location: {
+    address?: string;
+    link?: string;
+    coordinates?: string;
+    availability?: TypeParams;
+  } | null;
+  specifications: TypeParams | null;
+  awards: Array<string> | null;
+  image: {
+    desktop?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    mobile?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    alt?: string;
+  } | null;
+  gallery: Array<{
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    _type: "image";
+    _key: string;
+  }> | null;
+} | null;
 // Variable: DIRECTIONS_QUERY
 // Query: *[_type == "direction"]{        id, heading, params    }
 export type DIRECTIONS_QUERYResult = Array<{
@@ -262,6 +522,8 @@ export type NEWS_ITEM_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "\n    *[_type == \"project\"] | order(id asc) {\n        naming, slug, id, description, information, residents, area, location, specifications, awards, image, gallery\n    }": PROJECTS_QUERYResult;
+    "\n    *[_type == \"project\" && slug.current == $slug][0]{\n        naming, slug, description, information, residents, area, location, specifications, awards, image, gallery\n    }": PROJECTS_ITEM_QUERYResult;
     "\n    *[_type == \"direction\"]{\n        id, heading, params\n    }": DIRECTIONS_QUERYResult;
     "\n    *[_type == \"news\"]{\n        heading, tag, date, source, slug, cover, content\n    }": NEWS_QUERYResult;
     "\n    *[_type == \"news\" && slug.current == $slug][0]{\n        heading, tag, date, source, slug, cover, content\n    }": NEWS_ITEM_QUERYResult;

@@ -1,4 +1,4 @@
-import {DashboardIcon} from '@sanity/icons'
+import {CaseIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 import React from 'react'
 
@@ -21,7 +21,7 @@ export const project = defineType({
   name: 'project',
   title: 'Проект',
   type: 'document',
-  icon: DashboardIcon,
+  icon: CaseIcon,
   fields: [
     defineField({
       name: 'naming',
@@ -36,6 +36,12 @@ export const project = defineType({
       options: {
         source: 'naming',
       },
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: 'id',
+      title: 'ID',
+      type: 'number',
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -102,13 +108,13 @@ export const project = defineType({
         {
           name: 'zone',
           title: 'Площадь участка',
-          description: 'Формат: xx.xx (например, 15.50 или 25.00)',
+          description: 'Формат: xx.xx или xx (например, 15.50 или 25)',
           type: 'string',
           validation: (rule) =>
             rule
               .required()
-              .regex(/^\d+.\d{2}$/)
-              .error('Площадь должна быть в формате xx.xx (например, 15,50 или 25,00)'),
+              .regex(/^\d+(\.\d{2})?$/)
+              .error('Площадь должна быть в формате xx.xx или xx (например, 15.50 или 25)'),
         },
       ],
       validation: (rule) => rule.required(),
@@ -212,8 +218,17 @@ export const project = defineType({
   ],
   preview: {
     select: {
-      title: 'naming',
-      subtitle: 'description',
+      naming: 'naming',
+      id: 'id',
+      description: 'description',
+      media: 'image',
+    },
+    prepare({id, naming, description, media}) {
+      return {
+        title: naming,
+        subtitle: `(${id}) ${description}`,
+        media: media.image,
+      }
     },
   },
 })
