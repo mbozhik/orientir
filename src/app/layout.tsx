@@ -4,7 +4,9 @@ import './globals.css'
 
 import Header from '~/Global/Header/Header'
 import Footer from '~/Global/Footer'
+
 import YandexMetrika from '~/Global/Analytics'
+import {SanityLive} from '@/sanity/lib/live'
 
 export default function RootLayout({
   children,
@@ -18,6 +20,7 @@ export default function RootLayout({
         {children}
         <Footer />
 
+        <SanityLive />
         {process.env.NODE_ENV === 'production' && <YandexMetrika />}
       </body>
     </html>
