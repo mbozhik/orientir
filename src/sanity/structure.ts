@@ -5,11 +5,12 @@ export const structure: StructureResolver = (S) =>
   S.list()
     .title('Ориентир CMS')
     .items([
+      S.documentTypeListItem('project').title('Проекты'),
       S.documentTypeListItem('direction').title('Направления'),
       S.documentTypeListItem('news').title('Новости'),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (item) => item.getId() && !['direction', 'news'].includes(item.getId()!), // что за фильтрация
+        (item) => item.getId() && !['project', 'direction', 'news'].includes(item.getId()!), // что за фильтрация
       ),
     ])
 // .items(S.documentTypeListItems())
