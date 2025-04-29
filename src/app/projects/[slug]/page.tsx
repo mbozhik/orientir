@@ -1,3 +1,4 @@
+import type {Metadata} from 'next'
 import {getProjectsItem} from '@/sanity/lib/requests'
 
 import Container from '~/Global/Container'
@@ -8,7 +9,21 @@ import Objects from '~~/projects/slug/Objects'
 import Gallery from '~~/projects/slug/Gallery'
 import MapPoint from '~~/projects/slug/MapPoint'
 
-export default async function ProjectPage({params}: {params: Promise<{slug: string}>}) {
+type Props = {
+  params: Promise<{slug: string}>
+}
+
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {slug} = await params
+  const project = await getProjectsItem(slug).catch(() => null)
+
+  return {
+    title: project?.naming,
+    description: project?.description,
+  }
+}
+
+export default async function ProjectPage({params}: Props) {
   const slug = (await params).slug
   const project = await getProjectsItem(slug)
 

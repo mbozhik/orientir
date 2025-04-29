@@ -2,7 +2,10 @@ import type {Metadata} from 'next'
 import localFont from 'next/font/local'
 
 export const metadata: Metadata = {
-  title: 'Orientir',
+  title: {
+    template: '%s — Ориентир',
+    default: 'Ориентир — Девелопмент полного цикла',
+  },
   description: 'Девелопер полного цикла в сфере складской и индустриальной недвижимости.',
   robots: {
     index: false,

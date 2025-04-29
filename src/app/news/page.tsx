@@ -6,6 +6,10 @@ import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import {H1, H4} from '~/UI/Typography'
 import NewsModule from '~~/news/slug/NewsModule'
 
+export const metadata = {
+  title: 'Новости',
+}
+
 export default async function NewsPage() {
   const news = await getNews()
 

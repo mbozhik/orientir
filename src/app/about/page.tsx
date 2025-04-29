@@ -8,6 +8,10 @@ import Clients from '~~/index/Clients'
 import News from '~~/index/News'
 import Team from '~~/index/Team'
 
+export const metadata = {
+  title: 'О компании',
+}
+
 export default function AboutPage() {
   return (
     <>

@@ -5,6 +5,10 @@ import Overview from '~~/projects/Overview'
 
 import {H1} from '~/UI/Typography'
 
+export const metadata = {
+  title: 'Проекты',
+}
+
 export default async function ProjectsPage() {
   const projects = await getProjects()
 

@@ -9,6 +9,10 @@ import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import Module from '~~/directions/Module'
 import Specs from '~~/projects/slug/Specs'
 
+export const metadata = {
+  title: 'Направления',
+}
+
 const indicatorsData = [
   {
     _key: '0',

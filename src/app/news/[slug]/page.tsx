@@ -1,3 +1,4 @@
+import type {Metadata} from 'next'
 import {containerStyles, sitePadding} from '~/Global/Container'
 
 import {getNewsItem} from '@/sanity/lib/requests'
@@ -8,7 +9,20 @@ import Image from 'next/image'
 import HeroNews from '~~/news/slug/HeroNews'
 import {PortableBlock} from '~/UI/PortableBlock'
 
-export default async function NewsItemPage({params}: {params: Promise<{slug: string}>}) {
+type Props = {
+  params: Promise<{slug: string}>
+}
+
+export async function generateMetadata({params}: Props): Promise<Metadata> {
+  const {slug} = await params
+  const news = await getNewsItem(slug).catch(() => null)
+
+  return {
+    title: news?.heading,
+  }
+}
+
+export default async function NewsItemPage({params}: Props) {
   const slug = (await params).slug
   const newsItem = await getNewsItem(slug)
 
