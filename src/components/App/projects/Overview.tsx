@@ -1,6 +1,7 @@
 'use client'
 
-import {TProject, ResidentStatus} from '@/app/api/projects/route'
+import type {PROJECTS_QUERYResult} from '-/sanity.types'
+import {STATUS_VALUES, type ResidentStatus} from '@/sanity/schemaTypes/typeResident'
 
 import {cn} from '@/lib/utils'
 import {useState, useEffect} from 'react'
@@ -8,25 +9,25 @@ import {motion} from 'framer-motion'
 
 import {H2, H3, H4, P, SPAN} from '~/UI/Typography'
 import {DetailsButton} from '~/UI/Button'
-import {Map, type YMapCoordinates} from '~/UI/Map'
+import {Map, parseCoordinates, type YMapCoordinates} from '~/UI/Map'
 import {ArrowDownRight} from '~/UI/Icons'
 
-const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'Завершен', 'В процессе', 'Свободные земельные участки']
+const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'completed', 'in_progress', 'free_lots']
 
 const defaultRussiaCoordinates: YMapCoordinates = {center: [37.136252026184, 56.066764158270715], zoom: 15}
 
-export default function Overview({items: projects}: {items: TProject[]}) {
+export default function Overview({items: projects}: {items: PROJECTS_QUERYResult}) {
   const [activeTab, setActiveTab] = useState<number | null>(0)
-  const [mapCoordinates, setMapCoordinates] = useState<YMapCoordinates>(projects[0]?.location.coordinates || [])
+  const [mapCoordinates, setMapCoordinates] = useState<YMapCoordinates>(parseCoordinates(projects[0]?.location?.coordinates) || defaultRussiaCoordinates)
   const [mapPlacemarks, setMapPlacemarks] = useState<YMapCoordinates[] | undefined>(undefined)
   const [selectedState, setSelectedState] = useState<ResidentStatus | 'Все'>('Все')
 
-  const filteredProjects = selectedState === 'Все' ? projects : projects.filter((project) => Object.values(project.residents).some((resident) => resident.status === selectedState))
+  const filteredProjects = selectedState === 'Все' ? projects : projects.filter((project) => project.residents?.some((resident) => resident.status === selectedState))
 
   useEffect(() => {
     if (activeTab === null) {
       if (filteredProjects.length > 0) {
-        const allCoordinates: YMapCoordinates[] = filteredProjects.map((project) => project.location.coordinates)
+        const allCoordinates = filteredProjects.map((project) => parseCoordinates(project.location?.coordinates)).filter((coords): coords is YMapCoordinates => coords !== null)
 
         setMapPlacemarks(allCoordinates)
         setMapCoordinates(defaultRussiaCoordinates)
@@ -36,8 +37,9 @@ export default function Overview({items: projects}: {items: TProject[]}) {
       }
     } else {
       const project = filteredProjects[activeTab]
-      if (project) {
-        setMapCoordinates(project.location.coordinates)
+      const projectCoords = parseCoordinates(project?.location?.coordinates)
+      if (projectCoords) {
+        setMapCoordinates(projectCoords)
         setMapPlacemarks(undefined)
       }
     }
@@ -45,11 +47,11 @@ export default function Overview({items: projects}: {items: TProject[]}) {
 
   const residentCounts = projectStates.map((state) => {
     if (state === 'Все') {
-      return projects.reduce((total, project) => total + Object.values(project.residents).length, 0)
+      return projects.reduce((total, project) => total + (project.residents?.length || 0), 0)
     }
 
     return projects.reduce((count, project) => {
-      const residentsInState = Object.values(project.residents).filter((resident) => resident.status === state).length
+      const residentsInState = project.residents?.filter((resident) => resident.status === state).length || 0
       return count + residentsInState
     }, 0)
   })
@@ -59,7 +61,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
       <div className="flex gap-8 sm:flex-wrap sm:gap-x-4 sm:gap-y-1.5">
         {projectStates.map((state, index) => (
           <div key={index} className={cn('flex gap-1 cursor-pointer', selectedState === state ? 'text-red' : 'text-gray')} onClick={() => setSelectedState(state)}>
-            <P>{state}</P>
+            <P>{state === 'Все' ? state : STATUS_VALUES[state as ResidentStatus]}</P>
             <span className="text-xs font-bold">({residentCounts[index]})</span>
           </div>
         ))}
@@ -68,12 +70,12 @@ export default function Overview({items: projects}: {items: TProject[]}) {
       <div className="grid grid-cols-2 gap-6 sm:flex sm:flex-col">
         <div className="space-y-2.5 xl:space-y-2 sm:space-y-1.5">
           {filteredProjects.map((project, index) => {
-            const filteredResidents = selectedState === 'Все' ? Object.values(project.residents) : Object.values(project.residents).filter((resident) => resident.status === selectedState)
+            const filteredResidents = selectedState === 'Все' ? project.residents || [] : project.residents?.filter((resident) => resident.status === selectedState) || []
 
             return (
-              <div className="space-y-4" key={project.slug}>
+              <div className="space-y-4" key={project.slug?.current}>
                 <div className={cn('flex items-center justify-between px-6 py-5 xl:py-4 sm:px-4 text-foreground cursor-pointer border-[2px] hover:bg-red hover:text-background hover:border-red border-foreground duration-300 group', activeTab === index ? 'bg-red text-background border-red' : 'bg-transparent')} onClick={() => setActiveTab(activeTab === index ? null : index)}>
-                  <H2 className="xl:text-3xl sm:text-[28px]">{project.project}</H2>
+                  <H2 className="xl:text-3xl sm:text-[28px]">{project.naming}</H2>
 
                   <ArrowDownRight className={cn('scale-[1.3] xl:scale-[0.9] fill-foreground group-hover:rotate-45 group-hover:fill-background duration-300', activeTab === index && 'rotate-45 fill-background')} />
                 </div>
@@ -82,7 +84,7 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                   <div className="grid grid-cols-2 gap-8 pb-5 sm:pb-3 sm:grid-cols-1 sm:gap-10">
                     <div className="flex flex-col justify-between gap-5">
                       <H4>{project.description}</H4>
-                      <DetailsButton className="hover:text-red" href={`/projects/${project.slug}`} text="Подробнее" />
+                      <DetailsButton className="hover:text-red" href={`/projects/${project.slug?.current}`} text="Подробнее" />
                     </div>
 
                     <div className="mt-1 space-y-4 xl:space-y-3 sm:space-y-2">
@@ -92,16 +94,16 @@ export default function Overview({items: projects}: {items: TProject[]}) {
                         {filteredResidents.length === 0 ? (
                           <H4>Нет резидентов для данного фильтра.</H4>
                         ) : (
-                          filteredResidents.map(({name, status, area}, index) => (
+                          filteredResidents.map(({naming, status, area}, index) => (
                             <div className="space-y-1.5 py-1.5 sm:py-0 border-b-2 duration-200 border-transparent hover:border-red cursor-pointer" key={index}>
                               <div className="flex justify-between">
-                                <SPAN className="lowercase text-gray font-extralight">{status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status}</SPAN>
+                                <SPAN className="lowercase text-gray font-extralight">{status ? STATUS_VALUES[status] : status}</SPAN>
 
                                 {/* {type && <SPAN className="self-end opacity-0 text-gray font-extralight">{type}</SPAN>} */}
                               </div>
 
                               <div className="flex justify-between">
-                                <H4 className="font-bold">{name}</H4>
+                                <H4 className="font-bold">{naming}</H4>
                                 {area && <SPAN className="self-end font-bold">{area} м2</SPAN>}
                               </div>
                             </div>
