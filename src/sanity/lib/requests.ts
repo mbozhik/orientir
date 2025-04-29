@@ -2,10 +2,22 @@ import type {PROJECTS_QUERYResult, PROJECTS_ITEM_QUERYResult, DIRECTIONS_QUERYRe
 
 import {sanityFetch} from '@/sanity/lib/live'
 import {defineQuery} from 'next-sanity'
+import {draftMode} from 'next/headers'
 
-async function fetchEntity<T>(query: string): Promise<T[]> {
+async function fetchEntity<T>(query: string, draft: boolean = true): Promise<T[]> {
   try {
-    const response = await sanityFetch({query})
+    const {isEnabled} = await draftMode()
+
+    const response = await sanityFetch({
+      query,
+      ...(isEnabled && draft
+        ? {
+            perspective: 'drafts',
+            useCdn: false,
+            stega: true,
+          }
+        : undefined),
+    })
     return (response.data as T[]) || []
   } catch (error) {
     console.log('Error fetching data:', error)
@@ -13,9 +25,20 @@ async function fetchEntity<T>(query: string): Promise<T[]> {
   }
 }
 
-async function fetchEntityItem<T>(query: string, params?: {slug?: string}): Promise<T | null> {
+async function fetchEntityItem<T>(query: string, params?: {slug?: string}, draft: boolean = false): Promise<T | null> {
   try {
-    const response = await sanityFetch({query, params})
+    const {isEnabled} = await draftMode()
+    const response = await sanityFetch({
+      query,
+      params,
+      ...(isEnabled && draft
+        ? {
+            perspective: 'previewDrafts',
+            useCdn: false,
+            stega: true,
+          }
+        : undefined),
+    })
     return (response.data as T) || null
   } catch (error) {
     console.log('Error fetching data:', error)
