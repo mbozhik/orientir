@@ -1,5 +1,6 @@
-import {cn} from '@/lib/utils'
-import {TProject} from '@/app/api/projects/route'
+import type {PROJECTS_ITEM_QUERYResult} from '-/sanity.types'
+import {STATUS_VALUES} from '@/sanity/schemaTypes/typeResident'
+import {ChevronLeft, ChevronRight} from 'lucide-react'
 
 import {useRef} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
@@ -9,12 +10,12 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 
+import {cn} from '@/lib/utils'
 import {H4, SPAN} from '~/UI/Typography'
-import {ChevronLeft, ChevronRight} from 'lucide-react'
 
 type TabProps = {
-  name: string
-  status: string
+  naming: string | undefined
+  status: string | undefined
   type?: string
   area?: string
   isActive?: boolean
@@ -22,13 +23,7 @@ type TabProps = {
   className?: string
 }
 
-type Props = {
-  project: TProject
-  activeTab: number | null
-  handleTabClick: (index: number) => void
-}
-
-export function Tab({name, status, area, isActive, onClick, className}: TabProps) {
+export function Tab({naming, status, area, isActive, onClick, className}: TabProps) {
   return (
     <div onClick={onClick} className={cn('p-2.5 xl:pb-1 sm:px-2.5 sm:py-1.5 flex flex-col gap-1.5 xl:gap-1 duration-200 cursor-pointer', isActive ? 'bg-red text-background' : 'bg-background hover:bg-blue group hover:text-background', className)}>
       <div className={cn('flex justify-between gap-16 duration-200 text-gray group-hover:text-background font-extralight', isActive && 'text-background')}>
@@ -37,15 +32,21 @@ export function Tab({name, status, area, isActive, onClick, className}: TabProps
       </div>
 
       <div className="flex justify-between gap-12 xl:gap-8">
-        <H4 className="font-bold !leading-[1.05]">{name}</H4>
+        <H4 className="font-bold !leading-[1.05]">{naming}</H4>
         {area && <SPAN className="self-end font-bold">{area} м2</SPAN>}
       </div>
     </div>
   )
 }
 
+type Props = {
+  project: PROJECTS_ITEM_QUERYResult
+  activeTab: number | null
+  handleTabClick: (index: number) => void
+}
+
 export default function ResidentTabs({project, activeTab, handleTabClick}: Props) {
-  const residents = Object.values(project.residents)
+  const residents = project?.residents ? Object.values(project.residents) : []
   const swiperRef = useRef<SwiperRef | null>(null)
 
   return (
@@ -53,9 +54,9 @@ export default function ResidentTabs({project, activeTab, handleTabClick}: Props
       {residents.length > 3 ? (
         <>
           <Swiper ref={swiperRef} spaceBetween={6} slidesPerView="auto" centeredSlides={false} className="!w-full">
-            {residents.map(({name, status, type, area}, index) => (
+            {residents.map(({naming, status, type, area}, index) => (
               <SwiperSlide key={index} className="!w-auto flex-shrink-0">
-                <Tab name={name} status={status} type={type} area={area} isActive={activeTab === index} onClick={() => handleTabClick(index)} />
+                <Tab naming={naming} status={status ? STATUS_VALUES[status] : status} type={type} area={area} isActive={activeTab === index} onClick={() => handleTabClick(index)} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -64,7 +65,7 @@ export default function ResidentTabs({project, activeTab, handleTabClick}: Props
           <ChevronRight className="absolute z-20 duration-200 transform -translate-y-1/2 cursor-pointer -right-12 top-1/2 s-12 hover:text-background" strokeWidth={1.3} onClick={() => swiperRef.current?.swiper.slideNext()} />
         </>
       ) : (
-        residents.map(({name, status, type, area}, index) => <Tab key={index} name={name} status={status} type={type} area={area} isActive={activeTab === index} onClick={() => handleTabClick(index)} />)
+        residents.map(({naming, status, type, area}, index) => <Tab key={index} naming={naming} status={status} type={type} area={area} isActive={activeTab === index} onClick={() => handleTabClick(index)} />)
       )}
     </div>
   )

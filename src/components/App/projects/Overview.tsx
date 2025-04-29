@@ -7,18 +7,18 @@ import {cn} from '@/lib/utils'
 import {useState, useEffect} from 'react'
 import {motion} from 'framer-motion'
 
+import {parseCoordinates, defaultCoordinates} from '@/lib/parse-coordinates'
+
 import {H2, H3, H4, P, SPAN} from '~/UI/Typography'
 import {DetailsButton} from '~/UI/Button'
-import {Map, parseCoordinates, type YMapCoordinates} from '~/UI/Map'
+import {Map, type YMapCoordinates} from '~/UI/Map'
 import {ArrowDownRight} from '~/UI/Icons'
 
 const projectStates: (ResidentStatus | 'Все')[] = ['Все', 'completed', 'in_progress', 'free_lots']
 
-const defaultRussiaCoordinates: YMapCoordinates = {center: [37.136252026184, 56.066764158270715], zoom: 15}
-
 export default function Overview({items: projects}: {items: PROJECTS_QUERYResult}) {
   const [activeTab, setActiveTab] = useState<number | null>(0)
-  const [mapCoordinates, setMapCoordinates] = useState<YMapCoordinates>(parseCoordinates(projects[0]?.location?.coordinates) || defaultRussiaCoordinates)
+  const [mapCoordinates, setMapCoordinates] = useState<YMapCoordinates>(parseCoordinates(projects[0]?.location?.coordinates) || defaultCoordinates)
   const [mapPlacemarks, setMapPlacemarks] = useState<YMapCoordinates[] | undefined>(undefined)
   const [selectedState, setSelectedState] = useState<ResidentStatus | 'Все'>('Все')
 
@@ -30,10 +30,10 @@ export default function Overview({items: projects}: {items: PROJECTS_QUERYResult
         const allCoordinates = filteredProjects.map((project) => parseCoordinates(project.location?.coordinates)).filter((coords): coords is YMapCoordinates => coords !== null)
 
         setMapPlacemarks(allCoordinates)
-        setMapCoordinates(defaultRussiaCoordinates)
+        setMapCoordinates(defaultCoordinates)
       } else {
         setMapPlacemarks(undefined)
-        setMapCoordinates(defaultRussiaCoordinates)
+        setMapCoordinates(defaultCoordinates)
       }
     } else {
       const project = filteredProjects[activeTab]

@@ -1,3 +1,5 @@
+'use client'
+
 import type {TypeBlock} from '-/sanity.types'
 
 import {PortableText} from '@portabletext/react'
@@ -33,7 +35,7 @@ export function PortableBlock({value, className}: {value: TypeBlock | null | und
   if (!value) return null
 
   return (
-    <div className={cn(typoClasses.p, 'space-y-7 pb-14', className)}>
+    <div className={cn(typoClasses.p, '!leading-[1.35]', 'space-y-7 pb-14', className)}>
       <PortableText
         components={{
           types: {

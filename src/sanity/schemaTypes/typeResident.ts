@@ -73,6 +73,19 @@ export const typeResident = defineType({
       //     return 'Должно быть четное количество элементов.'
       //   }),
     },
+    {
+      name: 'description',
+      title: 'Описание (мини)',
+      description: 'Заполнять "Описание", если "Информация" выше не будет заполнена',
+      type: 'text',
+      rows: 2,
+    },
+    {
+      name: 'award',
+      title: 'Награда',
+      type: 'text',
+      rows: 3,
+    },
   ],
 
   preview: {
@@ -81,10 +94,11 @@ export const typeResident = defineType({
       type: 'type',
       status: 'status',
     },
-    prepare({naming, type, status}: {naming: string; type: string; status: ResidentStatus}) {
+    prepare(selection: Record<string, string>) {
+      const {naming, type, status} = selection
       return {
         title: naming,
-        subtitle: `${type} — ${STATUS_VALUES[status]}`,
+        subtitle: `${type} — ${STATUS_VALUES[status as ResidentStatus]}`,
       }
     },
   },

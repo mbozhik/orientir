@@ -113,8 +113,8 @@ export const project = defineType({
           validation: (rule) =>
             rule
               .required()
-              .regex(/^\d+(\.\d{2})?$/)
-              .error('Площадь должна быть в формате xx.xx или xx (например, 15.50 или 25)'),
+              .regex(/^\d+(\.\d{1,2})?$/)
+              .error('Формат: xx.xx или xx (например, 15.50 или 25)'),
         },
       ],
       validation: (rule) => rule.required(),
@@ -161,7 +161,7 @@ export const project = defineType({
       name: 'specifications',
       title: 'Спецификации',
       type: 'typeParams',
-      validation: (rule) => rule.required().min(4).max(4),
+      validation: (rule) => rule.required(), // .min(4).max(4),
     }),
     defineField({
       name: 'awards',
@@ -207,10 +207,21 @@ export const project = defineType({
       type: 'array',
       of: [
         {
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
+          type: 'object',
+          fields: [
+            {
+              name: 'image',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+            },
+            {
+              name: 'caption',
+              type: 'string',
+              title: 'Подпись',
+            },
+          ],
         },
       ],
       validation: (rule) => rule.required().min(2),

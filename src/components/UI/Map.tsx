@@ -27,19 +27,6 @@ type Props = {
 
 const customYMapData: VectorCustomizationItem[] = CustomYMap as VectorCustomizationItem[]
 
-export const parseCoordinates = (coordsString: string | undefined): YMapCoordinates | null => {
-  if (!coordsString) return null
-  try {
-    const [lng, lat] = JSON.parse(coordsString)
-    return {
-      center: [lng, lat],
-      zoom: 15,
-    }
-  } catch {
-    return null
-  }
-}
-
 export function Map({coordinates, placemarks, height = '80vh'}: Props) {
   const mapPlacemarks: LngLat[] = placemarks?.length ? placemarks.map((placemark) => placemark.center) : [coordinates.center]
   const isDesktop = useMediaQuery('(min-width: 768px)')

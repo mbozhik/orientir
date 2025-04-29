@@ -1,14 +1,18 @@
-import {TProjectExtra} from '@/app/api/projects/route'
+import type {PROJECTS_ITEM_QUERYResult} from '-/sanity.types'
+
+import {urlFor} from '-/src/sanity/lib/image'
+
+import {Fragment} from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 
-import Link from 'next/link'
-import {Fragment} from 'react'
-import {H1, P, SPAN} from '~/UI/Typography' // H4,
+import {H1, P, SPAN} from '~/UI/Typography'
+import {PortableBlock} from '~/UI/PortableBlock'
 
-export default function Info({project}: {project: TProjectExtra}) {
+export default function Info({project}: {project: PROJECTS_ITEM_QUERYResult}) {
   return (
     <section data-section="info-project" className="space-y-7 sm:space-y-5">
-      <H1 className="mt-10 sm:hidden">{project.project}</H1>
+      <H1 className="mt-10 sm:hidden">{project?.naming}</H1>
 
       <div className="grid grid-cols-2 sm:flex sm:flex-col gap-14 xl:gap-10 sm:gap-7 px-44 xl:px-24 sm:px-0">
         {/* {project.full_description && Array.isArray(project.full_description) ? project.full_description.map((text, index) => <H4 key={index}>{text}</H4>) : <H4 className="col-span-2">{project.full_description}</H4>} */}
@@ -18,14 +22,14 @@ export default function Info({project}: {project: TProjectExtra}) {
             <SPAN animated={false} className="font-extralight">
               Площадь проекта
             </SPAN>
-            <P className="font-bold text-red">{project.project_area} м2</P>
+            <P className="font-bold text-red">{project?.area?.project} м2</P>
           </div>
 
           <div className="flex sm:flex-col sm:items-start items-center gap-2.5 sm:gap-0">
             <SPAN animated={false} className="font-extralight">
               Площадь участка
             </SPAN>
-            <P className="font-bold text-red">{project.zone_area} га</P>
+            <P className="font-bold text-red">{project?.area?.zone} га</P>
           </div>
         </div>
 
@@ -34,26 +38,17 @@ export default function Info({project}: {project: TProjectExtra}) {
             Локация
           </SPAN>
 
-          <Link href={project.location.map.link} className="hover:underline sm:underline sm:underline-offset-2">
-            <P className="font-bold text-red">{project.location.map.address}</P>
+          <Link href={project?.location?.link ? project.location?.link : '#'} className="hover:underline sm:underline sm:underline-offset-2">
+            <P className="font-bold text-red">{project?.location?.address}</P>
           </Link>
         </div>
 
-        {project.more_info &&
-          project.more_info.map((info, index) => (
+        {project?.information &&
+          project.information.map((info, index) => (
             <Fragment key={index}>
-              <Image className="w-[70%] sm:w-full object-cover" src={info.image} alt={project.project} />
-              {Array.isArray(info.text) ? (
-                <div className="space-y-4">
-                  {info.text.map((text, textIndex) => (
-                    <P key={textIndex} className="sm:-mt-3">
-                      {text}
-                    </P>
-                  ))}
-                </div>
-              ) : (
-                <P className="sm:-mt-3">{info.text}</P>
-              )}
+              <Image quality={100} className="w-[70%] sm:w-full object-cover" src={info.image ? urlFor(info.image).url() : ''} width={1000} height={1000} alt={project.naming ?? ''} />
+
+              <PortableBlock value={info.text} />
             </Fragment>
           ))}
       </div>
