@@ -1,6 +1,6 @@
 'use client'
 
-import AwardImage from '$/projects/award.png'
+import AwardImage from '$/award.png'
 
 import type {PROJECTS_ITEM_QUERYResult} from '-/sanity.types'
 import type {SanityImageSource} from '@sanity/image-url/lib/types/types'
