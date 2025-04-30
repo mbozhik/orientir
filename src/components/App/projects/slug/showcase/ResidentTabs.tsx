@@ -1,5 +1,5 @@
 import type {PROJECTS_ITEM_QUERYResult} from '-/sanity.types'
-import {STATUS_VALUES} from '@/sanity/schemaTypes/typeResident'
+import {STATUS_VALUES} from '@/sanity/schemaTypes/types/typeResident'
 import {ChevronLeft, ChevronRight} from 'lucide-react'
 
 import {useRef} from 'react'

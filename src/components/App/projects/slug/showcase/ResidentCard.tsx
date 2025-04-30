@@ -1,7 +1,7 @@
 import {X} from 'lucide-react'
 
 import type {TypeResident} from '-/sanity.types'
-import {STATUS_VALUES} from '@/sanity/schemaTypes/typeResident'
+import {STATUS_VALUES} from '@/sanity/schemaTypes/types/typeResident'
 
 // import Image from 'next/image'
 import {H3, P, SPAN} from '~/UI/Typography'

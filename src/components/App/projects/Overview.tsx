@@ -1,7 +1,7 @@
 'use client'
 
 import type {PROJECTS_QUERYResult} from '-/sanity.types'
-import {STATUS_VALUES, type ResidentStatus} from '@/sanity/schemaTypes/typeResident'
+import {STATUS_VALUES, type ResidentStatus} from '@/sanity/schemaTypes/types/typeResident'
 
 import {cn} from '@/lib/utils'
 import {useState, useEffect} from 'react'

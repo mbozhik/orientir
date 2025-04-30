@@ -1,7 +1,7 @@
 'use client'
 
 import type {PROJECTS_ITEM_QUERYResult} from '-/sanity.types'
-import {STATUS_VALUES} from '@/sanity/schemaTypes/typeResident'
+import {STATUS_VALUES} from '@/sanity/schemaTypes/types/typeResident'
 import {ArrowLeft, ArrowRight} from 'lucide-react'
 
 import {useState, useRef} from 'react'

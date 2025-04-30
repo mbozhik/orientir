@@ -4,10 +4,17 @@ import {project} from './project'
 import {direction} from './direction'
 import {news} from './news'
 
-import {typeBlock} from './typeBlock'
-import {typeParams} from './typeParams'
-import {typeResident} from './typeResident'
+import {typeBlock, typeParams, typeResident} from './types'
 
 export const schema: {types: SchemaTypeDefinition[]} = {
-  types: [project, direction, news, typeBlock, typeParams, typeResident],
+  types: [
+    project,
+    direction,
+    news,
+
+    // Типы
+    typeBlock,
+    typeParams,
+    typeResident,
+  ],
 }
