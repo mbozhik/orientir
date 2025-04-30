@@ -4,7 +4,7 @@ import {cn} from '@/lib/utils'
 
 import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import {H1, H4} from '~/UI/Typography'
-import NewsModule from '~~/news/slug/NewsModule'
+import NewsModule from '~~/news/NewsModule'
 
 export const metadata = {
   title: 'Новости',

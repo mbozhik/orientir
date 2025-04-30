@@ -68,6 +68,153 @@ export type Geopoint = {
   alt?: number;
 };
 
+export type Quote = {
+  _type: "quote";
+  content?: string;
+  author?: {
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      alt?: string;
+      _type: "image";
+    };
+    name?: string;
+    position?: string;
+  };
+};
+
+export type Picture = {
+  _type: "picture";
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  caption?: string;
+};
+
+export type ContentMini = {
+  _type: "contentMini";
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+};
+
+export type Content = {
+  _type: "content";
+  heading?: string;
+  image?: {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+  };
+  content?: Array<{
+    children?: Array<{
+      marks?: Array<string>;
+      text?: string;
+      _type: "span";
+      _key: string;
+    }>;
+    style?: "normal" | "h1" | "h2" | "h3" | "h4" | "blockquote";
+    listItem?: "bullet";
+    markDefs?: Array<{
+      href?: string;
+      _type: "link";
+      _key: string;
+    }>;
+    level?: number;
+    _type: "block";
+    _key: string;
+  } | {
+    asset?: {
+      _ref: string;
+      _type: "reference";
+      _weak?: boolean;
+      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+    };
+    media?: unknown;
+    hotspot?: SanityImageHotspot;
+    crop?: SanityImageCrop;
+    alt?: string;
+    _type: "image";
+    _key: string;
+  }>;
+};
+
+export type BuilderNews = Array<{
+  _key: string;
+} & Content | {
+  _key: string;
+} & ContentMini | {
+  _key: string;
+} & Picture | {
+  _key: string;
+} & Quote>;
+
 export type TypeResident = {
   _type: "typeResident";
   naming?: string;
@@ -146,7 +293,7 @@ export type News = {
     alt?: string;
     _type: "image";
   };
-  content?: TypeBlock;
+  content?: BuilderNews;
 };
 
 export type Direction = {
@@ -309,7 +456,7 @@ export type Slug = {
   source?: string;
 };
 
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | TypeResident | TypeParams | TypeBlock | News | Direction | Project | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Quote | Picture | ContentMini | Content | BuilderNews | TypeResident | TypeParams | TypeBlock | News | Direction | Project | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/requests.ts
 // Variable: PROJECTS_QUERY
@@ -503,7 +650,7 @@ export type NEWS_QUERYResult = Array<{
     alt?: string;
     _type: "image";
   } | null;
-  content: TypeBlock | null;
+  content: BuilderNews | null;
 }>;
 // Variable: NEWS_ITEM_QUERY
 // Query: *[_type == "news" && slug.current == $slug][0]{        heading, tag, date, source, slug, cover, content    }
@@ -526,7 +673,7 @@ export type NEWS_ITEM_QUERYResult = {
     alt?: string;
     _type: "image";
   } | null;
-  content: TypeBlock | null;
+  content: BuilderNews | null;
 } | null;
 
 // Query TypeMap
