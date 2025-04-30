@@ -6,6 +6,12 @@ export const news = defineType({
   title: 'Новость',
   type: 'document',
   icon: DocumentTextIcon,
+  groups: [
+    {
+      name: 'builderNews',
+      title: 'Builder News',
+    },
+  ],
   fields: [
     defineField({
       name: 'heading',
@@ -65,7 +71,9 @@ export const news = defineType({
     }),
     defineField({
       name: 'content',
-      type: 'typeBlock',
+      title: 'Контент',
+      type: 'builderNews',
+      group: 'builderNews',
     }),
   ],
 

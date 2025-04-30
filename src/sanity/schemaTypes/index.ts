@@ -6,6 +6,8 @@ import {news} from './news'
 
 import {typeBlock, typeParams, typeResident} from './types'
 
+import {builderNews} from './builderNews'
+
 export const schema: {types: SchemaTypeDefinition[]} = {
   types: [
     project,
@@ -16,5 +18,8 @@ export const schema: {types: SchemaTypeDefinition[]} = {
     typeBlock,
     typeParams,
     typeResident,
+
+    // Билдеры
+    builderNews,
   ],
 }
