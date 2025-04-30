@@ -74,6 +74,7 @@ export const news = defineType({
       title: 'Контент',
       type: 'builderNews',
       group: 'builderNews',
+      validation: (rule) => rule.required(),
     }),
   ],
 
