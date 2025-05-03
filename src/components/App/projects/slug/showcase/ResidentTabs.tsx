@@ -27,7 +27,7 @@ export function Tab({naming, status, area, isActive, onClick, className}: TabPro
   return (
     <div onClick={onClick} className={cn('p-2.5 xl:pb-1 sm:px-2.5 sm:py-1.5 flex flex-col gap-1.5 xl:gap-1 duration-200 cursor-pointer', isActive ? 'bg-red text-background' : 'bg-background hover:bg-blue group hover:text-background', className)}>
       <div className={cn('flex justify-between gap-16 duration-200 text-gray group-hover:text-background font-extralight', isActive && 'text-background')}>
-        <SPAN className="lowercase">{status === 'Свободные земельные участки' ? 'Свободные ЗУ' : status}</SPAN>
+        <SPAN className="lowercase">{status ? STATUS_VALUES[status as keyof typeof STATUS_VALUES] : status}</SPAN>
         {/* {type && <Typography type="span" className="self-end" text={type} />} */}
       </div>
 
