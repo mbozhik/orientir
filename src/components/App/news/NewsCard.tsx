@@ -1,9 +1,11 @@
-import {TNewsCard} from '@/app/api/news/route'
+import type {NEWS_ITEM_QUERYResult} from '-/sanity.types'
 
 import {H4, SPAN} from '~/UI/Typography'
 import {DetailsButton} from '~/UI/Button'
 
-export default function NewsCard({tag, heading, date, slug}: TNewsCard) {
+export default function NewsCard({card}: {card: NonNullable<NEWS_ITEM_QUERYResult>}) {
+  const {heading, tag, date, slug} = card
+
   return (
     <div className="flex flex-col justify-between px-10 border-[1px] py-9 xl:px-7 xl:py-6 sm:px-6 sm:py-5 gap-14 xl:gap-10 sm:gap-6 border-gray-light">
       <div className="space-y-4 sm:space-y-2">
@@ -13,7 +15,7 @@ export default function NewsCard({tag, heading, date, slug}: TNewsCard) {
 
       <div className="flex items-center justify-between sm:flex-col sm:gap-2.5 sm:items-start">
         <SPAN className="font-bold text-gray">{date}</SPAN>
-        <DetailsButton href={`/news/${slug}`} text="Читать дальше" />
+        <DetailsButton href={`/news/${slug?.current}`} text="Читать дальше" />
       </div>
     </div>
   )

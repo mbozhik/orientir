@@ -1,5 +1,11 @@
 'use client'
 
+import LogoImage from '$/logo-min.svg'
+import {ChevronLeft, ChevronRight} from 'lucide-react'
+
+import type {PROJECTS_QUERYResult} from '-/sanity.types'
+import type {SanityImageSource} from '@sanity/image-url/lib/types/types'
+
 import {useRef, useState, useEffect, useCallback} from 'react'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import {SwiperRef} from 'swiper/react'
@@ -8,19 +14,38 @@ import {EffectFade, Autoplay} from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-fade'
 
-import {TProject} from '@/app/api/projects/route'
-import {ChevronLeft, ChevronRight} from 'lucide-react'
-import LogoImage from '$/logo-min.svg'
+import {urlFor} from '@/sanity/lib/image'
+import {useMediaQuery} from '@/lib/use-media-query'
 
 import Image from 'next/image'
 import {H2, P, SPAN} from '~/UI/Typography'
 import {DetailsButton} from '~/UI/Button'
 
-export default function ProjectsModule({items}: {items: TProject[]}) {
+type BgImage = {
+  id: number
+  src: SanityImageSource | null
+  alt: string | null
+  opacity: number
+}
+
+export default function ProjectsModule({items}: {items: PROJECTS_QUERYResult}) {
+  const isDesktop = useMediaQuery('(min-width: 768px)')
+  const device = isDesktop ? 'desktop' : 'mobile'
+
   const swiperRef = useRef<SwiperRef | null>(null)
-  const [bgImages, setBgImages] = useState([
-    {id: 0, src: items[0].image, opacity: 1},
-    {id: 1, src: items[0].image, opacity: 0},
+  const [bgImages, setBgImages] = useState<BgImage[]>([
+    {
+      id: 0,
+      opacity: 1,
+      src: items[0]?.image?.[device] || null,
+      alt: items[0]?.image?.alt || null,
+    },
+    {
+      id: 1,
+      opacity: 0,
+      src: items[0]?.image?.[device] || null,
+      alt: items[0]?.image?.alt || null,
+    },
   ])
   const [activeImageId, setActiveImageId] = useState(0)
   const [activeIndex, setActiveIndex] = useState(0)
@@ -61,21 +86,22 @@ export default function ProjectsModule({items}: {items: TProject[]}) {
     if (swiperRef.current?.swiper) {
       const realIndex = swiperRef.current.swiper.realIndex
       const nextImageId = activeImageId === 0 ? 1 : 0
+      const currentImage = items[realIndex]?.image?.[device] || null
 
-      setBgImages((prev) => prev.map((img) => (img.id === nextImageId ? {...img, src: items[realIndex].image, opacity: 1} : {...img, opacity: 0})))
+      setBgImages((prev) => prev.map((img): BgImage => (img.id === nextImageId ? {...img, src: currentImage, opacity: 1} : {...img, opacity: 0})))
 
       setActiveImageId(nextImageId)
       setActiveIndex(realIndex)
       resetInterval()
     }
-  }, [activeImageId, items, resetInterval])
+  }, [activeImageId, items, device, resetInterval])
 
   return (
     <section data-section="projects-index" className="relative grid place-items-center h-[80vh] overflow-hidden">
       <div className="absolute inset-0 w-full h-full -z-10">
         {bgImages.map((img) => (
           <div key={img.id} className="absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out" style={{opacity: img.opacity}}>
-            <Image quality={100} className="object-cover w-full h-full" src={img.src} alt="" priority />
+            {img.src && <Image priority quality={100} className="object-cover w-full h-full" src={urlFor(img.src).url()} width="2000" height="1000" alt={img.alt ? img.alt : ''} />}
           </div>
         ))}
       </div>
@@ -101,14 +127,16 @@ export default function ProjectsModule({items}: {items: TProject[]}) {
             <div className="flex justify-between px-14 py-14 sm:flex-col-reverse sm:px-4 sm:py-3 sm:gap-6 sm:pb-14 sm:w-auto sm:mx-3 bg-background">
               <div className="py-7 sm:py-0 space-y-7 sm:space-y-3">
                 <SPAN className="font-bold text-gray">{`${index + 1}/${items.length}`}</SPAN>
-                <H2 className="max-w-[37ch]">{project.project}</H2>
-                <div className="grid grid-rows-[repeat(3,1fr)] sm:block sm:h-auto h-[4.5em]">
-                  <P animated={false} className="sm:line-clamp-4">
-                    <P animated={false}>{project.description.length > 150 ? `${project.description.substring(0, project.description.substring(0, 150).lastIndexOf(' '))}...` : project.description}</P>
-                  </P>
-                </div>
+                <H2 className="max-w-[37ch]">{project.naming}</H2>
+                {project.description && (
+                  <div className="grid grid-rows-[repeat(3,1fr)] sm:block sm:h-auto h-[4.5em]">
+                    <P animated={false} className="sm:line-clamp-4">
+                      <span>{project.description.length > 150 ? `${project.description.substring(0, project.description.substring(0, 150).lastIndexOf(' '))}...` : project.description}</span>
+                    </P>
+                  </div>
+                )}
 
-                <DetailsButton href={`/projects/${project.slug}`} text="Подробнее" />
+                <DetailsButton href={`/projects/${project.slug?.current}`} text="Подробнее" />
               </div>
 
               <div className="flex flex-col items-center justify-between sm:grid sm:grid-cols-2">

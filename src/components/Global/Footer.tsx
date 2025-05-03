@@ -1,6 +1,11 @@
+'use client'
+
 import {WEBSITE_PATHS, WEBSITE_RESOURCES} from '@/lib/constants'
 import {ArrowUpRight} from 'lucide-react'
 import LogoImage from '$/logo.svg'
+
+import {usePathname} from 'next/navigation'
+import {cn} from '@/lib/utils'
 
 import Link from 'next/link'
 import Image from 'next/image'
@@ -16,8 +21,10 @@ export default function Footer() {
     contacts: 'col-span-3 xl:col-span-2',
   }
 
+  const isStudioRoute = usePathname()?.startsWith('/studio')
+
   return (
-    <footer className="py-12 space-y-12 xl:py-10 px-28 xl:px-16 sm:px-4 sm:py-8 bg-gray-light">
+    <footer className={cn(isStudioRoute && 'hidden', 'py-12 space-y-12 xl:py-10 px-28 xl:px-16 sm:px-4 sm:py-8 bg-gray-light')}>
       <div className={`grid gap-20 ${gridConfig.base} sm:flex sm:flex-col sm:gap-10`}>
         <section className={`${gridConfig.info}`}>
           <div className="space-y-14 sm:space-y-7">

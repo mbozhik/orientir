@@ -1,13 +1,17 @@
-import {TNews} from '@/app/api/news/route'
-import {getNews} from '@/utils/getData'
+import {getNews} from '@/sanity/lib/requests'
+
 import {cn} from '@/lib/utils'
 
 import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import {H1, H4} from '~/UI/Typography'
-import NewsModule from '~~/news/slug/NewsModule'
+import NewsModule from '~~/news/NewsModule'
+
+export const metadata = {
+  title: 'Новости',
+}
 
 export default async function NewsPage() {
-  const news: TNews[] = await getNews()
+  const news = await getNews()
 
   return (
     <Container className={cn('space-y-16 xl:space-y-10 sm:space-y-7 mb-36 xl:mb-24 sm:mb-16', sitePadding)}>

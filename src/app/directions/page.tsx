@@ -1,5 +1,4 @@
-import {TDirection} from '@/app/api/directions/route'
-import {getDirections} from '@/utils/getData'
+import {getDirections} from '@/sanity/lib/requests'
 
 import DirectionsImage from '$/directions.jpg'
 
@@ -10,27 +9,35 @@ import Container, {containerStyles, sitePadding} from '~/Global/Container'
 import Module from '~~/directions/Module'
 import Specs from '~~/projects/slug/Specs'
 
+export const metadata = {
+  title: 'Направления',
+}
+
 const indicatorsData = [
   {
-    heading: 'более 1 400 000 м2',
-    caption: 'качественной складской недвижимости успешно построено и введено в эксплуатацию',
+    _key: '0',
+    param: 'более 1 400 000 м2',
+    value: 'качественной складской недвижимости успешно построено и введено в эксплуатацию',
   },
   {
-    heading: 'свыше 550 га земли',
-    caption: 'расположены в востребованных локациях Московской и Ленинградской областях',
+    _key: '1',
+    param: 'свыше 550 га земли',
+    value: 'расположены в востребованных локациях Московской и Ленинградской областях',
   },
   {
-    heading: 'законтрактовано 82 % проектов',
-    caption: 'по модели built-to-suit',
+    _key: '2',
+    param: 'законтрактовано 82 % проектов',
+    value: 'по модели built-to-suit',
   },
   {
-    heading: 'каждый 2-ой м2 – температурный',
-    caption: 'реализован собственными системами холодоснабжения',
+    _key: '3',
+    param: 'каждый 2-ой м2 – температурный',
+    value: 'реализован собственными системами холодоснабжения',
   },
 ]
 
 export default async function DirectionsPage() {
-  const directions: TDirection[] = await getDirections()
+  const directions = await getDirections()
 
   return (
     <>

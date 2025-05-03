@@ -1,13 +1,16 @@
-import {TProject} from '@/app/api/projects/route'
-import {getProjects} from '@/utils/getData'
+import {getProjects} from '@/sanity/lib/requests'
 
 import Container, {sitePadding} from '~/Global/Container'
 import Overview from '~~/projects/Overview'
 
 import {H1} from '~/UI/Typography'
 
+export const metadata = {
+  title: 'Проекты',
+}
+
 export default async function ProjectsPage() {
-  const projects: TProject[] = await getProjects()
+  const projects = await getProjects()
 
   return (
     <Container className={`space-y-4 ${sitePadding}`}>

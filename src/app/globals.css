@@ -8,6 +8,10 @@
   }
 }
 
+#sanity {
+  @apply relative z-[999];
+}
+
 /* gallery slider */
 
 [data-slider='gallery'] {

@@ -1,12 +1,11 @@
-import {TProject} from '@/app/api/projects/route'
-import {getProjects} from '@/utils/getData'
+import {getProjects} from '@/sanity/lib/requests'
 
 import {H1} from '~/UI/Typography'
 import {ExpandButton} from '~/UI/Button'
 import ProjectsModule from '~~/index/ProjectsModule'
 
 export default async function Projects() {
-  const projects: TProject[] = await getProjects()
+  const projects = await getProjects()
 
   return (
     <section data-section="projects-index" className="space-y-12 sm:space-y-7">
