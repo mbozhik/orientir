@@ -10,7 +10,6 @@ export const content = defineType({
       title: 'Заголовок',
       type: 'text',
       rows: 4,
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'image',
@@ -38,12 +37,30 @@ export const content = defineType({
   preview: {
     select: {
       heading: 'heading',
+      content: 'content',
       image: 'image',
     },
-    prepare({heading, image}) {
+    prepare({heading, content, image}) {
+      let text = 'Мини-контент'
+
+      if (content?.length > 0) {
+        const firstBlock = content[0]
+
+        if (firstBlock._type === 'block' && firstBlock.children?.length > 0) {
+          const value = firstBlock.children
+            .map((child: {text?: string}) => child.text || '')
+            .join('')
+            .trim()
+
+          if (value) {
+            text = value.length > 50 ? `${value.substring(0, 50)}...` : value
+          }
+        }
+      }
+
       return {
-        title: heading,
-        subtitle: 'Контент (подпись, изображение, контент)',
+        title: heading ? heading : text,
+        subtitle: `Контент ${heading ? '+' : ''}`,
         media: image,
       }
     },

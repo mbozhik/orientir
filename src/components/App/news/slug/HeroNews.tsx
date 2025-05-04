@@ -12,7 +12,7 @@ export default function HeroNews({item, className}: {item: NEWS_ITEM_QUERYResult
           <SPAN className="font-bold text-gray">{item?.date}</SPAN>
         </div>
 
-        <DetailsButton href={item?.source as string} target="_blank" text="Источник" />
+        {item?.source && <DetailsButton href={item.source} target="_blank" text="Источник" />}
       </div>
     </section>
   )

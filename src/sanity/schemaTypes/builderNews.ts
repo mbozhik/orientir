@@ -5,7 +5,6 @@ export const builderNews = defineType({
   type: 'array',
   of: [
     {name: 'content', type: 'content'},
-    {name: 'contentMini', type: 'contentMini'},
     {name: 'picture', type: 'picture'},
     {name: 'quote', type: 'quote'},
   ],
@@ -15,7 +14,7 @@ export const builderNews = defineType({
         {
           name: 'content',
           title: 'Text Blocks',
-          of: ['content', 'contentMini', 'quote'],
+          of: ['content', 'quote'],
         },
         {
           name: 'picture',

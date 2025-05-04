@@ -1,10 +1,9 @@
-import type {BuilderNews, ContentMini, Picture, Quote} from '-/sanity.types'
+import type {BuilderNews, Content, Picture, Quote} from '-/sanity.types'
 
 import {containerStyles, sitePadding} from '~/Global/Container'
 import {cn} from '@/lib/utils'
 
-// import ContentBlock from '~~/news/slug/ContentNews/Content'
-import ContentMiniBlock from '~~/news/slug/ContentNews/ContentMini'
+import ContentBlock from '~~/news/slug/ContentNews/Content'
 import PictureBlock from '~~/news/slug/ContentNews/Picture'
 import QuoteBlock from '~~/news/slug/ContentNews/Quote'
 
@@ -21,10 +20,8 @@ export default function ContentNews({content}: {content: BuilderNews | null | un
         const blockType = block._type
 
         switch (blockType) {
-          // case 'content':
-          //   return <ContentBlock key={block._key} block={block as Content} />
-          case 'contentMini':
-            return <ContentMiniBlock key={block._key} block={block as ContentMini} />
+          case 'content':
+            return <ContentBlock key={block._key} block={block as Content} />
           case 'picture':
             return <PictureBlock key={block._key} block={block as Picture} />
           case 'quote':

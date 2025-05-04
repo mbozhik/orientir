@@ -16,7 +16,8 @@ export const news = defineType({
     defineField({
       name: 'heading',
       title: 'Заголовок',
-      type: 'string',
+      type: 'text',
+      rows: 2,
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -40,7 +41,6 @@ export const news = defineType({
       name: 'source',
       title: 'Источник',
       type: 'url',
-      validation: (rule) => rule.required(),
     }),
     defineField({
       name: 'slug',
