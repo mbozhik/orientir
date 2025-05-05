@@ -15,7 +15,7 @@ import 'swiper/css'
 import 'swiper/css/effect-fade'
 
 import {urlFor} from '@/sanity/lib/image'
-import {useMediaQuery} from '@/lib/use-media-query'
+// import {useMediaQuery} from '@/lib/use-media-query'
 
 import Image from 'next/image'
 import {H2, P, SPAN} from '~/UI/Typography'
@@ -29,21 +29,21 @@ type BgImage = {
 }
 
 export default function ProjectsModule({items}: {items: PROJECTS_QUERYResult}) {
-  const isDesktop = useMediaQuery('(min-width: 768px)')
-  const device = isDesktop ? 'desktop' : 'mobile'
+  // const isDesktop = useMediaQuery('(min-width: 768px)')
+  // const device = isDesktop ? 'desktop' : 'mobile'
 
   const swiperRef = useRef<SwiperRef | null>(null)
   const [bgImages, setBgImages] = useState<BgImage[]>([
     {
       id: 0,
       opacity: 1,
-      src: items[0]?.image?.[device] || null,
+      src: items[0]?.image?.desktop || null,
       alt: items[0]?.image?.alt || null,
     },
     {
       id: 1,
       opacity: 0,
-      src: items[0]?.image?.[device] || null,
+      src: items[0]?.image?.desktop || null,
       alt: items[0]?.image?.alt || null,
     },
   ])
@@ -86,7 +86,7 @@ export default function ProjectsModule({items}: {items: PROJECTS_QUERYResult}) {
     if (swiperRef.current?.swiper) {
       const realIndex = swiperRef.current.swiper.realIndex
       const nextImageId = activeImageId === 0 ? 1 : 0
-      const currentImage = items[realIndex]?.image?.[device] || null
+      const currentImage = items[realIndex]?.image?.desktop || null
 
       setBgImages((prev) => prev.map((img): BgImage => (img.id === nextImageId ? {...img, src: currentImage, opacity: 1} : {...img, opacity: 0})))
 
@@ -94,7 +94,7 @@ export default function ProjectsModule({items}: {items: PROJECTS_QUERYResult}) {
       setActiveIndex(realIndex)
       resetInterval()
     }
-  }, [activeImageId, items, device, resetInterval])
+  }, [activeImageId, items, resetInterval])
 
   return (
     <section data-section="projects-index" className="relative grid place-items-center h-[80vh] overflow-hidden">

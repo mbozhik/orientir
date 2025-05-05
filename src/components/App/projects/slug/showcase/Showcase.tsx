@@ -99,8 +99,8 @@ function MobileAwards({project}: {project: PROJECTS_ITEM_QUERYResult}) {
   const combinedAwards = [...(project?.awards ? (Array.isArray(project.awards) ? project.awards : [project.awards]).map((text) => ({image: AwardImage, text})) : []), ...(project?.residents ? (project.residents || []).flatMap((resident) => (resident.award ? [{image: AwardImage, text: resident.award}] : [])) : [])]
 
   return (
-    <section data-section="mob-awards-project" className="relative mb-6 space-y-5">
-      <Image priority quality={100} className="object-cover w-full h-[40vh]" src={urlFor(project?.image?.mobile as SanityImageSource).url()} width={2000} height={2000} alt="" />
+    <section data-section="mob-awards-project" className="relative mb-6 space-y-5 mt-10">
+      <Image priority quality={100} className="object-cover w-full h-[30vh]" src={urlFor(project?.image?.desktop as SanityImageSource).url()} width={2000} height={2000} alt="" />
 
       <div className={`space-y-3 ${containerStyles.width}`}>
         <H1 className="sm:text-[33px]">{project?.naming}</H1>

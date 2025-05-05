@@ -65,6 +65,7 @@ export const project = defineType({
               options: {
                 hotspot: true,
               },
+              validation: (rule) => rule.required(),
             },
             {
               name: 'text',
@@ -176,22 +177,22 @@ export const project = defineType({
       fields: [
         {
           name: 'desktop',
-          title: 'Изображение (Desktop)',
+          title: 'Изображение',
           type: 'image',
           options: {
             hotspot: true,
           },
           validation: (rule) => rule.required(),
         },
-        {
-          name: 'mobile',
-          title: 'Изображение (Mobile)',
-          type: 'image',
-          options: {
-            hotspot: true,
-          },
-          validation: (rule) => rule.required(),
-        },
+        // {
+        //   name: 'mobile',
+        //   title: 'Изображение (Mobile)',
+        //   type: 'image',
+        //   options: {
+        //     hotspot: true,
+        //   },
+        //   validation: (rule) => rule.required(),
+        // },
         {
           name: 'alt',
           title: 'Описание изображения',

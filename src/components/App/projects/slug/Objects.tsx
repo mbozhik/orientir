@@ -47,7 +47,7 @@ export default function Specs({project}: {project: PROJECTS_ITEM_QUERYResult}) {
                 <div className="">
                   <div className="flex flex-row-reverse justify-between w-full gap-2">
                     <div className="inline-flex gap-1">
-                      <SPAN className="text-gray font-extralight">{resident.status === 'completed' && resident.completion_time && resident.status ? STATUS_VALUES[resident.status] : resident.status}</SPAN>
+                      <SPAN className="text-gray font-extralight">{resident.status ? STATUS_VALUES[resident.status as keyof typeof STATUS_VALUES] : resident.status}</SPAN>
                       {resident.status === 'completed' && resident.completion_time && <SPAN className="font-bold text-gray">{resident.completion_time}</SPAN>}
                     </div>
 

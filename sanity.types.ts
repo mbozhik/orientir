@@ -311,18 +311,6 @@ export type Project = {
       crop?: SanityImageCrop;
       _type: "image";
     };
-    mobile?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
     alt?: string;
   };
   gallery?: Array<{
@@ -460,18 +448,6 @@ export type PROJECTS_QUERYResult = Array<{
       crop?: SanityImageCrop;
       _type: "image";
     };
-    mobile?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
     alt?: string;
   } | null;
   gallery: Array<{
@@ -530,18 +506,6 @@ export type PROJECTS_ITEM_QUERYResult = {
   awards: Array<string> | null;
   image: {
     desktop?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-      };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-    mobile?: {
       asset?: {
         _ref: string;
         _type: "reference";
