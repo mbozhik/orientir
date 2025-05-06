@@ -1,4 +1,5 @@
 import {defineField} from 'sanity'
+import {isRequiredForPages, isHiddenForPages} from '@/sanity/schemaTypes/page'
 
 export const hero = defineField({
   name: 'hero',
@@ -17,20 +18,8 @@ export const hero = defineField({
       title: 'Подзаголовок',
       type: 'text',
       rows: 4,
-      validation: (rule) =>
-        rule.custom((value, context) => {
-          const pageToken = context.document?.token as string | undefined
-
-          if (pageToken && ['directions', 'news'].includes(pageToken)) {
-            return value ? true : 'Подзаголовок обязателен для этой страницы'
-          }
-
-          return true
-        }),
-      hidden: ({document}) => {
-        const pageToken = document?.token as string | undefined
-        return !pageToken || !['directions', 'news'].includes(pageToken)
-      },
+      validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['directions', 'news'])),
+      hidden: ({document}) => isHiddenForPages(document, 'include', ['directions', 'news']),
     },
     {
       name: 'image',
@@ -39,20 +28,8 @@ export const hero = defineField({
       options: {
         hotspot: true,
       },
-      validation: (rule) =>
-        rule.custom((value, context) => {
-          const pageToken = context.document?.token as string | undefined
-
-          if (pageToken && pageToken !== 'news') {
-            return value ? true : 'Изображение обязательно для этой страницы'
-          }
-
-          return true
-        }),
-      hidden: ({document}) => {
-        const pageToken = document?.token as string | undefined
-        return pageToken === 'news'
-      },
+      validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'exclude', context, ['news'])),
+      hidden: ({document}) => isHiddenForPages(document, 'exclude', ['news']),
     },
   ],
   validation: (rule) => rule.required(),
