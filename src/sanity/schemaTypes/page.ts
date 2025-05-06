@@ -2,6 +2,7 @@ import {DocumentTextIcon} from '@sanity/icons'
 import {defineType, isDev, ValidationContext} from 'sanity'
 
 import {hero} from '@/sanity/schemaTypes/pageElements/hero'
+import {directionsDetails, directionsSpecs} from '@/sanity/schemaTypes/pageElements/directions'
 
 export const PAGES_TOKENS = {
   index: 'Главная',
@@ -64,6 +65,9 @@ export const page = defineType({
     },
 
     hero,
+
+    directionsDetails,
+    directionsSpecs,
   ],
 
   preview: {
