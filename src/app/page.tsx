@@ -4,7 +4,7 @@ import Hero from '~~/index/Hero'
 import Directions from '~~/index/Directions'
 import Clients from '~~/index/Clients'
 import Projects from '~~/index/Projects'
-import News from '~~/index/News'
+// import News from '~~/index/News'
 import Team from '~~/index/Team'
 import Awards from '~~/index/Awards'
 
@@ -16,7 +16,7 @@ export default function HomePage() {
         <Directions />
         <Clients />
         <Projects />
-        <News />
+        {/* <News /> */}
         <Team />
         <Awards />
       </Container>

@@ -5,7 +5,7 @@ export const WEBSITE_PATHS = {
   about: 'О компании',
   directions: 'Направления',
   projects: 'Проекты',
-  news: 'Новости',
+  // news: 'Новости',
 }
 
 export const WEBSITE_RESOURCES = {

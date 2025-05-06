@@ -5,7 +5,7 @@ import Quote from '~~/about/Quote'
 import Resources from '~~/about/Resources'
 
 import Clients from '~~/index/Clients'
-import News from '~~/index/News'
+// import News from '~~/index/News'
 import Team from '~~/index/Team'
 
 export const metadata = {
@@ -20,7 +20,7 @@ export default function AboutPage() {
         <Quote />
         <Resources />
         <Clients />
-        <News />
+        {/* <News /> */}
         <Team />
       </Container>
     </>
