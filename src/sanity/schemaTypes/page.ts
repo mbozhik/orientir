@@ -3,6 +3,7 @@ import {defineType, isDev, ValidationContext} from 'sanity'
 
 import {hero} from '@/sanity/schemaTypes/pageElements/hero'
 import {directionsDetails, directionsSpecs} from '@/sanity/schemaTypes/pageElements/directions'
+import {aboutQuote, aboutResources} from '@/sanity/schemaTypes/pageElements/about'
 
 export const PAGES_TOKENS = {
   index: 'Главная',
@@ -68,6 +69,9 @@ export const page = defineType({
 
     directionsDetails,
     directionsSpecs,
+
+    aboutQuote,
+    aboutResources,
   ],
 
   preview: {
