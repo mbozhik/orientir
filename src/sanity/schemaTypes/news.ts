@@ -1,11 +1,11 @@
-import {DocumentTextIcon} from '@sanity/icons'
+import {TiersIcon} from '@sanity/icons'
 import {defineField, defineType} from 'sanity'
 
 export const news = defineType({
   name: 'news',
   title: 'Новость',
   type: 'document',
-  icon: DocumentTextIcon,
+  icon: TiersIcon,
   groups: [
     {
       name: 'builderNews',
