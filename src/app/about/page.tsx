@@ -1,5 +1,6 @@
-import Container from '~/Global/Container'
+import {getPagesItem} from '@/sanity/lib/requests'
 
+import Container from '~/Global/Container'
 import Hero from '~~/about/Hero'
 import Quote from '~~/about/Quote'
 import Resources from '~~/about/Resources'
@@ -12,13 +13,15 @@ export const metadata = {
   title: 'О компании',
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const page = await getPagesItem('about')
+
   return (
     <>
-      <Hero />
+      <Hero page={page} />
       <Container className="space-y-36 xl:space-y-28 sm:space-y-20 my-36 xl:my-28 sm:my-16">
-        <Quote />
-        <Resources />
+        <Quote page={page} />
+        <Resources page={page} />
         <Clients />
         {/* <News /> */}
         <Team />
