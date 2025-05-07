@@ -1,4 +1,5 @@
-import type {PROJECTS_QUERYResult, PROJECTS_ITEM_QUERYResult, DIRECTIONS_QUERYResult, NEWS_QUERYResult, NEWS_ITEM_QUERYResult} from '-/sanity.types'
+import type {PAGES_ITEM_QUERYResult, PROJECTS_QUERYResult, PROJECTS_ITEM_QUERYResult, DIRECTIONS_QUERYResult, NEWS_QUERYResult, NEWS_ITEM_QUERYResult} from '-/sanity.types'
+import {PAGES_TOKENS} from '@/sanity/schemaTypes/page'
 
 import {sanityFetch} from '@/sanity/lib/live'
 import {defineQuery} from 'next-sanity'
@@ -46,6 +47,10 @@ async function fetchEntityItem<T>(query: string, params?: {slug?: string}, draft
   }
 }
 
+const PAGES_ITEM_QUERY = defineQuery(`
+    *[_type == "page" && token == $slug][0]{
+        token, hero, indexDirections, indexClients, indexTeam, indexAwards, directionsDetails, directionsSpecs, aboutQuote, aboutResources
+    }`)
 const PROJECTS_QUERY = defineQuery(`
     *[_type == "project"] | order(id asc) {
         naming, slug, id, description, information, residents, area, location, specifications, awards, image, gallery
@@ -70,6 +75,7 @@ const NEWS_ITEM_QUERY = defineQuery(`
     }`)
 
 const QUERIES = {
+  PAGES_ITEM_QUERY,
   PROJECTS_QUERY,
   PROJECTS_ITEM_QUERY,
   DIRECTIONS_QUERY,
@@ -77,6 +83,7 @@ const QUERIES = {
   NEWS_ITEM_QUERY,
 } as const
 
+export const getPagesItem = (slug: keyof typeof PAGES_TOKENS) => fetchEntityItem<PAGES_ITEM_QUERYResult>(QUERIES.PAGES_ITEM_QUERY, {slug})
 export const getProjects = (): Promise<PROJECTS_QUERYResult> => fetchEntity(QUERIES.PROJECTS_QUERY)
 export const getProjectsItem = (slug: string) => fetchEntityItem<PROJECTS_ITEM_QUERYResult>(QUERIES.PROJECTS_ITEM_QUERY, {slug})
 export const getDirections = (): Promise<DIRECTIONS_QUERYResult> => fetchEntity(QUERIES.DIRECTIONS_QUERY)

@@ -1,3 +1,5 @@
+'use client'
+
 import type {NEWS_QUERYResult} from '-/sanity.types'
 
 import {cn} from '@/lib/utils'

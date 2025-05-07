@@ -127,13 +127,13 @@ export default function ProjectsModule({items}: {items: PROJECTS_QUERYResult}) {
             <div className="flex justify-between px-14 py-14 sm:flex-col-reverse sm:px-4 sm:py-3 sm:gap-6 sm:pb-14 sm:w-auto sm:mx-3 bg-background">
               <div className="py-7 sm:py-0 space-y-7 sm:space-y-3">
                 <SPAN className="font-bold text-gray">{`${index + 1}/${items.length}`}</SPAN>
+
                 <H2 className="max-w-[37ch]">{project.naming}</H2>
+
                 {project.description && (
-                  <div className="grid grid-rows-[repeat(3,1fr)] sm:block sm:h-auto h-[4.5em]">
-                    <P animated={false} className="sm:line-clamp-4">
-                      <span>{project.description.length > 150 ? `${project.description.substring(0, project.description.substring(0, 150).lastIndexOf(' '))}...` : project.description}</span>
-                    </P>
-                  </div>
+                  <P animated={false} className="line-clamp-3 sm:line-clamp-4">
+                    <span>{project.description.length > 150 ? `${project.description.substring(0, project.description.substring(0, 150).lastIndexOf(' '))}...` : project.description}</span>
+                  </P>
                 )}
 
                 <DetailsButton href={`/projects/${project.slug?.current}`} text="Подробнее" />

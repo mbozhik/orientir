@@ -56,7 +56,7 @@ export default function ResidentTabs({project, activeTab, handleTabClick}: Props
           <Swiper ref={swiperRef} spaceBetween={6} slidesPerView="auto" centeredSlides={false} className="!w-full">
             {residents.map(({naming, status, type, area}, index) => (
               <SwiperSlide key={index} className="!w-auto flex-shrink-0">
-                <Tab naming={naming} status={status ? STATUS_VALUES[status] : status} type={type} area={area} isActive={activeTab === index} onClick={() => handleTabClick(index)} />
+                <Tab naming={naming} status={status} type={type} area={area} isActive={activeTab === index} onClick={() => handleTabClick(index)} />
               </SwiperSlide>
             ))}
           </Swiper>
@@ -65,7 +65,7 @@ export default function ResidentTabs({project, activeTab, handleTabClick}: Props
           <ChevronRight className="absolute z-20 duration-200 transform -translate-y-1/2 cursor-pointer -right-12 top-1/2 s-12 hover:text-background" strokeWidth={1.3} onClick={() => swiperRef.current?.swiper.slideNext()} />
         </>
       ) : (
-        residents.map(({naming, status, type, area}, index) => <Tab key={index} naming={naming} status={status} type={type} area={area} isActive={activeTab === index} onClick={() => handleTabClick(index)} />)
+        residents.map(({naming, status, type, area}, index) => <Tab naming={naming} status={status} type={type} area={area} isActive={activeTab === index} onClick={() => handleTabClick(index)} key={index} />)
       )}
     </div>
   )

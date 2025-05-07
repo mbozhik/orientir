@@ -1,22 +1,21 @@
-import type {DIRECTIONS_QUERYResult} from '-/sanity.types'
+import type {PAGES_ITEM_QUERYResult, DIRECTIONS_QUERYResult} from '-/sanity.types'
 
-import DirectionsImage from '$/index/directions2.jpg'
+import {urlFor} from '@/sanity/lib/image'
 
 import Image from 'next/image'
 import {H1, H2, H4, P, SPAN} from '~/UI/Typography'
 
-export default async function Module({items}: {items: DIRECTIONS_QUERYResult}) {
+export default async function Details({page, items}: {page: PAGES_ITEM_QUERYResult; items: DIRECTIONS_QUERYResult}) {
   return (
-    <section data-section="module-directions" className="space-y-20 sm:space-y-5">
+    <section data-section="details-directions" className="space-y-20 sm:space-y-5">
       <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-4">
-        <H1 className="!leading-none">
-          Комплексный <br /> подход
-        </H1>
-        <H4 className="max-w-[45ch]">Наша компания подбирает и реализует оптимальное складское решение для ваших бизнес-процессов – от аренды стандартного сухого склада в нашем парке до строительства на вашей земле специализированного объекта «под ключ» и его автоматизации.</H4>
+        <H1 className="!leading-none">{page?.directionsDetails?.heading}</H1>
+
+        <H4 className="max-w-[45ch]">{page?.directionsDetails?.caption}</H4>
       </div>
 
       <div className="grid grid-cols-10 gap-20 sm:flex sm:flex-col xl:gap-14 sm:gap-12">
-        <Image className="col-span-2 sm:w-full" src={DirectionsImage} alt="Здание Ориентир" />
+        {page?.directionsDetails?.image && <Image quality={100} className="col-span-2 sm:w-full" src={urlFor(page?.directionsDetails?.image).url()} width={1000} height={1000} alt="" />}
 
         <div className="grid grid-cols-2 col-span-8 sm:grid-cols-1 gap-y-7 xl:gap-x-7 xl:gap-y-5 sm:gap-y-7">
           {items.map((direction) => (

@@ -47,9 +47,25 @@ export const project = defineType({
     defineField({
       name: 'description',
       title: 'Описание',
+      description: 'Рекомендуемая длина: 20-30 слов',
       type: 'text',
       rows: 3,
-      validation: (rule) => rule.required(),
+      validation: (rule) =>
+        rule.required().custom((text) => {
+          if (!text) return true
+
+          const wordCount = text.trim().split(/\s+/).length
+
+          if (wordCount < 20) {
+            return `Слишком короткое описание (${wordCount} слов). Минимальная длина: 20 слов`
+          }
+
+          // if (wordCount > 30) {
+          //   return `Слишком длинное описание (${wordCount} слов). Максимальная длина: 30 слов`
+          // }
+
+          return true
+        }),
     }),
     defineField({
       name: 'information',
@@ -61,14 +77,16 @@ export const project = defineType({
           fields: [
             {
               name: 'image',
+              title: 'Изображение',
               type: 'image',
               options: {
                 hotspot: true,
               },
-              validation: (rule) => rule.required(),
+              // validation: (rule) => rule.required(),
             },
             {
               name: 'text',
+              title: 'Текст',
               type: 'typeBlock',
               validation: (rule) => rule.required(),
             },
@@ -212,6 +230,7 @@ export const project = defineType({
           fields: [
             {
               name: 'image',
+              title: 'Изображение',
               type: 'image',
               options: {
                 hotspot: true,
@@ -219,12 +238,15 @@ export const project = defineType({
             },
             {
               name: 'caption',
-              type: 'string',
               title: 'Подпись',
+              type: 'string',
             },
           ],
         },
       ],
+      // options: {
+      //   layout: 'grid',
+      // },
       validation: (rule) => rule.required().min(2),
     }),
   ],

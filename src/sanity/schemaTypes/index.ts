@@ -1,5 +1,6 @@
 import {type SchemaTypeDefinition} from 'sanity'
 
+import {page} from './page'
 import {project} from './project'
 import {direction} from './direction'
 import {news} from './news'
@@ -11,6 +12,7 @@ import {content, picture, quote} from './blocks'
 
 export const schema: {types: SchemaTypeDefinition[]} = {
   types: [
+    page,
     project,
     direction,
     news,
