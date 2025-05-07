@@ -331,6 +331,140 @@ export type Project = {
   }>;
 };
 
+export type Slug = {
+  _type: "slug";
+  current?: string;
+  source?: string;
+};
+
+export type Page = {
+  _id: string;
+  _type: "page";
+  _createdAt: string;
+  _updatedAt: string;
+  _rev: string;
+  token?: "index" | "about" | "directions" | "news";
+  hero?: {
+    heading?: string;
+    caption?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+  indexDirections?: {
+    heading?: string;
+    caption?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+  indexClients?: {
+    heading?: string;
+    caption?: string;
+    logos?: Array<{
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+      company?: string;
+      _key: string;
+    }>;
+  };
+  indexTeam?: Array<{
+    name?: string;
+    position?: string;
+    photo?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }>;
+  indexAwards?: Array<{
+    year?: number;
+    achievements?: Array<{
+      award?: string;
+      object?: string;
+      status?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }>;
+  directionsDetails?: {
+    heading?: string;
+    caption?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+  directionsSpecs?: {
+    heading?: string;
+    specifications?: TypeParams;
+  };
+  aboutQuote?: {
+    quote?: string;
+    caption?: string;
+  };
+  aboutResources?: {
+    heading?: string;
+    resources?: TypeParams;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  };
+};
+
 export type SanityImageCrop = {
   _type: "sanity.imageCrop";
   top?: number;
@@ -388,15 +522,133 @@ export type SanityImageMetadata = {
   isOpaque?: boolean;
 };
 
-export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
-
-export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Quote | Picture | Content | BuilderNews | TypeResident | TypeParams | TypeBlock | News | Direction | Project | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata | Slug;
+export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityFileAsset | Geopoint | Quote | Picture | Content | BuilderNews | TypeResident | TypeParams | TypeBlock | News | Direction | Project | Slug | Page | SanityImageCrop | SanityImageHotspot | SanityImageAsset | SanityAssetSourceData | SanityImageMetadata;
 export declare const internalGroqTypeReferenceTo: unique symbol;
 // Source: ./src/sanity/lib/requests.ts
+// Variable: PAGES_ITEM_QUERY
+// Query: *[_type == "page" && token == $slug][0]{        token, hero, indexDirections, indexClients, indexTeam, indexAwards, directionsDetails, directionsSpecs, aboutQuote, aboutResources    }
+export type PAGES_ITEM_QUERYResult = {
+  token: "about" | "directions" | "index" | "news" | null;
+  hero: {
+    heading?: string;
+    caption?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  } | null;
+  indexDirections: {
+    heading?: string;
+    caption?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  } | null;
+  indexClients: {
+    heading?: string;
+    caption?: string;
+    logos?: Array<{
+      image?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
+      };
+      company?: string;
+      _key: string;
+    }>;
+  } | null;
+  indexTeam: Array<{
+    name?: string;
+    position?: string;
+    photo?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+    _key: string;
+  }> | null;
+  indexAwards: Array<{
+    year?: number;
+    achievements?: Array<{
+      award?: string;
+      object?: string;
+      status?: string;
+      _key: string;
+    }>;
+    _key: string;
+  }> | null;
+  directionsDetails: {
+    heading?: string;
+    caption?: string;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  } | null;
+  directionsSpecs: {
+    heading?: string;
+    specifications?: TypeParams;
+  } | null;
+  aboutQuote: {
+    quote?: string;
+    caption?: string;
+  } | null;
+  aboutResources: {
+    heading?: string;
+    resources?: TypeParams;
+    image?: {
+      asset?: {
+        _ref: string;
+        _type: "reference";
+        _weak?: boolean;
+        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+      };
+      media?: unknown;
+      hotspot?: SanityImageHotspot;
+      crop?: SanityImageCrop;
+      _type: "image";
+    };
+  } | null;
+} | null;
 // Variable: PROJECTS_QUERY
 // Query: *[_type == "project"] | order(id asc) {        naming, slug, id, description, information, residents, area, location, specifications, awards, image, gallery    }
 export type PROJECTS_QUERYResult = Array<{
@@ -594,6 +846,7 @@ export type NEWS_ITEM_QUERYResult = {
 import "@sanity/client";
 declare module "@sanity/client" {
   interface SanityQueries {
+    "\n    *[_type == \"page\" && token == $slug][0]{\n        token, hero, indexDirections, indexClients, indexTeam, indexAwards, directionsDetails, directionsSpecs, aboutQuote, aboutResources\n    }": PAGES_ITEM_QUERYResult;
     "\n    *[_type == \"project\"] | order(id asc) {\n        naming, slug, id, description, information, residents, area, location, specifications, awards, image, gallery\n    }": PROJECTS_QUERYResult;
     "\n    *[_type == \"project\" && slug.current == $slug][0]{\n        naming, slug, description, information, residents, area, location, specifications, awards, image, gallery\n    }": PROJECTS_ITEM_QUERYResult;
     "\n    *[_type == \"direction\"]{\n        id, heading, params\n    }": DIRECTIONS_QUERYResult;

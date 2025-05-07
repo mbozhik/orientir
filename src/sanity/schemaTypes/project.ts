@@ -61,14 +61,16 @@ export const project = defineType({
           fields: [
             {
               name: 'image',
+              title: 'Изображение',
               type: 'image',
               options: {
                 hotspot: true,
               },
-              validation: (rule) => rule.required(),
+              // validation: (rule) => rule.required(),
             },
             {
               name: 'text',
+              title: 'Текст',
               type: 'typeBlock',
               validation: (rule) => rule.required(),
             },
@@ -212,6 +214,7 @@ export const project = defineType({
           fields: [
             {
               name: 'image',
+              title: 'Изображение',
               type: 'image',
               options: {
                 hotspot: true,
@@ -219,12 +222,15 @@ export const project = defineType({
             },
             {
               name: 'caption',
-              type: 'string',
               title: 'Подпись',
+              type: 'string',
             },
           ],
         },
       ],
+      // options: {
+      //   layout: 'grid',
+      // },
       validation: (rule) => rule.required().min(2),
     }),
   ],
