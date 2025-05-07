@@ -82,43 +82,66 @@ export const indexClients = defineField({
 export const indexTeam = defineField({
   name: 'indexTeam',
   title: 'Команда (Главная)',
-  type: 'array',
-  of: [
+  type: 'object',
+  fields: [
     {
-      type: 'object',
-      fields: [
+      name: 'heading',
+      title: 'Подзаголовок',
+      type: 'text',
+      rows: 4,
+      validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
+    },
+    {
+      name: 'heading2',
+      title: 'Второй подзаголовок',
+      description: 'Отображается только на мобильном устройстве',
+      type: 'text',
+      rows: 4,
+      validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
+    },
+    {
+      name: 'members',
+      title: 'Участники',
+      type: 'array',
+      of: [
         {
-          name: 'name',
-          title: 'Имя и Фамилия',
-          type: 'string',
-          validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
-        },
-        {
-          name: 'position',
-          title: 'Должность',
-          type: 'string',
-          validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
-        },
-        {
-          name: 'photo',
-          title: 'Фотография',
-          type: 'image',
-          options: {
-            hotspot: true,
+          type: 'object',
+          fields: [
+            {
+              name: 'name',
+              title: 'Имя и Фамилия',
+              type: 'string',
+              validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
+            },
+            {
+              name: 'position',
+              title: 'Должность',
+              type: 'string',
+              validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
+            },
+            {
+              name: 'photo',
+              title: 'Фотография',
+              type: 'image',
+              options: {
+                hotspot: true,
+              },
+              validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
+            },
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              subtitle: 'position',
+              media: 'photo',
+            },
           },
-          validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
         },
       ],
-
-      preview: {
-        select: {
-          title: 'name',
-          subtitle: 'position',
-          media: 'photo',
-        },
-      },
+      validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
     },
   ],
+
   validation: (rule) => rule.custom((value, context) => isRequiredForPages(value, 'include', context, ['index'])),
   hidden: ({document}) => isHiddenForPages(document, 'include', ['index']),
 })

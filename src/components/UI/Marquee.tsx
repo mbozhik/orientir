@@ -20,7 +20,7 @@ export default function Marquee({className, reverse, pauseOnHover = false, child
     <div
       {...props}
       className={cn(
-        'group flex overflow-hidden px-2 [--duration:22s] [gap:var(--gap)]',
+        'group flex overflow-hidden px-2 [--duration:35s] [gap:var(--gap)]',
         isDesktop ? '[--gap:5rem]' : '[--gap:2rem]',
         {
           'flex-row': !vertical,

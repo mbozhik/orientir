@@ -396,23 +396,27 @@ export type Page = {
       _key: string;
     }>;
   };
-  indexTeam?: Array<{
-    name?: string;
-    position?: string;
-    photo?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  indexTeam?: {
+    heading?: string;
+    heading2?: string;
+    members?: Array<{
+      name?: string;
+      position?: string;
+      photo?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
       };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-    _key: string;
-  }>;
+      _key: string;
+    }>;
+  };
   indexAwards?: Array<{
     year?: number;
     achievements?: Array<{
@@ -581,23 +585,27 @@ export type PAGES_ITEM_QUERYResult = {
       _key: string;
     }>;
   } | null;
-  indexTeam: Array<{
-    name?: string;
-    position?: string;
-    photo?: {
-      asset?: {
-        _ref: string;
-        _type: "reference";
-        _weak?: boolean;
-        [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+  indexTeam: {
+    heading?: string;
+    heading2?: string;
+    members?: Array<{
+      name?: string;
+      position?: string;
+      photo?: {
+        asset?: {
+          _ref: string;
+          _type: "reference";
+          _weak?: boolean;
+          [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+        };
+        media?: unknown;
+        hotspot?: SanityImageHotspot;
+        crop?: SanityImageCrop;
+        _type: "image";
       };
-      media?: unknown;
-      hotspot?: SanityImageHotspot;
-      crop?: SanityImageCrop;
-      _type: "image";
-    };
-    _key: string;
-  }> | null;
+      _key: string;
+    }>;
+  } | null;
   indexAwards: Array<{
     year?: number;
     achievements?: Array<{

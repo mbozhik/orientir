@@ -1,3 +1,5 @@
+import {getPagesItem} from '@/sanity/lib/requests'
+
 import Container, {sitePadding} from '~/Global/Container'
 
 import Hero from '~~/index/Hero'
@@ -8,17 +10,19 @@ import Projects from '~~/index/Projects'
 import Team from '~~/index/Team'
 import Awards from '~~/index/Awards'
 
-export default function HomePage() {
+export default async function HomePage() {
+  const page = await getPagesItem('index')
+
   return (
     <>
-      <Hero className={sitePadding} />
+      <Hero page={page} className={sitePadding} />
       <Container className="space-y-36 xl:space-y-28 sm:space-y-20 my-36 xl:my-28 sm:my-16">
-        <Directions />
-        <Clients />
+        <Directions page={page} />
+        <Clients page={page} />
         <Projects />
         {/* <News /> */}
-        <Team />
-        <Awards />
+        <Team page={page} />
+        <Awards page={page} />
       </Container>
     </>
   )

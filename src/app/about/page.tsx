@@ -15,6 +15,7 @@ export const metadata = {
 
 export default async function AboutPage() {
   const page = await getPagesItem('about')
+  const indexPage = await getPagesItem('index')
 
   return (
     <>
@@ -22,9 +23,9 @@ export default async function AboutPage() {
       <Container className="space-y-36 xl:space-y-28 sm:space-y-20 my-36 xl:my-28 sm:my-16">
         <Quote page={page} />
         <Resources page={page} />
-        <Clients />
+        <Clients page={indexPage} />
         {/* <News /> */}
-        <Team />
+        <Team page={indexPage} />
       </Container>
     </>
   )
