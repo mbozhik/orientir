@@ -10,8 +10,8 @@ export default function LangSwitch() {
   }
 
   return (
-    <button className="sm:hidden" onClick={toggleLanguage}>
-      {language === 'en' ? 'Rus' : 'En'}
+    <button className="opacity-0 sm:hidden" onClick={toggleLanguage}>
+      {language === 'en' ? 'Ru' : 'En'}
     </button>
   )
 }
