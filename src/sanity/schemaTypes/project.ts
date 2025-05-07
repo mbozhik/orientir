@@ -47,9 +47,25 @@ export const project = defineType({
     defineField({
       name: 'description',
       title: 'Описание',
+      description: 'Рекомендуемая длина: 20-30 слов',
       type: 'text',
       rows: 3,
-      validation: (rule) => rule.required(),
+      validation: (rule) =>
+        rule.required().custom((text) => {
+          if (!text) return true
+
+          const wordCount = text.trim().split(/\s+/).length
+
+          if (wordCount < 20) {
+            return `Слишком короткое описание (${wordCount} слов). Минимальная длина: 20 слов`
+          }
+
+          // if (wordCount > 30) {
+          //   return `Слишком длинное описание (${wordCount} слов). Максимальная длина: 30 слов`
+          // }
+
+          return true
+        }),
     }),
     defineField({
       name: 'information',
