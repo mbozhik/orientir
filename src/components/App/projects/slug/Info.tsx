@@ -46,7 +46,9 @@ export default function Info({project}: {project: PROJECTS_ITEM_QUERYResult}) {
         {project?.information &&
           project.information.map((info, index) => (
             <Fragment key={index}>
-              <Image quality={100} className="w-[70%] sm:w-full object-cover" src={info.image ? urlFor(info.image).url() : ''} width={1000} height={1000} alt={project.naming ?? ''} />
+              <div data-block="image-container" className="w-[70%] sm:w-full">
+                {info.image && <Image quality={100} className="object-cover w-full" src={urlFor(info.image).url()} width={1000} height={1000} alt={project.naming ?? ''} />}
+              </div>
 
               <PortableBlock value={info.text} />
             </Fragment>

@@ -82,7 +82,6 @@ export const project = defineType({
               options: {
                 hotspot: true,
               },
-              // validation: (rule) => rule.required(),
             },
             {
               name: 'text',
