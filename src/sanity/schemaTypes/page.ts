@@ -1,7 +1,8 @@
 import {DocumentTextIcon} from '@sanity/icons'
 import {defineType, isDev, ValidationContext} from 'sanity'
 
-import {hero} from '@/sanity/schemaTypes/pageElements/hero'
+import {hero} from '@/sanity/schemaTypes/pageElements/heroBlock'
+import {indexDirections, indexClients, indexTeam, indexAwards} from '@/sanity/schemaTypes/pageElements/index'
 import {directionsDetails, directionsSpecs} from '@/sanity/schemaTypes/pageElements/directions'
 import {aboutQuote, aboutResources} from '@/sanity/schemaTypes/pageElements/about'
 
@@ -63,9 +64,15 @@ export const page = defineType({
       type: 'string',
       validation: (rule) => rule.required(),
       readOnly: !isDev,
+      hidden: !isDev,
     },
 
     hero,
+
+    indexDirections,
+    indexClients,
+    indexTeam,
+    indexAwards,
 
     directionsDetails,
     directionsSpecs,
