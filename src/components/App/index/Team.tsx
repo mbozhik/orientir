@@ -44,7 +44,7 @@ export default function Team({page}: {page: PAGES_ITEM_QUERYResult}) {
 
         <H4 className="hidden sm:block">{page?.indexTeam?.heading2}</H4>
 
-        <div className="flex self-end gap-5 sm:flex-col sm:gap-5 w-full">{page?.indexTeam?.members?.slice(3, 6).map((member, index) => <TeamCard member={member} key={index} />)}</div>
+        <div className="grid grid-cols-3 sm:grid-cols-1 self-end gap-5 sm:gap-5 w-full">{page?.indexTeam?.members?.slice(3).map((member, index) => <TeamCard member={member} key={index} />)}</div>
       </div>
     </section>
   )
