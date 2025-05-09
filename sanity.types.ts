@@ -70,9 +70,9 @@ export type Geopoint = {
 
 export type Quote = {
   _type: "quote";
-  content?: string;
-  author?: {
-    image?: {
+  content: string;
+  author: {
+    image: {
       asset?: {
         _ref: string;
         _type: "reference";
@@ -85,14 +85,14 @@ export type Quote = {
       alt?: string;
       _type: "image";
     };
-    name?: string;
-    position?: string;
+    name: string;
+    position: string;
   };
 };
 
 export type Picture = {
   _type: "picture";
-  image?: {
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -111,7 +111,7 @@ export type Picture = {
 export type Content = {
   _type: "content";
   heading?: string;
-  image?: {
+  image: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -124,7 +124,7 @@ export type Content = {
     alt?: string;
     _type: "image";
   };
-  content?: Array<{
+  content: Array<{
     children?: Array<{
       marks?: Array<string>;
       text?: string;
@@ -167,14 +167,14 @@ export type BuilderNews = Array<{
 
 export type TypeResident = {
   _type: "typeResident";
-  naming?: string;
-  type?: string;
-  status?: "completed" | "in_progress" | "free_lots";
+  naming: string;
+  type: string;
+  status: "completed" | "in_progress" | "free_lots";
   completion_time?: string;
-  area?: string;
+  area: string;
   info?: Array<{
-    param?: string;
-    value?: string;
+    param: string;
+    value: string;
     _key: string;
   }>;
   description?: string;
@@ -182,8 +182,8 @@ export type TypeResident = {
 };
 
 export type TypeParams = Array<{
-  param?: string;
-  value?: string;
+  param: string;
+  value: string;
   _key: string;
 }>;
 
@@ -225,12 +225,12 @@ export type News = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  heading?: string;
-  tag?: string;
-  date?: string;
+  heading: string;
+  tag: string;
+  date: string;
   source?: string;
-  slug?: Slug;
-  cover?: {
+  slug: Slug;
+  cover: {
     asset?: {
       _ref: string;
       _type: "reference";
@@ -240,10 +240,10 @@ export type News = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    alt?: string;
+    alt: string;
     _type: "image";
   };
-  content?: BuilderNews;
+  content: BuilderNews;
 };
 
 export type Direction = {
@@ -252,8 +252,8 @@ export type Direction = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  id?: number;
-  heading?: string;
+  id: number;
+  heading: string;
   params?: Array<string>;
 };
 
@@ -263,11 +263,11 @@ export type Project = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  naming?: string;
-  slug?: Slug;
-  id?: number;
-  description?: string;
-  information?: Array<{
+  naming: string;
+  slug: Slug;
+  id: number;
+  description: string;
+  information: Array<{
     image?: {
       asset?: {
         _ref: string;
@@ -280,26 +280,26 @@ export type Project = {
       crop?: SanityImageCrop;
       _type: "image";
     };
-    text?: TypeBlock;
+    text: TypeBlock;
     _key: string;
   }>;
-  residents?: Array<{
+  residents: Array<{
     _key: string;
   } & TypeResident>;
-  area?: {
-    project?: string;
-    zone?: string;
+  area: {
+    project: string;
+    zone: string;
   };
-  location?: {
-    address?: string;
-    link?: string;
-    coordinates?: string;
-    availability?: TypeParams;
+  location: {
+    address: string;
+    link: string;
+    coordinates: string;
+    availability: TypeParams;
   };
-  specifications?: TypeParams;
+  specifications: TypeParams;
   awards?: Array<string>;
-  image?: {
-    desktop?: {
+  image: {
+    desktop: {
       asset?: {
         _ref: string;
         _type: "reference";
@@ -311,9 +311,9 @@ export type Project = {
       crop?: SanityImageCrop;
       _type: "image";
     };
-    alt?: string;
+    alt: string;
   };
-  gallery?: Array<{
+  gallery: Array<{
     image?: {
       asset?: {
         _ref: string;
@@ -333,7 +333,7 @@ export type Project = {
 
 export type Slug = {
   _type: "slug";
-  current?: string;
+  current: string;
   source?: string;
 };
 
@@ -343,9 +343,9 @@ export type Page = {
   _createdAt: string;
   _updatedAt: string;
   _rev: string;
-  token?: "index" | "about" | "directions" | "news";
-  hero?: {
-    heading?: string;
+  token: "index" | "about" | "directions" | "news";
+  hero: {
+    heading: string;
     caption?: string;
     image?: {
       asset?: {
@@ -532,9 +532,9 @@ export declare const internalGroqTypeReferenceTo: unique symbol;
 // Variable: PAGES_ITEM_QUERY
 // Query: *[_type == "page" && token == $slug][0]{        token, hero, indexDirections, indexClients, indexTeam, indexAwards, directionsDetails, directionsSpecs, aboutQuote, aboutResources    }
 export type PAGES_ITEM_QUERYResult = {
-  token: "about" | "directions" | "index" | "news" | null;
+  token: "about" | "directions" | "index" | "news";
   hero: {
-    heading?: string;
+    heading: string;
     caption?: string;
     image?: {
       asset?: {
@@ -548,7 +548,7 @@ export type PAGES_ITEM_QUERYResult = {
       crop?: SanityImageCrop;
       _type: "image";
     };
-  } | null;
+  };
   indexDirections: {
     heading?: string;
     caption?: string;
@@ -660,10 +660,10 @@ export type PAGES_ITEM_QUERYResult = {
 // Variable: PROJECTS_QUERY
 // Query: *[_type == "project"] | order(id asc) {        naming, slug, id, description, information, residents, area, location, specifications, awards, image, gallery    }
 export type PROJECTS_QUERYResult = Array<{
-  naming: string | null;
-  slug: Slug | null;
-  id: number | null;
-  description: string | null;
+  naming: string;
+  slug: Slug;
+  id: number;
+  description: string;
   information: Array<{
     image?: {
       asset?: {
@@ -677,26 +677,26 @@ export type PROJECTS_QUERYResult = Array<{
       crop?: SanityImageCrop;
       _type: "image";
     };
-    text?: TypeBlock;
+    text: TypeBlock;
     _key: string;
-  }> | null;
+  }>;
   residents: Array<{
     _key: string;
-  } & TypeResident> | null;
+  } & TypeResident>;
   area: {
-    project?: string;
-    zone?: string;
-  } | null;
+    project: string;
+    zone: string;
+  };
   location: {
-    address?: string;
-    link?: string;
-    coordinates?: string;
-    availability?: TypeParams;
-  } | null;
-  specifications: TypeParams | null;
+    address: string;
+    link: string;
+    coordinates: string;
+    availability: TypeParams;
+  };
+  specifications: TypeParams;
   awards: Array<string> | null;
   image: {
-    desktop?: {
+    desktop: {
       asset?: {
         _ref: string;
         _type: "reference";
@@ -708,8 +708,8 @@ export type PROJECTS_QUERYResult = Array<{
       crop?: SanityImageCrop;
       _type: "image";
     };
-    alt?: string;
-  } | null;
+    alt: string;
+  };
   gallery: Array<{
     image?: {
       asset?: {
@@ -725,14 +725,14 @@ export type PROJECTS_QUERYResult = Array<{
     };
     caption?: string;
     _key: string;
-  }> | null;
+  }>;
 }>;
 // Variable: PROJECTS_ITEM_QUERY
 // Query: *[_type == "project" && slug.current == $slug][0]{        naming, slug, description, information, residents, area, location, specifications, awards, image, gallery    }
 export type PROJECTS_ITEM_QUERYResult = {
-  naming: string | null;
-  slug: Slug | null;
-  description: string | null;
+  naming: string;
+  slug: Slug;
+  description: string;
   information: Array<{
     image?: {
       asset?: {
@@ -746,26 +746,26 @@ export type PROJECTS_ITEM_QUERYResult = {
       crop?: SanityImageCrop;
       _type: "image";
     };
-    text?: TypeBlock;
+    text: TypeBlock;
     _key: string;
-  }> | null;
+  }>;
   residents: Array<{
     _key: string;
-  } & TypeResident> | null;
+  } & TypeResident>;
   area: {
-    project?: string;
-    zone?: string;
-  } | null;
+    project: string;
+    zone: string;
+  };
   location: {
-    address?: string;
-    link?: string;
-    coordinates?: string;
-    availability?: TypeParams;
-  } | null;
-  specifications: TypeParams | null;
+    address: string;
+    link: string;
+    coordinates: string;
+    availability: TypeParams;
+  };
+  specifications: TypeParams;
   awards: Array<string> | null;
   image: {
-    desktop?: {
+    desktop: {
       asset?: {
         _ref: string;
         _type: "reference";
@@ -777,8 +777,8 @@ export type PROJECTS_ITEM_QUERYResult = {
       crop?: SanityImageCrop;
       _type: "image";
     };
-    alt?: string;
-  } | null;
+    alt: string;
+  };
   gallery: Array<{
     image?: {
       asset?: {
@@ -794,23 +794,23 @@ export type PROJECTS_ITEM_QUERYResult = {
     };
     caption?: string;
     _key: string;
-  }> | null;
+  }>;
 } | null;
 // Variable: DIRECTIONS_QUERY
 // Query: *[_type == "direction"]{        id, heading, params    }
 export type DIRECTIONS_QUERYResult = Array<{
-  id: number | null;
-  heading: string | null;
+  id: number;
+  heading: string;
   params: Array<string> | null;
 }>;
 // Variable: NEWS_QUERY
 // Query: *[_type == "news"]{        heading, tag, date, source, slug, cover, content    }
 export type NEWS_QUERYResult = Array<{
-  heading: string | null;
-  tag: string | null;
-  date: string | null;
+  heading: string;
+  tag: string;
+  date: string;
   source: string | null;
-  slug: Slug | null;
+  slug: Slug;
   cover: {
     asset?: {
       _ref: string;
@@ -821,19 +821,19 @@ export type NEWS_QUERYResult = Array<{
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    alt?: string;
+    alt: string;
     _type: "image";
-  } | null;
-  content: BuilderNews | null;
+  };
+  content: BuilderNews;
 }>;
 // Variable: NEWS_ITEM_QUERY
 // Query: *[_type == "news" && slug.current == $slug][0]{        heading, tag, date, source, slug, cover, content    }
 export type NEWS_ITEM_QUERYResult = {
-  heading: string | null;
-  tag: string | null;
-  date: string | null;
+  heading: string;
+  tag: string;
+  date: string;
   source: string | null;
-  slug: Slug | null;
+  slug: Slug;
   cover: {
     asset?: {
       _ref: string;
@@ -844,10 +844,10 @@ export type NEWS_ITEM_QUERYResult = {
     media?: unknown;
     hotspot?: SanityImageHotspot;
     crop?: SanityImageCrop;
-    alt?: string;
+    alt: string;
     _type: "image";
-  } | null;
-  content: BuilderNews | null;
+  };
+  content: BuilderNews;
 } | null;
 
 // Query TypeMap

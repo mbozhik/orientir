@@ -343,7 +343,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "author": {
           "type": "objectAttribute",
@@ -424,25 +424,25 @@
                     }
                   }
                 },
-                "optional": true
+                "optional": false
               },
               "name": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"
                 },
-                "optional": true
+                "optional": false
               },
               "position": {
                 "type": "objectAttribute",
                 "value": {
                   "type": "string"
                 },
-                "optional": true
+                "optional": false
               }
             }
           },
-          "optional": true
+          "optional": false
         }
       }
     }
@@ -534,7 +534,7 @@
               }
             }
           },
-          "optional": true
+          "optional": false
         },
         "caption": {
           "type": "objectAttribute",
@@ -640,7 +640,7 @@
               }
             }
           },
-          "optional": true
+          "optional": false
         },
         "content": {
           "type": "objectAttribute",
@@ -895,7 +895,7 @@
               ]
             }
           },
-          "optional": true
+          "optional": false
         }
       }
     }
@@ -975,14 +975,14 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "type": {
           "type": "objectAttribute",
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "status": {
           "type": "objectAttribute",
@@ -1003,7 +1003,7 @@
               }
             ]
           },
-          "optional": true
+          "optional": false
         },
         "completion_time": {
           "type": "objectAttribute",
@@ -1017,7 +1017,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "info": {
           "type": "objectAttribute",
@@ -1031,14 +1031,14 @@
                   "value": {
                     "type": "string"
                   },
-                  "optional": true
+                  "optional": false
                 },
                 "value": {
                   "type": "objectAttribute",
                   "value": {
                     "type": "string"
                   },
-                  "optional": true
+                  "optional": false
                 }
               },
               "rest": {
@@ -1086,14 +1086,14 @@
             "value": {
               "type": "string"
             },
-            "optional": true
+            "optional": false
           },
           "value": {
             "type": "objectAttribute",
             "value": {
               "type": "string"
             },
-            "optional": true
+            "optional": false
           }
         },
         "rest": {
@@ -1405,21 +1405,21 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "tag": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "date": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "source": {
         "type": "objectAttribute",
@@ -1434,7 +1434,7 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "cover": {
         "type": "objectAttribute",
@@ -1499,7 +1499,7 @@
               "value": {
                 "type": "string"
               },
-              "optional": true
+              "optional": false
             },
             "_type": {
               "type": "objectAttribute",
@@ -1510,7 +1510,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "content": {
         "type": "objectAttribute",
@@ -1518,7 +1518,7 @@
           "type": "inline",
           "name": "builderNews"
         },
-        "optional": true
+        "optional": false
       }
     }
   },
@@ -1562,14 +1562,14 @@
         "value": {
           "type": "number"
         },
-        "optional": true
+        "optional": false
       },
       "heading": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "params": {
         "type": "objectAttribute",
@@ -1623,7 +1623,7 @@
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "slug": {
         "type": "objectAttribute",
@@ -1631,21 +1631,21 @@
           "type": "inline",
           "name": "slug"
         },
-        "optional": true
+        "optional": false
       },
       "id": {
         "type": "objectAttribute",
         "value": {
           "type": "number"
         },
-        "optional": true
+        "optional": false
       },
       "description": {
         "type": "objectAttribute",
         "value": {
           "type": "string"
         },
-        "optional": true
+        "optional": false
       },
       "information": {
         "type": "objectAttribute",
@@ -1729,7 +1729,7 @@
                   "type": "inline",
                   "name": "typeBlock"
                 },
-                "optional": true
+                "optional": false
               }
             },
             "rest": {
@@ -1745,7 +1745,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "residents": {
         "type": "objectAttribute",
@@ -1767,7 +1767,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "area": {
         "type": "objectAttribute",
@@ -1779,18 +1779,18 @@
               "value": {
                 "type": "string"
               },
-              "optional": true
+              "optional": false
             },
             "zone": {
               "type": "objectAttribute",
               "value": {
                 "type": "string"
               },
-              "optional": true
+              "optional": false
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "location": {
         "type": "objectAttribute",
@@ -1802,21 +1802,21 @@
               "value": {
                 "type": "string"
               },
-              "optional": true
+              "optional": false
             },
             "link": {
               "type": "objectAttribute",
               "value": {
                 "type": "string"
               },
-              "optional": true
+              "optional": false
             },
             "coordinates": {
               "type": "objectAttribute",
               "value": {
                 "type": "string"
               },
-              "optional": true
+              "optional": false
             },
             "availability": {
               "type": "objectAttribute",
@@ -1824,11 +1824,11 @@
                 "type": "inline",
                 "name": "typeParams"
               },
-              "optional": true
+              "optional": false
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "specifications": {
         "type": "objectAttribute",
@@ -1836,7 +1836,7 @@
           "type": "inline",
           "name": "typeParams"
         },
-        "optional": true
+        "optional": false
       },
       "awards": {
         "type": "objectAttribute",
@@ -1920,18 +1920,18 @@
                   }
                 }
               },
-              "optional": true
+              "optional": false
             },
             "alt": {
               "type": "objectAttribute",
               "value": {
                 "type": "string"
               },
-              "optional": true
+              "optional": false
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "gallery": {
         "type": "objectAttribute",
@@ -2030,7 +2030,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       }
     }
   },
@@ -2052,7 +2052,7 @@
           "value": {
             "type": "string"
           },
-          "optional": true
+          "optional": false
         },
         "source": {
           "type": "objectAttribute",
@@ -2122,7 +2122,7 @@
             }
           ]
         },
-        "optional": true
+        "optional": false
       },
       "hero": {
         "type": "objectAttribute",
@@ -2134,7 +2134,7 @@
               "value": {
                 "type": "string"
               },
-              "optional": true
+              "optional": false
             },
             "caption": {
               "type": "objectAttribute",
@@ -2214,7 +2214,7 @@
             }
           }
         },
-        "optional": true
+        "optional": false
       },
       "indexDirections": {
         "type": "objectAttribute",
